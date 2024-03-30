@@ -1,38 +1,334 @@
-.App {
-  text-align: center;
+/*Hussien sin css*/
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.1px 20px;
+  background: #23395b;
+  display: flex;
+  justify-content: space-between;
+  z-index: 99;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo-container {
+  margin-right: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.logoo {
+  height: auto;
+  max-height: 90px;
+  width: auto;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.navigation a {
+  font-size: 1.1em;
+  color: white;
+  text-decoration: none;
+  font-weight: 300;
+  margin: 0 20px;
+  position: relative;
+}
+
+.navigation a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 3px;
+  background: #cbf7ed;
+  border-radius: 5px;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.5s;
+}
+
+.navigation .nav-items a:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.navigation .btnLogin-popup {
+  background: #cbf7ed;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: #000;
+  font-weight: 500;
+  transition: background-color 0.5s, color 0.5s;
+  margin-left: 20px;
+  width: 130px;
+  height: 50px;
+}
+
+.navigation .btnLogin-popup:hover {
+  background: white;
+  color: black;
+}
+/* Explicitly hide the hamburger menu and close button on larger screens */
+.hamburger,
+.close-nav-items {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  padding: 15px;
+  position: fixed;
+  top: 15px;
+  z-index: 102; /* Ensures visibility over other content when displayed */
+}
+
+/* Styles for header, logo-container, logoo, navigation, navigation links, and button remain unchanged */
+
+@media (max-width: 1372px) {
+  /* In the media query for screens smaller than 1372px, display the hamburger menu */
+  .hamburger {
+    display: block;
+    right: 20px; /* Position at the right side */
+    top: 15px; /* Align at a consistent top position */
+  }
+
+  /* Navigation items styling for mobile devices */
+  .nav-items {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(35, 57, 91, 0.95);
+    transition: all 0.3s ease-in-out;
+    z-index: 101; /* Ensures it's properly layered */
+  }
+
+  /* Show navigation items when '.nav-items' has the 'open' class */
+  .nav-items.open {
+    display: flex;
+  }
+
+  /* Show the close button when navigation items are displayed */
+  .nav-items.open ~ .close-nav-items {
+    display: block;
+    right: 20px;
+  }
+
+  /* Adjust navigation layout and spacing for mobile */
+  .navigation {
+    flex-direction: column;
+  }
+
+  .navigation .btnLogin-popup,
+  .navigation a {
+    margin: 10px 0;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*
+.footer {
+  background-color: #23395b; 
+  color: #ffffff;
+  font-family: "Arial", sans-serif;
+  padding: 20px 50px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-nav,
+.opening-hours,
+.footer-contacts,
+.footer-address-social {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center; 
+}
+
+.footer-nav img {
+  width: 150px; 
+  margin-bottom: 20px; 
+}
+
+.nav-links a {
+  color: #ffffff; 
+  text-decoration: none; 
+  line-height: 2;
+}
+
+.opening-hours h3,
+.opening-hours p,
+.footer-contacts p,
+.footer-address-social .footer-address {
+  margin: 0;
+  padding: 5px 0;
+}
+
+.footer-contacts,
+.footer-address-social {
+  align-items: center; 
+
+.footer-contacts {
+  flex-direction: row; 
+}
+
+.contact-item {
+  display: flex;
+  align-items: center; 
+  margin-right: 20px;
+}
+
+.contact-item img {
+  width: 24px; 
+  margin-right: 10px;
+}
+
+.social-media {
+  display: flex; 
+  margin-bottom: 10px;
+}
+
+.social-icon img {
+  width: 24px; 
+  margin-right: 15px;
+}
+
+.footer-address {
+  display: block; 
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .footer-nav,
+  .opening-hours,
+  .footer-contacts,
+  .footer-address-social {
+    width: 100%;
+    align-items: center; 
+    margin-bottom: 20px;
+  }
+
+  .footer-nav {
+    align-items: center;
+  }
+
+  .footer-contacts {
+    flex-direction: column;
+  }
+
+  .contact-item {
+    margin-right: 0;
+    justify-content: center; 
+  }
+
+  .social-media {
+    justify-content: center;
+  }
+
+  .footer-address {
+    margin-top: 10px; 
+  }
+}
+*/
+
+/* Default styles */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  background: #1c3a5e;
+  justify-content: space-around;
+}
+
+.flex-container > div {
+  padding: 20px;
+  font-size: 30px;
+  width: auto;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.fab {
+  padding-left: 30px;
+  font-size: 50px;
+  padding-bottom: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.iconItems i {
+  padding-right: 40px;
+}
+
+footer ul,
+footer li,
+footer a {
+  list-style: none;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  color: rgb(224, 224, 224);
+}
+
+.listItems li {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+footer ul,
+footer li {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+footer img {
+  width: 80px;
+  padding-bottom: 20px;
+}
+
+footer {
+  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode'; */
+}
+/* SOCIAL MEDIA ICONS */
+#socialMediaLinks {
+  display: flex;
+  padding: 0;
+}
+
+#socialMediaLinks li {
+  margin-right: 30px;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .flex-container > div {
+    width: calc(50% - 40px);
   }
 }
+
+@media screen and (max-width: 480px) {
+  .flex-container > div {
+    width: calc(100% - 40px);
+  }
+}
+
+/*Index.css*/

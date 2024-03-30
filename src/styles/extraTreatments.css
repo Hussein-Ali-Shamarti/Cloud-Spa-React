@@ -1,0 +1,109 @@
+/* Extra Treatments section */
+#extra-treatments .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+#extra-treatments .container h2 {
+  margin-bottom: 30px;
+}
+
+#extra-treatments .treatments-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#extra-treatments .treatment-image {
+  position: relative;
+  width: 100%;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+#extra-treatments .treatment-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+#extra-treatments .treatment-image::before {
+  content: "";
+  position: absolute;
+  width: calc(90% + 10px);
+  height: calc(90% + 10px);
+  left: -4px;
+  top: -15px;
+  background: #8ea8c3;
+  z-index: -1;
+}
+
+#extra-treatments .treatments-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+#extra-treatments .treatments-list ul li {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+#extra-treatments .treatments-list ul li a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  transition: color 0.3s ease;
+}
+
+#extra-treatments .treatments-list ul li a:hover,
+#extra-treatments .treatments-list ul li a:focus {
+  color: #8ea8c3;
+}
+
+.read-more-container {
+  align-self: flex-end;
+  text-align: right;
+  padding: 20px 50px;
+}
+
+.read-more-btn-for-extra-treatments {
+  padding: 10px 20px;
+  background-color: #8ea8c3;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.read-more-btn-for-extra-treatments:hover {
+  background-color: #1f2a48;
+}
+
+@media (min-width: 768px) {
+  #extra-treatments .treatments-content {
+    flex-direction: row;
+  }
+
+  #extra-treatments .treatment-image,
+  #extra-treatments .treatments-list {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+
+  #extra-treatments .treatments-list ul {
+    text-align: left;
+  }
+}
+/* End of Extra Treatments section */

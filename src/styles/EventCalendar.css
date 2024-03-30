@@ -1,0 +1,162 @@
+/*Event Calendar*/
+.container {
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 110px;
+}
+
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  background: #cbf7ed;
+  border-radius: 16px;
+  padding: 50px;
+  width: 755px;
+  margin: 90px auto 0px 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 6px;
+}
+.calendarTitle {
+  font-size: 44px;
+  top: 3972px;
+}
+
+.calendar-header #month-year {
+  font-size: 24px;
+}
+
+.arrows {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.arrow.left {
+  margin-right: 20px;
+}
+
+.weekdays,
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.1px;
+  align-items: center;
+  padding: 15px 190px 10px 0px;
+}
+
+.weekdays div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 64px;
+  height: 64px;
+  background: #cbf7ed;
+  border: 0.1px solid #d5d4df;
+}
+
+.day {
+  background: #cbf7ed;
+}
+
+#valentines-day {
+  position: relative;
+  font-weight: 400;
+  color: black;
+}
+
+#valentines-day .heart {
+  position: absolute;
+  content: "\2665";
+  font-size: 4em;
+  line-height: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: transparent;
+  -webkit-text-stroke: 1px black;
+}
+
+.inactive {
+  background: #f2f3f7;
+  color: #a8a8a8;
+}
+
+.event-description {
+  width: 459px;
+  height: 219px;
+  left: 963px;
+  top: 3607px;
+  margin-top: 160px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 40px;
+
+  color: #000000;
+}
+
+.event-description h3 {
+  position: absolute;
+  width: 378px;
+  height: 50px;
+  left: 524px;
+  top: 3000px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 58px;
+
+  color: #000000;
+}
+
+.event-description p {
+  font-weight: 300;
+  position: absolute;
+  width: 345px;
+  height: 219px;
+  left: 863px;
+  top: 3705px;
+}
+
+@media screen and (max-width: 768px) {
+  .calendar-container {
+    width: calc(100% - 32px);
+    padding: 16px;
+  }
+
+  .arrow {
+    position: absolute;
+    transform: none;
+    margin: 0 8px;
+  }
+
+  .calendar-header {
+    flex-direction: column;
+  }
+  .calendar-header h2 {
+    order: -1;
+  }
+  .weekdays,
+  .days {
+    gap: 0.5px;
+  }
+}

@@ -1,0 +1,80 @@
+/*about us */
+#about-us-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #8ea8c3;
+  height: 790px;
+  padding: 40px 90px;
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+
+.about-us-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 50%;
+}
+
+.about-us-content h2,
+.about-us-content p {
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-align: left;
+  font-family: "Inter";
+}
+
+.about-us-content h2 {
+  font-weight: 400;
+  font-size: 48px;
+}
+
+.about-us-content p {
+  font-size: 30px;
+  line-height: 70px;
+  margin-top: 20px;
+  height: 240px;
+  width: 563px;
+  font-weight: 300;
+}
+
+.read-more-button-for-about-us {
+  align-self: flex-start;
+  padding: 10px 20px;
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: -20px;
+  background-color: #cbf7ed;
+}
+.about-us-image {
+  width: 550px;
+}
+
+.about-us-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+  #about-us-section {
+    flex-direction: column;
+  }
+
+  .about-us-content,
+  .about-us-image {
+    max-width: 100%;
+  }
+
+  .about-us-content {
+    order: 1;
+  }
+
+  .about-us-image {
+    order: 2;
+  }
+}

@@ -1,23 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Layout from "./components/layout";
+import HomePage from "./pages/home/home";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { getDatabase, ref, push, get } from "firebase/database";
+import "../src/firebase-config";
+import spaServices from "../src/services.json"; // Assuming this is a JSON file now
 
 function App() {
+  useEffect(() => {
+    const db = getDatabase();
+    const servicesRef = ref(db, "services");
+
+    // Check if 'services' node exists
+    get(servicesRef)
+      .then((snapshot) => {
+        if (!snapshot.exists()) {
+          // 'services' node doesn't exist, upload the data
+          spaServices.forEach((service) => {
+            push(servicesRef, service)
+              .then((ref) => {
+                console.log("Added document with ID:", ref.key);
+              })
+              .catch((error) => {
+                console.error("Error adding document:", error);
+              });
+          });
+        } else {
+          console.log("Services data already exists in the database.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching services data:", error);
+      });
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+        <Layout />
+      </BrowserRouter>
     </div>
   );
 }

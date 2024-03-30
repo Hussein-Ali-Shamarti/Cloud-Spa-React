@@ -1,0 +1,42 @@
+[
+  {
+    "Title": "Morning Awakening Spa",
+    "age": 16,
+    "endtime": "16:00",
+    "included": "noe",
+    "price": "500",
+    "startTime": "07:00"
+  },
+  {
+    "Title": "Daytime Spa",
+    "age": 16,
+    "endtime": "15:00",
+    "included": "noe",
+    "price": "500",
+    "startTime": "10:00"
+  },
+  {
+    "Title": "Afternoon Spa",
+    "age": 16,
+    "endtime": "18:00",
+    "included": "noe",
+    "price": "500",
+    "startTime": "14:00"
+  },
+  {
+    "Title": "Evening Spa",
+    "age": 16,
+    "endtime": "18:00",
+    "included": "noe",
+    "price": "500",
+    "startTime": "14:00"
+  },
+  {
+    "Title": "Night Spa",
+    "age": 16,
+    "endtime": "18:00",
+    "included": "noe",
+    "price": "500",
+    "startTime": "14:00"
+  }
+]
