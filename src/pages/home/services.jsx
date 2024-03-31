@@ -98,17 +98,19 @@ const Services = () => {
 
   useEffect(() => {
     fetchTestValue();
-    /* if (sliderRef.current) {
-      const cardWidth =
-        sliderRef.current.querySelector(".service-card").clientWidth;
-      const newTransformValue = -(cardWidth * currentIndex);
-      sliderRef.current.style.transform = `translateX(${newTransformValue}px)`;
-    }*/
-  }, [currentIndex]);
+    if (sliderRef.current) {
+      const serviceCard = sliderRef.current.querySelector(".service-card");
+      if (serviceCard) {
+        const cardWidth = serviceCard.clientWidth;
+        const newTransformValue = -(cardWidth * currentIndex);
+        sliderRef.current.style.transform = `translateX(${newTransformValue}px)`;
+      }
+    }
+  }, [currentIndex, services]);
 
   return (
     <>
-      <section id="our-services">
+      <section className="our-services">
         <div className="container">
           <h2>Our Services</h2>
           <div className="services-wrapper">
@@ -145,13 +147,8 @@ const Services = () => {
               )}
             </div>
           </div>
-          <button className="prev-arrow">
-            <BiSolidLeftArrow onClick={handlePrev} />
-          </button>
-
-          <button className="next-arrow">
-            <BiSolidRightArrow onClick={handleNext} />
-          </button>
+          <BiSolidLeftArrow className="prev-arrow" onClick={handlePrev} />
+          <BiSolidRightArrow className="next-arrow" onClick={handleNext} />
         </div>
 
         <div className="read-more-container">

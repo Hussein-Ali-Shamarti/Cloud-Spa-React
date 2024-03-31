@@ -1,48 +1,43 @@
 /*Service section */
 
 .container h2 {
-  margin-top: 0;
   padding-top: 20px;
   font-weight: 300;
   text-align: center;
 }
 
-#our-services {
+.our-services {
   padding: 50px 0; /* Add top and bottom padding only */
   background-color: #ffffff;
   position: relative;
 }
 
-#our-services .container {
+.our-services .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
 }
-
-.services-wrapper {
+.container {
+  padding: 0 60px 0 60px;
   overflow: hidden;
+  width: 100%; /* or the specific width you want */
   position: relative;
-  padding: 0 60px; /* Increased padding to allow space for the arrows */
 }
 
+/*.services-wrapper {
+  overflow-x: scroll;
+}*/
+
 .services-slider {
-  display: flex;
+  display: inline-flex;
   flex-wrap: nowrap;
+  width: 100%;
   transition: transform 0.5s ease-in-out;
 }
 
-.service-card {
-  display: inline-block;
-  flex: 0 0 calc(30% - 60px); /* Reduced width to create more space on the sides */
-  margin: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
+.service-image img {
+  width: 100%;
 }
 
 .service-image {
@@ -50,6 +45,89 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+.services-slider {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px;
+
+  scroll-snap-type: x mandatory; /* Optional: Enables snap scrolling for each card */
+}
+        
+.service-card,
+.service-info {
+  /*scroll-snap-align: start; /* Optional: Works with scroll-snap-type */
+  width: 240px; /* Fixed width for each card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+} /*
+.service-card {
+  flex: 0 0 calc(30% - 60px);
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  width: 240px;
+}*/
+
+/*.service-card:hover .service-info {
+    transform: translateY(0); 
+    visibility: visible; 
+    opacity: 1; 
+}*/ /*
+
+.service-card:hover .service-info {
+  background: #23395b;
+  transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+}*/
+.service-card:hover .service-info {
+  background: #23395b;
+  transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+}
+.service-info {
+  position: absolute;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  transform: translateY(100%);
+  bottom: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 24px;
+  margin-bottom: 10px;
+  background: #23395b;
+  color: #ffffff;
+  visibility: hidden;
+  padding-bottom: 20px;
+}
+.service-card:hover .service-image img {
+  opacity: 0.3;
+}
+
+.prev-arrow,
+.next-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  transform: translateY(-50%);
+  width: 35px;
+  height: auto;
+}
+.services-wrapper {
+  padding: 0 40px;
+}
+.prev-arrow {
+  left: 3%;
+}
+
+.next-arrow {
+  right: 3%;
 }
 
 .service-image::before {
@@ -69,54 +147,6 @@
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.service-info {
-  padding: 15px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #23395b;
-  color: #ffffff;
-  visibility: hidden;
-  opacity: 0;
-  transform: translateY(100%);
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.service-info p,
-.service-info .service-time,
-.service-info .service-includes,
-.service-info .service-price {
-  font-family: "Inter", sans-serif;
-  font-size: 12px;
-  line-height: 24px;
-  color: #ffffff;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.service-card:hover .service-info {
-  transform: translateY(0);
-  visibility: visible;
-  opacity: 1;
-}
-
-.service-image img {
-  width: 100%;
-  object-fit: cover;
-  display: block;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.service-card:hover .service-image img {
-  opacity: 0.3;
-}
-
 .service-book-btn {
   margin-top: 20px;
   padding: 10px 20px;
@@ -132,36 +162,6 @@
 
 .service-book-btn:hover {
   background: #b2dfdb;
-}
-
-.services-wrapper {
-  position: relative;
-  /* Make sure there's enough padding inside the container for the arrows */
-  padding: 0 40px; /* Adjust padding as necessary */
-}
-
-/* Arrows */
-.prev-arrow,
-.next-arrow {
-  position: absolute;
-  top: 50%; /* Center vertically */
-  z-index: 10; /* Ensure arrows are clickable */
-  transform: translateY(-50%); /* Align vertically */
-}
-
-.prev-arrow {
-  left: 20px; /* Position left arrow inside the left padding area */
-}
-
-.next-arrow {
-  right: 20px; /* Position right arrow inside the right padding area */
-}
-
-.prev-arrow img,
-.next-arrow img {
-  width: 30px; /* Adjust width as necessary */
-  height: auto; /* Maintain aspect ratio */
-  pointer-events: none; /* Ensure the image doesn't capture clicks */
 }
 
 .read-more-container {
@@ -191,44 +191,54 @@
 .read-more-btn:hover {
   background-color: #1f2a48;
 }
-/* Responsive adjustments */
+
+@media (min-width: 1024px) {
+  /* For large screens, adjust the grid to show all cards */
+  .services-slider {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
 @media (max-width: 768px) {
   .services-wrapper {
-    padding: 0 30px; /* Adjust padding for smaller screens */
+    padding: 0 30px;
   }
-
-  .service-card {
-    flex: 0 0 calc(50% - 20px); /* Adjust size for smaller screens */
-    margin: 10px; /* Smaller margin for tighter spaces */
+  .services-slider {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+  .service-card,
+  .service-info {
+    flex: 0 0 calc(90% - 20px);
   }
 
   .prev-arrow,
   .next-arrow {
-    display: none; /* Hide arrows on very small screens if there's not enough space */
+    display: none;
   }
 }
 
 @media (max-width: 992px) {
-  .service-card {
-    flex: 0 0 calc(50% - 30px); /* Adjust size for medium screens */
+  .service-card,
+  .service-info {
+    flex: 0 0 calc(50% - 30px);
   }
 }
 
 @media (max-width: 1200px) {
-  .service-card {
-    flex: 0 0 calc(33.33% - 40px); /* Adjust size for slightly larger screens */
+  .service-card,
+  .service-info {
+    flex: 0 0 calc(33.33% - 40px);
   }
 }
 
-/* Continue to ensure the service cards are appropriately sized and spaced on larger screens */
 @media (min-width: 1201px) {
-  .service-card {
-    flex: 0 0 calc(30% - 60px); /* Return to original size for larger screens */
+  .service-card,
+  .service-info {
+    flex: 0 0 calc(30% - 60px);
   }
 
   .prev-arrow,
   .next-arrow {
-    display: block; /* Ensure arrows are visible again on larger screens */
+    display: block;
   }
 }
 

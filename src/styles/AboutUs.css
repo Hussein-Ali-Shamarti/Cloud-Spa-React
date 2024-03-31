@@ -9,6 +9,8 @@
   position: relative;
   width: 100%;
   overflow: visible;
+  margin-top: 30px;
+  margin-bottom: 90px;
 }
 
 .about-us-content {
@@ -60,21 +62,38 @@
   object-fit: cover;
 }
 
-@media screen and (max-width: 768px) {
+/* Responsive design adjustments */
+@media screen and (max-width: 1041px) {
   #about-us-section {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    height: auto;
   }
 
   .about-us-content,
   .about-us-image {
-    max-width: 100%;
+    max-width: 90%;
+    width: 90%;
+    margin-bottom: 20px;
   }
 
-  .about-us-content {
-    order: 1;
+  .about-us-content h2 {
+    font-size: 36px;
+    margin-bottom: 16px;
+    text-align: center;
   }
 
-  .about-us-image {
-    order: 2;
+  .about-us-content p {
+    font-size: 20px;
+    line-height: 30px;
+    width: auto;
+    height: auto;
+  }
+
+  .read-more-button-for-about-us {
+    align-self: center;
+    margin-top: 20px;
   }
 }

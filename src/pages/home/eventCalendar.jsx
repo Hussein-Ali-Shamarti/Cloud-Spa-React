@@ -67,71 +67,77 @@ const EventCalendar = () => {
   return (
     <section className="container">
       <div>
-        <h2 className="calendarTitle">Event Calendar</h2>
-        <div className="calendar-container">
-          <div className="calendar-header">
-            <h5 id="month-year">{monthYearTitle}</h5>
-            <div className="arrows-container">
-              <span
-                className="arrow left"
-                id="prev-month"
-                onClick={() =>
-                  setCurrentDate(
-                    new Date(currentDate.setMonth(currentDate.getMonth() - 1))
-                  )
-                }
-              >
-                &lt;
-              </span>
-              <span
-                className="arrow right"
-                id="next-month"
-                onClick={() =>
-                  setCurrentDate(
-                    new Date(currentDate.setMonth(currentDate.getMonth() + 1))
-                  )
-                }
-              >
-                &gt;
-              </span>
+        <div className="title-container">
+          <h2 className="calendarTitle">Event Calendar</h2>
+        </div>
+        <div className="sub-content">
+          <div className="calendar-container">
+            <div className="calendar-header">
+              <h5 id="month-year">{monthYearTitle}</h5>
+              <div className="arrows-container">
+                <span
+                  className="arrow left"
+                  id="prev-month"
+                  onClick={() =>
+                    setCurrentDate(
+                      new Date(currentDate.setMonth(currentDate.getMonth() - 1))
+                    )
+                  }
+                >
+                  &lt;
+                </span>
+                <span
+                  className="arrow right"
+                  id="next-month"
+                  onClick={() =>
+                    setCurrentDate(
+                      new Date(currentDate.setMonth(currentDate.getMonth() + 1))
+                    )
+                  }
+                >
+                  &gt;
+                </span>
+              </div>
+            </div>
+
+            <div className="weekdays">
+              <div>Mo</div>
+              <div>Tu</div>
+              <div>We</div>
+              <div>Th</div>
+              <div>Fr</div>
+              <div>Sa</div>
+              <div>Su</div>
+            </div>
+
+            <div id="days-grid" className="days">
+              {prevMonthDays.map((day) => (
+                <div key={`prev${day}`} className="day inactive">
+                  {day}
+                </div>
+              ))}
+              {currentMonthDays.map((day) => (
+                <div key={day} className="day">
+                  {day === 14 && currentDate.getMonth() === 1
+                    ? heart(day)
+                    : day}
+                </div>
+              ))}
+              {nextMonthDays.map((day) => (
+                <div key={`next${day}`} className="day inactive">
+                  {day}
+                </div>
+              ))}
             </div>
           </div>
-
-          <div className="weekdays">
-            <div>Mo</div>
-            <div>Tu</div>
-            <div>We</div>
-            <div>Th</div>
-            <div>Fr</div>
-            <div>Sa</div>
-            <div>Su</div>
+          <div className="event-description">
+            <p>
+              Explore our Event Calendar for a glimpse into the exciting
+              happenings at Cloud Spa. From rejuvenating workshops to exclusive
+              offers and seasonal specials. Stay tuned for updates on upcoming
+              events!
+            </p>
           </div>
-
-          <div id="days-grid" className="days">
-            {prevMonthDays.map((day) => (
-              <div key={`prev${day}`} className="day inactive">
-                {day}
-              </div>
-            ))}
-            {currentMonthDays.map((day) => (
-              <div key={day} className="day">
-                {day === 14 && currentDate.getMonth() === 1 ? heart(day) : day}
-              </div>
-            ))}
-            {nextMonthDays.map((day) => (
-              <div key={`next${day}`} className="day inactive">
-                {day}
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="event-description">
-          <p>
-            Explore our Event Calendar for a glimpse into the exciting
-            happenings at Cloud Spa. From rejuvenating workshops to exclusive
-            offers and seasonal specials. Stay tuned for updates on upcoming
-            events!
-          </p>
         </div>
       </div>
     </section>

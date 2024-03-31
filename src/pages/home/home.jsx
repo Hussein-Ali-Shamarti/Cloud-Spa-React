@@ -1,4 +1,4 @@
-import AboutUs from "../../components/aboutUs";
+import AboutUs from "./aboutUs";
 import Footer from "../../components/footer";
 import HomePagePicture from "../../Pictures/homePage.jpg";
 import EventCalendar from "./eventCalendar";

@@ -1,0 +1,386 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+.about-us-block {
+  width: 100%; 
+  background-color: white; 
+}
+
+/* About Us picture*/
+#aboutUs{
+float: right;
+width: 20%;
+height: 20%;
+margin-bottom: 10%;
+margin-right: 15%;
+-webkit-box-shadow: 3.125rem -2.25rem 0rem 1.12rem rgba(142,168,195,1);
+-moz-box-shadow: 3.125rem -2.25rem 0rem 1.12rem rgba(142,168,195,1);
+box-shadow: 3.125rem -2.25rem 0rem 1.12rem rgba(142,168,195,1);
+}
+
+/* id="About-us" part*/
+#about-us{
+  width: 50%;
+  padding: 2em;
+  margin-left: 5%;
+  margin-top: 15%;
+  font-size: 1.5em;
+  text-align: left;
+}
+/* Header/title*/
+#about-us h1{
+text-align: left;
+}
+/* Paragraph*/
+.text-box p{
+text-align: left;
+line-height: 1.6;
+}
+.story {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate( -50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border: 1px solid black;
+  border-radius: 10px;
+  z-index: 10;
+  background-color: #CBF7ED ;
+  width: 100%;
+  max-width: 80%;
+  color: black;
+}
+
+.story.active {
+  transform: translate( -50%, -50%) scale(1);
+}
+.story-header{
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: center;
+  border-bottom: 1px solid black;
+  font-family: "Inter", sans-serif;
+}
+
+.story-header .title{
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.story-header .close-button{
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  color: black;
+  font-size: 1rem;
+  font-weight: bold;
+  
+}
+
+.story-body{
+  padding: 10px 15px;
+  line-height: 1.6;
+  font-size: 1.6rem;
+}
+
+#overlay{
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  pointer-events: none;
+}
+#overlay.active{
+  opacity: 1;
+  pointer-events: all;
+}
+.ourHistory-block {
+  display: flex;
+  width: 100%; 
+  background-color:#CBF7ED;
+}
+
+.ourHistory-block #our-story{
+  width: 50%;
+  padding: 2em;
+  margin-left: 5%;
+  margin-top: 1em;
+  font-size: 1.5em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Inter", sans-serif;
+  
+}
+
+.ourHistory-block #our-story .text-and-button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+.ourHistory-block #our-story p{
+  font-size: 1em;
+  line-height: 1.6;
+  margin: 0 auto;
+  text-align: left;
+  font-family: "Inter", sans-serif;
+}
+.ourHistory-block #button{
+  background-color: #8EA8C3;
+  color: white;
+  padding: 10px 24px;
+  margin: 10px 0;
+  color: black;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  width: 11rem;
+  font-size: 1rem;
+  border-radius: 10px; 
+}
+.ourHistory-block img { 
+  height: auto;
+  width: 50%;
+  height: 35%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+  padding: 5%;
+}
+.awards{
+  display: flex;
+  background-color:#23395B; 
+  padding: 10px;
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+.awards-column{
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.awards-column img{
+  margin-top: 1em;
+  vertical-align: middle;
+  width: 25%;
+  height: auto;
+  margin-left: 5%;
+  
+}
+ .awards-column h1{
+  color: white;
+  font-size: 2em;
+  text-align: center;
+ }
+
+
+.opening-hours {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color:#8EA8C3;
+  margin-bottom: 5%;
+  position: relative;
+}
+
+#OpHours{ 
+  position: relative;
+  height: auto;
+  width: 20%;
+  max-width: 50%;
+  z-index: 1;
+  margin-left: 10%;
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+
+.opening-text{
+  justify-content: left;
+  text-align: left;
+  align-items: center;
+  margin-left: 10%; 
+}
+.opening-text h1{
+  color: white;
+  text-align: left;
+  flex-direction: row;
+  font-size: 2.1em;
+  margin: 0;
+  line-height: 4; 
+}
+.opening-text p, .opening-text .p1, .opening-text .p2, .opening-text .p3 {
+  color: white;
+  flex-direction: row;
+  font-size: 1.5em;
+  text-align: left;
+  margin: 0;  
+}
+
+@media (max-width: 1700px) {
+  
+  #aboutUs {
+    margin-left: 25%;
+    margin-bottom: -10%;
+    margin-top: 0%;
+    margin-right: 25%;
+  }
+  
+  #about-us{
+    width: 30%;
+    margin-bottom: 5%;
+    margin-left: 10%;
+    font-size: 1.2em;
+  }
+  .ourHistory-block #our-story{
+    width: 90%;
+    padding: 1em;
+    margin-top: 1em;
+    font-size: 1.2em;
+  }
+  .ourHistory-block img{
+    display: flex;
+  }
+  .ourHistory-block #button{
+    font-size: 1em;
+  }
+
+
+  .awards{
+    width: 100%;
+    margin-left: 0%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  .awards-column img {
+    width: 25%;
+  }
+  .opening-text h1{
+    font-size: 1.6em;
+    padding-right: 35%;
+    line-height: 1.1;
+  }
+  .opening-text p, .opening-text .p1, .opening-text .p2, .opening-text .p3{
+    font-size: 1.7em;
+    text-align: left;
+    padding-right: 35%;
+  }
+  #OpHours {
+    display: flex;
+  }
+}
+@media (max-width: 600px) {
+  
+  #aboutUs {
+    display: none;
+  }
+  
+  #about-us{
+    text-align: left;
+    width: 100%;
+    margin-bottom: 5%;
+    margin-left: 0%;
+    font-size: 1em;
+  }
+
+  .story-body {
+    font-size: 1em;
+  }
+  .ourHistory-block #our-story{
+    width: 90%;
+    padding: 1em;
+    margin-top: 1em;
+    font-size: 1em;
+  }
+  .ourHistory-block img{
+    display: none;
+  }
+
+  .awards{
+    width: 100%;
+    margin-left: 0%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  .awards-column img {
+    width: 25%;
+  }
+  .opening-text h1{
+    font-size: 1.6em;
+    padding-right: 35%;
+    line-height: 1.1;
+  }
+  .opening-text p, .opening-text .p1, .opening-text .p2, .opening-text .p3{
+    font-size: 1.2em;
+    text-align: left;
+    padding-right: 35%;
+  }
+  #OpHours {
+    display: none;
+  }
+}
+@media (max-width: 810px) {
+  
+  #aboutUs {
+    display: none;
+  }
+  
+  #about-us{
+    text-align: left;
+    width: 100%;
+    margin-bottom: 5%;
+    font-size: 1em;
+  }
+  .ourHistory-block #our-story{
+    width: 100%;
+    padding: 1em;
+    margin-top: 1em;
+    font-size: 1em;
+  }
+  .ourHistory-block img{
+    display: none;
+  }
+
+  .awards{
+    width: 100%;
+    margin-left: 0%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  .awards-column img {
+    width: 25%;
+  }
+
+  .opening-text{
+    padding-left: 15%;
+  }
+  .opening-text h1{
+    font-size: 1.6em;
+    line-height: 1.5;
+  }
+  .opening-text p, .opening-text .p1, .opening-text .p2, .opening-text .p3{
+    font-size: 1.2em;
+  }
+  #OpHours {
+    display: none;
+  }
+}

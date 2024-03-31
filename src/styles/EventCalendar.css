@@ -11,8 +11,9 @@
   background: #cbf7ed;
   border-radius: 16px;
   padding: 50px;
-  width: 755px;
-  margin: 90px auto 0px 20px;
+  width: 70%;
+  height: 480px;
+  margin: 220px auto 0px 20px;
   box-sizing: border-box;
   position: relative;
 }
@@ -25,23 +26,25 @@
 }
 .calendarTitle {
   font-size: 44px;
-  top: 3972px;
 }
-
+.title-container {
+  margin-bottom: -190px;
+}
+ 
 .calendar-header #month-year {
   font-size: 24px;
 }
 
 .arrows {
-  position: absolute;
   right: 16px;
   top: 16px;
   display: flex;
+  float: right;
   align-items: center;
 }
-
-.arrow.left {
-  margin-right: 20px;
+.arrow {
+  margin: 0 20px;
+  gap: 8px;
 }
 
 .weekdays,
@@ -56,6 +59,7 @@
 .weekdays div {
   display: flex;
   justify-content: center;
+  min-width: 50px;
   align-items: center;
 }
 
@@ -63,7 +67,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 64px;
+  min-width: 50px;
   height: 64px;
   background: #cbf7ed;
   border: 0.1px solid #d5d4df;
@@ -95,58 +99,27 @@
   background: #f2f3f7;
   color: #a8a8a8;
 }
-
-.event-description {
-  width: 459px;
-  height: 219px;
-  left: 963px;
-  top: 3607px;
-  margin-top: 160px;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 40px;
-
-  color: #000000;
+.sub-content {
+  display: flex;
 }
-
-.event-description h3 {
-  position: absolute;
-  width: 378px;
-  height: 50px;
-  left: 524px;
-  top: 3000px;
-
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 48px;
-  line-height: 58px;
-
-  color: #000000;
-}
-
 .event-description p {
-  font-weight: 300;
-  position: absolute;
-  width: 345px;
-  height: 219px;
-  left: 863px;
-  top: 3705px;
+  margin: 50% 0;
+  line-height: 40px;
+  font-size: 24px;
+
+  /*position: absolute;*/
+  width: 60%;
+  padding-left: 60px;
+  max-width: 900px;
+  /* height: 219px;*/
+  /*left: 863px;
+  top: 3705px;*/
 }
 
 @media screen and (max-width: 768px) {
   .calendar-container {
     width: calc(100% - 32px);
     padding: 16px;
-  }
-
-  .arrow {
-    position: absolute;
-    transform: none;
-    margin: 0 8px;
   }
 
   .calendar-header {
@@ -158,5 +131,23 @@
   .weekdays,
   .days {
     gap: 0.5px;
+  }
+  .sub-content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 1288px) {
+  .event-description p {
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  .sub-content {
+    flex-direction: column;
+  }
+
+  .event-description p {
+    margin-top: 20px;
   }
 }

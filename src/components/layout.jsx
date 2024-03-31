@@ -22,7 +22,7 @@ const Layout = () => {
         <div className={`nav-items ${toggle ? "open" : ""}`}>
           <a href="/Services">Services</a>
           <a href="/Treatments">Treatments</a>
-          <a href="/AboutUs">About us</a>
+          <a href="/AboutUs" >About us</a>
           <a href="/ContactUs">Contact us</a>
           <a href="/MyPage">My page</a>
           <button className="btnLogin-popup">Book Now</button>

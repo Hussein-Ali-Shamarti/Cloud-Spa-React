@@ -1,5 +1,5 @@
-import aboutUs from "../Pictures/aboutUs.jpg";
-import "../styles/AboutUs.css";
+import aboutUs from "../../Pictures/aboutUs.jpg";
+import "../../styles/AboutUs.css";
 
 const AboutUs = () => {
   return (
