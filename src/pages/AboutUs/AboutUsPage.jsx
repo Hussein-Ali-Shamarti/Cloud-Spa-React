@@ -1,9 +1,10 @@
 import React from "react";
 import AboutUsBlock from "./AboutUsBlock";
 import OurAwardsSection from "./OurAwardsSection";
-import OpeningHoursSection from "./OpeningHoursSection";
 import OurStorySection from "./OurStorySection";
 import "../../styles/AboutUs/AboutUsPage.css";
+import OpeningHours from "../../components/OpeningHours";
+import Footer from "../../components/footer";
 
 const AboutUsPage = () => {
   return (
@@ -11,7 +12,8 @@ const AboutUsPage = () => {
       <AboutUsBlock />
       <OurStorySection />
       <OurAwardsSection />
-      <OpeningHoursSection />
+      <OpeningHours />
+      <Footer />
     </>
   );
 };
