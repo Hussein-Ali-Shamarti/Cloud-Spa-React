@@ -1,4 +1,6 @@
 import React from "react";
+import "../../styles/AboutUs/ContactPage.css";
+import ContactUsImage from "../../Pictures/contactUs.jpg"; 
 
 const ContactInfo = () => {
   return (
@@ -14,6 +16,15 @@ const ContactInfo = () => {
         Email: <a href="mailto:CloudSpa@spa.com">CloudSpa@spa.com</a>
       </p>
       <p>Address: Ravieien 215, 3184 Borre</p>
+      <div className="contact-image">
+        <img
+          src={ContactUsImage}
+          alt="Contact Us Image"
+          width="400"
+          height="500"
+          style={{ float: "right" }} 
+        />
+      </div>
     </div>
   );
 };

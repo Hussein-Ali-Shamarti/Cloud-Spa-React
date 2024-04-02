@@ -33,7 +33,7 @@ header {
 
 /* Main contact sections */
 main {
-  padding: 85px 20px; /* Added padding to the top to avoid overlap with the fixed header */
+  padding: 85px 20px;
 }
 
 .contact-section {
@@ -43,6 +43,19 @@ main {
   padding: 20px;
   background: #ffffff;
 }
+
+.contact-image {
+  margin-bottom: 10px;
+}
+
+.contact-image img {
+  width: 400px;
+  height: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Contact Info Section */
 .contact-info {
   font-family: "Inter", sans-serif;
