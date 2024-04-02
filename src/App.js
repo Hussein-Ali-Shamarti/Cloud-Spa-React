@@ -7,6 +7,8 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { getDatabase, ref, push, get } from "firebase/database";
 import "../src/firebase-config";
 import spaServices from "../src/services.json"; // Assuming this is a JSON file now
+import AboutUsPage from "./pages/AboutUs/AboutUsPage";
+import ContactPage from "./pages/ContactUs/ContactPage";
 
 function App() {
   useEffect(() => {
@@ -41,6 +43,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/aboutUs" element={<AboutUsPage />} />
+          <Route path="/ContactPage" element={<ContactPage />} />
         </Routes>
         <Layout />
       </BrowserRouter>

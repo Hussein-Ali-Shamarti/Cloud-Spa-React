@@ -1,5 +1,6 @@
 import CloudSpaTransaprent from "../Pictures/CloudSpaTransaprent.png";
 import { useState } from "react";
+import React from 'react';
 
 const hamburger = document.querySelector(".hamburger");
 const navItems = document.querySelector(".nav-items");

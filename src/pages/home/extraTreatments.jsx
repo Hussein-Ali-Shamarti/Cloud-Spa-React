@@ -1,5 +1,6 @@
 import classicMassage from "../../Pictures/classicMassage.jpg";
 import "../../styles/extraTreatments.css";
+import React from 'react';
 
 const ExtraTreatments = () => {
   return (

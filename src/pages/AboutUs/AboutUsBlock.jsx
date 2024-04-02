@@ -1,19 +1,26 @@
-import React from 'react';
-import aboutUsImage from '../../public/assets/Pictures/aboutUs.jpg';
-import '../../public/assets/styles/AboutUs.css'; // Adjust path as necessary
-
+import React from "react";
+import aboutUsImage from "../../Pictures/aboutUs.jpg";
 const AboutUsBlock = () => {
-    return (
-        <div className="about-us-block">
-            <img src={aboutUsImage} alt="Holding flowers" />
-            <div id="about-us">
-                <h1>About us</h1>
-                <div className="text-box">
-                    <p>Welcome to Cloud Spa, where tranquility meets innovation...</p>
-                </div>
-            </div>
+  return (
+    <div className="about-us-block">
+      <div className="about-us-content">
+        <div className="text-box">
+          <h1>About us</h1>
+          <p>
+            Welcome to Cloud Spa, where tranquility meets innovation.
+            Established in 2004, we step into luxury with award-winning
+            treatments tailored uniquely to you and your requirements. Our
+            expert therapists offer personalized experiences tailored by your
+            relaxation needs. Step into our oasis in the clouds and embark on a
+            journey of bliss.
+          </p>
         </div>
-    );
+      </div>
+      <div className="about-us-image">
+        <img src={aboutUsImage} alt="Holding flowers" />
+      </div>
+    </div>
+  );
 };
 
 export default AboutUsBlock;

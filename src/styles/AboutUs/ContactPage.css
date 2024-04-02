@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body,
+h1,
+h2,
+p,
+a,
+input,
+textarea,
+button {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5px 50px;
+  background: #23395b;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Main contact sections */
+main {
+  padding: 85px 20px; /* Added padding to the top to avoid overlap with the fixed header */
+}
+
+.contact-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #ffffff;
+}
+/* Contact Info Section */
+.contact-info {
+  font-family: "Inter", sans-serif;
+  padding: 20px;
+  background: #ffffff;
+}
+
+.contact-info h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5em;
+  color: #000000;
+}
+
+.contact-info p {
+  font-size: larger;
+  margin-bottom: 1.5em;
+  color: #000000;
+}
+
+.contact-info a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* Opening Hours Section */
+.opening-hours {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: #8ea8c3;
+  margin-bottom: 5%;
+  position: relative;
+}
+
+.opening-hours-image {
+  position: relative;
+  height: auto;
+  width: 30%;
+  z-index: 1;
+  margin-left: 5%;
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+
+.opening-hours-text {
+  justify-content: left;
+  text-align: left;
+  align-items: center;
+  margin-left: 10%;
+}
+
+.opening-hours-text h1 {
+  color: white;
+  text-align: left;
+  flex-direction: row;
+  font-size: 3em;
+  margin: 0;
+  line-height: 2;
+}
+
+.opening-hours-text p {
+  color: white;
+  flex-direction: row;
+  font-size: 25px;
+  text-align: left;
+  margin: 0;
+}
+
+.contact-header {
+  text-align: center;
+  margin-top: 150px;
+  margin-bottom: 20px;
+  font-family: "Inter", sans-serif;
+}
+
+.contact-header h2,
+.contact-header p {
+  color: #000000;
+}
+
+.contact-header h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.contact-header p {
+  font-size: 1.2rem;
+}
+
+#contact-form {
+  background: #406e8e;
+  padding: 25px;
+  border-radius: 5px;
+  max-width: 800px;
+  margin: 0 auto 20px;
+  color: #fff;
+}
+
+#contact-form .form-group {
+  margin-bottom: 2.5em;
+}
+
+#contact-form .input-row {
+  display: flex;
+  gap: 100px; /* Gir mellomrom mellom input-feltene */
+}
+
+#contact-form .input-row > div {
+  flex: 1;
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+  width: 100%;
+  padding: 0.5em;
+  border: 1px solid #aabbcc;
+  border-radius: 5px;
+  background-color: #d9d9d9;
+  color: #000;
+  font-size: medium;
+}
+
+#contact-form textarea {
+  height: 300px;
+  resize: vertical;
+}
+
+#contact-form button {
+  font-size: small;
+  font-family: "Inter", sans-serif;
+  background: #cbf7ed;
+  color: #000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: block;
+  margin: 20px 0 0 auto;
+}
+
+#contact-form button:hover {
+  background-color: #b2dfdb;
+}

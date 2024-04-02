@@ -1,4 +1,5 @@
 import CloudSpaTransparent from "../Pictures/CloudSpaTransaprent.png";
+import React from 'react';
 
 const Footer = () => {
   return (

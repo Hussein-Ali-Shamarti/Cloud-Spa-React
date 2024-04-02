@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../../styles/EventCalendar.css";
+import React from 'react';
 
 function heart(day) {
   return <span dangerouslySetInnerHTML={{ __html: `${day} &#10084;` }}></span>;

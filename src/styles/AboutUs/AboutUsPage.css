@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -8,59 +8,74 @@
 }
 
 .about-us-block {
-  width: 100%; 
-  background-color: white; 
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: white;
 }
 
-/* About Us picture*/
-#aboutUs{
-float: right;
-width: 20%;
-height: 20%;
-margin-bottom: 10%;
-margin-right: 15%;
--webkit-box-shadow: 3.125rem -2.25rem 0rem 1.12rem rgba(142,168,195,1);
--moz-box-shadow: 3.125rem -2.25rem 0rem 1.12rem rgba(142,168,195,1);
-box-shadow: 3.125rem -2.25rem 0rem 1.12rem rgba(142,168,195,1);
+/* About Us picture */
+.about-us-image {
+  flex: 0 0 30%; /* Limit the width of the image container */
+  margin-right: 2rem;
 }
 
-/* id="About-us" part*/
-#about-us{
+.about-us-image img {
+  float: right;
+  width: 60%;
+  height: 20%;
+  margin-bottom: 10%;
+  margin-top: 50%;
+  margin-right: 30%;
+  -webkit-box-shadow: 3.125rem -2.25rem 0rem 1.12rem rgba(142, 168, 195, 1);
+  -moz-box-shadow: 3.125rem -2.25rem 0rem 1.12rem rgba(142, 168, 195, 1);
+  box-shadow: 3.125rem -2.25rem 0rem 1.12rem rgba(142, 168, 195, 1);
+}
+
+/* About Us content */
+.about-us-content {
   width: 50%;
   padding: 2em;
   margin-left: 5%;
-  margin-top: 15%;
-  font-size: 1.5em;
+  margin-top: 0%;
   text-align: left;
 }
-/* Header/title*/
-#about-us h1{
-text-align: left;
+
+/* Header/title */
+.about-us-content h1 {
+  text-align: left;
+  font-weight: 500; /* Adjust the font weight to make it thinner */
 }
-/* Paragraph*/
-.text-box p{
-text-align: left;
-line-height: 1.6;
+
+/* Paragraph */
+.about-us-content .text-box p {
+  text-align: left;
+  line-height: 2;
+  color: black;
+  font-size: 1.2em; /* Adjust the font size to make it smaller */
 }
+
 .story {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate( -50%, -50%) scale(0);
+  transform: translate(-50%, -50%);
   transition: 200ms ease-in-out;
   border: 1px solid black;
   border-radius: 10px;
   z-index: 10;
-  background-color: #CBF7ED ;
+  background-color: #cbf7ed;
   width: 100%;
   max-width: 80%;
   color: black;
+  z-index: 1001; /* Higher than the overlay */
 }
 
 .story.active {
-  transform: translate( -50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
 }
-.story-header{
+
+.story-header {
   padding: 5px 10px;
   display: flex;
   justify-content: space-between;
@@ -70,12 +85,13 @@ line-height: 1.6;
   font-family: "Inter", sans-serif;
 }
 
-.story-header .title{
+.story-header .title {
   font-size: 1.25rem;
   font-weight: bold;
+  margin-right: auto; /* This will push the title to the far left */
 }
 
-.story-header .close-button{
+.story-header .close-button {
   cursor: pointer;
   border: none;
   outline: none;
@@ -83,37 +99,37 @@ line-height: 1.6;
   color: black;
   font-size: 1rem;
   font-weight: bold;
-  
+  margin-left: auto; /* This will push the close button to the far right */
 }
 
-.story-body{
+.story-body {
   padding: 10px 15px;
   line-height: 1.6;
   font-size: 1.6rem;
 }
 
-#overlay{
+.overlay {
   position: fixed;
-  opacity: 0;
-  transition: 200ms ease-in-out;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, .5);
-  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.5); /* Weak black background */
+  z-index: 1000; /* Make sure this is higher than other content but lower than the modal */
 }
-#overlay.active{
+
+#overlay.active {
   opacity: 1;
   pointer-events: all;
 }
+
 .ourHistory-block {
   display: flex;
-  width: 100%; 
-  background-color:#CBF7ED;
+  width: 100%;
+  background-color: #cbf7ed;
 }
 
-.ourHistory-block #our-story{
+.ourHistory-block #our-story {
   width: 50%;
   padding: 2em;
   margin-left: 5%;
@@ -124,24 +140,22 @@ line-height: 1.6;
   flex-direction: column;
   justify-content: center;
   font-family: "Inter", sans-serif;
-  
 }
 
-.ourHistory-block #our-story .text-and-button{
+.ourHistory-block #our-story .text-and-button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
-.ourHistory-block #our-story p{
+.ourHistory-block #our-story p {
   font-size: 1em;
   line-height: 1.6;
   margin: 0 auto;
   text-align: left;
   font-family: "Inter", sans-serif;
 }
-.ourHistory-block #button{
-  background-color: #8EA8C3;
+.ourHistory-block #button {
+  background-color: #8ea8c3;
   color: white;
   padding: 10px 24px;
   margin: 10px 0;
@@ -151,9 +165,9 @@ line-height: 1.6;
   cursor: pointer;
   width: 11rem;
   font-size: 1rem;
-  border-radius: 10px; 
+  border-radius: 10px;
 }
-.ourHistory-block img { 
+.ourHistory-block img {
   height: auto;
   width: 50%;
   height: 35%;
@@ -162,9 +176,9 @@ line-height: 1.6;
   margin-top: 2%;
   padding: 5%;
 }
-.awards{
+.awards {
   display: flex;
-  background-color:#23395B; 
+  background-color: #23395b;
   padding: 10px;
   width: 50%;
   margin-left: 25%;
@@ -174,98 +188,97 @@ line-height: 1.6;
   align-items: center;
 }
 
-.awards-column{
+.awards-column {
   padding: 10px;
   box-sizing: border-box;
 }
 
-.awards-column img{
+.awards-column img {
   margin-top: 1em;
   vertical-align: middle;
   width: 25%;
   height: auto;
   margin-left: 5%;
-  
 }
- .awards-column h1{
+.awards-column h1 {
   color: white;
   font-size: 2em;
   text-align: center;
- }
-
-
-.opening-hours {
+}
+.opening-hours-container {
   display: flex;
   align-items: center;
   width: 100%;
-  background-color:#8EA8C3;
+  background-color: #8ea8c3;
   margin-bottom: 5%;
   position: relative;
 }
 
-#OpHours{ 
-  position: relative;
+.opening-hours-image {
   height: auto;
   width: 20%;
   max-width: 50%;
-  z-index: 1;
   margin-left: 10%;
   margin-top: -10px;
   margin-bottom: -10px;
 }
 
-.opening-text{
+.opening-text {
   justify-content: left;
   text-align: left;
   align-items: center;
-  margin-left: 10%; 
+  margin-left: 10%;
 }
-.opening-text h1{
+
+.opening-text h1 {
   color: white;
   text-align: left;
   flex-direction: row;
   font-size: 2.1em;
   margin: 0;
-  line-height: 4; 
+  line-height: 4;
 }
-.opening-text p, .opening-text .p1, .opening-text .p2, .opening-text .p3 {
+
+.opening-hours-details {
+  margin-top: 1em; /* Adjust margin-top as needed */
+}
+
+.opening-hours-text {
   color: white;
   flex-direction: row;
   font-size: 1.5em;
   text-align: left;
-  margin: 0;  
+  margin: 0;
 }
 
 @media (max-width: 1700px) {
-  
   #aboutUs {
     margin-left: 25%;
     margin-bottom: -10%;
     margin-top: 0%;
     margin-right: 25%;
   }
-  
-  #about-us{
+
+  #about-us {
     width: 30%;
     margin-bottom: 5%;
     margin-left: 10%;
     font-size: 1.2em;
   }
-  .ourHistory-block #our-story{
+  .ourHistory-block #our-story {
     width: 90%;
     padding: 1em;
     margin-top: 1em;
     font-size: 1.2em;
   }
-  .ourHistory-block img{
+  .ourHistory-block img {
     display: flex;
   }
-  .ourHistory-block #button{
+  .ourHistory-block #button {
     font-size: 1em;
   }
 
-
-  .awards{
+  .awards {
     width: 100%;
     margin-left: 0%;
     margin-top: 5%;
@@ -274,12 +287,15 @@ line-height: 1.6;
   .awards-column img {
     width: 25%;
   }
-  .opening-text h1{
+  .opening-text h1 {
     font-size: 1.6em;
     padding-right: 35%;
     line-height: 1.1;
   }
-  .opening-text p, .opening-text .p1, .opening-text .p2, .opening-text .p3{
+  .opening-text p,
+  .opening-text .p1,
+  .opening-text .p2,
+  .opening-text .p3 {
     font-size: 1.7em;
     text-align: left;
     padding-right: 35%;
@@ -288,13 +304,13 @@ line-height: 1.6;
     display: flex;
   }
 }
+
 @media (max-width: 600px) {
-  
   #aboutUs {
     display: none;
   }
-  
-  #about-us{
+
+  #about-us {
     text-align: left;
     width: 100%;
     margin-bottom: 5%;
@@ -305,17 +321,17 @@ line-height: 1.6;
   .story-body {
     font-size: 1em;
   }
-  .ourHistory-block #our-story{
+  .ourHistory-block #our-story {
     width: 90%;
     padding: 1em;
     margin-top: 1em;
     font-size: 1em;
   }
-  .ourHistory-block img{
+  .ourHistory-block img {
     display: none;
   }
 
-  .awards{
+  .awards {
     width: 100%;
     margin-left: 0%;
     margin-top: 5%;
@@ -324,12 +340,15 @@ line-height: 1.6;
   .awards-column img {
     width: 25%;
   }
-  .opening-text h1{
+  .opening-text h1 {
     font-size: 1.6em;
     padding-right: 35%;
     line-height: 1.1;
   }
-  .opening-text p, .opening-text .p1, .opening-text .p2, .opening-text .p3{
+  .opening-text p,
+  .opening-text .p1,
+  .opening-text .p2,
+  .opening-text .p3 {
     font-size: 1.2em;
     text-align: left;
     padding-right: 35%;
@@ -338,29 +357,29 @@ line-height: 1.6;
     display: none;
   }
 }
+
 @media (max-width: 810px) {
-  
   #aboutUs {
     display: none;
   }
-  
-  #about-us{
+
+  #about-us {
     text-align: left;
     width: 100%;
     margin-bottom: 5%;
     font-size: 1em;
   }
-  .ourHistory-block #our-story{
+  .ourHistory-block #our-story {
     width: 100%;
     padding: 1em;
     margin-top: 1em;
     font-size: 1em;
   }
-  .ourHistory-block img{
+  .ourHistory-block img {
     display: none;
   }
 
-  .awards{
+  .awards {
     width: 100%;
     margin-left: 0%;
     margin-top: 5%;
@@ -370,14 +389,17 @@ line-height: 1.6;
     width: 25%;
   }
 
-  .opening-text{
+  .opening-text {
     padding-left: 15%;
   }
-  .opening-text h1{
+  .opening-text h1 {
     font-size: 1.6em;
     line-height: 1.5;
   }
-  .opening-text p, .opening-text .p1, .opening-text .p2, .opening-text .p3{
+  .opening-text p,
+  .opening-text .p1,
+  .opening-text .p2,
+  .opening-text .p3 {
     font-size: 1.2em;
   }
   #OpHours {

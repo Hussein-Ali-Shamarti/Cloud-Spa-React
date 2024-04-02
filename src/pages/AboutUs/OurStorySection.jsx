@@ -1,39 +1,62 @@
-import React, { useState } from "react";
-import ourHistoryImage from "../public/assets/Pictures/ourHistory.jpg";
-import "../public/assets/styles/AboutUs.css"; // Adjust path as necessary
+import React, { useState, useEffect } from "react";
+import ourHistoryImage from "../../Pictures/ourHistory.jpg";
+import "../../styles/AboutUs/AboutUsPage.css";
 
 const OurStorySection = () => {
   const [isModalOpen, setModalOpen] = useState(false);
 
-  const toggleModal = () => setModalOpen(!isModalOpen);
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
+
+  // Side effect for managing click outside the modal to close it
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Get the modal element
+      const storyEl = document.getElementById("story");
+      // If modal is open and the clicked target is not inside the modal, close the modal
+      if (isModalOpen && storyEl && !storyEl.contains(event.target)) {
+        closeModal();
+      }
+    };
+
+    // Add event listener when the modal is open
+    if (isModalOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    // Clean up the event listener when the component unmounts or the modal is closed
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isModalOpen]); // Dependency array ensures effect only runs if isModalOpen changes
 
   return (
     <div className="ourHistory-block">
-      <img src={ourHistoryImage} alt="Opening a book" />
+      <img src={ourHistoryImage} alt="Our History" />
       <div id="our-story">
         <h1>Our story</h1>
         <div className="text-and-button">
           <p>
-            At Cloud Spa every tale is one of passion and dedication to
+            At Cloud Spa, every tale is one of passion and dedication to
             wellness. Founded in 2024, we embraced a sanctuary where guests
             could escape the hustle and bustle of everyday life. Our journey is
             guided by passionate therapists providing exceptional treatments
             grounded...
           </p>
-          <button onClick={toggleModal} id="button">
+          <button onClick={openModal} id="button">
             Read more...
           </button>
         </div>
         {isModalOpen && (
-          <div className="overlay" onClick={toggleModal}>
+          <div className="overlay" onClick={closeModal}>
             <div
               className="story"
               id="story"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="story-header">
-                <div className="story-title">Our story</div>
-                <button onClick={toggleModal} className="close-button">
+                <h2 className="story-title">Our story</h2>
+                <button onClick={closeModal} className="close-button">
                   &times;
                 </button>
               </div>

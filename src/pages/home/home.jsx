@@ -5,6 +5,7 @@ import EventCalendar from "./eventCalendar";
 import ExtraTreatments from "./extraTreatments";
 import Services from "./services";
 import "../../styles/home.css";
+import React from 'react';
 
 const HomePage = () => {
   return (
