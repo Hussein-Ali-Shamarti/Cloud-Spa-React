@@ -1,24 +1,16 @@
-/*about us */
 #about-us-section {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   background-color: #8ea8c3;
   height: 790px;
   padding: 40px 90px;
-  position: relative;
   width: 100%;
-  overflow: visible;
   margin-top: 30px;
   margin-bottom: 90px;
 }
 
 .about-us-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 50%;
+  flex: 1; /* Flex value to take up only necessary space */
 }
 
 .about-us-content h2,
@@ -52,6 +44,7 @@
   margin-top: -20px;
   background-color: #cbf7ed;
 }
+
 .about-us-image {
   width: 550px;
 }
@@ -62,21 +55,16 @@
   object-fit: cover;
 }
 
-/* Responsive design adjustments */
 @media screen and (max-width: 1041px) {
   #about-us-section {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     padding: 40px;
     height: auto;
   }
 
   .about-us-content,
   .about-us-image {
-    max-width: 90%;
-    width: 90%;
-    margin-bottom: 20px;
+    width: 100%;
   }
 
   .about-us-content h2 {
@@ -88,12 +76,19 @@
   .about-us-content p {
     font-size: 20px;
     line-height: 30px;
-    width: auto;
     height: auto;
   }
 
   .read-more-button-for-about-us {
     align-self: center;
     margin-top: 20px;
+  }
+
+  .about-us-image img {
+    width: auto; /* Allow the image to scale down */
+    height: auto; /* Adjust the height automatically */
+  }
+  .about-us-image {
+    order: 2;
   }
 }
