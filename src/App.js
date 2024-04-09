@@ -9,6 +9,7 @@ import "../src/firebase-config";
 import spaServices from "../src/services.json"; // Assuming this is a JSON file now
 import AboutUsPage from "./pages/AboutUs/AboutUsPage";
 import ContactPage from "./pages/ContactUs/ContactPage";
+import Signup from "./pages/login/signup";
 
 function App() {
   useEffect(() => {
@@ -45,6 +46,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/aboutUs" element={<AboutUsPage />} />
           <Route path="/ContactUs" element={<ContactPage />} />
+          <Route path="/MyPage" element={<Signup />} />
         </Routes>
         <Layout />
       </BrowserRouter>
