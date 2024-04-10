@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+  }
+.story {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: #cbf7ed;
+    width: 100%;
+    max-width: 80%;
+    color: black;
+    z-index: 1001; /* Higher than the overlay */
+  }
+  
+  .story.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .story-header {
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: center;
+    border-bottom: 1px solid black;
+    font-family: "Inter", sans-serif;
+  }
+  
+  .story-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-right: auto; /* This will push the title to the far left */
+  }
+  
+  .story-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-left: auto; /* This will push the close button to the far right */
+  }
+  
+  .story-body {
+    padding: 10px 15px;
+    line-height: 1.6;
+    font-size: 1.6rem;
+  }
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Weak black background */
+    z-index: 1000; /* Make sure this is higher than other content but lower than the modal */
+  }
+  
+  #overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .ourHistory-block {
+    display: flex;
+    width: 100%;
+    background-color: #cbf7ed;
+  }
+  
+  .ourHistory-block #our-story {
+    width: 50%;
+    padding: 2em;
+    margin-left: 5%;
+    margin-top: 1em;
+    font-size: 1.5em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: "Inter", sans-serif;
+  }
+  
+  .ourHistory-block #our-story .text-and-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .ourHistory-block #our-story p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin: 0 auto;
+    text-align: left;
+    font-family: "Inter", sans-serif;
+  }
+  .ourHistory-block #button {
+    background-color: #8ea8c3;
+    color: white;
+    padding: 10px 24px;
+    margin: 10px 0;
+    color: black;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    width: 11rem;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+  .ourHistory-block img {
+    height: auto;
+    width: 50%;
+    height: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    padding: 5%;
+  }
+
+  @media (max-width: 1700px) {
+    .ourHistory-block #our-story {
+        width: 90%;
+        padding: 1em;
+        margin-top: 1em;
+        font-size: 1.2em;
+      }
+      .ourHistory-block img {
+        display: flex;
+      }
+      .ourHistory-block #button {
+        font-size: 1em;
+      }
+    }
+  @media (max-width: 600px) {
+    .story-body {
+        font-size: 1em;
+      }
+      .ourHistory-block #our-story {
+        width: 90%;
+        padding: 1em;
+        margin-top: 1em;
+        font-size: 1em;
+      }
+      .ourHistory-block img {
+        display: none;
+      }
+  }

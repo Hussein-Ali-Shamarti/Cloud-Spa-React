@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ourHistoryImage from "../../Pictures/ourHistory.jpg";
-import "../../styles/AboutUs/AboutUsPage.css";
+import "../../styles/OurStorySection.css";
 
 const OurStorySection = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -62,8 +62,8 @@ const OurStorySection = () => {
               </div>
               <div className="story-body">
                 At Cloud Spa, our story is one of passion and dedication to
-                wellness. Founded in 2024, we envisioned a sanctuary where
-                guests could escape the hustle and bustle of everyday life. Our
+                wellness.<br></br> Founded in 2024, we envisioned a sanctuary where
+                guests could escape the hustle and bustle of everyday life.<br></br> Our
                 journey is guided by a commitment to providing exceptional
                 service, innovative treatments, and a serene atmosphere. Join us
                 as we embark on a journey of relaxation and rejuvenation, high
