@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
-
+/*
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
 }
-
+*/
 /*
 .about-us-block {
 display: flex;
@@ -208,6 +208,7 @@ font-size: 1.2em; /* Adjust the font size to make it smaller
   font-size: 2em;
   text-align: center;
 }*/
+/*
 .opening-hours-container {
   display: flex;
   align-items: center;
@@ -243,7 +244,7 @@ font-size: 1.2em; /* Adjust the font size to make it smaller
 }
 
 .opening-hours-details {
-  margin-top: 1em; /* Adjust margin-top as needed */
+  margin-top: 1em; 
 }
 
 .opening-hours-text {
@@ -252,7 +253,7 @@ font-size: 1.2em; /* Adjust the font size to make it smaller
   font-size: 1.5em;
   text-align: left;
   margin: 0;
-}
+}*/
 /*
 @media (max-width: 1700px) {
   /*#aboutUs {
