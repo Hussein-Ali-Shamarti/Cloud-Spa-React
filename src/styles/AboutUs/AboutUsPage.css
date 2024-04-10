@@ -1,60 +1,62 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
-
+/*
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
 }
-
+*/
+/*
 .about-us-block {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  background-color: white;
+display: flex;
+align-items: center;
+width: 100%;
+background-color: white;
 }
 
-/* About Us picture */
+/* About Us picture 
 .about-us-image {
-  flex: 0 0 30%; /* Limit the width of the image container */
-  margin-right: 2rem;
-}
-
+flex: 0 0 30%; /* Limit the width of the image container 
+margin-right: 2rem;
+}*/
+/*
 .about-us-image img {
-  float: right;
-  width: 60%;
-  height: 20%;
-  margin-bottom: 10%;
-  margin-top: 50%;
-  margin-right: 30%;
-  -webkit-box-shadow: 3.125rem -2.25rem 0rem 1.12rem rgba(142, 168, 195, 1);
-  -moz-box-shadow: 3.125rem -2.25rem 0rem 1.12rem rgba(142, 168, 195, 1);
-  box-shadow: 3.125rem -2.25rem 0rem 1.12rem rgba(142, 168, 195, 1);
+float: right;
+width: 60%;
+height: 20%;
+margin-bottom: 10%;
+margin-top: 50%;
+margin-right: 30%;
+-webkit-box-shadow: 3.125rem -2.25rem 0rem 1.12rem rgba(142, 168, 195, 1);
+-moz-box-shadow: 3.125rem -2.25rem 0rem 1.12rem rgba(142, 168, 195, 1);
+box-shadow: 3.125rem -2.25rem 0rem 1.12rem rgba(142, 168, 195, 1);
 }
 
-/* About Us content */
+/* About Us content 
 .about-us-content {
-  width: 50%;
-  padding: 2em;
-  margin-left: 5%;
-  margin-top: 0%;
-  text-align: left;
+width: 50%;
+padding: 2em;
+margin-left: 5%;
+margin-top: 0%;
+text-align: left;
 }
-
-/* Header/title */
+*/
+/* Header/title 
 .about-us-content h1 {
-  text-align: left;
-  font-weight: 500; /* Adjust the font weight to make it thinner */
-}
+text-align: left;
+font-weight: 500; /* Adjust the font weight to make it thinner 
+}*/
 
-/* Paragraph */
+/* Paragraph 
 .about-us-content .text-box p {
-  text-align: left;
-  line-height: 2;
-  color: black;
-  font-size: 1.2em; /* Adjust the font size to make it smaller */
-}
+text-align: left;
+line-height: 2;
+color: black;
+font-size: 1.2em; /* Adjust the font size to make it smaller 
+}*/
 
+/*
 .story {
   position: fixed;
   top: 50%;
@@ -68,9 +70,9 @@
   width: 100%;
   max-width: 80%;
   color: black;
-  z-index: 1001; /* Higher than the overlay */
-}
-
+  z-index: 1001; /* Higher than the overlay 
+}*/
+/*
 .story.active {
   transform: translate(-50%, -50%) scale(1);
 }
@@ -88,9 +90,9 @@
 .story-header .title {
   font-size: 1.25rem;
   font-weight: bold;
-  margin-right: auto; /* This will push the title to the far left */
-}
-
+  margin-right: auto; /* This will push the title to the far left 
+}*/
+/*
 .story-header .close-button {
   cursor: pointer;
   border: none;
@@ -99,9 +101,9 @@
   color: black;
   font-size: 1rem;
   font-weight: bold;
-  margin-left: auto; /* This will push the close button to the far right */
-}
-
+  margin-left: auto; /* This will push the close button to the far right 
+}*/
+/*
 .story-body {
   padding: 10px 15px;
   line-height: 1.6;
@@ -114,10 +116,10 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Weak black background */
-  z-index: 1000; /* Make sure this is higher than other content but lower than the modal */
-}
-
+  background-color: rgba(0, 0, 0, 0.5); /* Weak black background 
+  z-index: 1000; /* Make sure this is higher than other content but lower than the modal 
+}*/
+/*
 #overlay.active {
   opacity: 1;
   pointer-events: all;
@@ -175,7 +177,8 @@
   margin-right: auto;
   margin-top: 2%;
   padding: 5%;
-}
+}*/
+/*
 .awards {
   display: flex;
   background-color: #23395b;
@@ -204,7 +207,8 @@
   color: white;
   font-size: 2em;
   text-align: center;
-}
+}*/
+/*
 .opening-hours-container {
   display: flex;
   align-items: center;
@@ -240,7 +244,7 @@
 }
 
 .opening-hours-details {
-  margin-top: 1em; /* Adjust margin-top as needed */
+  margin-top: 1em; 
 }
 
 .opening-hours-text {
@@ -249,10 +253,10 @@
   font-size: 1.5em;
   text-align: left;
   margin: 0;
-}
-
+}*/
+/*
 @media (max-width: 1700px) {
-  #aboutUs {
+  /*#aboutUs {
     margin-left: 25%;
     margin-bottom: -10%;
     margin-top: 0%;
@@ -264,7 +268,8 @@
     margin-bottom: 5%;
     margin-left: 10%;
     font-size: 1.2em;
-  }
+  }*/
+  /*
   .ourHistory-block #our-story {
     width: 90%;
     padding: 1em;
@@ -276,8 +281,8 @@
   }
   .ourHistory-block #button {
     font-size: 1em;
-  }
-
+  }*/
+  /*
   .awards {
     width: 100%;
     margin-left: 0%;
@@ -287,6 +292,7 @@
   .awards-column img {
     width: 25%;
   }
+  *
   .opening-text h1 {
     font-size: 1.6em;
     padding-right: 35%;
@@ -406,3 +412,4 @@
     display: none;
   }
 }
+*/

@@ -1,5 +1,6 @@
 import React from "react";
 import aboutUsImage from "../../Pictures/aboutUs.jpg";
+import "../../styles/AboutUsBlock.css";
 const AboutUsBlock = () => {
   return (
     <div className="about-us-block">

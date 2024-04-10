@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+.about-us-block {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+  }
+  
+  /* About Us picture */
+  .about-us-image {
+    flex: 0 0 30%; /* Limit the width of the image container */
+    margin-right: 2rem;
+  }
+  
+  .about-us-image img {
+    float: right;
+    width: 60%;
+    height: 20%;
+    margin-bottom: 10%;
+    margin-top: 50%;
+    margin-right: 30%;
+    -webkit-box-shadow: 3.125rem -2.25rem 0rem 1.12rem rgba(142, 168, 195, 1);
+    -moz-box-shadow: 3.125rem -2.25rem 0rem 1.12rem rgba(142, 168, 195, 1);
+    box-shadow: 3.125rem -2.25rem 0rem 1.12rem rgba(142, 168, 195, 1);
+  }
+  
+  /* About Us content */
+  .about-us-content {
+    width: 50%;
+    padding: 2em;
+    margin-left: 5%;
+    margin-top: 0%;
+    text-align: left;
+  }
+  
+  /* Header/title */
+  .about-us-content h1 {
+    text-align: left;
+    font-weight: 500; /* Adjust the font weight to make it thinner */
+  }
+  
+  /* Paragraph */
+  .about-us-content .text-box p {
+    text-align: left;
+    line-height: 2;
+    color: black;
+    font-size: 1.2em; /* Adjust the font size to make it smaller */
+  }
+  
+  @media (max-width: 1700px) {
+    #aboutUs {
+      margin-left: 25%;
+      margin-bottom: -10%;
+      margin-top: 0%;
+      margin-right: 25%;
+    }
+  
+    #about-us {
+      width: 30%;
+      margin-bottom: 5%;
+      margin-left: 10%;
+      font-size: 1.2em;
+    }
+  }
+  @media (max-width: 600px) {
+    #aboutUs {
+      display: none;
+    }
+  
+    #about-us {
+      text-align: left;
+      width: 100%;
+      margin-bottom: 5%;
+      margin-left: 0%;
+      font-size: 1em;
+    }
+  }
