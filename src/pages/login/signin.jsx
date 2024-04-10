@@ -1,31 +1,16 @@
 import React from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  connectAuthEmulator
+} from "firebase/auth";
+import "firebase/auth";
 import "../../../src/firebase-config";
+import { useState } from "react";
 
-const Signup = () => {
-  const auth = getAuth();
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  function validateform(email, password) {
-    if (email === "" || password == "") {
-      return false;
-    } else {
-      createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Signed up
-          const user = userCredential.user;
-          // ...
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log("Error: ", errorCode, "-", errorMessage);
-          // ..
-        });
-      return true;
-    }
-  }
-
+const SignIn = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <div className="wrapper">
       <div className="form-box login " style={{ marginTop: "300px" }}>
@@ -60,15 +45,13 @@ const Signup = () => {
               {" "}
               <input type="checkbox" /> Remember Me
             </label>
-            <a href="#">Forgot Password?</a>
+            <a href="/PasswordReset">Forgot Password?</a>
           </div>
-          <button className="btn" onClick={validateform}>
-            Sign In
-          </button>
+          <button className="btn">Sign In</button>
           <div className="login-register">
             <p>
               Don't have an account yet?
-              <a href="#" className="register-link">
+              <a href="/Signup" className="register-link">
                 Create one now.
               </a>
             </p>
@@ -78,5 +61,4 @@ const Signup = () => {
     </div>
   );
 };
-
-export default Signup;
+export default SignIn;

@@ -9,8 +9,9 @@ import "../src/firebase-config";
 import spaServices from "../src/services.json"; // Assuming this is a JSON file now
 import AboutUsPage from "./pages/AboutUs/AboutUsPage";
 import ContactPage from "./pages/ContactUs/ContactPage";
-import Signup from "./pages/login/signup";
-
+import Signup from "./signup/signup";
+import SignIn from "./pages/login/signin";
+import PasswordReset from "./passwordReset/passwordReset";
 function App() {
   useEffect(() => {
     const db = getDatabase();
@@ -46,7 +47,9 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/aboutUs" element={<AboutUsPage />} />
           <Route path="/ContactUs" element={<ContactPage />} />
-          <Route path="/MyPage" element={<Signup />} />
+          <Route path="/MyPage" element={<SignIn />} />
+          <Route path="/Signup" element={<Signup />} />
+          <Route path="/PasswordReset" element={<PasswordReset />} />
         </Routes>
         <Layout />
       </BrowserRouter>
