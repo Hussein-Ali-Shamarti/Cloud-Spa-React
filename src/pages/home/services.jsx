@@ -9,8 +9,7 @@ import { useState, useEffect, useRef } from "react";
 import "../../styles/services.css";
 import { getDatabase, ref, onValue, get, push } from "firebase/database";
 import "../../../src/firebase-config";
-import React from 'react';
-
+import React from "react";
 
 // Read data from the root of your database and log it
 const db = getDatabase();

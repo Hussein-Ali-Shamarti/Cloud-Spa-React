@@ -4,7 +4,13 @@ import "./App.css";
 import Layout from "./components/layout";
 import HomePage from "./pages/home/home";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { getDatabase, ref, push, get } from "firebase/database";
+import {
+  getDatabase,
+  ref,
+  push,
+  get,
+  connectDatabaseEmulator
+} from "firebase/database";
 import "../src/firebase-config";
 import spaServices from "../src/services.json"; // Assuming this is a JSON file now
 import AboutUsPage from "./pages/AboutUs/AboutUsPage";
@@ -20,8 +26,10 @@ function App() {
     // Check if 'services' node exists
     get(servicesRef)
       .then((snapshot) => {
+        console.log("Added before if:");
         if (!snapshot.exists()) {
           // 'services' node doesn't exist, upload the data
+          console.log("Added document wit linje 26:");
           spaServices.forEach((service) => {
             push(servicesRef, service)
               .then((ref) => {
