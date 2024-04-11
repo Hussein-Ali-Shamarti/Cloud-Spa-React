@@ -13,7 +13,7 @@
     align-items: center;
 }
 
-.image-container {
+.booking-img-container {
     float: right;
     flex: 0 0 auto;
     position: relative;
@@ -23,7 +23,7 @@
     margin-top: 7%;
   }
 
-  .image-container img {
+  .booking-img-container img {
     width: 70%;
     height: auto;
     display: flex;
@@ -47,14 +47,14 @@
     border-bottom: 2px solid #8EA8C3;
   }
   
-  .container {
+  .booking-section {
     width: 100%;
     max-width: 700px; /* Adjust the width as needed */
     border-radius: 8px;
     overflow: hidden;
     margin-left: 10%;
 }
-.card {
+.booking-card {
     padding: 1rem;
 }
 
@@ -64,18 +64,18 @@
     overflow: auto;
 }
 
-.title {
+.booking-title {
     font-size: 2rem;
     font-weight: 500;
     color: black;
     margin: 0;
 }
 
-.card-body{
+.booking-card-body{
     padding: 1rem 1.2rem;
 }
 
-.checkbox-container{
+.booking-checkbox{
     padding: 0.2rem;
 }
 
@@ -114,7 +114,7 @@ input[type="checkbox"]{
     cursor: pointer;
 }
 
-.button-container {
+.booking-buttons {
     width: 100%;
     position: absolute;
     bottom: 20px;
@@ -122,7 +122,7 @@ input[type="checkbox"]{
     justify-content: center; 
 }
 
-.cancel-button {
+.booking-cancel-button {
     display: block; /* Make the <a> tag a block-level element */
     padding: 10px 20px; /* Adjust the padding as needed */
     margin-right: 10%; /* Adjust the spacing between buttons */
@@ -135,12 +135,12 @@ input[type="checkbox"]{
     text-decoration: none;
 }
 
-.cancel-button:hover {
+.booking-cancel-button:hover {
     background-color: #CBF7ED; 
     color: black;
 }
 
-.next-button {
+.booking-next-button {
     display: block;
     padding: 10px 30px; /* Adjust the padding as needed */
     margin-left: 20%; /* Adjust the spacing between buttons */
@@ -154,7 +154,7 @@ input[type="checkbox"]{
     text-decoration: none;
 }
 
-.next-button:hover {
+.booking-next-button:hover {
     background-color: #CBF7ED; 
     color: black;
 }

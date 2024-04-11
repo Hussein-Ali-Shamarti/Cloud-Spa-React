@@ -27,7 +27,7 @@ const Booking = () => {
     };
     return (
         <div className="booking-page">
-        <><div className="image-container">
+        <><div className="booking-img-container">
             <img
                 src={Booking1}
                 alt="bath"
@@ -39,13 +39,12 @@ const Booking = () => {
                 <span className="date-label">Date</span>
                 <span className="checkout-label">Check Out</span>
             </div>
-            <div className="current-step"></div>
         </div>
-                <div className="container">
-                    <div className="card">
-                        <p className="title">Indulge in extra treatments to elevate your Spa Experience:</p>
+                <div className="booking-section">
+                    <div className="booking-card">
+                        <p className="booking-title">Indulge in extra treatments to elevate your Spa Experience:</p>
                     </div>
-                    <div className="card-body">
+                    <div className="booking-card-body">
                         <label>You selected:</label>
                         {checkedList.map((item, index) => {
                             return (
@@ -59,7 +58,7 @@ const Booking = () => {
                 <div className="booking-body">
                     {LIST_DATA.map((item) => {
                         return (
-                            <div key={item.id} className="checkbox-container">
+                            <div key={item.id} className="booking-checkbox">
                                 <input
                                     type="checkbox"
                                     name="booking"
@@ -71,9 +70,9 @@ const Booking = () => {
                         );
                     })};
                 </div>
-                <div className="button-container">
-                <a href="/" class="cancel-button">Cancel</a>
-                <a href="/Booking2" class="next-button">Next</a>
+                <div className="booking-buttons">
+                <a href="/" class="booking-cancel-button">Cancel</a>
+                <a href="/Booking2" class="booking-next-button">Next</a>
             </div>
             </>
         </div>
