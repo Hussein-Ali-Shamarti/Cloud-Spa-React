@@ -18,6 +18,7 @@ import ContactPage from "./pages/ContactUs/ContactPage";
 import Signup from "./signup/signup";
 import SignIn from "./pages/login/signin";
 import PasswordReset from "./passwordReset/passwordReset";
+import Booking from "./pages/Booking/Booking";
 function App() {
   useEffect(() => {
     const db = getDatabase();
@@ -58,6 +59,7 @@ function App() {
           <Route path="/MyPage" element={<SignIn />} />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/PasswordReset" element={<PasswordReset />} />
+          <Route path="/booking" element={<Booking />} />
         </Routes>
         <Layout />
       </BrowserRouter>
