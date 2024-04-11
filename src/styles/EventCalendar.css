@@ -1,5 +1,5 @@
 /*Event Calendar*/
-.container {
+.event-calendar-container {
   justify-content: space-between;
   align-items: flex-start;
   padding-top: 110px;
@@ -30,7 +30,7 @@
 .title-container {
   margin-bottom: -190px;
 }
- 
+
 .calendar-header #month-year {
   font-size: 24px;
 }

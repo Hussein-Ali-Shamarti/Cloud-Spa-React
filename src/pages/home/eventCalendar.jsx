@@ -66,7 +66,7 @@ const EventCalendar = () => {
   }, [currentDate]);
 
   return (
-    <section className="container">
+    <section className="event-calendar-container">
       <div>
         <div className="title-container">
           <h2 className="calendarTitle">Event Calendar</h2>
