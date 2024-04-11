@@ -35,7 +35,7 @@ const Booking = () => {
         </div>
         <div className="booking-path">
             <div className="step-indicator">
-                <span className="treatment-label">Treatements</span>
+                <span className="treatment-label">Treatments</span>
                 <span className="date-label">Date</span>
                 <span className="checkout-label">Check Out</span>
             </div>
