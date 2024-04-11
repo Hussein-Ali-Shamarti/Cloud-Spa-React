@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.booking-page {
+    display: table;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.image-container {
+    float: right;
+    flex: 0 0 auto;
+    position: relative;
+    margin-right: 20px;
+    width: 100%;
+    max-width: 35%;
+    margin-top: 7%;
+  }
+
+  .image-container img {
+    width: 70%;
+    height: auto;
+    display: flex;
+  }
+  .booking-path {
+    display: flex;
+    margin-top: 8%;
+    margin-left: 15%;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px; /* Adjust spacing as needed */
+  }  
+
+  .date-label, .checkout-label  {
+    font-size: 25px;
+    padding: 10px 50px;
+  }
+  .treatment-label{
+    font-size: 25px;
+    padding: 10px 50px;
+    border-bottom: 2px solid #8EA8C3;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 700px; /* Adjust the width as needed */
+    border-radius: 8px;
+    overflow: hidden;
+    margin-left: 10%;
+}
+.card {
+    padding: 1rem;
+}
+
+.card-body {
+    border-bottom: 1px solid;
+    padding: 1rem 1.5rem;
+    overflow: auto;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: black;
+    margin: 0;
+}
+
+.card-body{
+    padding: 1rem 1.2rem;
+}
+
+.checkbox-container{
+    padding: 0.2rem;
+}
+
+label{
+    font-size: 1.5rem;
+    color: black;
+    margin-left: 0.5rem;
+}
+
+.booking-body {
+    width: 100%;
+    float: left;
+    max-width: 600px; /* Adjust the width as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-left: 15%;
+    line-height: 60px;
+}
+
+.chip {
+    display: inline-block;
+    padding: 0.3rem 0.5rem;
+    background-color: #eef7fe;
+    border-radius: 0.2rem;
+    margin: 0.2rem;
+}
+
+.chip-label{
+    font-size: 1.2rem;
+    color: #19344a;
+}
+
+input[type="checkbox"]{
+    color: #fff;
+    cursor: pointer;
+}
+
+.button-container {
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: center; 
+}
+
+.cancel-button {
+    display: block; /* Make the <a> tag a block-level element */
+    padding: 10px 20px; /* Adjust the padding as needed */
+    margin-right: 10%; /* Adjust the spacing between buttons */
+    margin-bottom: 2%;
+    background-color: #8EA8C3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.cancel-button:hover {
+    background-color: #CBF7ED; 
+    color: black;
+}
+
+.next-button {
+    display: block;
+    padding: 10px 30px; /* Adjust the padding as needed */
+    margin-left: 20%; /* Adjust the spacing between buttons */
+    margin-right: 30%;
+    margin-bottom: 2%;
+    background-color: #23395B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.next-button:hover {
+    background-color: #CBF7ED; 
+    color: black;
+}
