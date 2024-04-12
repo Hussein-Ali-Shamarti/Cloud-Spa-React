@@ -137,7 +137,7 @@ input[type="checkbox"]{
 }
 
 .booking-cancel-button:hover {
-    background-color: #CBF7ED; 
+    background-color: #406E8E; 
     color: black;
 }
 
@@ -156,6 +156,6 @@ input[type="checkbox"]{
 }
 
 .booking-next-button:hover {
-    background-color: #CBF7ED; 
+    background-color: #8EA8C3; 
     color: black;
 }
