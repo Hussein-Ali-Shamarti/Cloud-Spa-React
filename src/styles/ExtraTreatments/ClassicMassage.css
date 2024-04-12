@@ -1,0 +1,43 @@
+/* Classic Massage block*/
+.classic-massage-block {
+    position: relative;
+    width: 95%;
+    height: 459px;
+    left: -10px;
+    top: 180px;
+    background: #8EA8C3;
+}
+
+/* Classic Massage image */
+.classic-massage-block img {
+    width: 531.35px;
+    height: 380px;
+    position: absolute;
+    left: 80px;
+    top: 40px;
+}
+
+/* Classic Massage header */
+.classic-massage-block h2 {
+    position: relative;
+    width: 212.25px;
+    height: 43px;
+    left: 650px;
+    top: 60px;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+}
+
+/* Classic Massage text-box*/
+.classic-massage-block .text-box {
+    position: relative;
+    width: 500px;
+    height: 254px;
+    left: 650px;
+    top: 60px;
+    font-size: 20px;
+    line-height: 40px;
+    color: #FFFFFF;
+    text-align: left;
+}

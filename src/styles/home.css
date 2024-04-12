@@ -19,6 +19,8 @@ body {
 .home-image-container {
   position: relative;
   text-align: center;
+  width: 100vw; /* Ensure the container is full viewport width */
+  overflow: hidden; /* Hides any overflow which can include white spaces */
   color: white;
 }
 
@@ -54,4 +56,21 @@ body {
   transform: translate(-50%, -50%);
   font-size: 20px;
   color: #000000;
+}
+
+@media (max-width: 651px) {
+  .subtitle-text {
+    top: 65%; /* Adjust the percentage to control the spacing */
+  }
+}
+
+@media (max-width: 846px) {
+  .background-image {
+    width: 100vw; /* Full viewport width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the container, cropping as needed */
+    position: relative; /* Changed from absolute to relative */
+    left: 0; /* Reset position adjustments */
+    top: 0;
+  }
 }

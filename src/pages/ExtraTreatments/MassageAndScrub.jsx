@@ -1,6 +1,6 @@
 import React from 'react';
-import MassageAndScrubImage from '../public/assets/Pictures/massageAndScrub.jpg';
-import '../public/assets/styles/ExtraTreatmentsPage.css';
+import MassageAndScrubImage from '../../Pictures/massageAndScrub.jpg';
+import '../../styles/ExtraTreatments/MassageAndScrub.css';
 
 function MassageAndScrub() {
     return (

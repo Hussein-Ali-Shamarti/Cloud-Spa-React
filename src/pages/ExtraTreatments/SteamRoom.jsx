@@ -1,6 +1,6 @@
 import React from 'react';
-import SteamRoomImage from '../public/assets/Pictures/SteamRoom.jpg';
-import '../public/assets/styles/ExtraTreatmentsPage.css';
+import SteamRoomImage from '../../Pictures/SteamRoom.jpg';
+import '../../styles/ExtraTreatments/SteamRoom.css';
 
 function SteamRoom() {
     return (

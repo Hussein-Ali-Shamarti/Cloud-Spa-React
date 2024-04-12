@@ -1,6 +1,6 @@
 import React from 'react';
-import FacialTreatmentImage from '../public/assets/Pictures/facialTreatment.jpg';
-import '../public/assets/styles/ExtraTreatmentsPage.css';
+import FacialTreatmentImage from '../../Pictures/facialTreatment.jpg';
+import '../../styles/ExtraTreatments/FacialTreatment.css';
 
 function FacialTreatment() {
     return (
