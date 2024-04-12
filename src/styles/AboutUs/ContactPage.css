@@ -157,6 +157,12 @@ header {
 
 #contact-form .form-group {
   margin-bottom: 2.5em;
+
+}
+
+.form-group label{
+  color: #fff;
+  font-size: 1.2rem;
 }
 
 #contact-form .input-row {
