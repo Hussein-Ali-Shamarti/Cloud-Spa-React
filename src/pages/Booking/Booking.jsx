@@ -1,8 +1,13 @@
 import Booking1 from "../../Pictures/booking1.jpg";
 import React, {useState} from 'react';
+import { getAuth,connectAuthEmulator} from "firebase/auth";
+import { database } from "../../../src/firebase-config.js";
+import "firebase/auth";
+import "../../../src/firebase-config.js";
 import Layout from "../../components/layout";
 import "../../styles/Booking1.css";
 import "../../styles/BookingButtons.css";
+
 const LIST_DATA = [
     {id: "1", value: "Classic Massage"}, 
     {id: "2", value:"Massage and Scrub"},
@@ -26,6 +31,26 @@ const Booking = () => {
             setCheckedList(filteredList);
         }
     }
+const auth = getAuth();
+connectAuthEmulator(auth, "http://127.0.0.1:9099/auth");
+
+const saveOrderToDatabase = () => {
+    const newOrderRef = database.ref('orders').push();
+    const orderNumber = generateOrderNumber();
+    newOrderRef.set({
+        orderNumber: orderNumber,
+        selectedTreatments: checkedList
+    }).then(() => {
+        console.log("Order stored successfully!");
+    }).catch((error) => {
+        console.error("Error in storing order", error);
+    });
+};
+
+const generateOrderNumber = () => {
+    return Date.now() + Math.floor(Math.random() * 1000);
+};
+
     return (
         <div className="booking-page">
         <><div className="booking-img-container">
@@ -73,7 +98,7 @@ const Booking = () => {
                 </div>
                 <div className="booking-buttons">
                 <a href="/" class="booking-cancel-button">Cancel</a>
-                <a href="/Booking2" class="booking-next-button">Next</a>
+                <a href="/Booking2" class="booking-next-button" onClick={saveOrderToDatabase}>Next</a>
             </div>
             </>
         </div>
