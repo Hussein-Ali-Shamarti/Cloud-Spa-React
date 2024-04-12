@@ -96,6 +96,7 @@
     display: flex;
     flex-direction: column;
     align-items: left;
+    padding: 2%;
     margin-left: 15%;
     line-height: 75px;
 }
@@ -149,49 +150,3 @@ input[type="checkbox"]{
   .booking-checkbox input[type="checkbox"]:checked::before {
     visibility: visible;
   }
-  
-
-.booking-buttons {
-    width: 100%;
-    position: absolute;
-    bottom: 20px;
-    display: flex;
-    justify-content: center; 
-}
-
-.booking-cancel-button {
-    display: block; /* Make the <a> tag a block-level element */
-    padding: 10px 20px; /* Adjust the padding as needed */
-    margin-right: 10%; /* Adjust the spacing between buttons */
-    margin-bottom: 2%;
-    background-color: #8EA8C3;
-    color: black;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.booking-cancel-button:hover {
-    background-color: #406E8E; 
-    color: black;
-}
-
-.booking-next-button {
-    display: block;
-    padding: 10px 30px; /* Adjust the padding as needed */
-    margin-left: 20%; /* Adjust the spacing between buttons */
-    margin-right: 30%;
-    margin-bottom: 2%;
-    background-color: #23395B;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.booking-next-button:hover {
-    background-color: #8EA8C3; 
-    color: black;
-}
