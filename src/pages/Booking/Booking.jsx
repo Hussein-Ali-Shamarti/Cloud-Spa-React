@@ -2,6 +2,7 @@ import Booking1 from "../../Pictures/booking1.jpg";
 import React, {useState} from 'react';
 import Layout from "../../components/layout";
 import "../../styles/Booking1.css";
+import "../../styles/BookingButtons.css";
 const LIST_DATA = [
     {id: "1", value: "Classic Massage"}, 
     {id: "2", value:"Massage and Scrub"},
@@ -34,7 +35,7 @@ const Booking = () => {
                 className="booking1-image" />
         </div>
         <div className="booking-path">
-            <div className="step-indicator">
+            <div className="booking-step-indicator">
                 <span className="treatment-label">Treatments</span>
                 <span className="date-label">Date</span>
                 <span className="checkout-label">Check Out</span>
@@ -45,10 +46,10 @@ const Booking = () => {
                         <p className="booking-title">Indulge in extra treatments to elevate your Spa Experience:</p>
                     </div>
                     <div className="booking-card-body">
-                        <label>You selected:</label>
+                        <label className="selected-booking">You selected:</label>
                         {checkedList.map((item, index) => {
                             return (
-                                <div className="chip" key={index}>
+                                <div className="booking-chip" key={index}>
                                     <p className="chip-label">{item} </p>
                                 </div>
                             );

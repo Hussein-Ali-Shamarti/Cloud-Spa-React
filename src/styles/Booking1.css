@@ -80,7 +80,7 @@
     padding: 0.2rem;
 }
 
-label{
+.selected{
     font-size: 1.5rem;
     color: black;
     margin-left: 0.5rem;
