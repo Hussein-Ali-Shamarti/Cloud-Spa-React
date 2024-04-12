@@ -8,6 +8,8 @@ import Layout from "../../components/layout";
 import "../../styles/Booking1.css";
 import "../../styles/BookingButtons.css";
 
+
+//The list of options for the user to select
 const LIST_DATA = [
     {id: "1", value: "Classic Massage"}, 
     {id: "2", value:"Massage and Scrub"},
@@ -15,6 +17,7 @@ const LIST_DATA = [
     {id: "4", value: "Facial Massage"},
     {id: "5", value: "Steam room"},
 ];
+//Function to add the selected treatments to a list that confirms the selected choices.
 const Booking = () => {
     const [checkedList, setCheckedList] = useState([]);
 
@@ -34,6 +37,7 @@ const Booking = () => {
 const auth = getAuth();
 connectAuthEmulator(auth, "http://127.0.0.1:9099/auth");
 
+//Function to store the selected treatments and the assigned ordernumber in the database
 const saveOrderToDatabase = () => {
     const newOrderRef = database.ref('orders').push();
     const orderNumber = generateOrderNumber();
@@ -46,10 +50,24 @@ const saveOrderToDatabase = () => {
         console.error("Error in storing order", error);
     });
 };
-
+//Function to generate a  random Order Number for each booking
 const generateOrderNumber = () => {
     return Date.now() + Math.floor(Math.random() * 1000);
 };
+
+//Function to verify that atleast one option is selected before continuing  with the booking process
+const handleNext = () => {
+    if (checkedList.length == 0) {
+        const userConfirmed = window.confirm("Please select at least one treatment before proceeding. Click OK to go back to the Booking page.");
+        if (userConfirmed) {
+            window.location.href = "/Booking";
+        }
+    } else {
+        saveOrderToDatabase();
+        window.location.href = "/Booking2";
+    }
+};
+
 
     return (
         <div className="booking-page">
@@ -98,7 +116,7 @@ const generateOrderNumber = () => {
                 </div>
                 <div className="booking-buttons">
                 <a href="/" class="booking-cancel-button">Cancel</a>
-                <a href="/Booking2" class="booking-next-button" onClick={saveOrderToDatabase}>Next</a>
+                <a class="booking-next-button" onClick={handleNext}>Next</a>
             </div>
             </>
         </div>
