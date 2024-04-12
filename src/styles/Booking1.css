@@ -8,6 +8,7 @@
 }
 .booking-page {
     display: table;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -82,7 +83,7 @@
     padding: 0.2rem;
 }
 
-.selected{
+.selected-booking{
     font-size: 1.2rem;
     color: black;
     margin-left: 0.5rem;
@@ -151,3 +152,109 @@ input[type="checkbox"]{
   .booking-checkbox input[type="checkbox"]:checked::before {
     visibility: visible;
   }
+
+  @media screen and (max-width: 768px) {
+
+    .booking-page{
+      margin-bottom: 50%;
+    }
+    .booking-img-container {
+        display: none;
+    }
+
+    .booking-path {
+      flex-direction: column;
+      margin-left: 10%;
+      align-items: flex-start;
+      margin-top: 30%;
+      margin-left: 10%;
+
+  }
+
+    .date-label, .checkout-label, .treatment-label {
+        font-size: 16px;
+        padding: 5px 25px;
+    }
+
+    .booking-section {
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    .booking-body {
+        max-width: 100%;
+        margin-left: 0;
+
+    }
+}
+
+@media screen and (max-width: 1200px) {
+
+  .booking-page{
+    margin-bottom: 50%;
+    flex-wrap: wrap;
+  }
+  .booking-img-container {
+      display: none;
+  }
+
+  .booking-path {
+      flex-direction: column;
+      margin-left: 10%;
+      align-items: flex-start;
+      margin-top: 25%;
+      margin-left: 25%;
+
+  }
+
+  .date-label, .checkout-label, .treatment-label {
+      font-size: 20px;
+      padding: 5px 20px;
+      max-width: 100%;
+  }
+
+  .booking-section {
+      max-width: 100%;
+      margin-left: 0;
+      font-size: 16px;
+  }
+
+  .booking-body {
+      max-width: 100%;
+      margin-left: 15%;
+  }
+
+  .booking-title {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+
+  .date-label, .checkout-label, .treatment-label {
+    font-size: 20px;
+    padding: 5px 20px;
+    max-width: 100%;
+}
+
+  .booking-img-container {
+    margin-top: 15%;
+}
+
+.booking-section {
+  max-width: 50%;
+  margin-left: 10%;
+  font-size: 16px;
+}
+
+.booking-body {
+  max-width: 50%;
+  margin-left: 12%;
+
+
+}
+
+.booking-title {
+font-size: 20px;
+}
+}
