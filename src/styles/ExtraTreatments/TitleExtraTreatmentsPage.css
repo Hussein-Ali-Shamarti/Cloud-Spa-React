@@ -1,0 +1,19 @@
+/* Extra Treatments */
+body {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Boost your wellbeing with our Extra Treatments */
+.extra-treatments-title {
+    position: relative;
+    top: 100px;
+    text-align: center;
+    font-weight: 200;
+    font-size: 20px;
+    line-height: 58px;
+    color: #000000;
+}

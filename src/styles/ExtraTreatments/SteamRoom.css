@@ -1,0 +1,44 @@
+/* Steam Room block */
+.steam-room-block {
+    position: relative;
+    width: 95%;
+    height: 459px;
+    left: -10px;
+    top: 1660px;
+    background: #8EA8C3;
+}
+
+/* Steam Room image */
+.steam-room-block img {
+    position: absolute;
+    width: 536.93px;
+    height: 385px;
+    left: 80px;
+    top: 40px;
+
+}
+
+/* Steam Room header */
+.steam-room-block h2 {
+    position: relative;
+    width: 212.25px;
+    height: 43px;
+    left: 650px;
+    top: 80px;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+}
+
+/* Steam Room text-box*/ 
+.steam-room-block .text-box {
+    position: relative;
+    width: 500px;
+    height: 254px;
+    left: 650px;
+    top: 80px;
+    font-size: 20px;
+    line-height: 40px;
+    color: #FFFFFF;
+    text-align: left;
+}

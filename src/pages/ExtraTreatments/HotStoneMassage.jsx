@@ -1,6 +1,6 @@
 import React from 'react';
-import HotStoneMassageImage from '../public/assets/Pictures/hotStoneMassage.jpg';
-import '../public/assets/styles/ExtraTreatmentsPage.css';
+import HotStoneMassageImage from '../../Pictures/hotStoneMassage.jpg';
+import '../../styles/ExtraTreatments/HotStoneMassage.css';
 
 function HotStoneMassage() {
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
-import ClassicMassageImage from '../public/assets/Pictures/classicMassage.jpg';
-import '../public/assets/styles/ExtraTreatmentsPage.css';
+import ClassicMassageImage from '../../Pictures/classicMassage.jpg';
+import '../../styles/ExtraTreatments/ClassicMassage.css';
 
 function ClassicMassage() {
     return (

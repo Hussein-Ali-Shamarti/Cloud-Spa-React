@@ -19,6 +19,8 @@ import Signup from "./signup/signup";
 import SignIn from "./pages/login/signin";
 import PasswordReset from "./passwordReset/passwordReset";
 import Booking from "./pages/Booking/Booking";
+import ExtraTreatmentsPage from "./pages/ExtraTreatments/ExtraTreatmentsPage";
+
 function App() {
   useEffect(() => {
     const db = getDatabase();
@@ -56,6 +58,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/aboutUs" element={<AboutUsPage />} />
           <Route path="/ContactUs" element={<ContactPage />} />
+          <Route path="/ExtraTreatments" element={<ExtraTreatmentsPage />} />
           <Route path="/MyPage" element={<SignIn />} />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/PasswordReset" element={<PasswordReset />} />
