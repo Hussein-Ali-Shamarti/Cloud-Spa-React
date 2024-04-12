@@ -66,12 +66,14 @@
 }
 
 .booking-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 500;
     color: black;
     margin: 0;
 }
-
+.selected-booking {
+    font-size: 1.2rem;
+}
 .booking-card-body{
     padding: 1rem 1.2rem;
 }
@@ -81,23 +83,24 @@
 }
 
 .selected{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: black;
     margin-left: 0.5rem;
 }
 
 .booking-body {
     width: 100%;
+    font-size: 1.2rem;
     float: left;
     max-width: 600px; /* Adjust the width as needed */
     display: flex;
     flex-direction: column;
     align-items: left;
     margin-left: 15%;
-    line-height: 60px;
+    line-height: 75px;
 }
 
-.chip {
+.booking-chip {
     display: inline-block;
     padding: 0.3rem 0.5rem;
     background-color: #eef7fe;
@@ -105,7 +108,7 @@
     margin: 0.2rem;
 }
 
-.chip-label{
+.booking-chip-label{
     font-size: 1.2rem;
     color: #19344a;
 }
@@ -114,6 +117,39 @@ input[type="checkbox"]{
     color: #fff;
     cursor: pointer;
 }
+.booking-checkbox input[type="checkbox"] {
+    /* Change the color of the checkboxes */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid #000; /* Black border */
+    background-color: #8EA8C3;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    vertical-align: middle;
+    position: relative;
+    transition: background-color 0.3s;
+  }
+  
+  .booking-checkbox input[type="checkbox"]::before {
+    /* Change the color of the checkmark */
+    content: "\2713"; /* Checkmark character */
+    display: inline-block;
+    font-size: 25px;
+    color: #000; /* Black checkmark */
+    position: absolute;
+    top: -10px;
+    left: 1px;
+    visibility: hidden;
+  }
+  
+  .booking-checkbox input[type="checkbox"]:checked::before {
+    visibility: visible;
+  }
+  
 
 .booking-buttons {
     width: 100%;

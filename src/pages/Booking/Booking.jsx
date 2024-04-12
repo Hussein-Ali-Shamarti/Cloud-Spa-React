@@ -25,7 +25,7 @@ const Booking = () => {
             const filteredList = checkedList.filter((item) => item !== value);
             setCheckedList(filteredList);
         }
-    };
+    }
     return (
         <div className="booking-page">
         <><div className="booking-img-container">
@@ -50,7 +50,7 @@ const Booking = () => {
                         {checkedList.map((item, index) => {
                             return (
                                 <div className="booking-chip" key={index}>
-                                    <p className="chip-label">{item} </p>
+                                    <p className="booking-chip-label">{item} </p>
                                 </div>
                             );
                         })}
@@ -69,7 +69,7 @@ const Booking = () => {
                                 <label htmlFor={item.id}>{item.value}</label>
                             </div>
                         );
-                    })};
+                    })}
                 </div>
                 <div className="booking-buttons">
                 <a href="/" class="booking-cancel-button">Cancel</a>
