@@ -11,7 +11,7 @@ import Footer from '../../components/footer';
 function ExtraTreatmentsPage() {
 
     return (
-        <div>
+        <>
             <Layout />
             <TitleExtraTreatmentsPage />
             <ClassicMassage />
@@ -20,7 +20,7 @@ function ExtraTreatmentsPage() {
             <FacialTreatment />
             <SteamRoom />
             <Footer />
-        </div>
+        </>
     );
 }
 

@@ -1,41 +1,39 @@
 /* Facial Treatment block */
 .facial-treatment-block {
-    position: absolute;
+    position: relative;
     width: 1240px;
-    height: 385px;
-    left: 80px;
-    top: 1770px;
+    height: 500px;
+    left: 100px;
+    top: 40px;
 }
 
 /* Facial Treatments image */
 .facial-treatment-block img {
     position: absolute;
-    width: 575px;
-    height: 385px;
-    left: 535px;
-    top: 0;
-}
-
-/* Facial Treatment text-block*/
-.facial-treatment-block .text-box {
-    position: absolute;
-    width: 500px;
-    height: 254px;
-    left: 0;
-    top: 80px;
-    font-size: 20px;
-    line-height: 40px;
-    color: #000000;
+    max-width: 100%;
+    width: 640px;
+    height: auto;
+    left: 1070px;
 }
 
 /* Facial Treatment header */
 .facial-treatment-block h2 {
     position: absolute;
-    width: 200px;
     height: 43px;
-    left: 0;
-    top: 20px;
-    font-size: 24px;
+    top: 80px;
+    font-size: 28px;
     line-height: 29px;
     color: #000000;
 }
+
+/* Facial Treatment text-block*/
+.facial-treatment-block .text-box {
+    position: absolute;
+    width: 900px;
+    height: 254px;
+    top: 150px;
+    font-size: 25px;
+    line-height: 2;
+    color: #000000;
+}
+

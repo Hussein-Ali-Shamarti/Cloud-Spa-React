@@ -1,18 +1,19 @@
 /* Hot Stone Massage block */
 .hot-stone-massage-block {
-    position: absolute;
+    position: relative;
     width: 95%;
-    height: 459px;
-    left: 80px;
-    top: 1243px;
+    height: 500px;
+    left: 100px;
+    padding-top: 40px;
     background: #8EA8C3;
 }
 
 /* Hot Stone Massage image */
 .hot-stone-massage-block img {
     position: absolute;
-    width: 531.35px;
-    height: 380px;
+    max-width: 100%;
+    width: 640px;
+    height: auto;
     left: 20px;
     top:40px;
 }
@@ -20,11 +21,10 @@
 /* Hot Stone Massage header */
 .hot-stone-massage-block h2 {
     position: absolute;
-    width: 257px;
     height: 43px;
-    left: 585px;
-    top: 60px;
-    font-size: 24px;
+    left: 720px;
+    top: 80px;
+    font-size: 28px;
     line-height: 29px;
     color: #FFFFFF;
 }
@@ -32,11 +32,11 @@
 /* Hot Stone Massage text-block*/
 .hot-stone-massage-block .text-box {
     position: absolute;
-    width: 500px;
+    width: 900px;
     height: 254px;
-    left: 585px;
-    top: 120px;
-    font-size: 20px;
-    line-height: 40px;
+    left: 720px;
+    top: 150px;
+    font-size: 25px;
+    line-height: 2;
     color: #FFFFFF;
 }

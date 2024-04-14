@@ -2,43 +2,42 @@
 .steam-room-block {
     position: relative;
     width: 95%;
-    height: 459px;
-    left: -10px;
-    top: 1660px;
+    height: 500px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     background: #8EA8C3;
 }
 
 /* Steam Room image */
 .steam-room-block img {
     position: absolute;
-    width: 536.93px;
-    height: 385px;
-    left: 80px;
+    max-width: 100%;
+    width: 640px;
+    height: auto;
+    left: 100px;
     top: 40px;
 
 }
 
 /* Steam Room header */
 .steam-room-block h2 {
-    position: relative;
-    width: 212.25px;
+    position: absolute;
     height: 43px;
-    left: 650px;
+    left: 800px;
     top: 80px;
-    font-size: 24px;
+    font-size: 28px;
     line-height: 29px;
     color: #FFFFFF;
 }
 
 /* Steam Room text-box*/ 
 .steam-room-block .text-box {
-    position: relative;
-    width: 500px;
+    position: absolute;
+    width: 900px;
     height: 254px;
-    left: 650px;
-    top: 80px;
-    font-size: 20px;
-    line-height: 40px;
+    left: 800px;
+    top: 150px;
+    font-size: 25px;
+    line-height: 2;
     color: #FFFFFF;
-    text-align: left;
 }
