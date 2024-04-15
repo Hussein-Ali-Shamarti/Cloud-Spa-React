@@ -5,8 +5,8 @@ import React from "react";
 const AboutUs = () => {
   return (
     <section>
-      <div id="about-us-section">
-        <div className="about-us-content">
+      <div className="home-about-us-section">
+        <div className="home-about-us-content">
           <h2>About Us</h2>
           <p>
             Our expert therapists provide personalized experiences for your
@@ -14,12 +14,12 @@ const AboutUs = () => {
           </p>
           <a
             href="link-to-more-information.html"
-            className="read-more-button-for-about-us"
+            className="home-read-more-button-for-about-us"
           >
             Read more...
           </a>
         </div>
-        <div className="about-us-image">
+        <div className="home-about-us-image">
           <img src={aboutUs} alt="Hands holding a flower" />
         </div>
       </div>

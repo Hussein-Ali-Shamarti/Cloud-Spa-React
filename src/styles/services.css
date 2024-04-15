@@ -59,7 +59,6 @@
 
 .service-card,
 .service-info {
-  /*scroll-snap-align: start; /* Optional: Works with scroll-snap-type */
   width: 240px; /* Fixed width for each card */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
@@ -121,6 +120,7 @@
 }
 .services-wrapper {
   padding: 0 40px;
+  align-items: center;
 }
 .prev-arrow {
   left: 3%;

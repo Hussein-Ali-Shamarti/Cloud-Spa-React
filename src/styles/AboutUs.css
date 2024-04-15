@@ -1,4 +1,4 @@
-#about-us-section {
+.home-about-us-section {
   display: flex;
   align-items: center;
   background-color: #8ea8c3;
@@ -9,24 +9,24 @@
   margin-bottom: 90px;
 }
 
-.about-us-content {
-  flex: 1; /* Flex value to take up only necessary space */
+.home-about-us-content {
+  flex: 1;
 }
 
-.about-us-content h2,
-.about-us-content p {
+.home-about-us-content h2,
+.home-about-us-content p {
   color: #ffffff;
   margin-bottom: 20px;
   text-align: left;
   font-family: "Inter";
 }
 
-.about-us-content h2 {
+.home-about-us-content h2 {
   font-weight: 400;
   font-size: 48px;
 }
 
-.about-us-content p {
+.home-about-us-content p {
   font-size: 30px;
   line-height: 70px;
   margin-top: 20px;
@@ -35,60 +35,49 @@
   font-weight: 300;
 }
 
-.read-more-button-for-about-us {
-  align-self: flex-start;
+.home-read-more-button-for-about-us {
+  align-self: center;
   padding: 10px 20px;
   color: #000;
   text-decoration: none;
   border-radius: 5px;
-  margin-top: -20px;
+  margin-top: 20px;
   background-color: #cbf7ed;
 }
 
-.about-us-image {
+.home-about-us-image {
   width: 550px;
+  order: 2;
 }
 
-.about-us-image img {
+.home-about-us-image img {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
 
-@media screen and (max-width: 1041px) {
-  #about-us-section {
+@media screen and (max-width: 1043px) {
+  .home-about-us-section {
     flex-direction: column;
     padding: 40px;
-    height: auto;
+    align-items: center;
   }
 
-  .about-us-content,
-  .about-us-image {
+  .home-about-us-content {
     width: 100%;
-  }
-
-  .about-us-content h2 {
-    font-size: 36px;
-    margin-bottom: 16px;
     text-align: center;
+    margin-right: 0;
+    margin-bottom: 20px;
   }
 
-  .about-us-content p {
-    font-size: 20px;
-    line-height: 30px;
-    height: auto;
-  }
-
-  .read-more-button-for-about-us {
+  .home-read-more-button-for-about-us {
     align-self: center;
-    margin-top: 20px;
+    order: 3;
   }
 
-  .about-us-image img {
-    width: auto; /* Allow the image to scale down */
-    height: auto; /* Adjust the height automatically */
-  }
-  .about-us-image {
-    order: 2;
+  .home-about-us-image {
+    max-width: 30%;
+    margin-top: 20px;
+    order: 1;
   }
 }
