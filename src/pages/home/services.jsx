@@ -114,8 +114,8 @@ const Services = () => {
               )}
             </div>
           </div>
-          <BiSolidLeftArrow className="prev-arrow" onClick={handlePrev} />
-          <BiSolidRightArrow className="next-arrow" onClick={handleNext} />
+          {/* <BiSolidLeftArrow className="prev-arrow" onClick={handlePrev} /> */}
+          {/* <BiSolidRightArrow className="next-arrow" onClick={handleNext} /> */}
         </div>
 
         <div className="read-more-container">
