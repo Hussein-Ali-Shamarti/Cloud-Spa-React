@@ -56,7 +56,7 @@
 
   scroll-snap-type: x mandatory; /* Optional: Enables snap scrolling for each card */
 }
-        
+
 .service-card,
 .service-info {
   /*scroll-snap-align: start; /* Optional: Works with scroll-snap-type */

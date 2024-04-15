@@ -1,0 +1,119 @@
+/* Wrapper styles specific to SignUp */
+.signup-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Adjusted to accommodate different header sizes */
+  background: linear-gradient(to right, #161925, #23395b, #406e8e, #8ea8c3);
+  padding-top: 60px; /* Adjusted for header height, modify as needed */
+  box-sizing: border-box;
+}
+
+/* Form box styling specific to SignUp */
+.signup-form-box {
+  width: 100%; /* Allows responsiveness */
+  max-width: 300px; /* Maximum width */
+  padding: 20px;
+  background: #23395b;
+  box-shadow: 0 0 10px #161925;
+  border-radius: 8px;
+  color: #ffffff;
+  margin: 0 20px; /* Margin on the sides for small devices */
+}
+
+/* Heading specific to SignUp */
+.signup-form-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Input box styles specific to SignUp */
+.signup-input-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.signup-input-box input {
+  width: 100%;
+  padding: 10px;
+  padding-left: 35px;
+  border: 1px solid #406e8e;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #23395b;
+}
+
+.signup-input-box input:focus {
+  border-color: #161925;
+  outline: none;
+}
+
+.signup-input-box .icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #23395b;
+}
+
+.signup-input-box label {
+  font-size: 12px;
+  color: #ffffff;
+  margin-top: 5px;
+}
+
+/* Button styling specific to SignUp */
+.signup-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #cbf7ed;
+  border: none;
+  border-radius: 4px;
+  color: #23395b;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.signup-btn:hover {
+  background-color: #ffffff;
+}
+
+/* Link styles specific to SignUp */
+.signup-form-box a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.signup-form-box a:hover {
+  text-decoration: underline;
+}
+
+.signup-form-box p {
+  text-align: center;
+  color: #ffffff;
+  margin-top: 16px;
+}
+
+/* Responsive adjustments for various screens */
+@media (max-width: 992px) {
+  .signup-wrapper {
+    padding-top: 50px; /* Slightly less padding */
+  }
+}
+
+@media (max-width: 800px) {
+  .signup-wrapper {
+    padding-top: 40px; /* Even less padding */
+    align-items: flex-start; /* Start alignment to prevent overlap */
+  }
+
+  .signup-form-box {
+    margin: 0 15px; /* Adjust margin */
+  }
+}
+
+@media (max-width: 772px) {
+  .signup-wrapper {
+    padding-top: 30px; /* Minimal padding to avoid overlap */
+  }
+}

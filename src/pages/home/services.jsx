@@ -1,75 +1,44 @@
+import React, { useState, useEffect, useRef } from "react";
+import { getDatabase, ref, get } from "firebase/database";
+import { BiSolidLeftArrow, BiSolidRightArrow } from "react-icons/bi";
 import morningAwakeningSpa from "../../Pictures/morningAwakeningSpa.jpg";
 import daytimeSpa from "../../Pictures/daytimeSpa.jpg";
 import afternoonSpa from "../../Pictures/afternoonSpa.jpg";
-import evningSpa from "../../Pictures/eveningSpa.jpg";
+import eveningSpa from "../../Pictures/eveningSpa.jpg";
 import nightSpa from "../../Pictures/booking1.jpg";
-import { BiSolidLeftArrow } from "react-icons/bi";
-import { BiSolidRightArrow } from "react-icons/bi";
-import { useState, useEffect, useRef } from "react";
 import "../../styles/services.css";
-import { getDatabase, ref, onValue, get, push } from "firebase/database";
 import "../../../src/firebase-config";
-import React from "react";
 
-// Read data from the root of your database and log it
 const db = getDatabase();
 
-const fetchTestValue = () => {
-  const testRef = ref(db, "/"); // Adjust the path according to your database structure
-
-  get(testRef)
-    .then((snapshot) => {
-      if (snapshot.exists()) {
-        console.log(snapshot.val()); // Logs the value of 'test'
-      } else {
-        console.log("No data available at ow_drop_down/test");
-      }
-    })
-    .catch((error) => {
-      console.error("Failed to fetch data:", error);
-    });
+const imageName = (title) => {
+  switch (title) {
+    case "Morning Awakening Spa":
+      return morningAwakeningSpa;
+    case "Daytime Spa":
+      return daytimeSpa;
+    case "Afternoon Spa":
+      return afternoonSpa;
+    case "Evening Spa":
+      return eveningSpa;
+    case "Night Spa":
+      return nightSpa;
+    default:
+      return eveningSpa;
+  }
 };
 
-function imageName(Title) {
-  let img = "";
-  switch (Title) {
-    case "Morning Awakening Spa":
-      return (img = morningAwakeningSpa);
-    case "Daytime Spa":
-      return (img = daytimeSpa);
-    case "Afternoon Spa":
-      return (img = afternoonSpa);
-    case "Evening Spa":
-      return (img = evningSpa);
-    case "Night Spa":
-      return (img = nightSpa);
-    default:
-      return (img = evningSpa);
-  }
-}
 const Services = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const sliderRef = useRef(null);
   const [services, setServices] = useState([]);
 
-  function getServices() {
-    const db = getDatabase();
+  useEffect(() => {
     const servicesRef = ref(db, "services");
-
-    // Check if 'services' node exists
     get(servicesRef)
       .then((snapshot) => {
         if (snapshot.exists()) {
-          const servicesData = [];
-          snapshot.forEach((childSnapshot) => {
-            const service = childSnapshot.val(); // Get the actual data
-            servicesData.push(service); // Add it to the servicesData array
-          });
-          // Assuming `services` is initially an object with Firebase-generated keys
-          const servicesArray = Object.values(servicesData);
-
-          setServices(servicesArray); // Update your state with the services data
-          console.log("Lagt til", servicesData);
+          setServices(Object.values(snapshot.val() || {}));
         } else {
           console.log("No services data available.");
         }
@@ -77,37 +46,34 @@ const Services = () => {
       .catch((error) => {
         console.error("Error fetching services data:", error);
       });
-  }
-
-  useEffect(() => {
-    getServices();
   }, []);
 
-  const handleNext = () => {
-    sliderRef.current &&
-      setCurrentIndex((prevIndex) => {
-        const totalCards =
-          sliderRef.current.querySelectorAll(".service-card").length;
-        let nextIndex = prevIndex < totalCards - 3 ? prevIndex + 1 : 0;
-        return nextIndex;
-      });
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : 0));
-  };
-
-  useEffect(() => {
-    fetchTestValue();
-    if (sliderRef.current) {
-      const serviceCard = sliderRef.current.querySelector(".service-card");
-      if (serviceCard) {
-        const cardWidth = serviceCard.clientWidth;
-        const newTransformValue = -(cardWidth * currentIndex);
+  const updateTransform = () => {
+    if (sliderRef.current && services.length > 0) {
+      const cards = sliderRef.current.querySelectorAll(".service-card");
+      const targetCard = cards[currentIndex];
+      if (targetCard) {
+        const newTransformValue = -targetCard.offsetLeft;
         sliderRef.current.style.transform = `translateX(${newTransformValue}px)`;
       }
     }
-  }, [currentIndex, services]);
+  };
+
+  useEffect(updateTransform, [currentIndex, services.length]);
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => {
+      const newIndex = (prevIndex + 1) % services.length;
+      return newIndex;
+    });
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => {
+      const newIndex = prevIndex === 0 ? services.length - 1 : prevIndex - 1;
+      return newIndex;
+    });
+  };
 
   return (
     <>

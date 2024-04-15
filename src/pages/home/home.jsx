@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import AboutUs from "./aboutUs";
 import Footer from "../../components/footer";
 import HomePagePicture from "../../Pictures/homePage.jpg";
@@ -9,8 +10,7 @@ import EventCalendar from "./eventCalendar";
 import ExtraTreatments from "./extraTreatments";
 import Services from "./services";
 import "../../styles/home.css";
-import React from "react";
-import { useEffect, useState } from "react";
+
 const images = [
   HomePagePicture,
   HomePagePicture2,
@@ -20,17 +20,37 @@ const images = [
 ];
 
 const HomePage = () => {
-  const [currentImage, setCurrentImage] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
   useEffect(() => {
+    const preloadImages = images.map((image) => {
+      const img = new Image();
+      img.src = image;
+      return img;
+    });
+
     const intervalId = setInterval(() => {
-      setCurrentImage(images[Math.floor(Math.random() * images.length)]);
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 5000);
-    return () => clearInterval(intervalId);
+
+    return () => {
+      clearInterval(intervalId);
+    };
   }, []);
+
   return (
     <>
       <div className="home-image-container">
-        <img src={currentImage} alt="Cloud Spa" className="background-image" />
+        {images.map((image, index) => (
+          <img
+            key={image}
+            src={image}
+            alt={`Cloud Spa ${index + 1}`}
+            className={`background-image ${
+              index === currentImageIndex ? "visible" : "hidden"
+            }`}
+          />
+        ))}
         <div className="centered-text">Cloud Spa</div>
         <div className="subtitle-text">
           Welcome to your oasis in the clouds.

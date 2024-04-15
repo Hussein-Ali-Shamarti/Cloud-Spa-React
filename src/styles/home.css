@@ -11,33 +11,33 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  /*background: url(background1.jpeg) no-repeat;*/
   background-size: cover;
   background-position: center;
 }
 
 .home-image-container {
+  width: 100%;
   position: relative;
   text-align: center;
-  width: 100vw; /* Ensure the container is full viewport width */
-  overflow: hidden; /* Hides any overflow which can include white spaces */
   color: white;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  height: 700px; /*størrelse på bildene*/
 }
 
 .background-image {
-  animation: fadeIn 5s;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.hidden {
+  opacity: 0;
 }
 
 .centered-text {
@@ -60,17 +60,26 @@ body {
 
 @media (max-width: 651px) {
   .subtitle-text {
-    top: 65%; /* Adjust the percentage to control the spacing */
+    top: 65%;
   }
 }
 
 @media (max-width: 846px) {
   .background-image {
-    width: 100vw; /* Full viewport width */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover; /* Cover the container, cropping as needed */
-    position: relative; /* Changed from absolute to relative */
-    left: 0; /* Reset position adjustments */
-    top: 0;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 466px) {
+  .centered-text {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  .subtitle-text {
+    font-size: 14px;
+    top: 55%;
+    padding: 0 10px;
+    line-height: 1.2;
   }
 }

@@ -1,44 +1,42 @@
-{
-  "services": {
-    "-NuBc4c2h93Wt0Z2d04r": {
-      "Title": "Morning Awakening Spa",
-      "age": 16,
-      "endtime": "16:00",
-      "included": " Spa/gym access, snacks, daily spa activities, tea & water, complimentary use of bathrobe and slippers.",
-      "price": "500",
-      "startTime": "07:00"
-    },
-    "-NuBc4c51WgP6X3zz72i": {
-      "Title": "Daytime Spa",
-      "age": 16,
-      "endtime": "15:00",
-      "included": " Spa/gym access, snacks, daily spa activities, tea & water, complimentary use of bathrobe and slippers.",
-      "price": "500",
-      "startTime": "10:00"
-    },
-    "-NuBc4c51WgP6X3zz72j": {
-      "Title": "Afternoon Spa",
-      "age": 16,
-      "endtime": "18:00",
-      "included": " Spa/gym access, snacks, daily spa activities, tea & water, complimentary use of bathrobe and slippers.",
-      "price": "500",
-      "startTime": "14:00"
-    },
-    "-NuBc4c51WgP6X3zz72k": {
-      "Title": "Evening Spa",
-      "age": 16,
-      "endtime": "18:00",
-      "included": " Spa/gym access, snacks, daily spa activities, tea & water, complimentary use of bathrobe and slippers.",
-      "price": "500",
-      "startTime": "14:00"
-    },
-    "-NuBc4c6CYY2w8OI0loo": {
-      "Title": "Night Spa",
-      "age": 16,
-      "endtime": "18:00",
-      "included": " Spa/gym access, snacks, daily spa activities, tea & water, complimentary use of bathrobe and slippers.",
-      "price": "500",
-      "startTime": "14:00"
-    }
+[
+  {
+    "Title": "Morning Awakening Spa",
+    "age": 16,
+    "endtime": "16:00",
+    "included": "noe",
+    "price": "500",
+    "startTime": "07:00"
+  },
+  {
+    "Title": "Daytime Spa",
+    "age": 16,
+    "endtime": "15:00",
+    "included": "noe",
+    "price": "500",
+    "startTime": "10:00"
+  },
+  {
+    "Title": "Afternoon Spa",
+    "age": 16,
+    "endtime": "18:00",
+    "included": "noe",
+    "price": "500",
+    "startTime": "14:00"
+  },
+  {
+    "Title": "Evening Spa",
+    "age": 16,
+    "endtime": "18:00",
+    "included": "noe",
+    "price": "500",
+    "startTime": "14:00"
+  },
+  {
+    "Title": "Night Spa",
+    "age": 16,
+    "endtime": "18:00",
+    "included": "noe",
+    "price": "500",
+    "startTime": "14:00"
   }
-}
+]

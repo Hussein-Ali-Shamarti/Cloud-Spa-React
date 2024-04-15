@@ -1,0 +1,99 @@
+/* Wrapper styles */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #161925, #23395b, #406e8e, #8ea8c3);
+}
+
+/* Form box styling */
+.form-box {
+  width: 300px;
+  padding: 20px;
+  background: #23395b; /* Lighter blue from the palette */
+  box-shadow: 0 0 10px #161925; /* Dark blue for shadow to add depth */
+  border-radius: 8px;
+  color: #ffffff; /* Contrast color for text */
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Input box styles */
+.input-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px;
+  padding-left: 35px;
+  border: 1px solid #406e8e; /* Medium blue for border */
+  border-radius: 4px;
+  background-color: #ffffff; /* Lightest blue for input background */
+  color: #23395b; /* Contrast color for input text */
+}
+
+.input-box input:focus {
+  border-color: #161925; /* Darkest blue for focus */
+  outline: none;
+}
+
+.input-box .icon {
+  position: absolute;
+  left: 10px;
+  top: 39%;
+  transform: translateY(-50%);
+  color: #23395b; /* Darkest blue for icons */
+}
+
+.input-box label {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Button styling */
+.btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #cbf7ed; /* Dark blue for button */
+  border: none;
+  border-radius: 4px;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #ffffff; /* Even darker on hover */
+}
+
+/* Link styles for forgot password and sign up */
+.remember-forgot,
+.login-register {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.remember-forgot label input {
+  margin-right: 5px;
+}
+
+a {
+  color: #ffffff; /* Medium blue for links */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.login-register p {
+  color: #ffffff;
+}

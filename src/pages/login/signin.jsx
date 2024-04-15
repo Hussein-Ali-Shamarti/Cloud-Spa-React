@@ -5,16 +5,17 @@ import {
   connectAuthEmulator
 } from "firebase/auth";
 import "firebase/auth";
-import "../../../src/firebase-config";
+import "../../firebase-config";
 import { useState } from "react";
+import "../../styles/SignIn.css";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   return (
     <div className="wrapper">
-      <div className="form-box login " style={{ marginTop: "300px" }}>
-        <h2>login</h2>
+      <div className="form-box login ">
+        <h2>Login</h2>
         <form>
           <div className="input-box">
             <span className="icon">
@@ -51,7 +52,7 @@ const SignIn = () => {
           <div className="login-register">
             <p>
               Don't have an account yet?
-              <a href="/Signup" className="register-link">
+              <a href="/SignUp" className="register-link">
                 Create one now.
               </a>
             </p>
