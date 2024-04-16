@@ -16,7 +16,7 @@
 
 .booking-img-container {
     float: right;
-    flex: 0 0 auto;
+    flex: 1 0 10rem;
     position: relative;
     margin-right: 20px;
     width: 100%;
