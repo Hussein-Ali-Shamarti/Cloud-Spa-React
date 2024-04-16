@@ -1,4 +1,5 @@
 import CloudSpaTransaprent from "../Pictures/CloudSpaTransaprent.png";
+import CloudLogoTransparent from "../Pictures/CloudSpaTransparent2.png";
 import { useState } from "react";
 import React from "react";
 import { redirect, Route, useNavigate } from "react-router-dom";
@@ -22,7 +23,7 @@ const Layout = () => {
     <header>
       <nav className="navigation">
         <a href="/" className="logo-container">
-          <img src={CloudSpaTransaprent} alt="imagelogo" className="logoo" />
+          <img src={CloudLogoTransparent} alt="imagelogo" className="logoo" />
         </a>
 
         <div className={`nav-items ${toggle ? "open" : ""}`}>

@@ -4,6 +4,7 @@
   padding-top: 20px;
   font-weight: 300;
   text-align: center;
+  font-size: 44px;
 }
 
 .our-services {
@@ -25,9 +26,6 @@
   position: relative;
 }
 
-/*.services-wrapper {
-  overflow-x: scroll;
-}*/
 
 .services-slider {
   display: inline-flex;

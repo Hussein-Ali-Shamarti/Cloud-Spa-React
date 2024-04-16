@@ -1,0 +1,52 @@
+.Clip-Card-container {
+    position: relative;
+  }
+  
+    .Clip-Card-container img {
+      width: 80%;
+      height: auto;
+      max-height: 80vh;
+      margin-left: 100px;
+      margin-right: 100px;
+    }
+
+    .ClipCard-info{
+      
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      width: 400px;
+      height: 250px; ;
+      bottom: 60px; /* Avstand fra bunnen av bildet */
+      left: 180px; /* Avstand fra venstre side av bildet */
+      background-color: #23395b; /* Farget boks med gjennomsiktig farge */
+      padding: 20px;
+    }
+
+    .ClipCard-title, .ClipCard-text-box{
+      color: #ffffff;
+      text-align: center;
+      font-family: "Inter", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    /*margin-bottom: 10px;*/
+    }
+
+    .BuyCC-btn{
+      padding: 10px 20px;
+      /*margin-top: 20px;*/
+      background: #ffffff;
+      color: #000;
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+      font-family: "Inter", sans-serif;
+      font-weight: 600;
+  }
+  
+    .BuyCC-btn:hover {
+      background: #b2dfdb;
+  }

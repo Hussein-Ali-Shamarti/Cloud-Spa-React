@@ -1,12 +1,13 @@
 import CloudSpaTransparent from "../Pictures/CloudSpaTransaprent.png";
-import React from 'react';
+import CloudLogoTransparent from "../Pictures/CloudSpaTransparent2.png";
+import React from "react";
 
 const Footer = () => {
   return (
     <section>
       <footer className="flex-container">
         <div className="box1 box">
-          <img src={CloudSpaTransparent} alt="" />
+          <img src={CloudLogoTransparent} alt="" />
           <ul className="subpages listItems">
             <li>
               <a href="#index.html"> Home</a>

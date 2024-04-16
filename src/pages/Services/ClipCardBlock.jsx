@@ -1,13 +1,13 @@
 import React from "react";
 import clipCardEntrance from "../../Pictures/clipCardEntrance.jpg";
-import "../../styles/SErvices/ClipCardBlock.css";
+import "../../styles/Services/ClipCardBlock.css";
 
 const ClipCardBlock = () => {
   return (
-    <div>
+    <div className= "Clip-Card-Container">
       <img src={clipCardEntrance} alt="Clip Card Entrance" />
-      <div className="clipCard-info">
-        <h4 className="Clipcard-title">Clip Card for Spa Entrance</h4>
+      <div className="ClipCard-info">
+        <h4 className="ClipCard-title">Clip Card for Spa Entrance</h4>
         {"\n"}
         <p className="ClipCard-text-box">
           INCLUDED: Spa/gym access, daily spa activities, tea & water,
@@ -15,7 +15,7 @@ const ClipCardBlock = () => {
         </p>
         {"\n"}
         <button className="BuyCC-btn">Buy Clip Card</button>
-        <button className="book-btn">Book Entrance</button>
+        <button className="bookE-btn">Book Entrance</button>
       </div>
     </div>
   );
