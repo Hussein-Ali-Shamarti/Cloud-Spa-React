@@ -10,7 +10,10 @@
 }
 
 #extra-treatments .container h2 {
-  margin-bottom: 30px;
+  padding-top: 20px;
+  font-weight: 300;
+  text-align: center;
+  font-size: 44px;
 }
 
 #extra-treatments .treatments-content {
