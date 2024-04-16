@@ -1,6 +1,6 @@
 import React from "react";
 import fullDaySpa from "../../Pictures/fullDaySpa.jpg";
-import "../../styles/SErvices/FdsBlock.css";
+import "../../styles/Services/FdsBlock.css";
 
 const FdsBlock = () => {
   return (
