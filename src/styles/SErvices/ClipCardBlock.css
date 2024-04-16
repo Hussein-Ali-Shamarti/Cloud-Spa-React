@@ -1,8 +1,8 @@
-.Clip-Card-container {
+.Clip-Card-Container {
     position: relative;
   }
   
-    .Clip-Card-container img {
+    .Clip-Card-Container img {
       width: 80%;
       height: auto;
       max-height: 80vh;

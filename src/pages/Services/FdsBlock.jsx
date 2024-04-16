@@ -5,10 +5,10 @@ import "../../styles/Services/FdsBlock.css";
 const FdsBlock = () => {
   return (
     <div className="full-day-spa-container">
-      <img src={fullDaySpa} alt="Full-day Spa Retreat" />
+      <img src={fullDaySpa} alt="Full day Spa Retreat" />
 
       <div className="FDS-info">
-        <h4 className="FDS-title">Full-Day Spa Retreat</h4>
+        <h4 className="FDS-title">Full Day Spa Retreat</h4>
         {"\n"}
 
         <p className="FDS-text-box">
