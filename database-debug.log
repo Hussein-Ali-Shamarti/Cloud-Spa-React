@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 14:04:47.094 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
 14:04:47.220 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
 14:04:52.354 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - cloudspa-262a4-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 100ms, init: 0ms
@@ -12,3 +13,5 @@ the firebase.json emulators config.
 14:30:21.020 [NamespaceSystem-akka.actor.default-dispatcher-24] INFO com.firebase.core.namespace.NamespaceActor - stopped namespace actor for 127
 14:30:21.020 [NamespaceSystem-akka.actor.default-dispatcher-32] INFO com.firebase.core.namespace.NamespaceActor - stopped namespace actor for cloudspa-262a4-default-rtdb
 14:30:21.023 [Thread-0] INFO com.firebase.server.forge.App$ - Graceful shutdown complete.
+=======
+>>>>>>> 74258c9e06cd004a7f8c697b4e02a9aaf3a52456
