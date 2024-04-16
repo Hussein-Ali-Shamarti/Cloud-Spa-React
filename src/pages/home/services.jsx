@@ -80,38 +80,31 @@ const Services = () => {
       <section className="our-services">
         <div className="container">
           <h2>Our Services</h2>
-          <div className="services-wrapper">
+          <div className="services-wrapper" style={{ alignItems: "center" }}>
             <div className="services-slider" ref={sliderRef}>
-              {services.map(
-                (
-                  service,
-                  index // Note the corrected usage here
-                ) => (
-                  <div className="service-card" key={index}>
-                    <div className="service-image" data-title={service.Title}>
-                      <img
-                        src={imageName(service.Title)}
-                        alt="Morning Awakening Spa"
-                      />
-                    </div>
-                    <div className="service-info">
-                      <h5 className="service-title">{service.Title}</h5>
-                      <p className="service-time">
-                        From {service.startTime} to {service.endtime}
-                        <br />
-                        {service.age} years age restriction at the spa
-                      </p>
-                      <p className="service-includes">
-                        INCLUDED: {service.included}
-                      </p>
-                      <p className="service-price">
-                        Just for {service.price}kr
-                      </p>
-                      <button className="service-book-btn">Book now</button>
-                    </div>
+              {services.map((service, index) => (
+                <div className="service-card" key={index}>
+                  <div className="service-image" data-title={service.Title}>
+                    <img
+                      src={imageName(service.Title)}
+                      alt="Morning Awakening Spa"
+                    />
                   </div>
-                )
-              )}
+                  <div className="service-info">
+                    <h5 className="service-title">{service.Title}</h5>
+                    <p className="service-time">
+                      From {service.startTime} to {service.endtime}
+                      <br />
+                      {service.age} years age restriction at the spa
+                    </p>
+                    <p className="service-includes">
+                      INCLUDED: {service.included}
+                    </p>
+                    <p className="service-price">Just for {service.price}kr</p>
+                    <button className="service-book-btn">Book now</button>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
           {/* <BiSolidLeftArrow className="prev-arrow" onClick={handlePrev} /> */}
