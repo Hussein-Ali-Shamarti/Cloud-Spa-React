@@ -15,6 +15,7 @@ import "../src/firebase-config";
 import spaServices from "../src/services.json"; // Assuming this is a JSON file now
 import AboutUsPage from "./pages/AboutUs/AboutUsPage";
 import ContactPage from "./pages/ContactUs/ContactPage";
+import ServicePage from "./pages/Services/ServicePage";
 import Signup from "./signup/SignUp";
 import SignIn from "./pages/login/SignIn";
 import PasswordReset from "./passwordReset/passwordReset";
@@ -63,6 +64,7 @@ function App() {
           <Route path="/Signup" element={<Signup />} />
           <Route path="/PasswordReset" element={<PasswordReset />} />
           <Route path="/booking" element={<Booking />} />
+          <Route path="/Services" element={<ServicePage />} />
         </Routes>
         <Layout />
       </BrowserRouter>
