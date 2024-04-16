@@ -1,9 +1,7 @@
 import Booking1 from "../../Pictures/booking1.jpg";
 import React, { useState } from "react";
 import { getAuth, connectAuthEmulator } from "firebase/auth";
-import { database } from "../../../src/firebase-config.js";
-import "firebase/auth";
-import "../../../src/firebase-config.js";
+import { database, ref, push, set } from "../../../src/firebase-config.js";
 import Layout from "../../components/layout";
 import "../../styles/Booking1.css";
 import "../../styles/BookingButtons.css";
@@ -34,17 +32,18 @@ const Booking = () => {
     }
   };
   const auth = getAuth();
+if (process.env.NODE_ENV === "development") {
   connectAuthEmulator(auth, "http://127.0.0.1:9099/auth");
+}
 
   //Function to store the selected treatments and the assigned ordernumber in the database
   const saveOrderToDatabase = () => {
-    const newOrderRef = database.ref("orders").push();
+    const newOrderRef = push(ref(database, "orders"));
     const orderNumber = generateOrderNumber();
-    newOrderRef
-      .set({
-        orderNumber: orderNumber,
-        selectedTreatments: checkedList
-      })
+    set(newOrderRef, {
+      orderNumber: orderNumber,
+      selectedTreatments: checkedList
+    })
       .then(() => {
         console.log("Order stored successfully!");
       })
