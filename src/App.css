@@ -91,12 +91,36 @@ header {
   top: 15px;
   z-index: 102;
 }
-
 @media (max-width: 1372px) {
+  header {
+    padding: 5px 10px;
+  }
+
+  .logoo {
+    max-height: 70px;
+  }
+
+  .navigation {
+    padding: 0;
+  }
+
+  .navigation a {
+    font-size: 0.9em;
+    margin: 8px 10px;
+  }
+
+  .navigation .btnLogin-popup {
+    font-size: 0.9em;
+    padding: 8px 10px;
+    margin: 8px;
+    width: auto;
+    height: auto;
+  }
+
   .hamburger {
     display: block;
-    right: 20px;
-    top: 15px;
+    right: 10px;
+    top: 5px;
   }
 
   .nav-items {
@@ -120,16 +144,7 @@ header {
 
   .nav-items.open ~ .close-nav-items {
     display: block;
-    right: 20px;
-  }
-
-  .navigation {
-    flex-direction: column;
-  }
-
-  .navigation .btnLogin-popup,
-  .navigation a {
-    margin: 10px 0;
+    right: 10px;
   }
 }
 
