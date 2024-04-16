@@ -16,8 +16,8 @@ import spaServices from "../src/services.json"; // Assuming this is a JSON file 
 import AboutUsPage from "./pages/AboutUs/AboutUsPage";
 import ContactPage from "./pages/ContactUs/ContactPage";
 import ServicePage from "./pages/Services/ServicePage";
-import Signup from "./signup/SignUp";
-import SignIn from "./pages/login/SignIn";
+import Signup from "./signup/signup";
+import SignIn from "./pages/login/signin";
 import PasswordReset from "./passwordReset/passwordReset";
 import Booking from "./pages/Booking/Booking";
 import ExtraTreatmentsPage from "./pages/ExtraTreatments/ExtraTreatmentsPage";
