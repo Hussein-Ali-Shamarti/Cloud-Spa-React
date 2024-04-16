@@ -4,6 +4,7 @@ import "../../styles/Services/ClipCardBlock.css";
 
 const ClipCardBlock = () => {
   return (
+    <div class="container">
     <div className= "Clip-Card-Container">
       <img src={clipCardEntrance} alt="Clip Card Entrance" />
       <div className="ClipCard-info">
@@ -15,7 +16,8 @@ const ClipCardBlock = () => {
         </p>
         {"\n"}
         <button className="BuyCC-btn">Buy Clip Card</button>
-        <button className="bookE-btn">Book Entrance</button>
+        <button className="BookE-btn">Book Entrance</button>
+      </div>
       </div>
     </div>
   );
