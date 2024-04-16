@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+  }
+  
+  body, h1, h2, p, a, input, textarea, button {
+    font-family: "Inter";
+    margin: 0;
+    padding: 0;
+  }
+
+.contact-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #ffffff;
+  }
+  
+  .contact-image {
+    margin-bottom: 10px;
+  }
+  
+  .contact-image img {
+    width: 400px;
+    height: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+  }
+  
+  .contact-info {
+    padding: 20px;
+    color: #000000;
+  }
+  
+  .contact-info h1 {
+    font-size: 45px;
+    margin-bottom: 0.5em;
+  }
+  
+  .contact-info p {
+    font-size: 20px;
+    margin-bottom: 1.5em;
+  }
+  
+  .contact-info a {
+    text-decoration: none;
+    color: #000000;
+  }
+  
+  .contact-info a:hover {
+    text-decoration: underline;
+  }
+  

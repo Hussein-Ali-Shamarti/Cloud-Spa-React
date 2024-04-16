@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "../../styles/AboutUs/ContactPage.css";
+import "../../styles/ContactUs/ContactContainer.css";
 
 const ContactContainer = () => {
   useEffect(() => {

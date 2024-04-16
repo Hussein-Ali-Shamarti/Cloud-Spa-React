@@ -1,6 +1,6 @@
 import React from "react";
 import openingHoursImage from "../Pictures/openingHours.jpg";
-import "../styles/AboutUs/ContactPage.css";
+import "../styles/ContactUs/OpeningHours.css";
 
 const OpeningHours = () => {
   return (

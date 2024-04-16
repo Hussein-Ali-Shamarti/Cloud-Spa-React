@@ -1,3 +1,5 @@
+/*
+
 * {
   margin: 0;
   padding: 0;
@@ -31,6 +33,7 @@ header {
 
 /* Main contact sections */
 
+/*
 .contact-section {
   display: flex;
   justify-content: space-between;
@@ -51,8 +54,10 @@ header {
   margin-right: auto;
   margin-top: 100px;
 }
+*/
 
 /* Contact Info Section */
+/*
 .contact-info {
   font-family: "Inter", sans-serif;
   padding: 20px;
@@ -78,8 +83,9 @@ header {
 .contact-info a:hover {
   text-decoration: underline;
 }
-
+*/
 /* Opening Hours Section */
+/*
 .opening-hours {
   display: flex;
   align-items: center;
@@ -167,9 +173,9 @@ header {
 
 #contact-form .input-row {
   display: flex;
-  gap: 100px; /* Gir mellomrom mellom input-feltene */
-}
+  gap: 100px; } /* Gir mellomrom mellom input-feltene */ 
 
+/*
 #contact-form .input-row > div {
   flex: 1;
 }
@@ -208,3 +214,6 @@ header {
 #contact-form button:hover {
   background-color: #b2dfdb;
 }
+
+
+/*

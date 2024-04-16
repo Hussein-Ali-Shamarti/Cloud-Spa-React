@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/AboutUs/ContactPage.css";
+import "../../styles/ContactUs/ContactInfo.css";
 import ContactUsImage from "../../Pictures/contactUs.jpg";
 
 const ContactInfo = () => {

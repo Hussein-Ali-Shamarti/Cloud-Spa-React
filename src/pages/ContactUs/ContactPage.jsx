@@ -2,7 +2,8 @@ import React from "react";
 import ContactInfo from "./ContactInfo";
 import OpeningHours from "../../components/OpeningHours";
 import ContactContainer from "./ContactContainer";
-import "../../styles/AboutUs/ContactPage.css";
+/* import "../../styles/ContactUs/ContactPage"; */
+
 import Footer from "../../components/footer";
 
 const ContactPage = () => {
