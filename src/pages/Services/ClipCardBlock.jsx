@@ -15,7 +15,7 @@ const ClipCardBlock = () => {
         </p>
         {"\n"}
         <button className="BuyCC-btn">Buy Clip Card</button>
-        <button className="bookE-btn">Book Entrance</button>
+        <button className="BookE-btn">Book Entrance</button>
       </div>
     </div>
   );

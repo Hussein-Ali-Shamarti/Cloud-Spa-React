@@ -3,7 +3,7 @@
   }
   
     .Clip-Card-Container img {
-      width: 80%;
+      width: 100%;
       height: auto;
       max-height: 80vh;
       margin-left: 100px;
@@ -46,7 +46,24 @@
       font-family: "Inter", sans-serif;
       font-weight: 600;
   }
+
+  .BookE-btn{
+    padding: 10px 20px;
+    /*margin-top: 20px;*/
+    background: #ffffff;
+    color: #000;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+}
   
     .BuyCC-btn:hover {
       background: #b2dfdb;
   }
+
+  .BookE-btn:hover {
+    background: #b2dfdb;
+}
