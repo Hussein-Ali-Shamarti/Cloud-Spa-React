@@ -34,9 +34,13 @@
     /*margin-bottom: 10px;*/
     }
 
+    .FDS-text-box{
+      margin-top: 10px;
+    }
+
     .FDS-book-btn{
       padding: 10px 20px;
-      /*margin-top: 20px;*/
+      margin-top: 15px;
       background: #ffffff;
       color: #000;
       border: none;

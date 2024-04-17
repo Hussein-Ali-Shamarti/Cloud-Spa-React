@@ -1,14 +1,8 @@
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
 
 .Clip-Card-Container {
     position: relative;
-    width: calc(100% - 200px); /* Justerer bredden av bildet */
-    max-width: 600px; /* Setter maksimum bredde for bildet */
+    margin-top: 100px; 
+    margin-bottom: 100px;
 
   }
   
@@ -23,23 +17,14 @@
     .ClipCard-info{
       
         position: absolute;
-        top: 50%;
-        right: 0;
-        transform: translateY(-50%);
-        width: 200px; /* Justerer bredden av tekstboksen */
+        bottom: 8%;
+        right: 5%;
+        justify-content: space-between; /* Distribuerer plassen jevnt mellom elementene */
+        align-items: center; /* Sentrerer elementene vertikalt */
+        width: 500px; /* Justerer bredden av tekstboksen */
+        height: 200px;
         background-color: #23395b;
         padding: 20px;
-        /*display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      width: 400px;
-      height: 250px; ;
-      bottom: 60px; /* Avstand fra bunnen av bildet */
-     /* left: 180px; /* Avstand fra venstre side av bildet */
-     /* background-color: #23395b; /* Farget boks med gjennomsiktig farge */
-     /* padding: 20px;*/
     }
 
     .ClipCard-title, .ClipCard-text-box{
@@ -48,12 +33,21 @@
       font-family: "Inter", sans-serif;
       font-size: 16px;
       line-height: 24px;
-      /*margin-bottom: 10px;*/
     }
 
-    .BuyCC-btn{
+    .ClipCard-text-box{
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .BuyCC-btn, .BookE-btn{
       padding: 10px 20px;
-      /*margin-top: 20px;*/
+      margin-top: 20px;
       background: #ffffff;
       color: #000;
       border: none;
@@ -62,20 +56,9 @@
       transition: background-color 0.3s ease-in-out;
       font-family: "Inter", sans-serif;
       font-weight: 600;
+      margin: 0 40px;
   }
 
-  .BookE-btn{
-    padding: 10px 20px;
-    /*margin-top: 20px;*/
-    background: #ffffff;
-    color: #000;
-    border: none;
-    border-radius: 0;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-    font-family: "Inter", sans-serif;
-    font-weight: 600;
-  }
   
     .BuyCC-btn:hover, .BookE-btn:hover {
       background: #b2dfdb;
