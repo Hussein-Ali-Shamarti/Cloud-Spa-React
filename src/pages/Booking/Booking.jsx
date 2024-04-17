@@ -36,30 +36,31 @@ const Booking = () => {
       setCheckedList(filteredList);
     }
   };
-  const auth = getAuth();
-if (process.env.NODE_ENV === "development") {
-  connectAuthEmulator(auth, "http://127.0.0.1:9099/auth");
-}
+
+//  const auth = getAuth();
+//if (process.env.NODE_ENV === "development") {
+//  connectAuthEmulator(auth, "http://127.0.0.1:9099/auth");
+//}
 
   //Function to store the selected treatments and the assigned ordernumber in the database
-  const saveOrderToDatabase = () => {
-    const newOrderRef = push(ref(database, "orders"));
-    const orderNumber = generateOrderNumber();
-    set(newOrderRef, {
-      orderNumber: orderNumber,
-      selectedTreatments: checkedList
-    })
-      .then(() => {
-        console.log("Order stored successfully!");
-      })
-      .catch((error) => {
-        console.error("Error in storing order", error);
-      });
-  };
-  //Function to generate a  random Order Number for each booking
-  const generateOrderNumber = () => {
-    return Date.now() + Math.floor(Math.random() * 1000);
-  };
+  //const saveOrderToDatabase = () => {
+  //  const newOrderRef = push(ref(database, "orders"));
+  //  const orderNumber = generateOrderNumber();
+  //  set(newOrderRef, {
+  //    orderNumber: orderNumber,
+  //    selectedTreatments: checkedList
+  //  })
+  //    .then(() => {
+  //      console.log("Order stored successfully!");
+  //    })
+  //    .catch((error) => {
+  //      console.error("Error in storing order", error);
+  //    });
+  //};
+  ////Function to generate a  random Order Number for each booking
+  //const generateOrderNumber = () => {
+  //  return Date.now() + Math.floor(Math.random() * 1000);
+  //};
 
   //Function to verify that atleast one option is selected before continuing  with the booking process
   const handleNext = () => {
@@ -71,7 +72,7 @@ if (process.env.NODE_ENV === "development") {
         window.location.href = "/Booking";
       }
     } else {
-      saveOrderToDatabase();
+      //saveOrderToDatabase();
       window.location.href = "/Booking2";
     }
   };
