@@ -19,8 +19,9 @@ import ServicePage from "./pages/Services/ServicePage";
 import Signup from "./signup/signup";
 import SignIn from "./pages/login/signin";
 import PasswordReset from "./passwordReset/passwordReset";
-import Booking from "./pages/Booking/Booking";
+import Booking from "../src/pages/Booking/Booking";
 import ExtraTreatmentsPage from "./pages/ExtraTreatments/ExtraTreatmentsPage";
+import { SelectedServiceProvider } from "./ServicesContext";
 
 function App() {
   useEffect(() => {
@@ -51,10 +52,11 @@ function App() {
         console.error("Error fetching services data:", error);
       });
   }, []);
-
+ 
   return (
     <div className="App">
-      <BrowserRouter>
+        <BrowserRouter>
+        <SelectedServiceProvider>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/aboutUs" element={<AboutUsPage />} />
@@ -67,6 +69,7 @@ function App() {
           <Route path="/Services" element={<ServicePage />} />
         </Routes>
         <Layout />
+        </SelectedServiceProvider>
       </BrowserRouter>
     </div>
   );

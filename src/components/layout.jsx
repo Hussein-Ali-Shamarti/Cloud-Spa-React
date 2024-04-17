@@ -13,7 +13,7 @@ const Layout = () => {
   const [toggle, setToggle] = useState(false);
   function redirectToBooking() {
     console.log("redirected to booking page");
-    navigate("/booking");
+    navigate("/Services");
   }
   function toggleNav() {
     setToggle(!toggle);

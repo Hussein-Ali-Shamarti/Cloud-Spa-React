@@ -1,10 +1,11 @@
 import Booking1 from "../../Pictures/booking1.jpg";
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { getAuth, connectAuthEmulator } from "firebase/auth";
 import { database, ref, push, set } from "../../../src/firebase-config.js";
 import Layout from "../../components/layout";
 import "../../styles/Booking1.css";
 import "../../styles/BookingButtons.css";
+import { SelectedServiceContext } from "../../ServicesContext.js";
 
 //The list of options for the user to select
 const LIST_DATA = [
@@ -17,14 +18,18 @@ const LIST_DATA = [
 //Function to add the selected treatments to a list that confirms the selected choices.
 const Booking = () => {
   const [checkedList, setCheckedList] = useState([]);
+  const { selectedService } = useContext(SelectedServiceContext);
 
+  useEffect(() => {
+    setCheckedList((prevList) => [...prevList, selectedService]);
+  }, [selectedService]);
   const handleSelect = (event) => {
     const value = event.target.value;
     const isChecked = event.target.checked;
 
     if (isChecked) {
       // Add checked items into checklist
-      setCheckedList([...checkedList, value]);
+      setCheckedList((prevList) => [...prevList, value]);
     } else {
       // Remove unchecked item from checkList
       const filteredList = checkedList.filter((item) => item !== value);

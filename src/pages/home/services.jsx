@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { getDatabase, ref, get } from "firebase/database";
 import { BiSolidLeftArrow, BiSolidRightArrow } from "react-icons/bi";
 import morningAwakeningSpa from "../../Pictures/morningAwakeningSpa.jpg";
@@ -8,6 +8,8 @@ import eveningSpa from "../../Pictures/eveningSpa.jpg";
 import nightSpa from "../../Pictures/booking1.jpg";
 import "../../styles/services.css";
 import "../../../src/firebase-config";
+import { SelectedServiceContext } from "../../ServicesContext";
+import { useNavigate } from "react-router-dom";
 
 const db = getDatabase();
 
@@ -32,7 +34,13 @@ const Services = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const sliderRef = useRef(null);
   const [services, setServices] = useState([]);
+  const { setSelectedService } = useContext(SelectedServiceContext);
+  const navigate = useNavigate();
 
+  const handleBookNow = (service) => {
+    setSelectedService(service);
+    navigate("/Booking")
+  };
   useEffect(() => {
     const servicesRef = ref(db, "services");
     get(servicesRef)
@@ -101,10 +109,10 @@ const Services = () => {
                       INCLUDED: {service.included}
                     </p>
                     <p className="service-price">Just for {service.price}kr</p>
-                    <button className="service-book-btn">Book now</button>
+                    <button className="service-book-btn" onClick={() =>handleBookNow(service.Title)}>Book now</button>
                   </div>
                 </div>
-              ))}
+              ))}6
             </div>
           </div>
           {/* <BiSolidLeftArrow className="prev-arrow" onClick={handlePrev} /> */}
