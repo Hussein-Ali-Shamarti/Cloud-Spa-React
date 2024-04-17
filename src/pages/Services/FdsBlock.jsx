@@ -1,8 +1,15 @@
 import React from "react";
 import fullDaySpa from "../../Pictures/fullDaySpa.jpg";
 import "../../styles/Services/FdsBlock.css";
+import { useNavigate } from "react-router-dom";
 
 const FdsBlock = () => {
+  const navigate = useNavigate(); // Bruk useNavigate hook for å få tilgang til navigere funksjonen
+
+  const handleBookNow = () => {
+    navigate("/Booking")
+  };
+
   return (
     <div className="full-day-spa-container">
       <img src={fullDaySpa} alt="Full day Spa Retreat" />
@@ -18,7 +25,7 @@ const FdsBlock = () => {
         {"\n"}
         <p className="FDS-price">Just for 1000kr</p>
         {"\n"}
-        <button className="FDS-book-btn">Book now</button>
+        <button className="FDS-book-btn" onClick={() =>handleBookNow()}>Book now</button>
       </div>
     </div>
   );

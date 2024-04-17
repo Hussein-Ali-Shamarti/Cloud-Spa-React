@@ -15,7 +15,7 @@ const ClipCardBlock = () => {
           complimentary use of bathrobe and slippers.
         </p>
         {"\n"}
-        <div class="button-container">
+        <div className="button-container">
         <button className="BuyCC-btn">Buy Clip Card</button>
         <button className="BookE-btn">Book Entrance</button>
         </div>
