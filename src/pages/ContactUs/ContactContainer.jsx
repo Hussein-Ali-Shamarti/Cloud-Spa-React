@@ -1,36 +1,36 @@
 import React, { useEffect } from "react";
 import "../../styles/ContactUs/ContactContainer.css";
 
-const ContactContainer = () => {
-  useEffect(() => {
-    const form = document.getElementById("contact-form");
-    form.addEventListener("submit", function (event) {
-      event.preventDefault(); // Prevents default form submission
+const ContactContainer = () => {   // Definerer en React funksjonell komponent kalt ContactContainer
+  useEffect(() => {                 // useEffect krok for å kjøre side-effekter etter komponenten renders
+    const form = document.getElementById("contact-form");  // Finner skjemaet i DOM-en ved bruk av dets ID
+    form.addEventListener("submit", function (event) {      // Legger til en 'submit'-lytter på skjemaet
+      event.preventDefault(); // Hindrer standard innsendingsatferd for skjemaet
 
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const message = document.getElementById("message").value.trim();
+      const name = document.getElementById("name").value.trim();  // Henter og trimmer navnverdien fra skjemaet
+      const email = document.getElementById("email").value.trim();  // Henter og trimmer epostverdien fra skjemaet
+      const message = document.getElementById("message").value.trim();  // Henter og trimmer meldingsverdien fra skjemaet
 
-      if (name === "") {
-        alert("Please fill out your name.");
-        return false;
+      if (name === "") {  // Sjekker om navn-feltet er tomt
+        alert("Please fill out your name.");  // Viser en advarsel hvis navn-feltet er tomt
+        return false;  // Avbryter funksjonen
       }
 
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailPattern.test(email)) {
-        alert("Please enter a valid email address.");
-        return false;
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  // Regulært uttrykk for å validere e-postadresser
+      if (!emailPattern.test(email)) {  // Sjekker om e-postadressen matcher det regulære uttrykket
+        alert("Please enter a valid email address.");  // Viser en advarsel hvis e-posten er ugyldig
+        return false;  // Avbryter funksjonen
       }
 
-      if (message === "") {
-        alert("Please write your message.");
-        return false;
+      if (message === "") {  // Sjekker om meldings-feltet er tomt
+        alert("Please write your message.");  // Viser en advarsel hvis meldings-feltet er tomt
+        return false;  // Avbryter funksjonen
       }
 
-      alert("Thank you for your message! We will contact you soon.");
-      form.submit(); // Submit the form
+      alert("Thank you for your message! We will contact you soon.");  // Viser en takkemelding
+      form.submit(); // Sender skjemaet
     });
-  }, []); // Empty dependency array ensures this effect runs only once after initial render
+  }, []);  // En tom avhengighetsliste i useEffect betyr at effekten bare kjører en gang etter den første renderingen
 
   return (
     <div className="contact-container">
