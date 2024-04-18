@@ -51,7 +51,7 @@
 .signup-input-box .icon {
   position: absolute;
   left: 10px;
-  top: 50%;
+  top: 53%;
   transform: translateY(-50%);
   color: #23395b;
 }
@@ -62,7 +62,6 @@
   margin-top: 5px;
 }
 
-/* Button styling specific to SignUp */
 .signup-btn {
   width: 100%;
   padding: 10px;
@@ -92,28 +91,4 @@
   text-align: center;
   color: #ffffff;
   margin-top: 16px;
-}
-
-/* Responsive adjustments for various screens */
-@media (max-width: 992px) {
-  .signup-wrapper {
-    padding-top: 50px; /* Slightly less padding */
-  }
-}
-
-@media (max-width: 800px) {
-  .signup-wrapper {
-    padding-top: 40px; /* Even less padding */
-    align-items: flex-start; /* Start alignment to prevent overlap */
-  }
-
-  .signup-form-box {
-    margin: 0 15px; /* Adjust margin */
-  }
-}
-
-@media (max-width: 772px) {
-  .signup-wrapper {
-    padding-top: 30px; /* Minimal padding to avoid overlap */
-  }
 }

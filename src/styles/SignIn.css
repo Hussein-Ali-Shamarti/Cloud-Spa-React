@@ -1,4 +1,3 @@
-/* Wrapper styles */
 .wrapper {
   display: flex;
   justify-content: center;
@@ -7,14 +6,13 @@
   background: linear-gradient(to right, #161925, #23395b, #406e8e, #8ea8c3);
 }
 
-/* Form box styling */
 .form-box {
   width: 300px;
   padding: 20px;
-  background: #23395b; /* Lighter blue from the palette */
-  box-shadow: 0 0 10px #161925; /* Dark blue for shadow to add depth */
+  background: #23395b;
+  box-shadow: 0 0 10px #161925;
   border-radius: 8px;
-  color: #ffffff; /* Contrast color for text */
+  color: #ffffff;
 }
 
 h2 {
@@ -22,7 +20,6 @@ h2 {
   margin-bottom: 20px;
 }
 
-/* Input box styles */
 .input-box {
   position: relative;
   margin-bottom: 20px;
@@ -32,23 +29,23 @@ h2 {
   width: 100%;
   padding: 10px;
   padding-left: 35px;
-  border: 1px solid #406e8e; /* Medium blue for border */
+  border: 1px solid #406e8e;
   border-radius: 4px;
-  background-color: #ffffff; /* Lightest blue for input background */
-  color: #23395b; /* Contrast color for input text */
+  background-color: #ffffff;
+  color: #23395b;
 }
 
 .input-box input:focus {
-  border-color: #161925; /* Darkest blue for focus */
+  border-color: #161925;
   outline: none;
 }
 
 .input-box .icon {
   position: absolute;
   left: 10px;
-  top: 39%;
+  top: 53%;
   transform: translateY(-50%);
-  color: #23395b; /* Darkest blue for icons */
+  color: #23395b;
 }
 
 .input-box label {
@@ -56,11 +53,11 @@ h2 {
   margin-top: 5px;
 }
 
-/* Button styling */
 .btn {
   width: 100%;
+  margin-top: 10px;
   padding: 10px;
-  background-color: #cbf7ed; /* Dark blue for button */
+  background-color: #cbf7ed;
   border: none;
   border-radius: 4px;
   color: black;
@@ -69,10 +66,9 @@ h2 {
 }
 
 .btn:hover {
-  background-color: #ffffff; /* Even darker on hover */
+  background-color: #ffffff;
 }
 
-/* Link styles for forgot password and sign up */
 .remember-forgot,
 .login-register {
   display: flex;
@@ -86,7 +82,7 @@ h2 {
 }
 
 a {
-  color: #ffffff; /* Medium blue for links */
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -96,4 +92,5 @@ a:hover {
 
 .login-register p {
   color: #ffffff;
+  margin-top: 16px;
 }

@@ -14,7 +14,7 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
   return (
     <div className="wrapper">
-      <div className="form-box login ">
+      <div className="form-box login">
         <h2>Login</h2>
         <form>
           <div className="input-box">
@@ -26,8 +26,8 @@ const SignIn = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              placeholder="Email" // Placeholder added here
             />
-            <label>Email</label>
           </div>
           <div className="input-box">
             <span className="icon">
@@ -38,12 +38,11 @@ const SignIn = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              placeholder="Password" // Placeholder added here
             />
-            <label>Password</label>
           </div>
           <div className="remember-forgot">
             <label>
-              {" "}
               <input type="checkbox" /> Remember Me
             </label>
             <a href="/PasswordReset">Forgot Password?</a>

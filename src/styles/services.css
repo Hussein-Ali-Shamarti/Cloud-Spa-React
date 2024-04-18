@@ -8,7 +8,7 @@
 }
 
 .our-services {
-  padding: 50px 0; /* Add top and bottom padding only */
+  padding: 50px 0;
   background-color: #ffffff;
   position: relative;
 }
@@ -19,19 +19,23 @@
   margin: 0 auto;
   text-align: center;
 }
+
 .container {
-  padding: 0 60px 0 60px;
+  padding: 0 60px;
   overflow: hidden;
-  width: 100%; /* or the specific width you want */
-  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-
 .services-slider {
-  display: inline-flex;
-  flex-wrap: nowrap;
-  width: 100%;
-  transition: transform 0.5s ease-in-out;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px;
+  scroll-snap-type: x mandatory;
 }
 
 .service-image img {
@@ -44,51 +48,21 @@
   flex-direction: column;
   justify-content: flex-end;
 }
-.services-slider {
-  display: grid;
-  grid-auto-flow: column;
-  gap: 20px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: 20px;
-
-  scroll-snap-type: x mandatory; /* Optional: Enables snap scrolling for each card */
-}
 
 .service-card,
 .service-info {
-  width: 240px; /* Fixed width for each card */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
-} /*
-.service-card {
-  flex: 0 0 calc(30% - 60px);
-  margin: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
-  overflow: hidden;
-  transition: all 0.3s ease-in-out;
   width: 240px;
-}*/
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
 
-/*.service-card:hover .service-info {
-    transform: translateY(0); 
-    visibility: visible; 
-    opacity: 1; 
-}*/ /*
-
-.service-card:hover .service-info {
-  background: #23395b;
-  transform: translateY(0);
-  visibility: visible;
-  opacity: 1;
-}*/
 .service-card:hover .service-info {
   background: #23395b;
   transform: translateY(0);
   visibility: visible;
   opacity: 1;
 }
+
 .service-info {
   position: absolute;
   transition: transform 0.5s ease, opacity 0.5s ease;
@@ -103,29 +77,9 @@
   visibility: hidden;
   padding-bottom: 20px;
 }
+
 .service-card:hover .service-image img {
   opacity: 0.3;
-}
-
-.prev-arrow,
-.next-arrow {
-  position: absolute;
-  top: 50%;
-  z-index: 10;
-  transform: translateY(-50%);
-  width: 35px;
-  height: auto;
-}
-.services-wrapper {
-  padding: 0 40px;
-  align-items: center;
-}
-.prev-arrow {
-  left: 3%;
-}
-
-.next-arrow {
-  right: 3%;
 }
 
 .service-image::before {
@@ -190,12 +144,20 @@
   background-color: #1f2a48;
 }
 
+.services-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 @media (min-width: 1024px) {
-  /* For large screens, adjust the grid to show all cards */
   .services-slider {
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   }
 }
+
 @media (max-width: 768px) {
   .services-wrapper {
     padding: 0 30px;
@@ -206,11 +168,6 @@
   .service-card,
   .service-info {
     flex: 0 0 calc(90% - 20px);
-  }
-
-  .prev-arrow,
-  .next-arrow {
-    display: none;
   }
 }
 
@@ -232,11 +189,6 @@
   .service-card,
   .service-info {
     flex: 0 0 calc(30% - 60px);
-  }
-
-  .prev-arrow,
-  .next-arrow {
-    display: block;
   }
 }
 

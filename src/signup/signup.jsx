@@ -56,8 +56,8 @@ const SignUp = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
+              placeholder="First Name" // Placeholder added here
             />
-            <label>First Name</label>
           </div>
 
           <div className="signup-input-box">
@@ -69,8 +69,8 @@ const SignUp = () => {
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
               required
+              placeholder="Last Name" // Placeholder added here
             />
-            <label>Last Name</label>
           </div>
 
           <div className="signup-input-box">
@@ -82,8 +82,8 @@ const SignUp = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              placeholder="Email" // Placeholder added here
             />
-            <label>Email</label>
           </div>
 
           <div className="signup-input-box">
@@ -95,8 +95,8 @@ const SignUp = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              placeholder="Password" // Placeholder added here
             />
-            <label>Password</label>
           </div>
           <button type="submit" className="signup-btn">
             Register

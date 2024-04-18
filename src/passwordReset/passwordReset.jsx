@@ -1,6 +1,7 @@
-import React, { useState } from "react"; // Import useState here
+import React, { useState } from "react";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import "../../src/firebase-config";
+import "../../src/styles/passwordReset.css";
 
 const PasswordReset = () => {
   const [email, setEmail] = useState("");
@@ -21,26 +22,31 @@ const PasswordReset = () => {
   };
 
   return (
-    <div>
-      <div className="input-box" style={{ marginTop: "300px" }}>
-        <span className="icon">
+    <div className="passwordContainer">
+      <div className="passwordInputBox">
+        <p>You Will Recive An Email To Reset Your Password.</p>
+        <span className="passwordIcon">
           <ion-icon name="mail"></ion-icon>
         </span>
         <input
           type="email"
+          id="emailInput"
+          className="passwordInput"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          placeholder="Email"
         />
-        <label>Email</label>
+        <button className="passwordButton" onClick={handlePasswordReset}>
+          Reset Password
+        </button>
+        <p>
+          Go Back To:
+          <a href="/MyPage" className="passwordFormBoxLogin">
+            Sign in.
+          </a>
+        </p>
       </div>
-      <button onClick={handlePasswordReset}>Reset Password</button>
-      <p>
-        Go Back To:
-        <a href="/MyPage" className="rform-box login">
-          Sign in.
-        </a>
-      </p>
     </div>
   );
 };
