@@ -39,7 +39,7 @@ const Services = () => {
 
   const handleBookNow = (service) => {
     setSelectedService(service);
-    navigate("/Booking")
+    navigate("/Booking");
   };
   useEffect(() => {
     const servicesRef = ref(db, "services");
@@ -109,13 +109,18 @@ const Services = () => {
                       INCLUDED: {service.included}
                     </p>
                     <p className="service-price">Just for {service.price}kr</p>
-                    <button className="service-book-btn" onClick={() =>handleBookNow(service.Title)}>Book now</button>
+                    <button
+                      className="service-book-btn"
+                      onClick={() => handleBookNow(service.Title)}
+                    >
+                      Book now
+                    </button>
                   </div>
                 </div>
-              ))}6
+              ))}
             </div>
           </div>
-        
+
           {/* <BiSolidLeftArrow className="prev-arrow" onClick={handlePrev} /> */}
           {/* <BiSolidRightArrow className="next-arrow" onClick={handleNext} /> */}
         </div>
