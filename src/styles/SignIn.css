@@ -86,7 +86,8 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+.forgotPsw:hover,
+.register-link:hover {
   text-decoration: underline;
 }
 

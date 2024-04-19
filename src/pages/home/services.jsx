@@ -62,7 +62,7 @@ const Services = () => {
       const targetCard = cards[currentIndex];
       if (targetCard) {
         const newTransformValue = -targetCard.offsetLeft;
-        sliderRef.current.style.transform = `translateX(${newTransformValue}px)`;
+        sliderRef.current.style.transform = `translateX(0px)`;
       }
     }
   };
