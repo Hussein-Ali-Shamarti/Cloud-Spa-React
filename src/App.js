@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Profiler, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Layout from "./components/layout";
@@ -22,6 +22,7 @@ import PasswordReset from "./passwordReset/passwordReset";
 import Booking from "../src/pages/Booking/Booking";
 import ExtraTreatmentsPage from "./pages/ExtraTreatments/ExtraTreatmentsPage";
 import { SelectedServiceProvider } from "./ServicesContext";
+import Profile from "./profile";
 
 function App() {
   useEffect(() => {
@@ -52,23 +53,24 @@ function App() {
         console.error("Error fetching services data:", error);
       });
   }, []);
- 
+
   return (
     <div className="App">
-        <BrowserRouter>
+      <BrowserRouter>
         <SelectedServiceProvider>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/aboutUs" element={<AboutUsPage />} />
-          <Route path="/ContactUs" element={<ContactPage />} />
-          <Route path="/Treatments" element={<ExtraTreatmentsPage />} />
-          <Route path="/MyPage" element={<SignIn />} />
-          <Route path="/Signup" element={<Signup />} />
-          <Route path="/PasswordReset" element={<PasswordReset />} />
-          <Route path="/booking" element={<Booking />} />
-          <Route path="/Services" element={<ServicePage />} />
-        </Routes>
-        <Layout />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/aboutUs" element={<AboutUsPage />} />
+            <Route path="/ContactUs" element={<ContactPage />} />
+            <Route path="/Treatments" element={<ExtraTreatmentsPage />} />
+            <Route path="/MyPage" element={<SignIn />} />
+            <Route path="/Signup" element={<Signup />} />
+            <Route path="/PasswordReset" element={<PasswordReset />} />
+            <Route path="/booking" element={<Booking />} />
+            <Route path="/Services" element={<ServicePage />} />
+            {<Route path="/profile" element={<Profile />} />}
+          </Routes>
+          <Layout />
         </SelectedServiceProvider>
       </BrowserRouter>
     </div>

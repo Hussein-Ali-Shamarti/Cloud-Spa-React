@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   background-color: #8ea8c3;
-  height: 790px;
   padding: 40px 90px;
   width: 100%;
   margin-top: 30px;
@@ -30,8 +29,6 @@
   font-size: 30px;
   line-height: 70px;
   margin-top: 20px;
-  height: 240px;
-  width: 563px;
   font-weight: 300;
 }
 
@@ -63,16 +60,28 @@
     align-items: center;
   }
 
+  .home-about-us-content h2 {
+    font-size: 30px;
+  }
+
   .home-about-us-content {
     width: 100%;
     text-align: center;
     margin-right: 0;
     margin-bottom: 20px;
+    align-items: center;
+    display: contents;
   }
 
   .home-read-more-button-for-about-us {
     align-self: center;
     order: 3;
+  }
+
+  .home-about-us-content p {
+    font-size: 15px;
+    line-height: 50px;
+    margin-top: 20px;
   }
 
   .home-about-us-image {
