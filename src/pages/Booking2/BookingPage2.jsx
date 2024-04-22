@@ -7,14 +7,15 @@ import "../../styles/Booking2/pic.css";
 const BookingPage2 = () => {
 
     return(
-      <div>
+      <>
         <div className= "booking2-pic">
            <img src={booking2} alt= "Booking 2 picture"/>
         </div> 
         
-        <Footer/>
         <BookingPath/>
-      </div>
+        <Footer/>
+        
+      </>
     );
 };
 export default BookingPage2;
