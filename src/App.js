@@ -12,17 +12,17 @@ import {
   connectDatabaseEmulator
 } from "firebase/database";
 import "../src/firebase-config";
-import spaServices from "../src/services.json"; // Assuming this is a JSON file now
+import spaServices from "../src/services.json";
 import AboutUsPage from "./pages/AboutUs/AboutUsPage";
 import ContactPage from "./pages/ContactUs/ContactPage";
 import ServicePage from "./pages/Services/ServicePage";
-import Signup from "./signup/signup";
+import Signup from "./pages/signup/signup";
 import SignIn from "./pages/login/signin";
-import PasswordReset from "./passwordReset/passwordReset";
+import PasswordReset from "./pages/passwordReset/passwordReset";
 import Booking from "../src/pages/Booking/Booking";
 import ExtraTreatmentsPage from "./pages/ExtraTreatments/ExtraTreatmentsPage";
 import { SelectedServiceProvider } from "./ServicesContext";
-import Profile from "./profile";
+import Profile from "./pages/Profile/profile";
 
 function App() {
   useEffect(() => {

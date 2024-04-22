@@ -5,8 +5,8 @@ import {
   createUserWithEmailAndPassword,
   connectAuthEmulator
 } from "firebase/auth";
-import "../firebase-config";
-import "../../src/styles/SignUp.css"; // Make sure the path is correct
+import "../../firebase-config";
+import "../../styles/SignUp.css"; // Make sure the path is correct
 
 // Initialize Firebase Auth and connect to the emulator
 const auth = getAuth();
