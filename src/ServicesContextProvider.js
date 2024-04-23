@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SelectedServiceContext } from './ServicesContext';
-import Booking from "./pages/Booking/Booking"
+import Booking from "./pages/Booking/BookingTreatments"
 import Services from "./pages/home/services"
 
 export const ServicesContextProvider = () => {

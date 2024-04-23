@@ -7,13 +7,18 @@
     margin-bottom: 20px; /* Adjust spacing as needed */
   }  
 
-   .checkout-label, .treatment-label  {
+  .treatment-label, .date-label, .checkout-label {
     font-size: 25px;
     padding: 10px 50px;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-color:#23395B;
+    color: black;
+    opacity: 0.5; /* less visible underline */
   }
   
-  .date-label{
-    font-size: 25px;
-    padding: 10px 50px;
-    border-bottom: 2px solid #23395B;
+  .active {
+    opacity: 1; /* more visible underline */
+    text-decoration-color:#23395B;
+    color: black;
   }

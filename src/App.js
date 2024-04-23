@@ -19,7 +19,7 @@ import ServicePage from "./pages/Services/ServicePage";
 import Signup from "./pages/signup/signup";
 import SignIn from "./pages/login/signin";
 import PasswordReset from "./pages/passwordReset/passwordReset";
-import Booking from "../src/pages/Booking/Booking";
+import Booking from "../src/pages/Booking/BookingTreatments";
 import ExtraTreatmentsPage from "./pages/ExtraTreatments/ExtraTreatmentsPage";
 import { SelectedServiceProvider } from "./ServicesContext";
 import Profile from "./pages/Profile/profile";
@@ -67,7 +67,7 @@ function App() {
             <Route path="/MyPage" element={<SignIn />} />
             <Route path="/Signup" element={<Signup />} />
             <Route path="/PasswordReset" element={<PasswordReset />} />
-            <Route path="/Booking" element={<Booking />} />
+            <Route path="/Booking" element={<Booking/>} />
             <Route path="/Services" element={<ServicePage />} />
             <Route path="/Booking2" element={<BookingPage2/>} />
             {<Route path="/profile" element={<Profile />} />}
