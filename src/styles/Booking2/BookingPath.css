@@ -7,12 +7,12 @@
     margin-bottom: 20px; /* Adjust spacing as needed */
   }  
 
-  .date-label, .treatment-label  {
+   .checkout-label, .treatment-label  {
     font-size: 25px;
     padding: 10px 50px;
   }
   
-  .checkout-label{
+  .date-label{
     font-size: 25px;
     padding: 10px 50px;
     border-bottom: 2px solid #23395B;

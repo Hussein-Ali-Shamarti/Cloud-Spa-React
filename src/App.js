@@ -23,6 +23,7 @@ import Booking from "../src/pages/Booking/Booking";
 import ExtraTreatmentsPage from "./pages/ExtraTreatments/ExtraTreatmentsPage";
 import { SelectedServiceProvider } from "./ServicesContext";
 import Profile from "./pages/Profile/profile";
+import BookingPage2 from "./pages/Booking2/BookingPage2";
 
 function App() {
   useEffect(() => {
