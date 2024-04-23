@@ -6,6 +6,8 @@ import Layout from "../../components/layout";
 import "../../styles/Booking1.css";
 import "../../styles/BookingButtons.css";
 import { SelectedServiceContext } from "../../ServicesContext.js";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 //The list of options for the user to select
 const LIST_DATA = [
@@ -62,18 +64,22 @@ const Booking = () => {
   //  return Date.now() + Math.floor(Math.random() * 1000);
   //};
 
-  //Function to verify that atleast one option is selected before continuing  with the booking process
+  
+  const navigate = useNavigate(); // Bruk useNavigate-hook for å få tilgang til navigasjonsfunksjonalitet
+
+  //Function to verify that atleast one option is selected before continuing with the booking process
   const handleNext = () => {
-    if (checkedList.length == 0) {
+    if (checkedList.length === 0) {
       const userConfirmed = window.confirm(
         "Please select at least one treatment before proceeding. Click OK to go back to the Booking page."
       );
       if (userConfirmed) {
-        window.location.href = "/Booking";
+        // Gå til Booking-siden hvis ingen behandlinger er valgt
+        navigate("/Booking");
       }
     } else {
-      //saveOrderToDatabase();
-      window.location.href = "/Booking2";
+      // Gå til BookingPage2 hvis behandlinger er valgt
+      navigate("/Booking2");
     }
   };
 
@@ -124,12 +130,13 @@ const Booking = () => {
           })}
         </div>
         <div className="booking-buttons">
-          <a href="/" class="booking-cancel-button">
-            Cancel
-          </a>
-          <a class="booking-next-button" onClick={handleNext}>
-            Next
-          </a>
+        <Link to="/" className="booking-cancel-button">
+    Cancel
+  </Link>
+  <button className="booking-next-button" onClick={handleNext}>
+    Next
+  </button>
+          
         </div>
       </>
     </div>

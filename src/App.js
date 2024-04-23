@@ -68,6 +68,7 @@ function App() {
             <Route path="/PasswordReset" element={<PasswordReset />} />
             <Route path="/booking" element={<Booking />} />
             <Route path="/Services" element={<ServicePage />} />
+            <Route path="/Booking2" element={<BookingPage2/>} />
             {<Route path="/profile" element={<Profile />} />}
           </Routes>
           <Layout />
