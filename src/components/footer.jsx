@@ -6,9 +6,9 @@ const Footer = () => {
   return (
     <section>
       <footer className="flex-container">
-        <div className="box1 box">
+        <div className="box box1">
           <img src={CloudLogoTransparent} alt="" />
-          <ul className="subpages listItems">
+          <ul className="listItems">
             <li>
               <a href="#index.html"> Home</a>
             </li>
@@ -29,15 +29,15 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="box2 box">
-          <ul className="subpages listItems">
+        <div className="box box2">
+          <ul className="listItems">
             <li>Opening hours</li>
             <li>Weekdays: 08:00 - 22:00</li>
             <li>Weekend: 10:00 - 23:00</li>
           </ul>
         </div>
-        <div className="box3 box">
-          <ul className="contactUs listItems">
+        <div className="box box3">
+          <ul className="listItems">
             <li>
               <i className="fas fa-phone"></i> <a href="#">+47 332 65 734</a>
             </li>
@@ -47,8 +47,8 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="box4 box">
-          <ul id="socialMediaLinks">
+        <div className="box box4">
+          <ul className="socialMediaLinks">
             <li>
               <a href="#">
                 <i className="fab fa-facebook-f"></i>
@@ -56,7 +56,7 @@ const Footer = () => {
             </li>
             <li>
               <a href="#">
-                <i className="fab fa-x-twitter"></i>
+                <i className="fab fa-twitter"></i>
               </a>
             </li>
             <li>
@@ -65,7 +65,7 @@ const Footer = () => {
               </a>
             </li>
           </ul>
-          <ul>
+          <ul className="listItems">
             <li>
               <i className="fas fa-map-marker-alt"></i>
               <a href="#">Raveien 215, 3184 Borre</a>

@@ -147,7 +147,6 @@ header {
     right: 10px;
   }
 }
-
 .flex-container {
   display: flex;
   flex-wrap: wrap;
@@ -191,6 +190,10 @@ footer a {
   padding-bottom: 10px;
 }
 
+.box3 {
+  margin-top: 35px;
+}
+
 footer ul,
 footer li {
   margin-bottom: 10px;
@@ -202,13 +205,17 @@ footer img {
   padding-bottom: 20px;
 }
 
+.fas.fa-map-marker-alt {
+  padding-right: 5px;
+}
+
 /* SOCIAL MEDIA ICONS */
-#socialMediaLinks {
+.socialMediaLinks {
   display: flex;
   padding: 0;
 }
 
-#socialMediaLinks li {
+.socialMediaLinks li {
   margin-right: 30px;
   margin-bottom: 10px;
 }
