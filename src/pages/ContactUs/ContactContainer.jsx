@@ -41,16 +41,16 @@ const ContactContainer = () => {   // Definerer en React funksjonell komponent k
       <section className="contact-form">
         <form id="contact-form" action="submit_form.php" method="post">
           <div className="input-row">
-            <div className="form-group">
+            <div className="form-group1">
               <label htmlFor="name">Name</label>
               <input type="text" id="name" name="name" required />
             </div>
-            <div className="form-group">
+            <div className="form-group1">
               <label htmlFor="email">Email</label>
               <input type="email" id="email" name="email" required />
             </div>
           </div>
-          <div className="form-group">
+          <div className="form-group1">
             <label htmlFor="message">Your message...</label>
             <textarea id="message" name="message" required></textarea>
           </div>
