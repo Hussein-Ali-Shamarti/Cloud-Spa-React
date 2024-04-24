@@ -1,14 +1,9 @@
-16:46:41.489 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
-16:46:41.623 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
-16:46:47.608 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO com.firebase.core.namespace.NamespaceActor - cloudspa-262a4-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 210ms, init: 0ms
-16:46:47.692 [NamespaceSystem-blocking-namespace-operation-dispatcher-6] INFO com.firebase.core.namespace.StateManager - Namespace cloudspa-262a4-default-rtdb status Active to Active
-16:47:29.282 [FirebaseWorkerPool-1-3] WARN com.firebase.core.persistence.backend.dummy.EmulatorMetadataPersistence - Multiple projectIds are not recommended in single project mode. Requested 
-namespace 127, but the emulator is configured for cloudspa-262a4-default-rtdb. To 
+11:47:54.940 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+11:47:55.077 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
+11:47:55.809 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - 127 successfully activated FBKV (SurveyIdle(0)) wait: 158ms, init: 0ms
+11:48:00.369 [FirebaseWorkerPool-1-2] WARN com.firebase.core.persistence.backend.dummy.EmulatorMetadataPersistence - Multiple projectIds are not recommended in single project mode. Requested 
+namespace cloudspa-262a4-default-rtdb, but the emulator is configured for 127. To 
 opt-out of single project mode add/set the singleProjectMode: false property in 
 the firebase.json emulators config. 
-16:47:29.294 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO com.firebase.core.namespace.NamespaceActor - 127 successfully activated FBKV (SurveyIdle(0)) wait: 6ms, init: 0ms
-17:03:29.159 [Thread-0] INFO com.firebase.server.forge.App$ - Attempting graceful shutdown.
-17:03:29.175 [NamespaceSystem-akka.actor.default-dispatcher-14] INFO com.firebase.core.namespace.Terminator$Terminator - 2 actors left to terminate: 127, cloudspa-262a4-default-rtdb
-17:03:29.179 [NamespaceSystem-akka.actor.default-dispatcher-14] INFO com.firebase.core.namespace.NamespaceActor - stopped namespace actor for cloudspa-262a4-default-rtdb
-17:03:29.179 [NamespaceSystem-akka.actor.default-dispatcher-16] INFO com.firebase.core.namespace.NamespaceActor - stopped namespace actor for 127
-17:03:29.182 [Thread-0] INFO com.firebase.server.forge.App$ - Graceful shutdown complete.
+11:48:00.374 [NamespaceSystem-akka.actor.default-dispatcher-9] INFO com.firebase.core.namespace.NamespaceActor - cloudspa-262a4-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 2ms, init: 0ms
+11:48:00.395 [NamespaceSystem-blocking-namespace-operation-dispatcher-11] INFO com.firebase.core.namespace.StateManager - Namespace cloudspa-262a4-default-rtdb status Active to Active
