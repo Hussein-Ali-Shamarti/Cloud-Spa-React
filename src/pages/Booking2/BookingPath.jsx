@@ -14,13 +14,13 @@ function BookingPath() {
     <div className="booking-path">
       <div className="booking-step-indicator">
         <Link to="/Booking">
-          <span className={`treatment-label ${currentPage === '/Booking' ? 'active' : ''}`}>Treatments</span>
+          <span className={`treatment-label ${currentPage === '/Booking' ? 'active-booking' : ''}`}>Treatments</span>
         </Link>
         <Link to="/Booking2">
-          <span className={`date-label ${currentPage === '/Booking2' ? 'active' : ''}`}>Date</span>
+          <span className={`date-label ${currentPage === '/Booking2' ? 'active-booking' : ''}`}>Date</span>
         </Link>
         <Link to="/Booking3">
-          <span className={`checkout-label ${currentPage === '/Booking3' ? 'active' : ''}`}>Check Out</span>
+          <span className={`checkout-label ${currentPage === '/Booking3' ? 'active-booking' : ''}`}>Check Out</span>
         </Link>
       </div>
     </div>
