@@ -82,11 +82,11 @@ header {
 .close-nav-items {
   display: none;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 33px;
   background: none;
   border: none;
   color: white;
-  padding: 15px;
+  padding: 20px;
   position: fixed;
   top: 15px;
   z-index: 102;
@@ -147,6 +147,8 @@ header {
     right: 10px;
   }
 }
+
+/*footer*/
 .flex-container {
   display: flex;
   flex-wrap: wrap;
