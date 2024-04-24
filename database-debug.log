@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 11:47:54.940 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
 11:47:55.077 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
 11:47:55.809 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - 127 successfully activated FBKV (SurveyIdle(0)) wait: 158ms, init: 0ms
@@ -7,3 +8,5 @@ opt-out of single project mode add/set the singleProjectMode: false property in
 the firebase.json emulators config. 
 11:48:00.374 [NamespaceSystem-akka.actor.default-dispatcher-9] INFO com.firebase.core.namespace.NamespaceActor - cloudspa-262a4-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 2ms, init: 0ms
 11:48:00.395 [NamespaceSystem-blocking-namespace-operation-dispatcher-11] INFO com.firebase.core.namespace.StateManager - Namespace cloudspa-262a4-default-rtdb status Active to Active
+=======
+>>>>>>> 7877e642664ff21ff8f5a1f007ac260bad68249f
