@@ -1,11 +1,14 @@
 import Booking1 from "../../Pictures/booking1.jpg";
 import React, { useState, useContext, useEffect } from "react";
+import { SelectedServiceContext } from "../../ServicesContext.js";
+import { useNavigate, Link } from "react-router-dom";
 import { getAuth, connectAuthEmulator } from "firebase/auth";
-import { database, ref, push, set } from "../../../src/firebase-config.js";
-import Layout from "../../components/layout";
+import { database, ref, push, set } from "../../firebase-config.js";
+import Layout from "../../components/layout.jsx";
+import BookingPath from "../Booking2/BookingPath.jsx"
 import "../../styles/Booking1.css";
 import "../../styles/BookingButtons.css";
-import { SelectedServiceContext } from "../../ServicesContext.js";
+import '../../styles/Booking2/BookingPath.css';
 
 //The list of options for the user to select
 const LIST_DATA = [
@@ -19,6 +22,7 @@ const LIST_DATA = [
 const Booking = () => {
   const [checkedList, setCheckedList] = useState([]);
   const { selectedService } = useContext(SelectedServiceContext);
+  const navigate = useNavigate(); // Bruk useNavigate-hook for å få tilgang til navigasjonsfunksjonalitet
 
   useEffect(() => {
     setCheckedList((prevList) => [...prevList, selectedService]);
@@ -62,18 +66,20 @@ const Booking = () => {
   //  return Date.now() + Math.floor(Math.random() * 1000);
   //};
 
-  //Function to verify that atleast one option is selected before continuing  with the booking process
+  
+  //Function to verify that atleast one option is selected before continuing with the booking process
   const handleNext = () => {
-    if (checkedList.length == 0) {
+    if (checkedList.length === 0) {
       const userConfirmed = window.confirm(
         "Please select at least one treatment before proceeding. Click OK to go back to the Booking page."
       );
       if (userConfirmed) {
-        window.location.href = "/Booking";
+        // Gå til Booking-siden hvis ingen behandlinger er valgt
+        navigate("/Booking");
       }
     } else {
-      //saveOrderToDatabase();
-      window.location.href = "/Booking2";
+      // Gå til BookingPage2 hvis behandlinger er valgt
+      navigate("/Booking2");
     }
   };
 
@@ -83,13 +89,7 @@ const Booking = () => {
         <div className="booking-img-container">
           <img src={Booking1} alt="bath" className="booking1-image" />
         </div>
-        <div className="booking-path">
-          <div className="booking-step-indicator">
-            <span className="treatment-label">Treatments</span>
-            <span className="date-label">Date</span>
-            <span className="checkout-label">Check Out</span>
-          </div>
-        </div>
+        <BookingPath/>
         <div className="booking-section">
           <div className="booking-card">
             <p className="booking-title">
@@ -124,19 +124,22 @@ const Booking = () => {
           })}
         </div>
         <div className="booking-buttons">
-          <a href="/" class="booking-cancel-button">
-            Cancel
-          </a>
-          <a class="booking-next-button" onClick={handleNext}>
-            Next
-          </a>
+        <Link to="/" className="booking-cancel-button">
+    Cancel
+  </Link>
+  <button className="booking-next-button" onClick={handleNext}>
+    Next
+  </button>
+          
         </div>
       </>
     </div>
   );
 };
 <>
+  <BookingPath />
   <Booking />
   <Layout />
+  
 </>;
 export default Booking;

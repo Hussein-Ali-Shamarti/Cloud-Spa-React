@@ -1,0 +1,24 @@
+.booking-path {
+    display: flex;
+    margin-top: 8%;
+    margin-left: 15%;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px; /* Adjust spacing as needed */
+  }  
+
+  .treatment-label, .date-label, .checkout-label {
+    font-size: 25px;
+    padding: 10px 50px;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-color:#23395B;
+    color: black;
+    opacity: 0.5; /* less visible underline */
+  }
+  
+  .active {
+    opacity: 1; /* more visible underline */
+    text-decoration-color:#23395B;
+    color: black;
+  }

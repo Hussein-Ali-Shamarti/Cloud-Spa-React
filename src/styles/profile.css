@@ -1,0 +1,25 @@
+.Profile-container {
+  margin-top: 150px;
+  margin-left: 50px;
+}
+
+.Profile-container a {
+  color: #3697e2;
+}
+
+/* Base styles for all tabs */
+.Profile-container a {
+  padding: 10px 20px 0 30px; /* Adjusted padding: 10px top and bottom, 20px on the sides */
+  display: flex;
+  margin-right: 20px; /* Adjust the spacing as needed */
+  text-decoration: none; /* Remove underline from all */
+  color: rgb(2, 60, 110); /* Default text color */
+  border-bottom: 2px solid lightgrey; /* Light underline for all tabs */
+  display: inline-block; /* Ensure that the border-bottom is close to the text */
+  cursor: pointer; /* Change cursor to pointer for tabs */
+}
+
+/* Active tab styles */
+.Profile-container a.active {
+  border-bottom: 3px solid black; /* Darker and thicker underline for active tab */
+}

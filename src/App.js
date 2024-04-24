@@ -12,17 +12,18 @@ import {
   connectDatabaseEmulator
 } from "firebase/database";
 import "../src/firebase-config";
-import spaServices from "../src/services.json"; // Assuming this is a JSON file now
+import spaServices from "../src/services.json";
 import AboutUsPage from "./pages/AboutUs/AboutUsPage";
 import ContactPage from "./pages/ContactUs/ContactPage";
 import ServicePage from "./pages/Services/ServicePage";
-import Signup from "./signup/signup";
+import Signup from "./pages/signup/signup";
 import SignIn from "./pages/login/signin";
-import PasswordReset from "./passwordReset/passwordReset";
-import Booking from "../src/pages/Booking/Booking";
+import PasswordReset from "./pages/passwordReset/passwordReset";
+import Booking from "../src/pages/Booking/BookingTreatments";
 import ExtraTreatmentsPage from "./pages/ExtraTreatments/ExtraTreatmentsPage";
 import { SelectedServiceProvider } from "./ServicesContext";
-import Profile from "./profile";
+import Profile from "./pages/Profile/profile";
+import BookingPage2 from "./pages/Booking2/BookingPage2";
 
 function App() {
   useEffect(() => {
@@ -66,8 +67,9 @@ function App() {
             <Route path="/MyPage" element={<SignIn />} />
             <Route path="/Signup" element={<Signup />} />
             <Route path="/PasswordReset" element={<PasswordReset />} />
-            <Route path="/booking" element={<Booking />} />
+            <Route path="/Booking" element={<Booking/>} />
             <Route path="/Services" element={<ServicePage />} />
+            <Route path="/Booking2" element={<BookingPage2/>} />
             {<Route path="/profile" element={<Profile />} />}
           </Routes>
           <Layout />
