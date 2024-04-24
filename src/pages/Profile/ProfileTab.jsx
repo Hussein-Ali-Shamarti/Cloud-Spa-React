@@ -61,7 +61,7 @@ const ProfileTab = () => {
     <div className="profile-content">
       <h3>Personal info</h3>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
+        <div className="form-groupProfile">
           <label className="form-label">Display Name:</label>
           <input
             type="text"
@@ -70,7 +70,7 @@ const ProfileTab = () => {
             className="form-input"
           />
         </div>
-        <div className="form-group">
+        <div className="form-groupProfile">
           <label className="form-label">Photo URL:</label>
           <input
             type="text"
@@ -79,7 +79,7 @@ const ProfileTab = () => {
             className="form-input"
           />
         </div>
-        <div className="form-group">
+        <div className="form-groupProfile">
           <label className="form-label">Email:</label>
           <input
             type="email"
