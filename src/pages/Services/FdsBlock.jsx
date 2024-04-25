@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import fullDaySpa from "../../Pictures/fullDaySpa.jpg";
-import "../../styles/Services/FdsBlock.css";
+//import "../../styles/Services/FdsBlock.css";
 import { useNavigate } from "react-router-dom";
 import { SelectedServiceContext } from "../../ServicesContext";
 

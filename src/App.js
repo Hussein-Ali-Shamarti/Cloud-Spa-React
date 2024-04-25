@@ -71,6 +71,9 @@ function App() {
             <Route path="/Services" element={<ServicePage />} />
             <Route path="/Booking2" element={<BookingPage2/>} />
             {<Route path="/profile" element={<Profile />} />}
+
+            {<Route path="/Treatments/:serviceId" element={<ExtraTreatmentsPage />} />}
+
           </Routes>
           <Layout />
         </SelectedServiceProvider>

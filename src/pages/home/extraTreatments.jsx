@@ -1,6 +1,7 @@
 import classicMassage from "../../Pictures/classicMassage.jpg";
 import "../../styles/extraTreatments.css";
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ExtraTreatments = () => {
   return (
@@ -15,19 +16,19 @@ const ExtraTreatments = () => {
             <div className="treatments-list">
               <ul>
                 <li>
-                  <a href="/classic-massage">Classic Massage</a>
+                  <Link to="/Treatments/ClassicMassage">Classic Massage</Link>
                 </li>
                 <li>
-                  <a href="/massage-and-scrub">Massage and Scrub</a>
+                  <Link to="/Treatments/Massage-and-scrub">Massage and Scrub</Link>
                 </li>
                 <li>
-                  <a href="/hot-stone-massage">Hot Stone Massage</a>
+                  <Link to="/Treatments/hot-stone-massage">Hot Stone Massage</Link>
                 </li>
                 <li>
-                  <a href="/facial-treatment">Facial Treatment</a>
+                  <Link to="/Treatments/facial-treatment">Facial Treatment</Link>
                 </li>
                 <li>
-                  <a href="/steam-room">Steam Room</a>
+                  <Link to="/Treatments/steam-room">Steam Room</Link>
                 </li>
               </ul>
             </div>
