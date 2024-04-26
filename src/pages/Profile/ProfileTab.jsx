@@ -78,6 +78,13 @@ const ProfileTab = () => {
             onChange={(e) => setPhotoURL(e.target.value)}
             className="form-input"
           />
+          {/*
+                    <img
+            src={photoURL}
+            alt="User Submitted"
+            style={{ maxWidth: "100%", maxHeight: "500px" }}
+          />
+          */}
         </div>
         <div className="form-groupProfile">
           <label className="form-label">Email:</label>
