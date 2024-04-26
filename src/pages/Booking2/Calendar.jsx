@@ -6,13 +6,43 @@ import "../../styles/Booking2/Calendar.css";
 const Calendar = () => {
   
   const [currentDate2, setCurrentDate]= useState("");
+  const [days2, setDays] = useState([]);
+
+  const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  const adjustedWeekDays = [...weekDays.slice(1), weekDays[0]];
   
   //getting new date, current year and month
   useEffect(() => {
-  let date2= new Date();
-  let currYear2= date2.getFullYear();
-  let currMonth2= date2.getMonth();
-  let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    let date2= new Date();
+    let currYear2= date2.getFullYear();
+    let currMonth2= date2.getMonth();
+    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const lastDateOfMonth = new Date(currYear2, currMonth2 + 1, 0).getDate();
+    const firstDateOfMonth = new Date(currYear2, currMonth2, 1);
+    const firstDayOfWeek = (firstDateOfMonth.getDay()+6) % 7; 
+    const lastDayOfWeek = new Date(currYear2, currMonth2 + 1, 0).getDay();
+    const daysArray = [];
+
+    
+
+    const lastDateOfPrevMonth = new Date(currYear2, currMonth2, 0).getDate();
+      for (let i = firstDayOfWeek - 1; i >= 0; i--) {
+        daysArray.push(lastDateOfPrevMonth - i);
+      }
+      for (let i = 1; i < firstDayOfWeek; i++){
+        daysArray.push("")
+      }
+      for (let i = 1; i <= lastDateOfMonth; i++) {
+        daysArray.push(i);
+      }
+    
+    const remainingDays = 7 - (daysArray.length % 7);
+      if (remainingDays < 7) {
+        for (let i = 1; i <= remainingDays; i++) {
+          daysArray.push(i);
+        }
+      }
+    setDays(daysArray);
   setCurrentDate(`${months[currMonth2]} ${currYear2}`);
 }, []);
 
@@ -34,50 +64,14 @@ const Calendar = () => {
           <div className="Calendar">
             <ul className="weeks">
                 
-                <li>Mon</li>
-                <li>Tue</li>
-                <li>Wed</li>
-                <li>Thu</li>
-                <li>Fri</li>
-                <li>Sat</li>
-                <li>Sun</li>
+            {adjustedWeekDays.map(day => (
+              <li key={day}>{day}</li>
+            ))}
             </ul>
-            <ul className="days">
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                <li>6</li>
-                <li>7</li>
-                <li>8</li>
-                <li>9</li>
-                <li>10</li>
-                <li>11</li>
-                <li>12</li>
-                <li>13</li>
-                <li>14</li>
-                <li>15</li>
-                <li>16</li>
-                <li>17</li>
-                <li>18</li>
-                <li>19</li>
-                <li>20</li>
-                <li>21</li>
-                <li>22</li>
-                <li>23</li>
-                <li>24</li>
-                <li>25</li>
-                <li>26</li>
-                <li>27</li>
-                <li>28</li>
-                <li>29</li>
-                <li>30</li>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
+            <ul className="days2">
+            {days2.map((day, index) => (
+              <li key={index}>{day}</li>
+              ))}  
                 
             </ul>
           </div>
