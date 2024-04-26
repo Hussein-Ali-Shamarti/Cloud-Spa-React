@@ -1,19 +1,20 @@
 
 
         .booking2-img-container {
-            float: right;
-            flex: 1 0 10rem;
-            position: relative;
+            /*float: right;
+            /*flex: 1 0 10rem;*/
+            position: absolute;
             margin-right: 20px;
+            margin-left: 60%;
             width: 100%;
             max-width: 35%;
             margin-top: 7%;
           }
         
           .booking2-img-container img {
-            width: 70%;
+            width: 100%;
             height: auto;
-            display: flex;
+            /*display: flex;*/
       }
       
     /*position: relative;

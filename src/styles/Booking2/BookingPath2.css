@@ -1,0 +1,37 @@
+.booking-path2 {
+    display: flex;
+    height: 100px;
+    margin-top: 8%;
+    margin-left: 4%;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px; /* Adjust spacing as needed */
+  }  
+
+<<<<<<< Updated upstream:src/styles/Booking2/BookingPath.css
+  .treatment-label, .date-label, .checkout-label {
+    font-size: 25px;
+=======
+   .checkout-label2, .treatment-label2  {
+    font-size: 20px;
+>>>>>>> Stashed changes:src/styles/Booking2/BookingPath2.css
+    padding: 10px 50px;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-color:#23395B;
+    color: black;
+    opacity: 0.5; /* less visible underline */
+  }
+  
+<<<<<<< Updated upstream:src/styles/Booking2/BookingPath.css
+  .active-booking {
+    opacity: 1; /* more visible underline */
+    text-decoration-color:#23395B;
+    color: black;
+=======
+  .date-label2{
+    font-size: 20px;
+    padding: 10px 50px;
+    border-bottom: 2px solid #23395B;
+>>>>>>> Stashed changes:src/styles/Booking2/BookingPath2.css
+  }
