@@ -2,9 +2,9 @@ import React from 'react';
 import SteamRoomImage from '../../Pictures/SteamRoom.jpg';
 import '../../styles/ExtraTreatments/SteamRoom.css';
 
-function SteamRoom() {
+function SteamRoom({id}) {
     return (
-        <div className="steam-room-block">
+        <div className="steam-room-block" id={id}>
             <img src={SteamRoomImage} id="steamRoom" alt="room" />
             <h2>Steam Room</h2>
             <div className="text-box">

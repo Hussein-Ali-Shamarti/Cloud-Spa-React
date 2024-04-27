@@ -2,9 +2,9 @@ import React from 'react';
 import MassageAndScrubImage from '../../Pictures/massageAndScrub.jpg';
 import '../../styles/ExtraTreatments/MassageAndScrub.css';
 
-function MassageAndScrub() {
+function MassageAndScrub({id}) {
     return (
-        <div className="massage-and-scrub-block">
+        <div className="massage-and-scrub-block" id={id}>
             <img src={MassageAndScrubImage} id="massageAndScrub" alt="ScrubBrush" />
             <h2>Massage and Scrub</h2>
             <div className="text-box">
