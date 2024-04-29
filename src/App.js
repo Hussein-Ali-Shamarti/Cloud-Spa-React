@@ -24,6 +24,7 @@ import ExtraTreatmentsPage from "./pages/ExtraTreatments/ExtraTreatmentsPage";
 import { SelectedServiceProvider } from "./ServicesContext";
 import Profile from "./pages/Profile/profile";
 import BookingPage2 from "./pages/Booking2/BookingPage2";
+import Booking3Page from "./pages/Booking3/Booking3Page";
 
 function App() {
   useEffect(() => {
@@ -70,6 +71,7 @@ function App() {
             <Route path="/Booking" element={<Booking/>} />
             <Route path="/Services" element={<ServicePage />} />
             <Route path="/Booking2" element={<BookingPage2/>} />
+            <Route path="/Booking3" element={<Booking3Page/>} />
             {<Route path="/profile" element={<Profile />} />}
 
             {<Route path="/Treatments/:serviceId" element={<ExtraTreatmentsPage />} />}
