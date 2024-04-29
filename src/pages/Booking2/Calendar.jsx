@@ -8,8 +8,8 @@ const Calendar = () => {
   const [currentDate2, setCurrentDate]= useState("");
   const [days2, setDays] = useState([]);
 
-  const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-  const adjustedWeekDays2 = [...weekDays];
+  const WeekDays2 = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  const adjustedWeekDays2 = [...WeekDays2];
   
   //getting new date, current year and month
   useEffect(() => {
@@ -67,9 +67,9 @@ const Calendar = () => {
                 <span className="after-symbol"> &gt; </span>
             </div>
           </div>
-          <div className="Calendar">
-            <ul className="weeks">
-                
+          <div className="Calendar2">
+            
+            <ul className="weeks2">   
             {adjustedWeekDays2.map(day => (
               <li key={day}>{day}</li>
             ))}
