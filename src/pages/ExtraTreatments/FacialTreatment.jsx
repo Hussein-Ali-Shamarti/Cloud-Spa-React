@@ -2,9 +2,9 @@ import React from 'react';
 import FacialTreatmentImage from '../../Pictures/facialTreatment.jpg';
 import '../../styles/ExtraTreatments/FacialTreatment.css';
 
-function FacialTreatment() {
+function FacialTreatment({id}) {
     return (
-        <div className="facial-treatment-block">
+        <div className="facial-treatment-block" id={id}>
             <img src={FacialTreatmentImage} id="facialTreatment" alt="face" />
             <h2>Facial Treatment</h2>
             <div className="text-box">

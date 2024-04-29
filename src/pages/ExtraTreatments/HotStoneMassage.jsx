@@ -2,9 +2,9 @@ import React from 'react';
 import HotStoneMassageImage from '../../Pictures/hotStoneMassage.jpg';
 import '../../styles/ExtraTreatments/HotStoneMassage.css';
 
-function HotStoneMassage() {
+function HotStoneMassage({id}) {
     return (
-        <div className="hot-stone-massage-block">
+        <div className="hot-stone-massage-block" id={id}>
             <img src={HotStoneMassageImage} id="hotStoneMassage" alt="hotStones" />
             <h2>Hot Stone Massage</h2>
             <div className="text-box">

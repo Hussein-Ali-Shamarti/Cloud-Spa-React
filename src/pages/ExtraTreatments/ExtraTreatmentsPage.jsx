@@ -9,26 +9,34 @@ import Layout from "../../components/layout";
 import Footer from "../../components/footer";
 import { useParams } from "react-router-dom";
 
+
 function ExtraTreatmentsPage() {
-  const { sectionId } = useParams();
-  const sectionRef = useRef(null);
+  const { serviceId } = useParams();
+  console.log(serviceId, "params");
+
+
   useEffect(() => {
-    console.log(sectionId);
-    console.log(sectionRef);
-    if (sectionId && sectionRef.current) {
-      sectionRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [sectionId]);
+
+      const element = document.getElementById(serviceId);
+
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+
+  
+  }, [serviceId]);
   return (
     <>
       <Layout />
-      <div ref={sectionRef}>
-        <TitleExtraTreatmentsPage />
+
+      <TitleExtraTreatmentsPage />
+      <div>
+        {" "}
         <ClassicMassage id="ClassicMassage" />
         <MassageAndScrub id="Massage-and-scrub" />
         <HotStoneMassage id="hot-stone-massage" />
-        <FacialTreatment id="facial-treatment"/>
-        <SteamRoom id="steam-room"/>
+        <FacialTreatment id="facial-treatment" />
+        <SteamRoom id="steam-room" />
       </div>
       <Footer />
     </>

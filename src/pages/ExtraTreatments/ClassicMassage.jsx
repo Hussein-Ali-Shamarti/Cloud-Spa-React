@@ -2,9 +2,9 @@ import React from 'react';
 import ClassicMassageImage from '../../Pictures/classicMassage.jpg';
 import '../../styles/ExtraTreatments/ClassicMassage.css';
 
-function ClassicMassage() {
+function ClassicMassage({id}) {
     return (
-        <div className="classic-massage-block">
+        <div className="classic-massage-block" id={id}>
             <img src={ClassicMassageImage} id="classicMassage" alt="shoulderMassage" />
             <h2>Classic Massage</h2>
             <div className="text-box">

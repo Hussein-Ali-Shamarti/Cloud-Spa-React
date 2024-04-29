@@ -59,7 +59,7 @@ const Calendar = () => {
     return(
        
        <div className="Calendar-Container">
-       <div className="wrapper">
+       <div className="wrapper-Calendar">
           <div className="header2">
             <h5 className="current-date2">{currentDate2}</h5>
             <div className="icons">
