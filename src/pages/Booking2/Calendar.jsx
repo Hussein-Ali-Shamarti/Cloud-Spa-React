@@ -9,7 +9,7 @@ const Calendar = () => {
   const [days2, setDays] = useState([]);
 
   const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-  const adjustedWeekDays = [...weekDays.slice(1), weekDays[0]];
+  const adjustedWeekDays2 = [...weekDays];
   
   //getting new date, current year and month
   useEffect(() => {
@@ -19,7 +19,12 @@ const Calendar = () => {
     let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const lastDateOfMonth = new Date(currYear2, currMonth2 + 1, 0).getDate();
     const firstDateOfMonth = new Date(currYear2, currMonth2, 1);
-    const firstDayOfWeek = (firstDateOfMonth.getDay()+6) % 7; 
+    let firstDayOfWeek = firstDateOfMonth.getDay();
+      if (firstDayOfWeek === 0) {
+      firstDayOfWeek = 6; // Søndag, juster til lørdag (6)
+      } else {
+      firstDayOfWeek--; // Juster tilsvarende én mindre for alle andre dager
+      }
     const lastDayOfWeek = new Date(currYear2, currMonth2 + 1, 0).getDay();
     const daysArray = [];
 
@@ -36,7 +41,8 @@ const Calendar = () => {
         daysArray.push(i);
       }
     
-    const remainingDays = 7 - (daysArray.length % 7);
+    
+      const remainingDays = 7 - (daysArray.length % 7);
       if (remainingDays < 7) {
         for (let i = 1; i <= remainingDays; i++) {
           daysArray.push(i);
@@ -64,7 +70,7 @@ const Calendar = () => {
           <div className="Calendar">
             <ul className="weeks">
                 
-            {adjustedWeekDays.map(day => (
+            {adjustedWeekDays2.map(day => (
               <li key={day}>{day}</li>
             ))}
             </ul>
