@@ -7,50 +7,62 @@ const Calendar = () => {
   
   const [currentDate2, setCurrentDate]= useState("");
   const [days2, setDays] = useState([]);
+  const [currentMonth2, setCurrentMonth] = useState(new Date().getMonth());
+  const [currentYear2, setCurrentYear] = useState(new Date().getFullYear());
 
   const WeekDays2 = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   const adjustedWeekDays2 = [...WeekDays2];
   
-  //getting new date, current year and month
   useEffect(() => {
-    let date2= new Date();
-    let currYear2= date2.getFullYear();
-    let currMonth2= date2.getMonth();
-    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    const lastDateOfMonth = new Date(currYear2, currMonth2 + 1, 0).getDate();
-    const firstDateOfMonth = new Date(currYear2, currMonth2, 1);
-    let firstDayOfWeek = firstDateOfMonth.getDay();
-      if (firstDayOfWeek === 0) {
+    updateCalendar2();
+  }, [currentMonth2, currentYear2]);
+
+  const updateCalendar2 = () => {
+    const date2 = new Date(currentYear2, currentMonth2, 1);
+    let firstDayOfWeek = date2.getDay();
+    if (firstDayOfWeek === 0) {
       firstDayOfWeek = 6; // Søndag, juster til lørdag (6)
       } else {
       firstDayOfWeek--; // Juster tilsvarende én mindre for alle andre dager
       }
-    const lastDayOfWeek = new Date(currYear2, currMonth2 + 1, 0).getDay();
+
+    const lastDateOfMonth = new Date(currentYear2, currentMonth2 + 1, 0).getDate();
     const daysArray = [];
 
-    
-
-    const lastDateOfPrevMonth = new Date(currYear2, currMonth2, 0).getDate();
-      for (let i = firstDayOfWeek - 1; i >= 0; i--) {
-        daysArray.push(lastDateOfPrevMonth - i);
-      }
-      for (let i = 1; i < firstDayOfWeek; i++){
-        daysArray.push("")
-      }
-      for (let i = 1; i <= lastDateOfMonth; i++) {
+    const lastDateOfPrevMonth = new Date(currentYear2, currentMonth2, 0).getDate();
+    for (let i = firstDayOfWeek - 1; i >= 0; i--) {
+      daysArray.push(lastDateOfPrevMonth - i);
+    }
+    for (let i = 1; i <= lastDateOfMonth; i++) {
+      daysArray.push(i);
+    }
+    const remainingDays = 7 - (daysArray.length % 7);
+    if (remainingDays < 7) {
+      for (let i = 1; i <= remainingDays; i++) {
         daysArray.push(i);
       }
-    
-    
-      const remainingDays = 7 - (daysArray.length % 7);
-      if (remainingDays < 7) {
-        for (let i = 1; i <= remainingDays; i++) {
-          daysArray.push(i);
-        }
-      }
+    }
     setDays(daysArray);
-  setCurrentDate(`${months[currMonth2]} ${currYear2}`);
-}, []);
+    setCurrentDate(`${new Date(currentYear2, currentMonth2).toLocaleString('default', { month: 'long' })} ${currentYear2}`);
+  };
+
+  const goToNextMonth2 = () => {
+    if (currentMonth2 === 11) {
+      setCurrentMonth(0);
+      setCurrentYear(currentYear2 + 1);
+    } else {
+      setCurrentMonth(currentMonth2 + 1);
+    }
+  };
+
+  const goToPrevMonth2 = () => {
+    if (currentMonth2 === 0) {
+      setCurrentMonth(11);
+      setCurrentYear(currentYear2 - 1);
+    } else {
+      setCurrentMonth(currentMonth2 - 1);
+    }
+  };
 
   
 
@@ -63,8 +75,8 @@ const Calendar = () => {
           <div className="header2">
             <h5 className="current-date2">{currentDate2}</h5>
             <div className="icons">
-                <span className="before-symbol"> &lt; </span>
-                <span className="after-symbol"> &gt; </span>
+                <span className="before-symbol" onClick={goToPrevMonth2}> &lt; </span>
+                <span className="after-symbol" onClick={goToNextMonth2}> &gt; </span>
             </div>
           </div>
           <div className="Calendar2">
