@@ -9,6 +9,7 @@ const Calendar = () => {
   const [days2, setDays] = useState([]);
   const [currentMonth2, setCurrentMonth] = useState(new Date().getMonth());
   const [currentYear2, setCurrentYear] = useState(new Date().getFullYear());
+  const [today, setToday]= useState(new Date());
 
   const WeekDays2 = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   const adjustedWeekDays2 = [...WeekDays2];

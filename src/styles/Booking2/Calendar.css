@@ -80,7 +80,7 @@
   list-style: none;
   flex-wrap: wrap;
   padding: 0;
-  justify-content: center;
+  justify-content: space-around;
   /* position: relative; */
  
 }
@@ -96,12 +96,19 @@
 }
 .weeks2 li {
   font-weight: 500;
+  margin-bottom: 20px;
 }
 .days2 li {
   cursor: pointer;
-  margin-top: 30px;
+  margin-top: 0px;
   z-index: 1;
+  border: 1px solid #d5d4df;
+  height: 50px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .Calendar2 .days2 li::before {
    position: absolute; 
   content: "";
