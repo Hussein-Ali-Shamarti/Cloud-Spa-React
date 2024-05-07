@@ -123,3 +123,8 @@
 .days2 li:hover::before {
   background: #8ea8c3;
 }
+
+.past {
+  color: rgba(84, 81, 81, 0.3);
+}
+
