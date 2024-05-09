@@ -42,7 +42,7 @@ const Calendar = () => {
     for (let i = 1; i <= lastDateOfMonth; i++) {
       daysArray.push(i);
     }
-    const remainingDays = 7 - (PrevMONthDays.length + daysArray.length % 7);
+    const remainingDays = 7 - (PrevMONthDays.length + daysArray.length) % 7;
     if (remainingDays < 7) {
       for (let i = 1; i <= remainingDays; i++) {
         NextMOnthDays.push(i);
@@ -98,21 +98,19 @@ const Calendar = () => {
             ))}
             </ul>
             <ul className="days2">
-                {prevMOnthDays.map((day, index) => (
-                <li key={index} className="past">
-                  {day}
-                </li> 
-                ))}
-               {days2.map((day , index) => {
-                const dayDate = new Date(currentYear2, currentMonth2, day);
-                let dayState = dayDate < today ? 'past' : 'future';
-                return <li key={index} className={dayState}>{day}</li>
-                })}
-                {nextMOnthDays.map((day, index) => (
-                <li key={index} className="future">
-                  {day}
-                </li> 
-                ))}
+                  {prevMOnthDays.map((day, index) => (
+                    <li key={index} className='inActive'> {day} </li> 
+                  ))}
+
+                  {days2.map((day , index) => {
+                    const dayDate = new Date(currentYear2, currentMonth2, day);
+                    let dayState = dayDate < today ? 'inActive' : 'Active';
+                    return <li key={index} className={dayState}>{day}</li>
+                  })}
+
+                  {nextMOnthDays.map((day, index) => (
+                    <li key={index} className='inActive'> {day} </li> 
+                  ))}
                 
             </ul>
           </div>

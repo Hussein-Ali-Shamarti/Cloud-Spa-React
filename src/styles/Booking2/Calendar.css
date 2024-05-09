@@ -89,7 +89,7 @@
   width: calc(100% / 7);
   text-align: center;
   position: relative;
-  margin-top: 80px;
+  margin-top: 70px;
 }
 .days2 {
   margin-bottom: 20px;
@@ -124,7 +124,7 @@
   background: #8ea8c3;
 }
 
-.past {
+.inActive {
   color: rgba(84, 81, 81, 0.3);
 }
 
