@@ -1,5 +1,7 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
+import { useNavigate } from "react-router-dom";
 import "../../styles/Booking2/Calendar.css";
+import { SelectedServiceContext } from "../../ServicesContext.js";
 
 
 const Calendar = () => {
@@ -11,7 +13,7 @@ const Calendar = () => {
   const [today, setToday] = useState(new Date());
   const [prevMOnthDays, setPrevMonthDays] = useState([]);
   const [nextMOnthDays, setNextMonthDays] = useState([]);
-  
+  const { selectedDate, setSelectedDate } = useContext(SelectedServiceContext);
 
   const WeekDays2 = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   
@@ -76,7 +78,13 @@ const Calendar = () => {
     }
   };
 
-  
+  const navigate = useNavigate();
+  const handleDateClick = (year, month, day) => {
+    const date = new Date(year, month, day);
+    setSelectedDate(date);
+    console.log("Selected Date", date);
+    navigate("/Booking3");
+  };
 
 
     return(
@@ -106,7 +114,7 @@ const Calendar = () => {
                {days2.map((day , index) => {
                 const dayDate = new Date(currentYear2, currentMonth2, day);
                 let dayState = dayDate < today ? 'past' : 'future';
-                return <li key={index} className={dayState}>{day}</li>
+                return  <li key={index} className={dayState} onClick={() => handleDateClick(currentYear2, currentMonth2, day)}>{day}</li>
                 })}
                 {nextMOnthDays.map((day, index) => (
                 <li key={index} className="future">
