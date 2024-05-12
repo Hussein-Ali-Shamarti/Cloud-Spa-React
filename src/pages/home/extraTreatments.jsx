@@ -34,9 +34,9 @@ const ExtraTreatments = () => {
             </div>
           </div>
           <div className="read-more-container">
-            <button className="read-more-btn-for-extra-treatments">
+            <Link to="/Treatments"className="read-more-btn-for-extra-treatments">
               Read more...
-            </button>
+            </Link>
           </div>
         </div>
       </section>
