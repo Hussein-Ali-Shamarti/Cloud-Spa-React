@@ -37,7 +37,7 @@ const PaymentForm = () => {
     return (
         <div className="booking3page-content-container">
             <div className="booking3page-personal-header">
-                <h3>Personal information</h3>
+                <h3 className='booking3page-personal-header-h3'>Personal information</h3>
             </div>
             <section id="info-form">
                 <form onSubmit={handleFormSubmit}>
@@ -108,9 +108,9 @@ const PaymentForm = () => {
                 </form>
             </section>
             <div className="booking3page-buttons">
-                        <a href="/" className="booking3page-back-button">Back</a>
-                        <button type="submit" className="booking3page-submit-button">Submit</button>
-                    </div>
+                <div><a href="/" className="booking3page-back-button">Back</a></div>
+                <div><button type="submit" className="booking3page-submit-button">Submit</button></div>       
+            </div>
         </div>
         
         

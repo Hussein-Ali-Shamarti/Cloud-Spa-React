@@ -12,6 +12,7 @@ function Booking3Page() {
             <Layout />
             <BookingPath />
             <PaymentForm />
+            <BookingSummary />
             <Footer />
         </>
     );
