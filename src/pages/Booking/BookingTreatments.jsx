@@ -25,12 +25,17 @@ const Booking = () => {
   const navigate = useNavigate(); // Bruk useNavigate-hook for å få tilgang til navigasjonsfunksjonalitet
 
   useEffect(() => {
-    setCheckedList((prevList) => [...prevList, selectedService]);
+  console.log("selectedService:", selectedService);
+  console.log("checkedList:", checkedList);
+    if (selectedService) {
+      setCheckedList((prevList) => [...prevList, selectedService])
+    }
   }, [selectedService]);
+
   const handleSelect = (event) => {
     const value = event.target.value;
     const isChecked = event.target.checked;
-
+    console.log("Selected:", value, isChecked);
     if (isChecked) {
       // Add checked items into checklist
       setCheckedList((prevList) => [...prevList, value]);
@@ -39,6 +44,7 @@ const Booking = () => {
       const filteredList = checkedList.filter((item) => item !== value);
       setCheckedList(filteredList);
     }
+    console.log("Updated checkedList", checkedList);
   };
 
 //  const auth = getAuth();
@@ -79,7 +85,7 @@ const Booking = () => {
       }
     } else {
       // Redirects to the next step if options are checked and the list is populated.
-      navigate("/Booking2");
+      navigate("/Booking2", { state: { checkedList}});
     }
   };
 

@@ -4,21 +4,24 @@ import CalenderIcon from "../../Pictures/CalenderIcon.png";
 import { SelectedServiceContext } from "../../ServicesContext.js";
 import getServicePrice from "../Booking3/getServicePrice"; // Import getServicePrice function
 import applyPromoCode from "../Booking3/applyPromoCode"; // Import applyPromoCode function
-
-const BookingSummary = ({ selectedDate }) => {
-  const { selectedService, checkedList } = useContext(SelectedServiceContext);
+import { useLocation } from "react-router-dom";
+const BookingSummary = () => {
+  const { selectedService, selectedDate } = useContext(SelectedServiceContext);
   const [promoCode, setPromoCode] = useState("");
   const [totalSum, setTotalSum] = useState(0); // Initial total sum
-
+  const location = useLocation();
+  const { checkedList} = location.state || {};
+  
   const handlePromoCodeChange = (event) => {
     setPromoCode(event.target.value);
   };
 
   useEffect(() => {
-    if (selectedService && selectedService.length > 0) {
+    if (checkedList && checkedList.length > 0) {
       // Calculate total sum based on selected services
       let sum = 0; // Base price
-      selectedService.forEach((service) => {
+      if (Array.isArray(checkedList))
+        checkedList.forEach((service) => {
         // Add price of each selected service
         // Adjust this logic based on how service prices are stored
         sum += getServicePrice(service);
@@ -34,9 +37,21 @@ const BookingSummary = ({ selectedDate }) => {
       // If no services selected, reset total sum to base price
       setTotalSum(0);
     }
-  }, [selectedService, promoCode]); // Recalculate when selected services or promo code change
+  }, [checkedList, promoCode]); // Recalculate when selected services or promo code change
+  
+  const services = checkedList || [];
 
-  const services = Array.isArray(selectedService) ? selectedService : [];
+  //Function to format the date to DD/MM/YYYY
+  const formatDate = (date) => {
+    const day = date.getDate().toString().padStart(2, '0'); // Gets the day of the month as a two-digit string
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Get the month (adding 1 because months are zero-based) as a two-digit string
+    const year = date.getFullYear(); // Gets the full year
+    return `${day}/${month}/${year}`;
+  };
+  console.log("Services:", services);
+console.log("Selected Date:", selectedDate);
+console.log("Promo Code:", promoCode);
+console.log("Total Sum:", totalSum);
 
   return (
     <div className="booking-summary-container booking-summary-div">
@@ -54,7 +69,7 @@ const BookingSummary = ({ selectedDate }) => {
         </div>
         <div className="booking-summary-date booking-summary-div">
           <img src={CalenderIcon} />
-          <p className="booking-summary-p">{selectedDate}</p>
+          <p className="booking-summary-p">{selectedDate && formatDate(selectedDate)}</p>
           <h4>Change Date</h4>
         </div>
         <div className="booking-summary-promo-code booking-summary-div">
@@ -79,5 +94,4 @@ const BookingSummary = ({ selectedDate }) => {
     </div>
   );
 };
-
 export default BookingSummary;

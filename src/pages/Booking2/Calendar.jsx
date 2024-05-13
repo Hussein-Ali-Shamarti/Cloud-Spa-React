@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "../../styles/Booking2/Calendar.css";
 import { SelectedServiceContext } from "../../ServicesContext.js";
 
@@ -11,8 +11,9 @@ const Calendar = () => {
   const [today, setToday] = useState(new Date());
   const [prevMOnthDays, setPrevMonthDays] = useState([]);
   const [nextMOnthDays, setNextMonthDays] = useState([]);
-  const { selectedDate, setSelectedDate } = useContext(SelectedServiceContext);
-
+  const { selectedDate, setSelectedDate,} = useContext(SelectedServiceContext);
+  const location = useLocation();
+  const { checkedList} = location.state || {};
   const WeekDays2 = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   useEffect(() => {
@@ -98,13 +99,14 @@ const Calendar = () => {
       } else {
         setSelectedDate(date);
         console.log("Selected Date:", date);
-        navigate("/Booking3");
+        navigate("/Booking3", {state: {checkedList}});
       }
     } else {
       window.alert("Cannot select a date in the past");
     }
   };
-
+  const services = checkedList || [];
+  console.log("Services:", services);
   return (
     <div className="Calendar-Container">
       <div className="wrapper-Calendar">
