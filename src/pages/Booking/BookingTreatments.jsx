@@ -74,11 +74,11 @@ const Booking = () => {
         "Please select at least one treatment before proceeding. Click OK to go back to the Booking page."
       );
       if (userConfirmed) {
-        // Gå til Booking-siden hvis ingen behandlinger er valgt
+        // Redirects to the page if no options are checked.
         navigate("/Booking");
       }
     } else {
-      // Gå til BookingPage2 hvis behandlinger er valgt
+      // Redirects to the next step if options are checked and the list is populated.
       navigate("/Booking2");
     }
   };
