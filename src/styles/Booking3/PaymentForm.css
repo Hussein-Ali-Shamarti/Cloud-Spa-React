@@ -11,14 +11,14 @@
 
 .booking3page-content-container {
   padding-left: 10%; /* Plasserer alt innhold 150px fra venstre kant */
-  margin-top: 10%; /* Legger til øvre margin for å unngå overlapping med headeren */
+  margin-top: 4%; /* Legger til øvre margin for å unngå overlapping med headeren */
 }
 
 .booking3page-personal-header {
   margin-top: 0; /* Fjerner ekstra plass over overskriften */
 }
 
-.booking3page-personal-header h3 {
+.booking3page-personal-header-h3 {
   color: #000000;
   font-size: 2rem;
   margin-left: 0; /* Justerer til å passe skjemaet */
@@ -175,64 +175,49 @@
 
 .booking3page-booking-buttons {
     width: 100%;
-    bottom: 20px;
     display: flex;
-    justify-content: center; 
-    padding-top: 40px;
+    justify-content: space-between; 
 }
 
 .booking3page-back-button {
-    display: block; /* Make the <a> tag a block-level element */
-    padding: 10px 20px; /* Adjust the padding as needed */
-    margin-right: 10%; /* Adjust the spacing between buttons */
-    margin-bottom: 2%;
-    background-color: #8EA8C3;
-    color: black;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
+  display: inline-flex;
+  padding: 10px 20px;
+  margin-right: 10%;
+  margin-bottom: -100%;
+  background-color: #8EA8C3;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .booking3page-back-button:hover {
-    background-color: #406E8E; 
-    color: black;
+  background-color: #406E8E; 
+  color: black;
 }
 
 .booking3page-submit-button {
-    display: block;
-    padding: 10px 30px; /* Adjust the padding as needed */
-    margin-left: 18%; /* Adjust the spacing between buttons */
-    margin-right: 62%;
-    margin-bottom: 2%;
-    background-color: #23395B;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
+  display:inline-flex;
+  padding: 10px 30px; /* Adjust the padding as needed */
+  margin-left: 18%; /* Adjust the spacing between buttons */
+  margin-right: 62%;
+  margin-bottom: 2%;
+  background-color: #23395B;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .booking3page-submit-button:hover {
-    background-color: #8EA8C3; 
-    color: black;
+  background-color: #8EA8C3; 
+  color: black;
 }
 
-@media screen and (max-width: 768px) {
-    .booking3page-buttons {
-        max-width: 150%;
-        margin-bottom: -25%;
-        margin-left: 5%;
-    }
-}
 
-@media screen and (max-width: 1200px) {
-    .booking3page-buttons {
-        max-width: 100%;
-        margin-bottom: -25%;
-        margin-left: 5%;
-    }
-}
+
 
 
 #info-form select {

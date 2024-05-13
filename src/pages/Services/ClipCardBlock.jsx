@@ -1,6 +1,6 @@
 import React from "react";
 import clipCardEntrance from "../../Pictures/clipCardEntrance.jpg";
-//import "../../styles/Services/ClipCardBlock.css";
+import "../../styles/Services/ClipCardBlock.css";
 
 const ClipCardBlock = () => {
   return (
