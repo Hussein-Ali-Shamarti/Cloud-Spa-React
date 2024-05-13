@@ -88,9 +88,16 @@ const Calendar = () => {
   const navigate = useNavigate();
   const handleDateClick = (year, month, day) => {
     const date = new Date(year, month, day);
-    setSelectedDate(date);
-    console.log("Selected Date", date);
-    navigate("/Booking3");
+    const today = new Date();
+    today.setHours(0,0,0,0); // Reset the time part of todays date
+
+    if (date >= today) {
+      setSelectedDate(date);
+      console.log("Selected Date:", date);
+      navigate("/Booking3");
+    } else {
+      window.alert("Cannot select a date in the past");
+    }
   };
 
   return (
