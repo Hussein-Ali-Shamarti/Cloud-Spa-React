@@ -5,7 +5,7 @@ import { SelectedServiceContext } from '../../ServicesContext.js';
 
 
 const BookingSummary = ({selectedDate}) => {
-  const { selectedService } = useContext(SelectedServiceContext);
+  const { selectedService, checkedList } = useContext(SelectedServiceContext);
   const [promoCode, setPromoCode] = useState('');
   const [totalSum, setTotalSum] = useState(0); // Initial total sum
 
