@@ -127,7 +127,7 @@ const Calendar = () => {
               const dayDate = new Date(currentYear2, currentMonth2, day);
               let dayState = dayDate < today ? "inActive" : "Active";
               return (
-                <li key={index} className={dayState}>
+                <li key={index} className={dayState}onClick={() => handleDateClick(currentYear2, currentMonth2, day)}>
                   {day}
                 </li>
               );
