@@ -2,8 +2,8 @@ import React, { useState, useContext, useEffect } from "react";
 import "../../styles/Booking3/BookingSummary.css";
 import CalenderIcon from "../../Pictures/CalenderIcon.png";
 import { SelectedServiceContext } from "../../ServicesContext.js";
-import getServicePrice from "./getServicePrice"; // Import getServicePrice function
-import applyPromoCode from "./applyPromoCode"; // Import applyPromoCode function
+import getServicePrice from "../Booking3/getServicePrice"; // Import getServicePrice function
+import applyPromoCode from "../Booking3/applyPromoCode"; // Import applyPromoCode function
 
 const BookingSummary = ({ selectedDate }) => {
   const { selectedService, checkedList } = useContext(SelectedServiceContext);
