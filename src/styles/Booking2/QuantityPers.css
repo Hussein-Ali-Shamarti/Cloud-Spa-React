@@ -1,0 +1,8 @@
+.Quantity-Container{
+  position: relative;
+  width: 450px;
+  height: 100px;
+  margin-left: 100px;
+  background: #cbf7ed;
+  border-radius: 10px;
+}

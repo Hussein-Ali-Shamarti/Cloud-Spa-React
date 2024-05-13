@@ -5,6 +5,7 @@ import "../../styles/Booking2/Pic.css";
 import Layout from "../../components/layout";
 import Calendar from "./Calendar";
 import BookingPath from "./BookingPath";
+import QuantityPers from "./QuantityPers";
 
 const BookingPage2 = () => {
 
@@ -20,6 +21,7 @@ const BookingPage2 = () => {
           <Layout/> 
           <BookingPath/>
           <Calendar/>
+          <QuantityPers/>
           
         </div>
         

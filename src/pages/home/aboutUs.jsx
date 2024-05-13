@@ -13,7 +13,7 @@ const AboutUs = () => {
             relaxation needs.
           </p>
           <a
-            href="link-to-more-information.html"
+            href="/aboutUs"
             className="home-read-more-button-for-about-us"
           >
             Read more...
