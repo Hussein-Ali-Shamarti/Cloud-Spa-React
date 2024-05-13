@@ -87,14 +87,19 @@ const Calendar = () => {
 
   const navigate = useNavigate();
   const handleDateClick = (year, month, day) => {
-    const date = new Date(year, month, day);
+    const date = new Date(year, month, day);  // Set the time to the end of the day
     const today = new Date();
-    today.setHours(0,0,0,0); // Reset the time part of todays date
-
-    if (date >= today) {
-      setSelectedDate(date);
-      console.log("Selected Date:", date);
-      navigate("/Booking3");
+    
+    if (date.setHours(0, 0, 0, 0) >= today.getTime()) {
+      if (month > currentMonth2) {
+        goToNextMonth2();
+      } else if (month < currentMonth2) {
+        goToPrevMonth2();
+      } else {
+        setSelectedDate(date);
+        console.log("Selected Date:", date);
+        navigate("/Booking3");
+      }
     } else {
       window.alert("Cannot select a date in the past");
     }
@@ -141,7 +146,7 @@ const Calendar = () => {
             })}
 
             {nextMOnthDays.map((day, index) => (
-              <li key={index} className="inActive">
+              <li key={index} className="inActive" onClick={() => handleDateClick(currentYear2, currentMonth2 + 1, day)} >
                 {" "}
                 {day}{" "}
               </li>
