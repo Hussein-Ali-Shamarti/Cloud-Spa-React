@@ -126,7 +126,12 @@ const Services = () => {
         </div>
 
         <div className="read-more-container">
-          <button className="read-more-btn">Read more...</button>
+          <button
+            className="read-more-btn"
+            onClick={() => navigate("/Services")}
+          >
+            Read more...
+          </button>
         </div>
       </section>
     </>
