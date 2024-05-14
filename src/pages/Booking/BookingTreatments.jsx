@@ -1,7 +1,7 @@
 import Booking1 from "../../Pictures/booking1.jpg";
 import React, { useState, useContext, useEffect } from "react";
 import { SelectedServiceContext } from "../../ServicesContext.js";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 //import { database, push, set } from "../../firebase-config.js";
 import { getDatabase, ref, onValue} from "firebase/database";
 import Layout from "../../components/layout.jsx";
@@ -15,6 +15,7 @@ const Booking = () => {
   const [listData, setListData] = useState([]);
   const { selectedService } = useContext(SelectedServiceContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
 //Function to access the database and get the information about bookingtreatments available and puts into a list.
   useEffect(() => {
@@ -92,7 +93,12 @@ const Booking = () => {
       navigate("/Booking2", { state: { checkedList}});
     }
   };
-
+  //Function to save the selected items when returning to the first step of the process
+  useEffect(() => {
+    if (location.state && location.state.checkedList) {
+      setCheckedList(location.state.checkedList);
+    }
+  }, [location.state]);
   return (
     <div className="booking-page">
       <>
@@ -127,6 +133,7 @@ const Booking = () => {
                   id={item.id}
                   value={item.value}
                   onChange={handleSelect}
+                  checked={checkedList.includes(item.value)}
                 />
                 <label htmlFor={item.id}>{item.value}</label>
               </div>
