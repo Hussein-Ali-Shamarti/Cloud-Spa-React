@@ -10,6 +10,8 @@ import "../../styles/Booking1.css";
 import "../../styles/BookingButtons.css";
 import '../../styles/Booking2/BookingPath.css';
 
+const db = getDatabase();
+
 const Booking = () => {
   const [checkedList, setCheckedList] = useState([]);
   const [listData, setListData] = useState([]);
@@ -18,14 +20,14 @@ const Booking = () => {
   const location = useLocation();
 
 //Function to access the database and get the information about bookingtreatments available and puts into a list.
-  useEffect(() => {
-    const db = getDatabase();
-    const listDataRef = ref(db, "bookingtreatments");
-    onValue(listDataRef, (snapshot) => {
-      const data = snapshot.val() || [];
-      setListData(data);
-    });
-  }, []);
+useEffect(() => {
+  const listDataRef = ref(db, "bookingtreatments");
+  onValue(listDataRef, (snapshot) => {
+    const data = snapshot.val() || {};
+    const dataArray = Object.values(data);
+    setListData(dataArray);
+  });
+}, []);
 
   // Function to handle the validation of selected services
   useEffect(() => {
