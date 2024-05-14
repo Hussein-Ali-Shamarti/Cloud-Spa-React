@@ -24,3 +24,11 @@ max-height: 70vh;
 left: 300px;
 top: 186px;*/
 
+@media (min-width: 600px) {
+  .booking2-img-container img {
+    width: 70%;
+    height: auto;
+    /*display: flex;*/
+}
+
+}

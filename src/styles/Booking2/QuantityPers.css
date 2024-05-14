@@ -1,8 +1,49 @@
 .Quantity-Container{
-  position: relative;
-  width: 450px;
-  height: 100px;
-  margin-left: 100px;
+  display: flex ;
+  width: 40%;
+  padding: 1%;
+  margin-left: 8%;
   background: #cbf7ed;
   border-radius: 10px;
+  margin-top: 2%;
+  border: 1.5px solid black;
+}
+
+.age-label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.counter-controls {
+  display: flex;
+  align-items: center;
+}
+
+.counter-controls button {
+  background-color: #8ea8c3;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.counter-controls button:disabled {
+  background-color: #cfd8dc;
+  cursor: not-allowed;
+}
+
+.counter-controls span {
+  margin: 0 10px;
+  min-width: 5%;
+  text-align: center;
+}
+.personIcon{
+  width: 10%;
+  height: auto;
+  margin-right: 7px;
+  /* margin-top: -20px; */
+  /* margin-bottom: -20px; */
 }

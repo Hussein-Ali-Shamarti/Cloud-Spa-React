@@ -1,51 +1,54 @@
-[debug] [2024-05-07T07:38:09.054Z] ----------------------------------------------------------------------
-[debug] [2024-05-07T07:38:09.058Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\marzi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
-[debug] [2024-05-07T07:38:09.059Z] CLI Version:   13.7.2
-[debug] [2024-05-07T07:38:09.059Z] Platform:      win32
-[debug] [2024-05-07T07:38:09.059Z] Node Version:  v20.12.2
-[debug] [2024-05-07T07:38:09.059Z] Time:          Tue May 07 2024 09:38:09 GMT+0200 (sentraleuropeisk sommertid)
-[debug] [2024-05-07T07:38:09.060Z] ----------------------------------------------------------------------
+[debug] [2024-05-14T10:06:10.278Z] ----------------------------------------------------------------------
+[debug] [2024-05-14T10:06:10.280Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\marzi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2024-05-14T10:06:10.281Z] CLI Version:   13.7.2
+[debug] [2024-05-14T10:06:10.281Z] Platform:      win32
+[debug] [2024-05-14T10:06:10.281Z] Node Version:  v20.12.2
+[debug] [2024-05-14T10:06:10.281Z] Time:          Tue May 14 2024 12:06:10 GMT+0200 (sentraleuropeisk sommertid)
+[debug] [2024-05-14T10:06:10.281Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2024-05-07T07:38:09.210Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2024-05-07T07:38:09.211Z] > authorizing via signed-in user (marziyeh.khaleghi92@gmail.com)
-[debug] [2024-05-07T07:38:09.392Z] java version "22" 2024-03-19
+[debug] [2024-05-14T10:06:10.284Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2024-05-14T10:06:10.407Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-05-14T10:06:10.408Z] > authorizing via signed-in user (marziyeh.khaleghi92@gmail.com)
+[debug] [2024-05-14T10:06:10.543Z] java version "22" 2024-03-19
 Java(TM) SE Runtime Environment (build 22+36-2370)
 
-[debug] [2024-05-07T07:38:09.393Z] Java HotSpot(TM) 64-Bit Server VM (build 22+36-2370, mixed mode, sharing)
+[debug] [2024-05-14T10:06:10.544Z] Java HotSpot(TM) 64-Bit Server VM (build 22+36-2370, mixed mode, sharing)
 
-[debug] [2024-05-07T07:38:09.413Z] Parsed Java major version: 22
+[debug] [2024-05-14T10:06:10.561Z] Parsed Java major version: 22
 [info] i  emulators: Starting emulators: auth, database {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, database"}}
-[debug] [2024-05-07T07:38:09.427Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2024-05-07T07:38:09.427Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2024-05-07T07:38:09.427Z] [database] Database Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2024-05-07T07:38:09.428Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"database":[{"address":"127.0.0.1","family":"IPv4","port":9000}]},"metadata":{"message":"assigned listening specs for emulators"}}
-[debug] [2024-05-07T07:38:09.433Z] [hub] writing locator at C:\Users\marzi\AppData\Local\Temp\hub-cloudspa-262a4.json
-[debug] [2024-05-07T07:38:09.440Z] > refreshing access token with scopes: []
-[debug] [2024-05-07T07:38:09.442Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
-[debug] [2024-05-07T07:38:09.442Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2024-05-07T07:38:09.568Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
-[debug] [2024-05-07T07:38:09.568Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2024-05-07T07:38:09.585Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/cloudspa-262a4 [none]
-[debug] [2024-05-07T07:38:09.927Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/cloudspa-262a4 200
-[debug] [2024-05-07T07:38:09.928Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/cloudspa-262a4 {"projectId":"cloudspa-262a4","projectNumber":"560380076593","displayName":"cloudSpa","name":"projects/cloudspa-262a4","resources":{"hostingSite":"cloudspa-262a4","realtimeDatabaseInstance":"cloudspa-262a4-default-rtdb"},"state":"ACTIVE","etag":"1_9ca787f3-bf91-4237-85cc-5995e1632e46"}
-[debug] [2024-05-07T07:38:09.929Z] database rules config:  [{"instance":"cloudspa-262a4-default-rtdb","rules":"C:\\Users\\marzi\\OneDrive\\Dokumenter\\GitHub\\Cloud-Spa-React\\database.rules.json"}]
-[debug] [2024-05-07T07:38:09.938Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
-[debug] [2024-05-07T07:38:09.938Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2024-05-07T07:38:09.938Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
-[debug] [2024-05-07T07:38:09.938Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","C:\\Users\\marzi\\.cache\\firebase\\emulators\\firebase-database-emulator-v4.11.2.jar","--host","127.0.0.1","--port",9000,"--single_project_mode","Warning"],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host","single_project_mode"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\marzi\\\\.cache\\\\firebase\\\\emulators\\\\firebase-database-emulator-v4.11.2.jar\",\"--host\",\"127.0.0.1\",\"--port\",9000,\"--single_project_mode\",\"Warning\"],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\",\"single_project_mode\"],\"joinArgs\":false}"}}
+[debug] [2024-05-14T10:06:10.570Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-05-14T10:06:10.570Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-05-14T10:06:10.571Z] [database] Database Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-05-14T10:06:10.571Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"database":[{"address":"127.0.0.1","family":"IPv4","port":9000}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2024-05-14T10:06:10.575Z] [hub] writing locator at C:\Users\marzi\AppData\Local\Temp\hub-cloudspa-262a4.json
+[debug] [2024-05-14T10:06:10.584Z] > refreshing access token with scopes: []
+[debug] [2024-05-14T10:06:10.585Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-05-14T10:06:10.585Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-05-14T10:06:10.790Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-05-14T10:06:10.791Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2024-05-14T10:06:10.925Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-05-14T10:06:10.925Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-05-14T10:06:10.941Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/cloudspa-262a4 [none]
+[debug] [2024-05-14T10:06:11.449Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/cloudspa-262a4 200
+[debug] [2024-05-14T10:06:11.449Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/cloudspa-262a4 {"projectId":"cloudspa-262a4","projectNumber":"560380076593","displayName":"cloudSpa","name":"projects/cloudspa-262a4","resources":{"hostingSite":"cloudspa-262a4","realtimeDatabaseInstance":"cloudspa-262a4-default-rtdb"},"state":"ACTIVE","etag":"1_9ca787f3-bf91-4237-85cc-5995e1632e46"}
+[debug] [2024-05-14T10:06:11.450Z] database rules config:  [{"instance":"cloudspa-262a4-default-rtdb","rules":"C:\\Users\\marzi\\OneDrive\\Dokumenter\\GitHub\\Cloud-Spa-React\\database.rules.json"}]
+[debug] [2024-05-14T10:06:11.455Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2024-05-14T10:06:11.455Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-05-14T10:06:11.455Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
+[debug] [2024-05-14T10:06:11.455Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","C:\\Users\\marzi\\.cache\\firebase\\emulators\\firebase-database-emulator-v4.11.2.jar","--host","127.0.0.1","--port",9000,"--single_project_mode","Warning"],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host","single_project_mode"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\marzi\\\\.cache\\\\firebase\\\\emulators\\\\firebase-database-emulator-v4.11.2.jar\",\"--host\",\"127.0.0.1\",\"--port\",9000,\"--single_project_mode\",\"Warning\"],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\",\"single_project_mode\"],\"joinArgs\":false}"}}
 [info] i  database: Database Emulator logging to database-debug.log {"metadata":{"emulator":{"name":"database"},"message":"Database Emulator logging to \u001b[1mdatabase-debug.log\u001b[22m"}}
-[debug] [2024-05-07T07:38:22.320Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2024-05-07T07:38:22.320Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
-[debug] [2024-05-07T07:38:22.320Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\marzi\\.cache\\firebase\\emulators\\ui-v1.11.8\\server\\server.mjs"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\marzi\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.11.8\\\\server\\\\server.mjs\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[debug] [2024-05-14T10:06:22.453Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-05-14T10:06:22.453Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2024-05-14T10:06:22.453Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\marzi\\.cache\\firebase\\emulators\\ui-v1.11.8\\server\\server.mjs"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\marzi\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.11.8\\\\server\\\\server.mjs\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
 [info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
-[debug] [2024-05-07T07:38:22.505Z] Web / API server started at 127.0.0.1:4000
+[debug] [2024-05-14T10:06:22.701Z] Web / API server started at 127.0.0.1:4000
  {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
-[debug] [2024-05-07T07:38:22.506Z] Web / API server started at ::1:4000
+[debug] [2024-05-14T10:06:22.703Z] Web / API server started at ::1:4000
  {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
-[debug] [2024-05-07T07:38:22.601Z] >>> [apiv2][query] PUT http://127.0.0.1:9000/.settings/rules.json ns=cloudspa-262a4-default-rtdb
-[debug] [2024-05-07T07:38:22.601Z] >>> [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json "{\r\n  \"rules\": {\r\n    \".read\": false,\r\n    \".write\": false\r\n  }\r\n}"
-[debug] [2024-05-07T07:38:22.784Z] <<< [apiv2][status] PUT http://127.0.0.1:9000/.settings/rules.json 200
-[debug] [2024-05-07T07:38:22.784Z] <<< [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json {"status":"ok"}
+[debug] [2024-05-14T10:06:22.726Z] >>> [apiv2][query] PUT http://127.0.0.1:9000/.settings/rules.json ns=cloudspa-262a4-default-rtdb
+[debug] [2024-05-14T10:06:22.726Z] >>> [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json "{\r\n  \"rules\": {\r\n    \".read\": false,\r\n    \".write\": false\r\n  }\r\n}"
+[debug] [2024-05-14T10:06:22.852Z] <<< [apiv2][status] PUT http://127.0.0.1:9000/.settings/rules.json 200
+[debug] [2024-05-14T10:06:22.852Z] <<< [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json {"status":"ok"}
 [info] 
 ┌─────────────────────────────────────────────────────────────┐
 │ ✔  All emulators ready! It is now safe to connect your app. │
@@ -64,235 +67,3 @@ Java(TM) SE Runtime Environment (build 22+36-2370)
 
 Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
  
-[debug] [2024-05-07T18:17:15.359Z] Received signal SIGHUP 1
-[debug] [2024-05-08T08:56:42.053Z] ----------------------------------------------------------------------
-[debug] [2024-05-08T08:56:42.056Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\marzi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
-[debug] [2024-05-08T08:56:42.056Z] CLI Version:   13.7.2
-[debug] [2024-05-08T08:56:42.057Z] Platform:      win32
-[debug] [2024-05-08T08:56:42.057Z] Node Version:  v20.12.2
-[debug] [2024-05-08T08:56:42.057Z] Time:          Wed May 08 2024 10:56:42 GMT+0200 (sentraleuropeisk sommertid)
-[debug] [2024-05-08T08:56:42.057Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2024-05-08T08:56:42.061Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
-[debug] [2024-05-08T08:56:42.249Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2024-05-08T08:56:42.250Z] > authorizing via signed-in user (marziyeh.khaleghi92@gmail.com)
-[debug] [2024-05-08T08:56:42.449Z] java version "22" 2024-03-19
-
-[debug] [2024-05-08T08:56:42.450Z] Java(TM) SE Runtime Environment (build 22+36-2370)
-Java HotSpot(TM) 64-Bit Server VM (build 22+36-2370, mixed mode, sharing)
-
-[debug] [2024-05-08T08:56:42.474Z] Parsed Java major version: 22
-[info] i  emulators: Starting emulators: auth, database {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, database"}}
-[debug] [2024-05-08T08:56:42.487Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2024-05-08T08:56:42.487Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2024-05-08T08:56:42.487Z] [database] Database Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2024-05-08T08:56:42.488Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"database":[{"address":"127.0.0.1","family":"IPv4","port":9000}]},"metadata":{"message":"assigned listening specs for emulators"}}
-[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project cloudspa-262a4. This may result in unexpected behavior. 
-[debug] [2024-05-08T08:56:42.494Z] [hub] writing locator at C:\Users\marzi\AppData\Local\Temp\hub-cloudspa-262a4.json
-[debug] [2024-05-08T08:56:42.505Z] > refreshing access token with scopes: []
-[debug] [2024-05-08T08:56:42.507Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
-[debug] [2024-05-08T08:56:42.507Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2024-05-08T08:56:42.670Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
-[debug] [2024-05-08T08:56:42.671Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
-[debug] [2024-05-08T08:56:42.747Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
-[debug] [2024-05-08T08:56:42.747Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2024-05-08T08:56:42.756Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/cloudspa-262a4 [none]
-[debug] [2024-05-08T08:56:43.170Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/cloudspa-262a4 200
-[debug] [2024-05-08T08:56:43.171Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/cloudspa-262a4 {"projectId":"cloudspa-262a4","projectNumber":"560380076593","displayName":"cloudSpa","name":"projects/cloudspa-262a4","resources":{"hostingSite":"cloudspa-262a4","realtimeDatabaseInstance":"cloudspa-262a4-default-rtdb"},"state":"ACTIVE","etag":"1_9ca787f3-bf91-4237-85cc-5995e1632e46"}
-[debug] [2024-05-08T08:56:43.172Z] database rules config:  [{"instance":"cloudspa-262a4-default-rtdb","rules":"C:\\Users\\marzi\\OneDrive\\Dokumenter\\GitHub\\Cloud-Spa-React\\database.rules.json"}]
-[debug] [2024-05-08T08:56:43.181Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
-[debug] [2024-05-08T08:56:43.182Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2024-05-08T08:56:43.182Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
-[debug] [2024-05-08T08:56:43.182Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","C:\\Users\\marzi\\.cache\\firebase\\emulators\\firebase-database-emulator-v4.11.2.jar","--host","127.0.0.1","--port",9000,"--single_project_mode","Warning"],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host","single_project_mode"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\marzi\\\\.cache\\\\firebase\\\\emulators\\\\firebase-database-emulator-v4.11.2.jar\",\"--host\",\"127.0.0.1\",\"--port\",9000,\"--single_project_mode\",\"Warning\"],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\",\"single_project_mode\"],\"joinArgs\":false}"}}
-[info] i  database: Database Emulator logging to database-debug.log {"metadata":{"emulator":{"name":"database"},"message":"Database Emulator logging to \u001b[1mdatabase-debug.log\u001b[22m"}}
-[debug] [2024-05-08T08:56:55.163Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2024-05-08T08:56:55.163Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
-[debug] [2024-05-08T08:56:55.163Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\marzi\\.cache\\firebase\\emulators\\ui-v1.11.8\\server\\server.mjs"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\marzi\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.11.8\\\\server\\\\server.mjs\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
-[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
-[debug] [2024-05-08T08:56:55.535Z] Web / API server started at 127.0.0.1:4000
- {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
-[debug] [2024-05-08T08:56:55.536Z] Web / API server started at ::1:4000
- {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
-[debug] [2024-05-08T08:56:55.731Z] >>> [apiv2][query] PUT http://127.0.0.1:9000/.settings/rules.json ns=cloudspa-262a4-default-rtdb
-[debug] [2024-05-08T08:56:55.731Z] >>> [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json "{\r\n  \"rules\": {\r\n    \".read\": false,\r\n    \".write\": false\r\n  }\r\n}"
-[debug] [2024-05-08T08:56:55.936Z] <<< [apiv2][status] PUT http://127.0.0.1:9000/.settings/rules.json 200
-[debug] [2024-05-08T08:56:55.936Z] <<< [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json {"status":"ok"}
-[info] 
-┌─────────────────────────────────────────────────────────────┐
-│ ✔  All emulators ready! It is now safe to connect your app. │
-│ i  View Emulator UI at http://127.0.0.1:4000/               │
-└─────────────────────────────────────────────────────────────┘
-
-┌────────────────┬────────────────┬────────────────────────────────┐
-│ Emulator       │ Host:Port      │ View in Emulator UI            │
-├────────────────┼────────────────┼────────────────────────────────┤
-│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth     │
-├────────────────┼────────────────┼────────────────────────────────┤
-│ Database       │ 127.0.0.1:9000 │ http://127.0.0.1:4000/database │
-└────────────────┴────────────────┴────────────────────────────────┘
-  Emulator Hub running at 127.0.0.1:4400
-  Other reserved ports: 4500
-
-Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
- 
-[debug] [2024-05-08T21:33:13.490Z] Received signal SIGHUP 1
-[debug] [2024-05-09T15:32:56.507Z] ----------------------------------------------------------------------
-[debug] [2024-05-09T15:32:56.511Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\marzi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
-[debug] [2024-05-09T15:32:56.511Z] CLI Version:   13.7.2
-[debug] [2024-05-09T15:32:56.511Z] Platform:      win32
-[debug] [2024-05-09T15:32:56.512Z] Node Version:  v20.12.2
-[debug] [2024-05-09T15:32:56.512Z] Time:          Thu May 09 2024 17:32:56 GMT+0200 (sentraleuropeisk sommertid)
-[debug] [2024-05-09T15:32:56.512Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2024-05-09T15:32:56.516Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
-[debug] [2024-05-09T15:32:56.690Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2024-05-09T15:32:56.690Z] > authorizing via signed-in user (marziyeh.khaleghi92@gmail.com)
-[debug] [2024-05-09T15:32:56.863Z] java version "22" 2024-03-19
-
-[debug] [2024-05-09T15:32:56.864Z] Java(TM) SE Runtime Environment (build 22+36-2370)
-Java HotSpot(TM) 64-Bit Server VM (build 22+36-2370, mixed mode, sharing)
-
-[debug] [2024-05-09T15:32:56.885Z] Parsed Java major version: 22
-[info] i  emulators: Starting emulators: auth, database {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, database"}}
-[debug] [2024-05-09T15:32:56.898Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2024-05-09T15:32:56.898Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2024-05-09T15:32:56.899Z] [database] Database Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2024-05-09T15:32:56.899Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"database":[{"address":"127.0.0.1","family":"IPv4","port":9000}]},"metadata":{"message":"assigned listening specs for emulators"}}
-[warn] !  emulators: It seems that you are running multiple instances of the emulator suite for project cloudspa-262a4. This may result in unexpected behavior. 
-[debug] [2024-05-09T15:32:56.906Z] [hub] writing locator at C:\Users\marzi\AppData\Local\Temp\hub-cloudspa-262a4.json
-[debug] [2024-05-09T15:32:56.914Z] > refreshing access token with scopes: []
-[debug] [2024-05-09T15:32:56.916Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
-[debug] [2024-05-09T15:32:56.916Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2024-05-09T15:32:57.091Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
-[debug] [2024-05-09T15:32:57.091Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
-[debug] [2024-05-09T15:32:57.108Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
-[debug] [2024-05-09T15:32:57.108Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2024-05-09T15:32:57.116Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/cloudspa-262a4 [none]
-[debug] [2024-05-09T15:32:57.518Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/cloudspa-262a4 200
-[debug] [2024-05-09T15:32:57.518Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/cloudspa-262a4 {"projectId":"cloudspa-262a4","projectNumber":"560380076593","displayName":"cloudSpa","name":"projects/cloudspa-262a4","resources":{"hostingSite":"cloudspa-262a4","realtimeDatabaseInstance":"cloudspa-262a4-default-rtdb"},"state":"ACTIVE","etag":"1_9ca787f3-bf91-4237-85cc-5995e1632e46"}
-[debug] [2024-05-09T15:32:57.519Z] database rules config:  [{"instance":"cloudspa-262a4-default-rtdb","rules":"C:\\Users\\marzi\\OneDrive\\Dokumenter\\GitHub\\Cloud-Spa-React\\database.rules.json"}]
-[debug] [2024-05-09T15:32:57.527Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
-[debug] [2024-05-09T15:32:57.528Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2024-05-09T15:32:57.528Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
-[debug] [2024-05-09T15:32:57.528Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","C:\\Users\\marzi\\.cache\\firebase\\emulators\\firebase-database-emulator-v4.11.2.jar","--host","127.0.0.1","--port",9000,"--single_project_mode","Warning"],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host","single_project_mode"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\marzi\\\\.cache\\\\firebase\\\\emulators\\\\firebase-database-emulator-v4.11.2.jar\",\"--host\",\"127.0.0.1\",\"--port\",9000,\"--single_project_mode\",\"Warning\"],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\",\"single_project_mode\"],\"joinArgs\":false}"}}
-[info] i  database: Database Emulator logging to database-debug.log {"metadata":{"emulator":{"name":"database"},"message":"Database Emulator logging to \u001b[1mdatabase-debug.log\u001b[22m"}}
-[debug] [2024-05-09T15:33:13.495Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2024-05-09T15:33:13.496Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
-[debug] [2024-05-09T15:33:13.496Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\marzi\\.cache\\firebase\\emulators\\ui-v1.11.8\\server\\server.mjs"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\marzi\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.11.8\\\\server\\\\server.mjs\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
-[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
-[debug] [2024-05-09T15:33:13.682Z] Web / API server started at 127.0.0.1:4000
- {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
-[debug] [2024-05-09T15:33:13.682Z] Web / API server started at ::1:4000
- {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
-[debug] [2024-05-09T15:33:13.772Z] >>> [apiv2][query] PUT http://127.0.0.1:9000/.settings/rules.json ns=cloudspa-262a4-default-rtdb
-[debug] [2024-05-09T15:33:13.773Z] >>> [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json "{\r\n  \"rules\": {\r\n    \".read\": false,\r\n    \".write\": false\r\n  }\r\n}"
-[debug] [2024-05-09T15:33:13.889Z] <<< [apiv2][status] PUT http://127.0.0.1:9000/.settings/rules.json 200
-[debug] [2024-05-09T15:33:13.889Z] <<< [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json {"status":"ok"}
-[info] 
-┌─────────────────────────────────────────────────────────────┐
-│ ✔  All emulators ready! It is now safe to connect your app. │
-│ i  View Emulator UI at http://127.0.0.1:4000/               │
-└─────────────────────────────────────────────────────────────┘
-
-┌────────────────┬────────────────┬────────────────────────────────┐
-│ Emulator       │ Host:Port      │ View in Emulator UI            │
-├────────────────┼────────────────┼────────────────────────────────┤
-│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth     │
-├────────────────┼────────────────┼────────────────────────────────┤
-│ Database       │ 127.0.0.1:9000 │ http://127.0.0.1:4000/database │
-└────────────────┴────────────────┴────────────────────────────────┘
-  Emulator Hub running at 127.0.0.1:4400
-  Other reserved ports: 4500
-
-Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
- 
-<<<<<<< Updated upstream
-=======
-[debug] [2024-05-08T10:56:48.163Z] Received signal SIGHUP 1
-[debug] [2024-05-13T08:43:50.763Z] ----------------------------------------------------------------------
-[debug] [2024-05-13T08:43:50.769Z] Command:       /usr/local/bin/node /usr/local/bin/firebase emulators:start
-[debug] [2024-05-13T08:43:50.770Z] CLI Version:   13.7.1
-[debug] [2024-05-13T08:43:50.770Z] Platform:      darwin
-[debug] [2024-05-13T08:43:50.770Z] Node Version:  v20.12.0
-[debug] [2024-05-13T08:43:50.770Z] Time:          Mon May 13 2024 10:43:50 GMT+0200 (Central European Summer Time)
-[debug] [2024-05-13T08:43:50.770Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2024-05-13T08:43:50.774Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
-[debug] [2024-05-13T08:43:50.895Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2024-05-13T08:43:50.895Z] > authorizing via signed-in user (samanshaheen96@gmail.com)
-[debug] [2024-05-13T08:43:51.835Z] java version "19.0.1" 2022-10-18
-
-[debug] [2024-05-13T08:43:51.835Z] Java(TM) SE Runtime Environment (build 19.0.1+10-21)
-Java HotSpot(TM) 64-Bit Server VM (build 19.0.1+10-21, mixed mode, sharing)
-
-[debug] [2024-05-13T08:43:51.838Z] Parsed Java major version: 19
-[info] i  emulators: Starting emulators: auth, database {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, database"}}
-[debug] [2024-05-13T08:43:52.503Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2024-05-13T08:43:52.504Z] [auth] Authentication Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2024-05-13T08:43:52.504Z] [database] Database Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
-[debug] [2024-05-13T08:43:52.504Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"auth":[{"address":"127.0.0.1","family":"IPv4","port":9099}],"database":[{"address":"127.0.0.1","family":"IPv4","port":9000}]},"metadata":{"message":"assigned listening specs for emulators"}}
-[debug] [2024-05-13T08:43:52.508Z] [hub] writing locator at /var/folders/r3/c464yxgd5f96cyq5r3t1djg40000gn/T/hub-cloudspa-262a4.json
-[debug] [2024-05-13T08:43:52.511Z] > refreshing access token with scopes: []
-[debug] [2024-05-13T08:43:52.512Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
-[debug] [2024-05-13T08:43:52.512Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2024-05-13T08:43:55.331Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
-[debug] [2024-05-13T08:43:55.331Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2024-05-13T08:43:55.365Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/cloudspa-262a4 [none]
-[debug] [2024-05-13T08:43:55.944Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/cloudspa-262a4 403
-[debug] [2024-05-13T08:43:55.944Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/cloudspa-262a4 {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
-[debug] [2024-05-13T08:43:55.945Z] HTTP Error: 403, The caller does not have permission
-[debug] [2024-05-13T08:43:55.945Z] Failed to retrieve default database instance: {"name":"FirebaseError","children":[],"exit":2,"message":"Failed to get Firebase project cloudspa-262a4. Please make sure the project exists and your account has permission to access it.","original":{"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}},"response":{"statusCode":403}},"exit":1,"message":"HTTP Error: 403, The caller does not have permission","status":403},"status":500} {"metadata":{"emulator":{"name":"database"},"message":"Failed to retrieve default database instance: {\"name\":\"FirebaseError\",\"children\":[],\"exit\":2,\"message\":\"Failed to get Firebase project cloudspa-262a4. Please make sure the project exists and your account has permission to access it.\",\"original\":{\"name\":\"FirebaseError\",\"children\":[],\"context\":{\"body\":{\"error\":{\"code\":403,\"message\":\"The caller does not have permission\",\"status\":\"PERMISSION_DENIED\"}},\"response\":{\"statusCode\":403}},\"exit\":1,\"message\":\"HTTP Error: 403, The caller does not have permission\",\"status\":403},\"status\":500}"}}
-[debug] [2024-05-13T08:43:55.946Z] database rules config:  [{"instance":"cloudspa-262a4-default-rtdb","rules":"/Users/samanshaheen/Documents/GitHub/Cloud-Spa-React/database.rules.json"}]
-[debug] [2024-05-13T08:43:55.952Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
-[debug] [2024-05-13T08:43:55.952Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2024-05-13T08:43:55.952Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
-[debug] [2024-05-13T08:43:55.952Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","/Users/samanshaheen/.cache/firebase/emulators/firebase-database-emulator-v4.11.2.jar","--host","127.0.0.1","--port",9000,"--single_project_mode","Warning"],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host","single_project_mode"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"/Users/samanshaheen/.cache/firebase/emulators/firebase-database-emulator-v4.11.2.jar\",\"--host\",\"127.0.0.1\",\"--port\",9000,\"--single_project_mode\",\"Warning\"],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\",\"single_project_mode\"],\"joinArgs\":false}"}}
-[info] i  database: Database Emulator logging to database-debug.log {"metadata":{"emulator":{"name":"database"},"message":"Database Emulator logging to \u001b[1mdatabase-debug.log\u001b[22m"}}
-[debug] [2024-05-13T08:43:56.226Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
-[debug] [2024-05-13T08:43:56.226Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
-[debug] [2024-05-13T08:43:57.932Z] 10:43:57.929 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
- {"metadata":{"emulator":{"name":"database"},"message":"10:43:57.929 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started\n"}}
-[debug] [2024-05-13T08:43:58.164Z] 10:43:58.163 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
- {"metadata":{"emulator":{"name":"database"},"message":"10:43:58.163 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000\n"}}
-[debug] [2024-05-13T08:44:05.742Z] 10:43:58.878 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - 127 successfully activated FBKV (SurveyIdle(0)) wait: 279ms, init: 0ms
- {"metadata":{"emulator":{"name":"database"},"message":"10:43:58.878 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - 127 successfully activated FBKV (SurveyIdle(0)) wait: 279ms, init: 0ms\n"}}
-[debug] [2024-05-13T08:44:05.752Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
-[debug] [2024-05-13T08:44:05.753Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
-[debug] [2024-05-13T08:44:05.753Z] Starting Emulator UI with command {"binary":"node","args":["/Users/samanshaheen/.cache/firebase/emulators/ui-v1.11.8/server/server.mjs"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/Users/samanshaheen/.cache/firebase/emulators/ui-v1.11.8/server/server.mjs\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
-[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
-[debug] [2024-05-13T08:44:05.968Z] Web / API server started at 127.0.0.1:4000
- {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
-[debug] [2024-05-13T08:44:05.968Z] Web / API server started at ::1:4000
- {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
-[debug] [2024-05-13T08:44:06.013Z] >>> [apiv2][query] PUT http://127.0.0.1:9000/.settings/rules.json ns=cloudspa-262a4-default-rtdb
-[debug] [2024-05-13T08:44:06.013Z] >>> [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json "{\n  \"rules\": {\n    \".read\": false,\n    \".write\": false\n  }\n}"
-[debug] [2024-05-13T08:44:06.031Z] 10:44:06.029 [FirebaseWorkerPool-1-2] WARN com.firebase.core.persistence.backend.dummy.EmulatorMetadataPersistence - Multiple projectIds are not recommended in single project mode. Requested 
-namespace cloudspa-262a4-default-rtdb, but the emulator is configured for 127. To 
-opt-out of single project mode add/set the singleProjectMode: false property in 
-the firebase.json emulators config. 
- {"metadata":{"emulator":{"name":"database"},"message":"10:44:06.029 [FirebaseWorkerPool-1-2] WARN com.firebase.core.persistence.backend.dummy.EmulatorMetadataPersistence - Multiple projectIds are not recommended in single project mode. Requested \nnamespace cloudspa-262a4-default-rtdb, but the emulator is configured for 127. To \nopt-out of single project mode add/set the singleProjectMode: false property in \nthe firebase.json emulators config. \n"}}
-[debug] [2024-05-13T08:44:06.043Z] 10:44:06.042 [NamespaceSystem-akka.actor.default-dispatcher-8] INFO com.firebase.core.namespace.NamespaceActor - cloudspa-262a4-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 2ms, init: 0ms
- {"metadata":{"emulator":{"name":"database"},"message":"10:44:06.042 [NamespaceSystem-akka.actor.default-dispatcher-8] INFO com.firebase.core.namespace.NamespaceActor - cloudspa-262a4-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 2ms, init: 0ms\n"}}
-[debug] [2024-05-13T08:44:06.065Z] 10:44:06.065 [NamespaceSystem-blocking-namespace-operation-dispatcher-11] INFO com.firebase.core.namespace.StateManager - Namespace cloudspa-262a4-default-rtdb status Active to Active
- {"metadata":{"emulator":{"name":"database"},"message":"10:44:06.065 [NamespaceSystem-blocking-namespace-operation-dispatcher-11] INFO com.firebase.core.namespace.StateManager - Namespace cloudspa-262a4-default-rtdb status Active to Active\n"}}
-[debug] [2024-05-13T08:44:06.086Z] <<< [apiv2][status] PUT http://127.0.0.1:9000/.settings/rules.json 200
-[debug] [2024-05-13T08:44:06.086Z] <<< [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json {"status":"ok"}
-[info] 
-┌─────────────────────────────────────────────────────────────┐
-│ ✔  All emulators ready! It is now safe to connect your app. │
-│ i  View Emulator UI at http://127.0.0.1:4000/               │
-└─────────────────────────────────────────────────────────────┘
-
-┌────────────────┬────────────────┬────────────────────────────────┐
-│ Emulator       │ Host:Port      │ View in Emulator UI            │
-├────────────────┼────────────────┼────────────────────────────────┤
-│ Authentication │ 127.0.0.1:9099 │ http://127.0.0.1:4000/auth     │
-├────────────────┼────────────────┼────────────────────────────────┤
-│ Database       │ 127.0.0.1:9000 │ http://127.0.0.1:4000/database │
-└────────────────┴────────────────┴────────────────────────────────┘
-  Emulator Hub running at 127.0.0.1:4400
-  Other reserved ports: 4500
-
-Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
- 
->>>>>>> Stashed changes
