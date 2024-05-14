@@ -2,36 +2,40 @@ import Booking1 from "../../Pictures/booking1.jpg";
 import React, { useState, useContext, useEffect } from "react";
 import { SelectedServiceContext } from "../../ServicesContext.js";
 import { useNavigate, Link } from "react-router-dom";
-import { getAuth, connectAuthEmulator } from "firebase/auth";
-import { database, ref, push, set } from "../../firebase-config.js";
+//import { database, push, set } from "../../firebase-config.js";
+import { getDatabase, ref, onValue} from "firebase/database";
 import Layout from "../../components/layout.jsx";
 import BookingPath from "../Booking2/BookingPath.jsx"
 import "../../styles/Booking1.css";
 import "../../styles/BookingButtons.css";
 import '../../styles/Booking2/BookingPath.css';
 
-//The list of options for the user to select
-const LIST_DATA = [
-  { id: "1", value: "Classic Massage" },
-  { id: "2", value: "Massage and Scrub" },
-  { id: "3", value: "Hot stone massage" },
-  { id: "4", value: "Facial Massage" },
-  { id: "5", value: "Steam room" }
-];
-//Function to add the selected treatments to a list that confirms the selected choices.
 const Booking = () => {
   const [checkedList, setCheckedList] = useState([]);
+  const [listData, setListData] = useState([]);
   const { selectedService } = useContext(SelectedServiceContext);
-  const navigate = useNavigate(); // Bruk useNavigate-hook for å få tilgang til navigasjonsfunksjonalitet
+  const navigate = useNavigate();
 
+//Function to access the database and get the information about bookingtreatments available and puts into a list.
+  useEffect(() => {
+    const db = getDatabase();
+    const listDataRef = ref(db, "bookingtreatments");
+    onValue(listDataRef, (snapshot) => {
+      const data = snapshot.val() || [];
+      setListData(data);
+    });
+  }, []);
+
+  // Function to handle the validation of selected services
   useEffect(() => {
   console.log("selectedService:", selectedService);
   console.log("checkedList:", checkedList);
     if (selectedService) {
-      setCheckedList((prevList) => [...prevList, selectedService])
-    }
+      setCheckedList((prevList) =>[...prevList, selectedService]); // If selectedService has a value it is added to checkedList, checkedList is spread into an array
+    };
   }, [selectedService]);
 
+  // Function to handle the selection of treatment options
   const handleSelect = (event) => {
     const value = event.target.value;
     const isChecked = event.target.checked;
@@ -95,7 +99,7 @@ const Booking = () => {
         <div className="booking-img-container">
           <img src={Booking1} alt="bath" className="booking1-image" />
         </div>
-        <BookingPath/>
+        <BookingPath checkedList={checkedList}/>
         <div className="booking-section">
           <div className="booking-card">
             <p className="booking-title">
@@ -114,7 +118,7 @@ const Booking = () => {
           </div>
         </div>
         <div className="booking-body">
-          {LIST_DATA.map((item) => {
+          {listData.map((item) => {
             return (
               <div key={item.id} className="booking-checkbox">
                 <input

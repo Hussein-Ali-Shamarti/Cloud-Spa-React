@@ -29,7 +29,7 @@ import Booking3Page from "./pages/Booking3/Booking3Page";
 function App() {
   useEffect(() => {
     const db = getDatabase();
-    const servicesRef = ref(db, "services");
+    const servicesRef = ref(db, "services", "bookingtreatments");
 
     // Check if 'services' node exists
     get(servicesRef)
