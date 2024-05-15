@@ -29,9 +29,11 @@ const Profile = () => {
       {tab === 0 && <AppointmentTab />}
       {tab === 1 && <ProfileTab />}
       {tab === 2 && <HistoryTab />}
-      <button onClick={handleLogout} className="logout-button">
-        Log Out
-      </button>
+      <div className="logout-button-container">
+        <button onClick={handleLogout} className="logout-button">
+          Log Out
+        </button>
+      </div>
     </div>
   );
 };
