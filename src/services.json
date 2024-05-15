@@ -2,8 +2,8 @@
   {
     "Title": "Morning Awakening Spa",
     "age": 16,
-    "endtime": "16:00",
-    "included": "Entrance to the spa/exercise room, daily activities in the spa, tea & water, loan of bathrobe and slippers.",
+    "endtime": "11:00",
+    "included": "Entrance to the spa/exercise room, daily activities in the spa, tea & water, loan of bathrobe and slippers. With breakfast",
     "price": "500",
     "startTime": "07:00"
   },
@@ -11,7 +11,7 @@
     "Title": "Daytime Spa",
     "age": 16,
     "endtime": "15:00",
-    "included": "Entrance to the spa/exercise room, daily activities in the spa, tea & water, loan of bathrobe and slippers.",
+    "included": "Entrance to the spa/exercise room, daily activities in the spa, tea & water, loan of bathrobe and slippers. With lunch",
     "price": "500",
     "startTime": "10:00"
   },
@@ -19,24 +19,24 @@
     "Title": "Afternoon Spa",
     "age": 16,
     "endtime": "18:00",
-    "included": "Entrance to the spa/exercise room, daily activities in the spa, tea & water, loan of bathrobe and slippers.",
+    "included": "Entrance to the spa/exercise room, daily activities in the spa, tea & water, loan of bathrobe and slippers. With dinner",
     "price": "500",
     "startTime": "14:00"
   },
   {
     "Title": "Evening Spa",
     "age": 16,
-    "endtime": "18:00",
-    "included": "Entrance to the spa/exercise room, daily activities in the spa, tea & water, loan of bathrobe and slippers.",
+    "endtime": "22:00",
+    "included": "Entrance to the spa/exercise room, daily activities in the spa, tea & water, loan of bathrobe and slippers. With snacks",
     "price": "500",
-    "startTime": "14:00"
+    "startTime": "18:00"
   },
   {
     "Title": "Night Spa",
     "age": 16,
-    "endtime": "18:00",
-    "included": "Entrance to the spa/exercise room, daily activities in the spa, tea & water, loan of bathrobe and slippers.",
+    "endtime": "23:00",
+    "included": "Entrance to the spa/exercise room, daily activities in the spa, tea & water, loan of bathrobe and slippers. With snacks",
     "price": "500",
-    "startTime": "14:00"
+    "startTime": "21:00"
   }
 ]
