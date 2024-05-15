@@ -5,21 +5,21 @@ const HistoryTab = () => {
   const history = [
     {
       OrderNr: 123,
-      CustomerName: "John Doe",
+      CustomerName: "Hussein",
       Date: "21.03.2024",
       Time: "17:00",
       Services: ["Evening Spa", "Classic Massage", "Steam Room"]
     },
     {
       OrderNr: 124,
-      CustomerName: "Jane Smith",
+      CustomerName: "Hussein",
       Date: "04.03.2024",
       Time: "10:30",
       Services: ["Evening Spa", "Classic Massage"]
     },
     {
       OrderNr: 125,
-      CustomerName: "Jane Smith",
+      CustomerName: "Hussein",
       Date: "10.03.2024",
       Time: "10:30",
       Services: ["Steam Room", "Classic Massage"]
