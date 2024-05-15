@@ -47,6 +47,18 @@
   margin-left: 110px;
 }
 
+.appointment-details p {
+  padding: 7px;
+}
+
+.appointment-details li {
+  margin-left: 27px;
+}
+
+.appointment-details medium.order-details-header {
+  margin-left: 8px;
+}
+
 @media (max-width: 768px) {
   .history-container {
     flex-direction: column;

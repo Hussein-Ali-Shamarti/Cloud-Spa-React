@@ -54,6 +54,7 @@ const HistoryTab = () => {
           <p>Time: {selectedAppointment.Time}</p>
           <p>Customer Name: {selectedAppointment.CustomerName}</p>
           <ul>
+            <medium className="order-details-header">Order Details:</medium>
             {selectedAppointment.Services.map((service, index) => (
               <li key={index}>{service}</li>
             ))}
