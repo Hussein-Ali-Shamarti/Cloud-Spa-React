@@ -5,6 +5,7 @@ import { SelectedServiceContext } from "../../ServicesContext.js";
 import getServicePrice from "../Booking3/getServicePrice"; // Import getServicePrice function
 import applyPromoCode from "../Booking3/applyPromoCode"; // Import applyPromoCode function
 import { useLocation } from "react-router-dom";
+
 const BookingSummary = () => {
   const { selectedService, selectedDate } = useContext(SelectedServiceContext);
   const [promoCode, setPromoCode] = useState("");
@@ -93,5 +94,12 @@ console.log("Total Sum:", totalSum);
       </div>
     </div>
   );
+};
+//exports the function over to PaymentForm to format the selectedDate
+export const formatDate = (date) => {
+  const day = date.getDate().toString().padStart(2, '0'); // Gets the day of the month as a two-digit string
+  const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Get the month (adding 1 because months are zero-based) as a two-digit string
+  const year = date.getFullYear(); // Gets the full year
+  return `${day}/${month}/${year}`;
 };
 export default BookingSummary;

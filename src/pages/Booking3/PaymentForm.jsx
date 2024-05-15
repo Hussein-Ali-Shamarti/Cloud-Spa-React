@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import BankCard from '../../Pictures/BankCard.png';
 import Vipps from '../../Pictures/Vipps.png';
 import '../../styles/Booking3/PaymentForm.css';
+import { database, push, set, ref } from "../../firebase-config.js";
+import { SelectedServiceContext } from "../../ServicesContext.js";
+import { useLocation } from "react-router-dom";
+import {formatDate} from "../Booking3/BookingSummary.jsx"
 
 const PaymentForm = () => {
+    const { selectedDate, totalSum } = useContext(SelectedServiceContext);
+    const location = useLocation();
+    const { checkedList} = location.state || {};
+
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -14,7 +22,9 @@ const PaymentForm = () => {
         paymentMethod: 'credit-card',
         cardNumber: '',
         expiryDate: '',
-        securityNumber: ''
+        securityNumber: '',
+        selectedDate: selectedDate,
+        totalSum: totalSum
     });
 
     const handleInputChange = (event) => {
@@ -27,12 +37,36 @@ const PaymentForm = () => {
         event.preventDefault();
         // Handle form submission here
         console.log('Form submitted:', formData);
+        saveOrderToDatabase();
     }
 
     const toggleCardDetails = (event) => {
         const { value } = event.target;
         setFormData({ ...formData, paymentMethod: value });
     }
+    //Function to store the selected treatments and the assigned ordernumber in the database
+  const saveOrderToDatabase = () => {
+    const orderNumber = generateOrderNumber();
+    const newOrderRef = ref(database, `orders/${orderNumber}`);
+    set(newOrderRef, {
+        OrderDetails: {
+            PaymentInformation: formData,
+            selectedDate: formatDate(selectedDate),
+            SelectedTreatments: checkedList,
+            totalSum: totalSum
+        },
+    })
+      .then(() => {
+        console.log("Order stored successfully!");
+      })
+      .catch((error) => {
+        console.error("Error in storing order", error);
+      });
+   };
+   //Function to generate a  random Order Number for each booking
+   const generateOrderNumber = () => {
+    return Date.now() + Math.floor(Math.random() * 1000);
+   };
 
     return (
         <div className="booking3page-content-container">
@@ -109,7 +143,7 @@ const PaymentForm = () => {
             </section>
             <div className="booking3page-buttons">
                 <div><a href="/" className="booking3page-back-button">Back</a></div>
-                <div><button type="submit" className="booking3page-submit-button">Submit</button></div>       
+                <div><button type="submit" className="booking3page-submit-button" onClick={(handleFormSubmit)}>Submit</button></div>       
             </div>
         </div>
         
