@@ -5,11 +5,7 @@
 
 .Profile-container a {
   color: #3697e2;
-}
-
-/* Base styles for all tabs */
-.Profile-container a {
-  padding: 10px 20px 0 30px; /* Adjusted padding: 10px top and bottom, 20px on the sides */
+  padding: 10px 20px 0 30px; /* Adjusted padding: 10px top, 20px on the sides */
   display: flex;
   margin-right: 20px; /* Adjust the spacing as needed */
   text-decoration: none; /* Remove underline from all */
@@ -19,7 +15,46 @@
   cursor: pointer; /* Change cursor to pointer for tabs */
 }
 
-/* Active tab styles */
 .Profile-container a.active {
   border-bottom: 3px solid black; /* Darker and thicker underline for active tab */
+}
+
+.logout-button {
+  padding: 8px 16px;
+  background-color: #cbf7ed; /* Light blue for the logout button to make it distinctive */
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px; /* Add some space around the button */
+}
+
+.logout-button-container {
+  position: fixed; /* Keeps the button at the top right regardless of scrolling */
+  top: 135px; /* Distance from the top */
+  right: 20px; /* Distance from the right */
+  z-index: 1000; /* Ensures the button is above other content */
+}
+
+.logout-button:hover {
+  background-color: #23395b; /* Darker blue on hover */
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  /* Adjust breakpoint as needed */
+  .logout-button-container {
+    top: 100px; /* Smaller top offset to accommodate smaller screens */
+    right: 10px; /* Less offset from the right on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  /* For very small devices */
+  .logout-button-container {
+    top: 75px; /* Even smaller top offset */
+    right: 5px; /* Minimal right offset */
+  }
 }

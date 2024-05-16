@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import "../../firebase-config";
@@ -7,10 +7,20 @@ import "../../styles/SignIn.css";
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [remember, setRemember] = useState(false);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    // Load the stored email if remember is true
+    const savedEmail = localStorage.getItem("email");
+    if (savedEmail) {
+      setEmail(savedEmail);
+      setRemember(true);
+    }
+  }, []);
+
   const handleSignIn = async (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
+    event.preventDefault();
     try {
       const userSignedIn = await signInWithEmailAndPassword(
         getAuth(),
@@ -18,15 +28,26 @@ const SignIn = () => {
         password
       );
       console.log(userSignedIn);
-      window.alert("Login successful!"); // Alert for successful login
-      navigate("/profile"); // Navigate after the alert
+      window.alert("Login successful!");
+      navigate("/profile");
     } catch (error) {
       console.log(error);
       if (error.code === "auth/user-not-found") {
-        window.alert("User not found"); // Alert specifically for user not found
+        window.alert("User not found");
       } else {
-        window.alert("Login failed: " + error.message); // General login failure message
+        window.alert("Login failed: " + error.message);
       }
+    }
+  };
+
+  const handleRememberMe = (e) => {
+    setRemember(e.target.checked);
+    if (e.target.checked) {
+      // Save email to localStorage
+      localStorage.setItem("email", email);
+    } else {
+      // Remove email from localStorage
+      localStorage.removeItem("email");
     }
   };
 
@@ -61,7 +82,12 @@ const SignIn = () => {
           </div>
           <div className="remember-forgot">
             <label>
-              <input type="checkbox" /> Remember Me
+              <input
+                type="checkbox"
+                checked={remember}
+                onChange={handleRememberMe}
+              />{" "}
+              Remember Me
             </label>
             <a className="forgotPsw" href="/PasswordReset">
               Forgot Password?

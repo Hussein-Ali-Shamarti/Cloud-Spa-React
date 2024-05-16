@@ -1,36 +1,44 @@
 import React, { useEffect } from "react";
 import "../../styles/ContactUs/ContactContainer.css";
+import { getDatabase, ref, push } from "firebase/database";
 
-const ContactContainer = () => {   // Definerer en React funksjonell komponent kalt ContactContainer
-  useEffect(() => {                 // useEffect krok for å kjøre side-effekter etter komponenten renders
-    const form = document.getElementById("contact-form");  // Finner skjemaet i DOM-en ved bruk av dets ID
-    form.addEventListener("submit", function (event) {      // Legger til en 'submit'-lytter på skjemaet
-      event.preventDefault(); // Hindrer standard innsendingsatferd for skjemaet
+const ContactContainer = () => {
+  useEffect(() => {
+    const form = document.getElementById("contact-form");
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
 
-      const name = document.getElementById("name").value.trim();  // Henter og trimmer navnverdien fra skjemaet
-      const email = document.getElementById("email").value.trim();  // Henter og trimmer epostverdien fra skjemaet
-      const message = document.getElementById("message").value.trim();  // Henter og trimmer meldingsverdien fra skjemaet
+      const db = getDatabase();
+      const contactRef = ref(db, "contacts"); // Define a reference to the 'contacts' node
 
-      if (name === "") {  // Sjekker om navn-feltet er tomt
-        alert("Please fill out your name.");  // Viser en advarsel hvis navn-feltet er tomt
-        return false;  // Avbryter funksjonen
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (name === "" || email === "" || message === "") {
+        alert("All fields are required.");
+        return;
       }
 
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  // Regulært uttrykk for å validere e-postadresser
-      if (!emailPattern.test(email)) {  // Sjekker om e-postadressen matcher det regulære uttrykket
-        alert("Please enter a valid email address.");  // Viser en advarsel hvis e-posten er ugyldig
-        return false;  // Avbryter funksjonen
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
       }
 
-      if (message === "") {  // Sjekker om meldings-feltet er tomt
-        alert("Please write your message.");  // Viser en advarsel hvis meldings-feltet er tomt
-        return false;  // Avbryter funksjonen
-      }
-
-      alert("Thank you for your message! We will contact you soon.");  // Viser en takkemelding
-      form.submit(); // Sender skjemaet
+      // Push data to Firebase Realtime Database
+      push(contactRef, { name, email, message })
+        .then(() => {
+          alert("Thank you for your message! We will contact you soon.");
+          form.reset(); // Reset the form after successful submission
+        })
+        .catch((error) => {
+          alert("Failed to send message: " + error.message);
+        });
     });
-  }, []);  // En tom avhengighetsliste i useEffect betyr at effekten bare kjører en gang etter den første renderingen
+
+    return () => form.removeEventListener("submit"); // Clean up listener on component unmount
+  }, []);
 
   return (
     <div className="contact-container">
@@ -39,7 +47,7 @@ const ContactContainer = () => {   // Definerer en React funksjonell komponent k
         <p>Send the question you have here!</p>
       </div>
       <section className="contact-form">
-        <form id="contact-form" action="submit_form.php" method="post">
+        <form id="contact-form">
           <div className="input-row">
             <div className="form-group1">
               <label htmlFor="name">Name</label>
