@@ -11,15 +11,23 @@ import "../../styles/BookingButtons.css";
 
 const BookingPage2 = () => {
 
+  const { selectedDate, checkedList } = useContext(SelectedServiceContext);
   const navigate = useNavigate();
-  const handleNext2 = () => {
-    navigate("/Booking3");
-  };
-  const handleBack2 = () => {
-    navigate("/Booking");
+
+  const handleNext = () => {
+    if (!selectedDate) {
+      // Check if a date is selected
+      alert("Please select a date before proceeding.");
+    } else {
+      // Redirects to the next step if a date is selected
+      navigate("/Booking3", { state: { checkedList}});
+    }
   };
 
-  const {checkedList} = useContext(SelectedServiceContext)
+  const handleBack = () => {
+    // Always allow navigation back to /Booking
+    navigate("/Booking");
+  };
 
   return(
       <div className="Date">
@@ -36,10 +44,10 @@ const BookingPage2 = () => {
           <QuantityPers/>
 
           <div className="booking-buttons">
-          <button className="booking-back-button" onClick={handleBack2}>
+          <button className="booking-back-button" onClick={handleBack}>
             Back
           </button>
-          <button className="booking-next-button" onClick={handleNext2}>
+          <button className="booking-next-button" onClick={handleNext}>
              Next
           </button>
           

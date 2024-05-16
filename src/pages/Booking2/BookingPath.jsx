@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import '../../styles/Booking2/BookingPath.css';
+import { SelectedServiceContext } from '../../ServicesContext.js';
 
 function BookingPath() {
   const location = useLocation();
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState('');
   const [checkedList, setCheckedList] = useState(location.state ? location.state.checkedList || [] : []);
+  const { selectedDate } = useContext(SelectedServiceContext);
 
   useEffect(() => {
     setCurrentPage(location.pathname);
@@ -33,7 +35,8 @@ function BookingPath() {
         </span>
         <span
           className={`checkout-label ${currentPage === '/Booking3' ? 'active-booking' : ''}`}
-          onClick={() => handleLinkClick('/Booking3')}
+          onClick={() => selectedDate && handleLinkClick('/Booking3')} // Only allow checkout if date is selected
+          style={{ cursor: selectedDate ? 'pointer' : 'not-allowed' }} // Change cursor style based on selection
         >
           Check Out
         </span>
