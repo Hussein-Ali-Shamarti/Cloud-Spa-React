@@ -1,24 +1,39 @@
 .booking-path {
-    display: flex;
-    margin-top: 10%;
-    margin-left: 11%;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px; /* Adjust spacing as needed */
-  }  
+  display: flex;
+  margin-top: 10%;
+  margin-left: 11%;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px; /* Adjust spacing as needed */
+}  
 
-  .treatment-label, .date-label, .checkout-label {
-    font-size: 25px;
-    padding: 10px 50px;
-    text-decoration: underline;
-    text-underline-offset: 10px;
-    text-decoration-color:#23395B;
-    color: black;
-    opacity: 0.5; /* less visible underline */
-  }
-  
-  .active-booking {
-    opacity: 1; /* more visible underline */
-    text-decoration-color:#23395B;
-    color: black;
-  }
+.treatment-label, .date-label, .checkout-label {
+  font-size: 25px;
+  padding: 10px 50px;
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  text-decoration-color: #23395B;
+  color: black;
+  opacity: 0.5; /* less visible underline */
+  cursor: pointer;
+  transition: opacity 0.3s ease, text-decoration-color 0.3s ease; /* Add transition for smoother hover effect */
+}
+
+.treatment-label:hover, .date-label:hover, .checkout-label:hover {
+  opacity: 0.8; /* Make labels slightly more visible on hover */
+  text-decoration-color: #445566; /* Change underline color on hover */
+}
+
+.active-booking {
+  opacity: 1; /* more visible underline */
+  text-decoration-color: #23395B;
+  color: black;
+}
+
+.active-booking:hover {
+  opacity: 1; /* Ensure opacity stays at 1 even on hover */
+}
+
+.active-booking:active {
+  opacity: 0.8; /* Slight decrease in opacity when label is clicked */
+}

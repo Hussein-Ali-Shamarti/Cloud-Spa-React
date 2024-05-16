@@ -13,6 +13,7 @@ import {
 } from "firebase/database";
 import "../src/firebase-config";
 import spaServices from "../src/services.json";
+import bookingTreatments from "../src/bookingtreatments.json";
 import AboutUsPage from "./pages/AboutUs/AboutUsPage";
 import ContactPage from "./pages/ContactUs/ContactPage";
 import ServicePage from "./pages/Services/ServicePage";
@@ -30,6 +31,7 @@ function App() {
   useEffect(() => {
     const db = getDatabase();
     const servicesRef = ref(db, "services");
+    const bookingTreatmentsRef = ref(db, "bookingtreatments");
 
     // Check if 'services' node exists
     get(servicesRef)
@@ -47,14 +49,28 @@ function App() {
                 console.error("Error adding document:", error);
               });
           });
-        } else {
-          console.log("Services data already exists in the database.");
         }
-      })
+      }) // This was missing
       .catch((error) => {
         console.error("Error fetching services data:", error);
       });
-  }, []);
+
+      get(bookingTreatmentsRef)
+      .then((snapshot) => {
+        if (!snapshot.exists()) {
+          bookingTreatments.forEach((treatment) => {
+            push(bookingTreatmentsRef, treatment)
+              .catch((error) => {
+                console.error("Error adding document:", error);
+              });
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching booking treatments data:", error);
+      });
+    }, []);
+
 
   return (
     <div className="App">
@@ -68,8 +84,8 @@ function App() {
             <Route path="/MyPage" element={<SignIn />} />
             <Route path="/Signup" element={<Signup />} />
             <Route path="/PasswordReset" element={<PasswordReset />} />
-            <Route path="/Booking" element={<Booking/>} />
             <Route path="/Services" element={<ServicePage />} />
+            <Route path="/Booking" element={<Booking/>} />
             <Route path="/Booking2" element={<BookingPage2/>} />
             <Route path="/Booking3" element={<Booking3Page/>} />
             {<Route path="/profile" element={<Profile />} />}
@@ -83,5 +99,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
