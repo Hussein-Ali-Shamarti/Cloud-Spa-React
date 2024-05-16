@@ -2,7 +2,6 @@ import Booking1 from "../../Pictures/booking1.jpg";
 import React, { useState, useContext, useEffect } from "react";
 import { SelectedServiceContext } from "../../ServicesContext.js";
 import { useNavigate, Link, useLocation } from "react-router-dom";
-//import { database, push, set } from "../../firebase-config.js";
 import { getDatabase, ref, onValue} from "firebase/database";
 import Layout from "../../components/layout.jsx";
 import BookingPath from "../Booking2/BookingPath.jsx"
@@ -53,31 +52,6 @@ useEffect(() => {
     }
     console.log("Updated checkedList", checkedList);
   };
-
-//  const auth = getAuth();
-//if (process.env.NODE_ENV === "development") {
-//  connectAuthEmulator(auth, "http://127.0.0.1:9099/auth");
-//}
-
-  //Function to store the selected treatments and the assigned ordernumber in the database
-  //const saveOrderToDatabase = () => {
-  //  const newOrderRef = push(ref(database, "orders"));
-  //  const orderNumber = generateOrderNumber();
-  //  set(newOrderRef, {
-  //    orderNumber: orderNumber,
-  //    selectedTreatments: checkedList
-  //  })
-  //    .then(() => {
-  //      console.log("Order stored successfully!");
-  //    })
-  //    .catch((error) => {
-  //      console.error("Error in storing order", error);
-  //    });
-  //};
-  ////Function to generate a  random Order Number for each booking
-  //const generateOrderNumber = () => {
-  //  return Date.now() + Math.floor(Math.random() * 1000);
-  //};
 
   
   //Function to verify that atleast one option is selected before continuing with the booking process
@@ -142,11 +116,11 @@ useEffect(() => {
             );
           })}
         </div>
-        <div className="booking-buttons">
-        <Link to="/" className="booking-cancel-button">
+        <div className="booking-buttons-treatments">
+        <Link to="/" className="booking-cancel-button booking-cancel-button-treatments">
     Cancel
   </Link>
-  <button className="booking-next-button" onClick={handleNext}>
+  <button className="booking-next-button booking-next-button-treatments" onClick={handleNext}>
     Next
   </button>
           

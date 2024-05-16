@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import BankCard from '../../Pictures/BankCard.png';
 import Vipps from '../../Pictures/Vipps.png';
 import '../../styles/Booking3/PaymentForm.css';
@@ -6,6 +6,8 @@ import { database, push, set, ref } from "../../firebase-config.js";
 import { SelectedServiceContext } from "../../ServicesContext.js";
 import { useLocation } from "react-router-dom";
 import {formatDate} from "../Booking3/BookingSummary.jsx"
+import { getAuth, onAuthStateChanged  } from "firebase/auth";
+import { app } from "../../firebase-config.js";
 
 const PaymentForm = () => {
     const { selectedDate, totalSum } = useContext(SelectedServiceContext);
@@ -26,6 +28,24 @@ const PaymentForm = () => {
         selectedDate: selectedDate,
         totalSum: totalSum
     });
+
+    useEffect(() => {
+        // Check if the user is logged in
+        const unsubscribe = onAuthStateChanged(getAuth(app), user => {
+            if (user) {
+                // User is signed in.
+                setFormData({
+                    ...formData,
+                    firstName: user.displayName ? user.displayName.split(' ')[0] : '',
+                    lastName: user.displayName ? user.displayName.split(' ')[1] : '',
+                    email: user.email ? user.email : '',
+                    telephone: user.phoneNumber ? user.phoneNumber : '',
+                });
+            }
+        });
+
+        return () => unsubscribe();
+    }, []);
 
     const handleInputChange = (event) => {
         const { name, value, type, checked } = event.target;

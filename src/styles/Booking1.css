@@ -27,7 +27,7 @@
   .booking-img-container img {
     width: 70%;
     height: auto;
-    display: flex;
+    display: block;
   }
 
   
@@ -140,7 +140,7 @@ input[type="checkbox"]{
     .booking-page{
       margin-bottom: 50%;
     }
-    .booking-img-container {
+    .booking-img-container img{
         display: none;
     }
 
@@ -176,16 +176,17 @@ input[type="checkbox"]{
     margin-bottom: 50%;
     flex-wrap: wrap;
   }
-  .booking-img-container {
-      display: none;
+  .booking-img-container img {
+      width: 70%;
+      margin-top: 30%;
   }
 
   .booking-path {
       flex-direction: column;
       margin-left: 10%;
       align-items: flex-start;
-      margin-top: 25%;
-      margin-left: 25%;
+      margin-top: 15%;
+      margin-left: 15%;
 
   }
 
