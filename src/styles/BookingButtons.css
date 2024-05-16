@@ -43,6 +43,24 @@
     color: black;
 }
 
+.booking-back-button {
+    display: block; /* Make the <a> tag a block-level element */
+    padding: 10px 30px; /* Adjust the padding as needed */
+    margin-right: 10%; /* Adjust the spacing between buttons */
+    margin-bottom: 2%;
+    background-color: #8EA8C3;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .booking-back-button:hover {
+    background-color: #406E8E; 
+    color: black;
+  }
+
 @media screen and (max-width: 768px) {
     .booking-buttons {
         max-width: 100%;
@@ -55,7 +73,7 @@
     .booking-buttons {
         max-width: 100%;
         margin-bottom: -25%;
-        margin-left: 5%;
+        margin-left: 0%;
     }
 }
 
