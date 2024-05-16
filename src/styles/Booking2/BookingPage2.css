@@ -1,0 +1,38 @@
+
+
+.booking2-img-container {
+            /*float: right;
+            /*flex: 1 0 10rem;*/
+            position: absolute;
+            /* margin-right: 10%; */
+            margin-left: 60%;
+            width: 100%;
+            max-width: 35%;
+            margin-top: 4%;
+}
+        
+.booking2-img-container img {
+            width: 100%;
+            height: auto;
+            /*display: flex;*/
+}
+
+.booking-back-button {
+  display: block; /* Make the <a> tag a block-level element */
+  padding: 10px 30px; /* Adjust the padding as needed */
+  margin-right: 10%; /* Adjust the spacing between buttons */
+  margin-bottom: 2%;
+  background-color: #8EA8C3;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.booking-back-button:hover {
+  background-color: #406E8E; 
+  color: black;
+}
+      
+

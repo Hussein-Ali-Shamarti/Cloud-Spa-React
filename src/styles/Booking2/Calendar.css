@@ -14,9 +14,9 @@
   }
 
   .wrapper-Calendar {
-    width: 450px;
-    height: 450px;
-    margin-left: 100px;
+    width: 40%;
+    height: 40%;
+    margin-left: 10%;
     background: #cbf7ed;
     border-radius: 10px;
     position: relative;
@@ -28,7 +28,7 @@
     left: 0;
     display: flex;
     align-items: center;
-    padding: 25px 30px 10px;
+    padding: 6% 10% 1%;
     justify-content: space-between;
     align-self: flex-start;
     width: 100%;
@@ -38,7 +38,7 @@
   .current-date2 {
     font-size: 1.45rem;
     font-weight: 500;
-    margin-top: 5px;
+    margin-top: 1%;
     /* margin-right: 50px;   */
     display: flex;
     justify-content: space-between;
@@ -54,11 +54,11 @@
   .icons span {
     height: 38px;
     width: 38px;
-    margin: 0 1px;
+    margin: 0 0px;
     cursor: pointer;
     text-align: center;
     line-height: 38px;
-    padding: 0 10px;
+    padding: 0 1px;
     border-radius: 50%;
     margin-left: 20px;
   }
@@ -88,15 +88,16 @@
   .weeks2 li {
     width: calc(100% / 7);
     text-align: center;
-    position: relative;
+    /* position: relative; */
     margin-top: 70px;
   }
   .days2 {
-    margin-bottom: 20px;
+    margin-bottom: 5%;
   }
   .weeks2 li {
     font-weight: 500;
     margin-bottom: 20px;
+    font-size: 15px;
   }
   .days2 li {
     cursor: pointer;
@@ -109,18 +110,8 @@
     justify-content: center;
   }
 
-  .Calendar2 .days2 li::before {
-    position: absolute; 
-    content: "";
-    height: 40px;
-    width: 40px;
-    top: 50%;
-    left: 50%;
-    z-index: -1;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .days2 li:hover::before {
+  
+  .days2 li:hover {
     background: #8ea8c3;
   }
 
@@ -128,79 +119,5 @@
     color: rgba(84, 81, 81, 0.3);
   }
 
-  @media (min-width:1200px ){
-    .wrapper-Calendar {
-      width: 40%;
-      height: 40%;
-      margin-left: 100px;
-      background: #cbf7ed;
-      border-radius: 10px;
-      position: relative;
-    }
-    .header2 {
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: flex;
-      align-items: center;
-      padding: 25px 30px 10px;
-      justify-content: space-between;
-      align-self: flex-start;
-      width: 100%;
-      flex-direction: row;
-    }
-    .days2,
-  .weeks2 {
-    display: flex;
-    list-style: none;
-    flex-wrap: wrap;
-    padding: 0;
-    justify-content: space-around;
-    /* position: relative; */
   
-  }
-  .days2 li,
-  .weeks2 li {
-    width: calc(100% / 7);
-    text-align: center;
-    position: relative;
-    margin-top: 70px;
-  }
-  .days2 {
-    margin-bottom: 20px;
-  }
-  .weeks2 li {
-    font-weight: 500;
-    margin-bottom: 20px;
-  }
-  .days2 li {
-    cursor: pointer;
-    margin-top: 0px;
-    z-index: 1;
-    border: 1px solid #d5d4df;
-    height: 50px; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .Calendar2 .days2 li::before {
-    position: absolute; 
-    content: "";
-    height: 40px;
-    width: 40px;
-    top: 50%;
-    left: 50%;
-    z-index: -1;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .days2 li:hover::before {
-    background: #8ea8c3;
-  }
-
-  }
-
-  @media (max-width:1600px ){
-
-  }
+  

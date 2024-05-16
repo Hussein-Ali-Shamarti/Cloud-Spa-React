@@ -1,7 +1,7 @@
 .booking-path {
   display: flex;
   margin-top: 10%;
-  margin-left: 11%;
+  margin-left: 14%;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px; /* Adjust spacing as needed */
@@ -37,3 +37,4 @@
 .active-booking:active {
   opacity: 0.8; /* Slight decrease in opacity when label is clicked */
 }
+
