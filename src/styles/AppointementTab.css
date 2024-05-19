@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.tabs a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+    border-right: 1px solid #ccc;
+}
+
+.tabs a:last-child {
+    border-right: none;
+}
+
+.tabs a:hover {
+    background-color: #eaeaea;
+}
+
+.tabs a.active {
+    border-bottom: 2px solid black;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.appointments {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.appointment-card {
+    background-color: #e0f7fa;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 30%;
+}
+
+.appointment-card h3 {
+    margin-top: 0;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.cancel {
+    background-color: #d9534f;
+    color: white;
+}
+
+button.change {
+    background-color: #5bc0de;
+    color: white;
+}
