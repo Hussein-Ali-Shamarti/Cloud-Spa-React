@@ -98,20 +98,20 @@
       list-style-type: disc;
   }
   
-  .button-container {
+  /* .button-container {
     display: flex;
-    gap: 10px; /* Adjust spacing between buttons */
-    justify-content: flex-start; /* Aligns items horizontally at the start */
-    margin-top: 10px; /* Adjust spacing from top */
-}
+    gap: 10px;  Adjust spacing between buttons 
+    justify-content: flex-start; /* Aligns items horizontally at the start 
+    margin-top: 10px; /* Adjust spacing from top 
+} */
 
-.appointments-cancel-button, .appointments-change-date-button {
+.appointments-cancel-button{
     background-color: #8EA8C3;
     color: black;
-    font-size: 0.8em; /* Reduced font size */
+    font-size: 1em;
     border: none;
     border-radius: 5px;
-    padding: 5px 10px; /* Reduced padding */
+    padding: 5px 10px;
     cursor: pointer;
 }
 
