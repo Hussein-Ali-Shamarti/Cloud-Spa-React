@@ -6,7 +6,10 @@ import {
   connectDatabaseEmulator,
   ref,
   set,
-  push
+  push,
+  get,
+  update,
+  remove
 } from "firebase/database";
 
 const firebaseConfig = {
@@ -23,5 +26,5 @@ const app = initializeApp(firebaseConfig);
 // Initialize services like Database, Auth, etc. here
 const database = getDatabase(app);
 connectDatabaseEmulator(database, "127.0.0.1", 9000);
-export { app, database, ref, set, push };
+export { app, database, ref, set, push, get, update, remove };
 // Initialize Firebase

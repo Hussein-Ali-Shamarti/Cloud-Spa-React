@@ -1,85 +1,157 @@
-import React, { useEffect, useState } from "react";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getDatabase, ref, query, orderByChild, equalTo, get, set } from "firebase/database";
-import '../../styles/AppointmentTab.css';
+import React, { useState, useEffect, useRef } from 'react';
+import Footer from "../../components/footer";
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { database, ref, get, remove } from '../../firebase-config';
+import "../../styles/AppointementTab.css";
 
-const AppointmentTab = () => {
-    const [appointments, setAppointments] = useState([]);
+const Appointments = () => {
+    const [orders, setOrders] = useState([]);
+    const [filteredOrders, setFilteredOrders] = useState([]);
+    const [userEmail, setUserEmail] = useState('');
+    const [showCalendar, setShowCalendar] = useState(false);
+    const [selectedOrderId, setSelectedOrderId] = useState(null);
+    const [selectedDate, setSelectedDate] = useState(null);
+    const scrollContainerRef = useRef(null);
+    const [isScrolling, setIsScrolling] = useState(false);
+    const [scrollDirection, setScrollDirection] = useState(null);
 
     useEffect(() => {
-        const fetchAppointments = async (userEmail) => {
-            const database = getDatabase();
-            const appointmentsRef = query(ref(database, 'appointments'), orderByChild('email'), equalTo(userEmail));
-            const snapshot = await get(appointmentsRef);
-            if (snapshot.exists()) {
-                const appointmentsData = [];
-                snapshot.forEach(childSnapshot => {
-                    appointmentsData.push({ id: childSnapshot.key, ...childSnapshot.val() });
-                });
-                setAppointments(appointmentsData);
-            }
-        };
-
         const auth = getAuth();
-        onAuthStateChanged(auth, user => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
-                fetchAppointments(user.email);
-            } else {
-                window.location.href = '/login';
+                setUserEmail(user.email);
+                fetchOrders(user.email);
             }
         });
+        return () => unsubscribe();
     }, []);
 
-    const cancelAppointment = async (appointmentId) => {
-        const database = getDatabase();
-        const appointmentRef = ref(database, `appointments/${appointmentId}`);
-        await set(appointmentRef, null);
-        setAppointments(prev => prev.filter(appointment => appointment.id !== appointmentId));
+    // Function to get the orders from the database
+    const fetchOrders = async (email) => {
+        try {
+            const ordersRef = ref(database, 'orders');
+            const snapshot = await get(ordersRef);
+            if (snapshot.exists()) {
+                const ordersData = snapshot.val();
+    
+                const ordersList = Object.entries(ordersData).map(([orderId, orderDetails]) => {
+                    if (
+                        orderDetails &&
+                        orderDetails.OrderDetails &&
+                        orderDetails.OrderDetails.PaymentInformation
+                    ) {
+                        return {
+                            orderId,
+                            ...orderDetails.OrderDetails,
+                            email: orderDetails.OrderDetails.PaymentInformation.email,
+                            firstName: orderDetails.OrderDetails.PaymentInformation.firstName,
+                            lastName: orderDetails.OrderDetails.PaymentInformation.lastName,
+                        };
+                    } else {
+                        console.warn(`Order ${orderId} is missing expected structure`);
+                        return null; // Return null if structure does not match
+                    }
+                }).filter(order => order !== null); // Filter out null values
+    
+                setOrders(ordersList);
+                filterOrdersByEmail(ordersList, email);
+            }
+        } catch (error) {
+            console.error('Error fetching orders', error);
+        }
+    };
+    
+
+    // Filters the orders based on the user's email so that only the logged-in user's orders show up
+    const filterOrdersByEmail = (orders, email) => {
+        const filtered = orders.filter(order => order.email === email); // Changed 'PaymentInformation.email' to 'email'
+        console.log("Filtered Orders:", filtered); // Log the filtered orders
+        setFilteredOrders(filtered);
     };
 
-    const changeDate = async (appointmentId) => {
-        const newDate = prompt('Enter new date (YYYY-MM-DD):');
-        if (newDate) {
-            const database = getDatabase();
-            const appointmentRef = ref(database, `appointments/${appointmentId}/date`);
-            await set(appointmentRef, newDate);
-            setAppointments(prev => prev.map(appointment => 
-                appointment.id === appointmentId ? { ...appointment, date: newDate } : appointment
-            ));
+    // Function to handle the cancellation of an appointment
+    const cancelAppointment = async (orderId) => {
+        try {
+            const orderRef = ref(database, `orders/${orderId}`);
+            await remove(orderRef);
+            setFilteredOrders(filteredOrders.filter(order => order.orderId !== orderId));
+            console.log(`Order ${orderId} cancelled successfully.`);
+        } catch (error) {
+            console.error('Error cancelling order', error);
         }
     };
 
+    // Function to handle the horizontal scrolling when there are more than 9 orders in at the same time
+    useEffect(() => {
+        let scrollInterval;
+        if (isScrolling && scrollDirection) {
+            scrollInterval = setInterval(() => {
+                if (scrollDirection === 'left') {
+                    scrollContainerRef.current.scrollLeft -= 5;
+                } else if (scrollDirection === 'right') {
+                    scrollContainerRef.current.scrollLeft += 5;
+                }
+            }, 16);  // ~60 frames per second
+        }
+        return () => clearInterval(scrollInterval);
+    }, [isScrolling, scrollDirection]);
+
+    const handleMouseDown = (direction) => {
+        setIsScrolling(true);
+        setScrollDirection(direction);
+    };
+
+    const handleMouseUp = () => {
+        setIsScrolling(false);
+        setScrollDirection(null);
+    };
+
     return (
-        <div className="container">
-            <div className="tabs">
-                <a onClick={() => setTab(0)} className={tab === 0 ? "active" : ""}>Appointments</a>
-                <a onClick={() => setTab(1)} className={tab === 1 ? "active" : ""}>Profile</a>
-                <a onClick={() => setTab(2)} className={tab === 2 ? "active" : ""}>History</a>
-            </div>
-            <h2>Upcoming Appointments:</h2>
-            <div className="appointments" id="appointments">
-                {appointments.map(appointment => (
-                    <div key={appointment.id} className="appointment-card">
-                        <h3>Appointment {appointment.date}:</h3>
-                        <p>OrderNr: {appointment.orderNr}</p>
-                        <p>Date: {appointment.date}</p>
-                        <p>Time: {appointment.time}</p>
-                        <p>Customer Name: {appointment.customerName}</p>
-                        <p>Order Details:</p>
-                        <ul>
-                            {appointment.orderDetails.map((detail, index) => (
-                                <li key={index}>{detail}</li>
-                            ))}
-                        </ul>
-                        <div className="button-group">
-                            <button className="cancel" onClick={() => cancelAppointment(appointment.id)}>Cancel appointment</button>
-                            <button className="change" onClick={() => changeDate(appointment.id)}>Change date</button>
-                        </div>
+        <div className="appointments-container">
+            <h1>Upcoming Appointments:</h1>
+            {filteredOrders.length === 0 ? (
+                <p>No appointments found.</p>
+            ) : (
+                <div
+                    className="orders-list-container"
+                    onMouseLeave={handleMouseUp}
+                    onMouseUp={handleMouseUp}
+                >
+                    <div
+                        className="scroll-edge left"
+                        onMouseDown={() => handleMouseDown('left')}
+                        onMouseUp={handleMouseUp}
+                    />
+                    <div className="orders-list" ref={scrollContainerRef}>
+                        {filteredOrders.map(order => ( // Puts the filteredOrders into a mapping to display the orders
+                            <div className="order-item" key={order.orderId}>
+                                <h2>Appointment {order.selectedDate}</h2>
+                                <p>Order Nr: {order.orderId}</p>
+                                <p>Date: {order.selectedDate}</p> {/* Fixed: Changed 'order.selectedDate' to 'order.selectedDate' */}
+                                <p>Customer Name: {order.firstName} {order.lastName}</p>
+                                <p>Order Details</p>
+                                <ul>
+                                    {order.SelectedTreatments.map((treatment, index) => (
+                                        <li key={index}>{treatment}</li>
+                                    ))}
+                                </ul>
+                                <div className="button-container">
+                                    <button className="appointments-cancel-button" onClick={() => cancelAppointment(order.orderId)}>
+                                        Cancel Appointment
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
                     </div>
-                ))}
-            </div>
+                    <div
+                        className="scroll-edge right"
+                        onMouseDown={() => handleMouseDown('right')}
+                        onMouseUp={handleMouseUp}
+                    />
+                </div>
+            )}
         </div>
     );
 };
 
-export default AppointmentTab;
+export default Appointments;

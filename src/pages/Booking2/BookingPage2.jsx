@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import booking2 from "../../Pictures/booking2.jpg";
 import "../../styles/Booking2/BookingPage2.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Layout from "../../components/layout";
 import Calendar from "./Calendar";
 import BookingPath from "./BookingPath";
@@ -11,8 +11,10 @@ import "../../styles/BookingButtons.css";
 
 const BookingPage2 = () => {
 
-  const { selectedDate, checkedList } = useContext(SelectedServiceContext);
+  const { selectedDate } = useContext(SelectedServiceContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  const { checkedList} = location.state || {};
 
   const handleNext = () => {
     if (!selectedDate) {

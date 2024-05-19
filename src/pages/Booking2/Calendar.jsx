@@ -11,9 +11,10 @@ const Calendar = () => {
   const [today, setToday] = useState(new Date());
   const [prevMOnthDays, setPrevMonthDays] = useState([]);
   const [nextMOnthDays, setNextMonthDays] = useState([]);
-  const { selectedDate, setSelectedDate,} = useContext(SelectedServiceContext);
+  const { setSelectedDate, } = useContext(SelectedServiceContext);
+  const [selectedDate, setSelectedDateState] = useState(null);
   const location = useLocation();
-  const { checkedList} = location.state || {};
+  const { checkedList } = location.state || {};
   const WeekDays2 = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   useEffect(() => {
@@ -86,25 +87,33 @@ const Calendar = () => {
     }
   };
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    // Set the state when selectedDate changes
+    if (selectedDate) {
+      setSelectedDateState(selectedDate);
+    }
+  }, [selectedDate]);
+
   const handleDateClick = (year, month, day) => {
-    const date = new Date(year, month, day);  // Set the time to the end of the day
+    const date = new Date(year, month, day);
     const today = new Date();
-    
+
     if (date.setHours(0, 0, 0, 0) >= today.getTime()) {
       if (month > currentMonth2) {
         goToNextMonth2();
       } else if (month < currentMonth2) {
         goToPrevMonth2();
       } else {
+        // Set the selected date
         setSelectedDate(date);
+        setSelectedDateState(date);
         console.log("Selected Date:", date);
-        navigate("/Booking3", {state: {checkedList}});
       }
     } else {
       window.alert("Cannot select a date in the past");
     }
   };
+
   const services = checkedList || [];
   console.log("Services:", services);
   return (
@@ -140,15 +149,27 @@ const Calendar = () => {
             {days2.map((day, index) => {
               const dayDate = new Date(currentYear2, currentMonth2, day);
               let dayState = dayDate < today ? "inActive" : "Active";
+              // Add a class to highlight the selected date
+              if (selectedDate && dayDate.getTime() === selectedDate.getTime()) {
+                dayState += " selected-date";
+              }
               return (
-                <li key={index} className={dayState}onClick={() => handleDateClick(currentYear2, currentMonth2, day)}>
+                <li
+                  key={index}
+                  className={dayState}
+                  onClick={() => handleDateClick(currentYear2, currentMonth2, day)}
+                >
                   {day}
                 </li>
               );
             })}
-
+            
             {nextMOnthDays.map((day, index) => (
-              <li key={index} className="inActive" onClick={() => handleDateClick(currentYear2, currentMonth2 + 1, day)} >
+              <li
+                key={index}
+                className="inActive"
+                onClick={() => handleDateClick(currentYear2, currentMonth2 + 1, day)}
+              >
                 {" "}
                 {day}{" "}
               </li>
@@ -159,4 +180,5 @@ const Calendar = () => {
     </div>
   );
 };
+
 export default Calendar;
