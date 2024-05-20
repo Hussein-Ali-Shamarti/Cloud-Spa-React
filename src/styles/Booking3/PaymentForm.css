@@ -130,7 +130,7 @@
   color: #000000;
 }
 
-.booking3page-card-details input[type='text'] {
+.booking3page-card-details input[type='text'], .booking3page-card-details input[type='number'] {
   background-color: #ffffff !important;
   border: 1px solid #ccc !important;
   padding: 10px;

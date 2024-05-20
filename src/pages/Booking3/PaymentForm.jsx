@@ -135,15 +135,26 @@ const PaymentForm = () => {
     const generateOrderNumber = () => {
         return Date.now() + Math.floor(Math.random() * 1000);
     };
+
     const handleExpiryDateChange = (event) => {
         let { value } = event.target;
-        value = value.replace(/\D/g, ''); // Remove any non-digit characters
-        if (value.length > 2) {
-            value = value.slice(0, 2) + '/' + value.slice(2, 4);
+    
+        // Remove any non-digit characters
+        value = value.replace(/\D/g, '');
+    
+        // Add the slash after the first two digits
+        if (value.length >= 3) {
+            value = value.slice(0, 2) + '/' + value.slice(2);
         }
-        setFormData({ ...formData, expiryDate: value });
+    
+        // Ensure the length does not exceed 5 characters (MM/YY)
+        if (value.length > 5) {
+            value = value.slice(0, 5);
+        }
+    
+        setFormData(prevState => ({ ...prevState, expiryDate: value }));
     };
-
+    
 
     return (
         <div className="booking3page-content-container">
@@ -201,7 +212,7 @@ const PaymentForm = () => {
                                 <div className="booking3page-expiry-and-security">
                                     <div>
                                     <label htmlFor="expiry-date">Expiry date (MM/YY)</label>
-                                        <input type="number" id="expiry-date" name="expiryDate" value={formData.expiryDate} onChange={handleExpiryDateChange} placeholder="MM/YY" pattern="^(0[1-9]|1[0-2])\/\d{2}$" required />
+                                        <input type="text" id="expiry-date" name="expiryDate" value={formData.expiryDate} onChange={handleExpiryDateChange} placeholder="MM/YY" pattern="^(0[1-9]|1[0-2])\/\d{2}$" required />
                                     </div>
                                     <div>
                                         <label htmlFor="security-number">Security number</label>
