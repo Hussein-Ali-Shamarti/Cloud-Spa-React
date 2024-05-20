@@ -48,13 +48,15 @@ const PaymentForm = () => {
 
     const handleInputChange = (event) => {
         const { name, value, type, checked } = event.target;
-        const newValue = type === 'checkbox' ? checked : value;
+        let newValue = type === 'checkbox' ? checked : value;  // Change const to let
+        
         if (type === 'number') {
-            newValue = value.replace(/[^0-9]/g, '');
+            newValue = value.replace(/[^0-9]/g, '');  // Now this reassignment works fine
         }
     
         setFormData(prevState => ({ ...prevState, [name]: newValue }));
     };
+    
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
@@ -65,7 +67,7 @@ const PaymentForm = () => {
             return;
         }
         // Validate telephone number format
-        const telephonePattern = /^\+\d{8,15}$/;
+        const telephonePattern = /^\d{8,15}$/;
         if (!telephonePattern.test(formData.telephone)) {
             alert('Please enter a valid telephone number with country code, e.g., +47 555 222 00');
             return;
@@ -77,11 +79,17 @@ const PaymentForm = () => {
             return;
         }
         //Validate the expiryDate 
-        const expiryDatePattern = /^(0[1-9]|1[0-2])\/\d{2}$/;
-        if (!expiryDatePattern.test(formData.expiryDate)) {
-            alert('Please enter a valid expiry date');
-            return;
-        }
+        const validateExpiryDate = () => {
+            const expiryDatePattern = /^(0[1-9]|1[0-2])\/\d{2}$/;
+            const expiryDate = formData.expiryDate.trim(); // Ensure no extra spaces
+        
+            if (!expiryDatePattern.test(expiryDate)) {
+                alert('Please enter a valid expiry date');
+                return false;
+            }
+        
+            return true;
+        };
         //Validate the credit card number
         if (formData.paymentMethod === 'credit-card' && formData.cardNumber.length !== 16) {
             alert('Please enter a valid card number.');
@@ -161,7 +169,7 @@ const PaymentForm = () => {
                     <div className="booking3page-form-group booking3page-row">
                         <div className="booking3page-form-group booking3page-half-width">
                             <label htmlFor="telephone">Telephone number</label>
-                            <input type="number" id="telephone" name="telephone" value={formData.telephone} onChange={handleInputChange} placeholder="+47 555 222 00" pattern="^\+\d{8,15}$" required />
+                            <input type="number" id="telephone" name="telephone" value={formData.telephone} onChange={handleInputChange} placeholder="55522200" pattern="^\d{8,15}$" required />
                         </div>
                         <div className="booking3page-form-group booking3page-half-width">
                             <label htmlFor="country">Country</label>
