@@ -5,7 +5,7 @@ import '../../styles/Booking3/PaymentForm.css';
 import "../../styles/BookingButtons.css"
 import { database, set, ref } from "../../firebase-config.js";
 import { SelectedServiceContext } from "../../ServicesContext.js";
-import { useLocation, Link } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { formatDate } from "../Booking3/BookingSummary.jsx";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { app } from "../../firebase-config.js";
@@ -14,6 +14,7 @@ const PaymentForm = () => {
     const { selectedDate, totalSum } = useContext(SelectedServiceContext);
     const location = useLocation();
     const { checkedList } = location.state || {};
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         firstName: '',
@@ -46,6 +47,11 @@ const PaymentForm = () => {
         return () => unsubscribe();
     }, []);
 
+    const handleBack = () => {
+        // Always allow navigation back to /Booking2
+        navigate("/Booking2");
+      };
+    
     const handleInputChange = (event) => {
         const { name, value, type, checked } = event.target;
         let newValue = type === 'checkbox' ? checked : value;  // Change const to let
@@ -229,8 +235,7 @@ const PaymentForm = () => {
                 </form>
             </section>
             <div className="booking3page-buttons">
-                <Link to="/" className="booking3page-back-button" >Back
-                </Link>
+                <button className="booking3page-back-button" onClick={handleBack}>Back</button>
                 <button type="submit" className="booking3page-submit-button" onClick={handleFormSubmit}>Submit</button></div>       
                 </div>
     );
