@@ -7,11 +7,12 @@ import applyPromoCode from "../Booking3/applyPromoCode"; // Import applyPromoCod
 import { useLocation } from "react-router-dom";
 
 const BookingSummary = () => {
-  const { selectedService, selectedDate } = useContext(SelectedServiceContext);
+  const { selectedService, selectedDate, setSelectedDate } = useContext(SelectedServiceContext);
   const [promoCode, setPromoCode] = useState("");
   const [totalSum, setTotalSum] = useState(0); // Initial total sum
   const location = useLocation();
   const { checkedList} = location.state || {};
+  const services = checkedList || [];
   
   const handlePromoCodeChange = (event) => {
     setPromoCode(event.target.value);
@@ -40,7 +41,20 @@ const BookingSummary = () => {
     }
   }, [checkedList, promoCode]); // Recalculate when selected services or promo code change
   
-  const services = checkedList || [];
+  useEffect(() => {
+    // Retrieve selected date from localStorage on component mount
+    const savedDate = localStorage.getItem('selectedDate');
+    if (savedDate) {
+      setSelectedDate(new Date(savedDate));
+    }
+  }, [setSelectedDate]);
+
+  useEffect(() => {
+    // Save selected date to localStorage whenever it changes
+    if (selectedDate) {
+      localStorage.setItem('selectedDate', selectedDate.toISOString());
+    }
+  }, [selectedDate]);
 
   //Function to format the date to DD/MM/YYYY
   const formatDate = (date) => {
