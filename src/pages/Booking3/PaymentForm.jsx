@@ -2,17 +2,18 @@ import React, { useState, useContext, useEffect } from 'react';
 import BankCard from '../../Pictures/BankCard.png';
 import Vipps from '../../Pictures/Vipps.png';
 import '../../styles/Booking3/PaymentForm.css';
-import { database, push, set, ref } from "../../firebase-config.js";
+import "../../styles/BookingButtons.css"
+import { database, set, ref } from "../../firebase-config.js";
 import { SelectedServiceContext } from "../../ServicesContext.js";
-import { useLocation } from "react-router-dom";
-import {formatDate} from "../Booking3/BookingSummary.jsx"
-import { getAuth, onAuthStateChanged  } from "firebase/auth";
+import { useLocation, Link } from "react-router-dom";
+import { formatDate } from "../Booking3/BookingSummary.jsx";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { app } from "../../firebase-config.js";
 
 const PaymentForm = () => {
     const { selectedDate, totalSum } = useContext(SelectedServiceContext);
     const location = useLocation();
-    const { checkedList} = location.state || {};
+    const { checkedList } = location.state || {};
 
     const [formData, setFormData] = useState({
         firstName: '',
@@ -30,10 +31,8 @@ const PaymentForm = () => {
     });
 
     useEffect(() => {
-        // Check if the user is logged in
         const unsubscribe = onAuthStateChanged(getAuth(app), user => {
             if (user) {
-                // User is signed in.
                 setFormData({
                     ...formData,
                     firstName: user.displayName ? user.displayName.split(' ')[0] : '',
@@ -50,43 +49,93 @@ const PaymentForm = () => {
     const handleInputChange = (event) => {
         const { name, value, type, checked } = event.target;
         const newValue = type === 'checkbox' ? checked : value;
-        setFormData({ ...formData, [name]: newValue });
-    }
+        if (type === 'number') {
+            newValue = value.replace(/[^0-9]/g, '');
+        }
+    
+        setFormData(prevState => ({ ...prevState, [name]: newValue }));
+    };
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        // Handle form submission here
+
+        //Validates that names are filled
+        if (!formData.firstName || !formData.lastName) {
+            alert("Please enter your first and last name")
+            return;
+        }
+        // Validate telephone number format
+        const telephonePattern = /^\+\d{8,15}$/;
+        if (!telephonePattern.test(formData.telephone)) {
+            alert('Please enter a valid telephone number with country code, e.g., +47 555 222 00');
+            return;
+        }
+        // Validate email format
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(formData.email)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+        //Validate the expiryDate 
+        const expiryDatePattern = /^(0[1-9]|1[0-2])\/\d{2}$/;
+        if (!expiryDatePattern.test(formData.expiryDate)) {
+            alert('Please enter a valid expiry date');
+            return;
+        }
+        //Validate the credit card number
+        if (formData.paymentMethod === 'credit-card' && formData.cardNumber.length !== 16) {
+            alert('Please enter a valid card number.');
+            return;
+        }
+        //Validate the security number
+        const isSecurityNumberValid = (securityNumber) => {
+            return /^\d{3}$/.test(securityNumber);
+        }
+        if (formData.paymentMethod === 'credit-card' && !isSecurityNumberValid(formData.securityNumber)) {
+            alert('Please enter a valid 3-digit security number.');
+            return;
+        }
         console.log('Form submitted:', formData);
         saveOrderToDatabase();
-    }
+        alert("Order successfully submitted!");
+    };
 
     const toggleCardDetails = (event) => {
         const { value } = event.target;
         setFormData({ ...formData, paymentMethod: value });
-    }
-    //Function to store the selected treatments and the assigned ordernumber in the database
-  const saveOrderToDatabase = () => {
-    const orderNumber = generateOrderNumber();
-    const newOrderRef = ref(database, `orders/${orderNumber}`);
-    set(newOrderRef, {
-        OrderDetails: {
-            PaymentInformation: formData,
-            selectedDate: formatDate(selectedDate),
-            SelectedTreatments: checkedList,
-            totalSum: totalSum
-        },
-    })
-      .then(() => {
-        console.log("Order stored successfully!");
-      })
-      .catch((error) => {
-        console.error("Error in storing order", error);
-      });
-   };
-   //Function to generate a  random Order Number for each booking
-   const generateOrderNumber = () => {
-    return Date.now() + Math.floor(Math.random() * 1000);
-   };
+    };
+
+    const saveOrderToDatabase = () => {
+        const orderNumber = generateOrderNumber();
+        const newOrderRef = ref(database, `orders/${orderNumber}`);
+        set(newOrderRef, {
+            OrderDetails: {
+                PaymentInformation: formData,
+                selectedDate: formatDate(selectedDate),
+                SelectedTreatments: checkedList,
+                totalSum: totalSum
+            },
+        })
+            .then(() => {
+                console.log("Order stored successfully!");
+            })
+            .catch((error) => {
+                console.error("Error in storing order", error);
+            });
+    };
+
+    const generateOrderNumber = () => {
+        return Date.now() + Math.floor(Math.random() * 1000);
+    };
+    const handleExpiryDateChange = (event) => {
+        let { value } = event.target;
+        value = value.replace(/\D/g, ''); // Remove any non-digit characters
+        if (value.length > 2) {
+            value = value.slice(0, 2) + '/' + value.slice(2, 4);
+        }
+        setFormData({ ...formData, expiryDate: value });
+    };
+
 
     return (
         <div className="booking3page-content-container">
@@ -107,12 +156,12 @@ const PaymentForm = () => {
                     </div>
                     <div className="booking3page-form-group">
                         <label htmlFor="email">Email</label>
-                        <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} required />
+                        <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} placeholder='info@email.com' required />
                     </div>
                     <div className="booking3page-form-group booking3page-row">
                         <div className="booking3page-form-group booking3page-half-width">
                             <label htmlFor="telephone">Telephone number</label>
-                            <input type="tel" id="telephone" name="telephone" value={formData.telephone} onChange={handleInputChange} required />
+                            <input type="number" id="telephone" name="telephone" value={formData.telephone} onChange={handleInputChange} placeholder="+47 555 222 00" pattern="^\+\d{8,15}$" required />
                         </div>
                         <div className="booking3page-form-group booking3page-half-width">
                             <label htmlFor="country">Country</label>
@@ -130,45 +179,42 @@ const PaymentForm = () => {
                         <label htmlFor="ageConfirm" className="booking3page-checkbox-label">I confirm that I am 16 years of age or older</label>
                     </div>
 
-                    {/* Payment section */}
                     <label htmlFor="payment-method" className="booking3page-form-label">Payment</label>
                     <div className="booking3page-payment-section">
                         <div className="booking3page-payment-option">
                             <input type="radio" id="credit-card" name="paymentMethod" value="credit-card" checked={formData.paymentMethod === 'credit-card'} onChange={toggleCardDetails} />
-                            <img src={BankCard} />
+                            <img src={BankCard} alt="Credit/Debit card" />
                             <label htmlFor="credit-card">Credit/Debit card</label>
                         </div>
                         {formData.paymentMethod === 'credit-card' && (
                             <div className="booking3page-card-details">
                                 <label htmlFor="card-number">Card number</label>
-                                <input type="text" id="card-number" name="cardNumber" value={formData.cardNumber} onChange={handleInputChange} required />
+                                <input type="number" id="card-number" name="cardNumber" value={formData.cardNumber} onChange={handleInputChange} placeholder='Enter 16-digit card number' required />
                                 <div className="booking3page-expiry-and-security">
                                     <div>
-                                        <label htmlFor="expiry-date">Expiry date</label>
-                                        <input type="text" id="expiry-date" name="expiryDate" value={formData.expiryDate} onChange={handleInputChange} required />
+                                    <label htmlFor="expiry-date">Expiry date (MM/YY)</label>
+                                        <input type="number" id="expiry-date" name="expiryDate" value={formData.expiryDate} onChange={handleExpiryDateChange} placeholder="MM/YY" pattern="^(0[1-9]|1[0-2])\/\d{2}$" required />
                                     </div>
                                     <div>
                                         <label htmlFor="security-number">Security number</label>
-                                        <input type="text" id="security-number" name="securityNumber" value={formData.securityNumber} onChange={handleInputChange} required />
+                                        <input type="number" id="security-number" name="securityNumber" value={formData.securityNumber} onChange={handleInputChange} placeholder='3-digit security number' required />
                                     </div>
                                 </div>
                             </div>
                         )}
                         <div className="booking3page-payment-option">
                             <input type="radio" id="vipps" name="paymentMethod" value="vipps" checked={formData.paymentMethod === 'vipps'} onChange={toggleCardDetails} />
-                            <label htmlFor="vipps"> <img src={Vipps} /></label>
+                            <label htmlFor="vipps"> <img src={Vipps} alt="Vipps" /></label>
                         </div>
                     </div>
                 </form>
             </section>
             <div className="booking3page-buttons">
-                <div><a href="/" className="booking3page-back-button">Back</a></div>
-                <div><button type="submit" className="booking3page-submit-button" onClick={(handleFormSubmit)}>Submit</button></div>       
-            </div>
-        </div>
-        
-        
+                <Link to="/" className="booking3page-back-button" >Back
+                </Link>
+                <button type="submit" className="booking3page-submit-button" onClick={handleFormSubmit}>Submit</button></div>       
+                </div>
     );
-}
+};
 
 export default PaymentForm;

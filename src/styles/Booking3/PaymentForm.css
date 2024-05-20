@@ -65,7 +65,7 @@
 
 #info-form input[type="text"],
 #info-form input[type="email"],
-#info-form input[type="tel"],
+#info-form input[type="number"],
 #info-form select {
   width: calc(100% - 25px); /* Justerer bredden på input-feltene */
   padding: 0.5em;
@@ -173,53 +173,19 @@
   height: auto; /* Maintain aspect ratio */
 }
 
-.booking3page-booking-buttons {
-    width: 100%;
-    display: flex;
-    justify-content: space-between; 
-}
-
-.booking3page-back-button {
-  display: inline-flex;
-  padding: 10px 20px;
-  margin-right: 10%;
-  margin-bottom: -100%;
-  background-color: #8EA8C3;
-  color: black;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.booking3page-back-button:hover {
-  background-color: #406E8E; 
-  color: black;
-}
-
-.booking3page-submit-button {
-  display:inline-flex;
-  padding: 10px 30px; /* Adjust the padding as needed */
-  margin-left: 18%; /* Adjust the spacing between buttons */
-  margin-right: 62%;
-  margin-bottom: 2%;
-  background-color: #23395B;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.booking3page-submit-button:hover {
-  background-color: #8EA8C3; 
-  color: black;
-}
-
-
-
-
-
 #info-form select {
   height: 38px;
+}
+
+
+/* Removes arrows in the number fields for Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Removes arrows in the number fields for Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
