@@ -7,6 +7,7 @@
 .about-us-block {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     width: 100%;
     background-color: white;
   }
@@ -68,15 +69,19 @@
     }
   }
   @media (max-width: 600px) {
-    #aboutUs {
-      display: none;
+    .about-us-block {
+      flex-direction: column; /* Stack elements vertically */
+      align-items: center;
+      margin-top: 25%;
     }
   
-    #about-us {
-      text-align: left;
-      width: 100%;
-      margin-bottom: 5%;
-      margin-left: 0%;
-      font-size: 1em;
+    .about-us-content,
+    .about-us-image {
+      min-width: 100%; /* Make sure they take full width */
+      margin-right: 0; /* Remove margin for stacked layout */
+    }
+  
+    .about-us-image img {
+      display:none; /* Ensure image fits the container */
     }
   }
