@@ -136,41 +136,36 @@ const Appointments = () => {
               onMouseUp={handleMouseUp}
             />
             <div className="orders-list" ref={scrollContainerRef}>
-              {filteredOrders.map(
-                (
-                  order // Puts the filteredOrders into a mapping to display the orders
-                ) => (
-                  <div className="order-item" key={order.orderId}>
-                    <h2>Appointment {order.selectedDate}</h2>
-                    <p>Order Nr: {order.orderId}</p>
-                    <p>Date: {order.selectedDate}</p>{" "}
-                    {/* Fixed: Changed 'order.selectedDate' to 'order.selectedDate' */}
-                    <p>
-                      Customer Name: {order.firstName} {order.lastName}
-                    </p>
-                    <p>Order Details</p>
-                    <ul>
-                      {order.SelectedTreatments.map((treatment, index) => (
-                        <li key={index}>{treatment}</li>
-                      ))}
-                    </ul>
-                    <div className="button-container">
-                      <button
-                        className="appointments-cancel-button"
-                        onClick={() => cancelAppointment(order.orderId)}
-                      >
-                        Cancel Appointment
-                      </button>
-                      <button
-                        className="appointments-edit-button"
-                        onClick={() => editAppointment(order.orderId)}
-                      >
-                        Edit
-                      </button>
-                    </div>
+              {filteredOrders.map((order) => (
+                <div className="order-item" key={order.orderId}>
+                  <h2>Appointment {order.selectedDate}</h2>
+                  <p>Order Nr: {order.orderId}</p>
+                  <p>Date: {order.selectedDate}</p>
+                  <p>
+                    Customer Name: {order.firstName} {order.lastName}
+                  </p>
+                  <p>Order Details</p>
+                  <ul>
+                    {order.SelectedTreatments && order.SelectedTreatments.map((treatment, index) => (
+                      <li key={index}>{treatment}</li>
+                    ))}
+                  </ul>
+                  <div className="button-container">
+                    <button
+                      className="appointments-cancel-button"
+                      onClick={() => cancelAppointment(order.orderId)}
+                    >
+                      Cancel Appointment
+                    </button>
+                    <button
+                      className="appointments-edit-button"
+                      onClick={() => editAppointment(order.orderId)}
+                    >
+                      Edit
+                    </button>
                   </div>
-                )
-              )}
+                </div>
+              ))}
             </div>
             <div
               className="scroll-edge right"
@@ -180,9 +175,10 @@ const Appointments = () => {
           </div>
         )}
       </div>
-      {showEditPopup && <EditPopup orderIdToEdit={orderIdToEdit}/>}
+      {showEditPopup && <EditPopup orderIdToEdit={orderIdToEdit} onClose={() => setShowEditPopup(false)} />}
     </>
   );
+  
 };
 
 export default Appointments;
