@@ -3,19 +3,20 @@ import "../../styles/Booking3/BookingSummary.css";
 import CalenderIcon from "../../Pictures/CalenderIcon.png";
 import { SelectedServiceContext } from "../../ServicesContext.js";
 import getServicePrice from "../Booking3/getServicePrice"; // Import getServicePrice function
-import applyPromoCode from "../Booking3/applyPromoCode"; // Import applyPromoCode function
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const BookingSummary = () => {
   const { selectedService, selectedDate, setSelectedDate } = useContext(SelectedServiceContext);
-  const [promoCode, setPromoCode] = useState("");
   const [totalSum, setTotalSum] = useState(0); // Initial total sum
   const location = useLocation();
   const { checkedList} = location.state || {};
   const services = checkedList || [];
-  
-  const handlePromoCodeChange = (event) => {
-    setPromoCode(event.target.value);
+  const navigate = useNavigate();
+
+
+  const changeDate = () => {
+    // Go to booking2 to change date
+    navigate("/Booking2");
   };
 
   useEffect(() => {
@@ -29,17 +30,11 @@ const BookingSummary = () => {
         sum += getServicePrice(service);
       });
 
-      // Apply promo code if valid
-      // Adjust this logic based on how promo codes are applied
-      sum = applyPromoCode(sum);
-
-      // Update total sum
-      setTotalSum(sum);
     } else {
       // If no services selected, reset total sum to base price
       setTotalSum(0);
     }
-  }, [checkedList, promoCode]); // Recalculate when selected services or promo code change
+  }, [checkedList]); // Recalculate when selected services change
   
   useEffect(() => {
     // Retrieve selected date from localStorage on component mount
@@ -65,7 +60,6 @@ const BookingSummary = () => {
   };
   console.log("Services:", services);
 console.log("Selected Date:", selectedDate);
-console.log("Promo Code:", promoCode);
 console.log("Total Sum:", totalSum);
 
   return (
@@ -85,17 +79,9 @@ console.log("Total Sum:", totalSum);
         <div className="booking-summary-date booking-summary-div">
           <img src={CalenderIcon} />
           <p className="booking-summary-p">{selectedDate && formatDate(selectedDate)}</p>
-          <h4>Change Date</h4>
+          <button className="change-date-button" onClick={changeDate}>Change Date</button>
         </div>
-        <div className="booking-summary-promo-code booking-summary-div">
-          <h4 className="booking-summary-h4">Promo Code</h4>
-          <input
-            type="text"
-            value={promoCode}
-            onChange={handlePromoCodeChange}
-            placeholder="Promotion code"
-          />
-        </div>
+        
         <div className="booking-summary-h3 booking-summary-div">
           <h3>
             <span className="booking-summary-span">summarization</span>
