@@ -1,18 +1,10 @@
 import "../../styles/editPopup.css";
-import React, { useState, useEffect, useRef, useContext } from "react";
-import {
-  getDatabase,
-  ref,
-  get,
-  onValue,
-  push,
-  child,
-  update,
-} from "firebase/database";
+import React, { useState, useEffect } from "react";
+import { getDatabase, ref, get, onValue, update } from "firebase/database";
 
 const db = getDatabase();
 
-const EditPopup = ({ orderIdToEdit }) => {
+const EditPopup = ({ orderIdToEdit, onClose }) => {
   console.log(orderIdToEdit);
   orderIdToEdit = orderIdToEdit.toString();
   const [services, setServices] = useState([]);
@@ -47,13 +39,12 @@ const EditPopup = ({ orderIdToEdit }) => {
       const data = snapshot.val();
       if (data) {
         setOldOrder(data);
-
         setDate(convertDateFormat(data.OrderDetails.selectedDate));
       } else {
         console.log("No order data available.");
       }
     });
-  }, []);
+  }, [orderIdToEdit]);
 
   const handleSelect = (event) => {
     const value = event.target.value;
@@ -80,25 +71,35 @@ const EditPopup = ({ orderIdToEdit }) => {
     };
     const orderRef = ref(db, `orders/${orderIdToEdit}`);
 
-    // Get a key for a new Post.
-    //const newOrderKey = push(child(ref(db), 'orders')).key;
-
     update(orderRef, newOrder)
       .then(() => {
         console.log("Order updated successfully.");
+        if (onClose) onClose(); // Close the modal after successful update
       })
       .catch((error) => {
         console.error("Error updating order:", error);
       });
   }
+
   const convertDateFormat = (dateStr) => {
-    // Split the date string by dots
     const [day, month, year] = dateStr.split(".");
-    // Return the date in YYYY-MM-DD format
     return `${year}-${month}-${day}`;
   };
 
   console.log(oldOrder, "date");
+
+  function CancelAppointmentChange() {
+    if (onClose) onClose(); // Close the modal without making any changes
+  }
+
+  const getCurrentDate = () => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = (today.getMonth() + 1).toString().padStart(2, "0");
+    const day = today.getDate().toString().padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  };
+
   return (
     <div className="modal">
       <div className="modal-content">
@@ -108,13 +109,20 @@ const EditPopup = ({ orderIdToEdit }) => {
             placeholder="appointment date"
             defaultValue={date}
             onChange={(e) => setDate(e.target.value)}
+            min={getCurrentDate()}
           />
         </div>
         <div className="">
-          <label for="services">services</label>
-          <select name="services" id="services" onChange={(e)=>checkedList.push(e.target.value)}>
+          <label htmlFor="services">services</label>
+          <select
+            name="services"
+            id="services"
+            onChange={(e) => setCheckedList([...checkedList, e.target.value])}
+          >
             {services.map((service) => (
-              <option value={service.Title}>{service.Title}</option>
+              <option key={service.Title} value={service.Title}>
+                {service.Title}
+              </option>
             ))}
           </select>
         </div>
@@ -135,8 +143,9 @@ const EditPopup = ({ orderIdToEdit }) => {
             );
           })}
         </div>
-        <div className="">
+        <div className="Buttons-onModal">
           <button onClick={editAppointment}>Edit</button>
+          <button onClick={CancelAppointmentChange}>Cancel</button>
         </div>
       </div>
     </div>
