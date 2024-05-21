@@ -3,7 +3,7 @@ import "../../styles/ContactUs/ContactContainer.css";
 import { getDatabase, ref, push } from "firebase/database";
 
 const ContactContainer = () => {
-  useEffect(() => {
+  function sendForm() {
     const form = document.getElementById("contact-form");
     form.addEventListener("submit", function (event) {
       event.preventDefault();
@@ -38,7 +38,7 @@ const ContactContainer = () => {
     });
 
     return () => form.removeEventListener("submit"); // Clean up listener on component unmount
-  }, []);
+  }
 
   return (
     <div className="contact-container">
@@ -62,7 +62,9 @@ const ContactContainer = () => {
             <label htmlFor="message">Your message...</label>
             <textarea id="message" name="message" required></textarea>
           </div>
-          <button type="submit">Send</button>
+          <button type="submit" onClick={sendForm}>
+            Send
+          </button>
         </form>
       </section>
     </div>
