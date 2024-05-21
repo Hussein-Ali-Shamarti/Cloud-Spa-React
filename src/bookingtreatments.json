@@ -1,7 +1,7 @@
 [
-    { "id": "1", "value": "Classic Massage" },
-    { "id": "2", "value": "Massage and Scrub" },
-    { "id": "3", "value": "Hot stone massage" },
-    { "id": "4", "value": "Facial Massage" },
-    { "id": "5", "value": "Steam room" }
+    { "id": "1", "price": "200", "value": "Classic Massage"},
+    { "id": "2", "price": "200", "value": "Massage and Scrub"},
+    { "id": "3", "price": "200", "value": "Hot stone massage"},
+    { "id": "4", "price": "200", "value": "Facial Massage"},
+    { "id": "5", "price": "200", "value": "Steam room"}
   ]
