@@ -9,10 +9,9 @@ const BookingSummary = () => {
   const { selectedService, selectedDate, setSelectedDate } = useContext(SelectedServiceContext);
   const [totalSum, setTotalSum] = useState(0); // Initial total sum
   const location = useLocation();
-  const { checkedList} = location.state || {};
+  const { checkedList } = location.state || {};
   const services = checkedList || [];
   const navigate = useNavigate();
-
 
   const changeDate = () => {
     // Go to booking2 to change date
@@ -30,6 +29,7 @@ const BookingSummary = () => {
         sum += getServicePrice(service);
       });
 
+      setTotalSum(sum); // Set the total sum
     } else {
       // If no services selected, reset total sum to base price
       setTotalSum(0);
@@ -58,9 +58,6 @@ const BookingSummary = () => {
     const year = date.getFullYear(); // Gets the full year
     return `${day}.${month}.${year}`; // Sets the formating to DD.MM.YYYY
   };
-  console.log("Services:", services);
-console.log("Selected Date:", selectedDate);
-console.log("Total Sum:", totalSum);
 
   return (
     <div className="booking-summary-container booking-summary-div">
