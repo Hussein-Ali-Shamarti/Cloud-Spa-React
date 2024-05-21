@@ -3,6 +3,8 @@ import Footer from "../../components/footer";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { database, ref, get, remove } from '../../firebase-config';
 import "../../styles/AppointementTab.css";
+import EditPopup from "../Profile/editPopup"
+import editPopup from '../Profile/editPopup';
 
 const Appointments = () => {
     const [orders, setOrders] = useState([]);
@@ -14,6 +16,7 @@ const Appointments = () => {
     const scrollContainerRef = useRef(null);
     const [isScrolling, setIsScrolling] = useState(false);
     const [scrollDirection, setScrollDirection] = useState(null);
+    const [showEditPopup, setShowEditPopup] = useState(false);
 
     useEffect(() => {
         const auth = getAuth();
@@ -106,6 +109,10 @@ const Appointments = () => {
         setScrollDirection(null);
     };
 
+    const editAppointment=(orderId)=>{
+setShowEditPopup(true);
+    }
+
     return (
         <div className="appointments-container">
             <h1>Upcoming Appointments:</h1>
@@ -139,9 +146,16 @@ const Appointments = () => {
                                     <button className="appointments-cancel-button" onClick={() => cancelAppointment(order.orderId)}>
                                         Cancel Appointment
                                     </button>
+                                    <button className='appointments-edit-button' onClick={() => editAppointment( order.orderId)}>
+                                        Edit
+                                    </button>
                                 </div>
                             </div>
-                        ))}
+                        ))}     
+                        {showEditPopup && (
+                        <EditPopup/>
+                        )}       
+
                     </div>
                     <div
                         className="scroll-edge right"

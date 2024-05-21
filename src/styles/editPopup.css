@@ -1,0 +1,14 @@
+.modal{
+    position: relative;
+    max-width: 20rem;
+    padding: 2rem;
+    border: 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.5rem 0.25rem hsl(0 0% 0%/10%);
+    height: 100px;
+
+}
+
+.modal::backdrop{
+    background-color: hsl(0 0% 0%/50%);
+}
