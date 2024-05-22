@@ -26,6 +26,7 @@ import { SelectedServiceProvider } from "./ServicesContext";
 import Profile from "./pages/Profile/profile";
 import BookingPage2 from "./pages/Booking2/BookingPage2";
 import Booking3Page from "./pages/Booking3/Booking3Page";
+import OrderConfirmation from "./pages/Booking3/OrderConfirmation";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 function App() {
@@ -96,6 +97,7 @@ const unsubscribe = onAuthStateChanged(auth, (user) => {
             <Route path="/Booking" element={<Booking/>} />
             <Route path="/Booking2" element={<BookingPage2/>} />
             <Route path="/Booking3" element={<Booking3Page/>} />
+            <Route path="/OrderConfirmation" element={<OrderConfirmation />} />
             {<Route path="/profile" element={<Profile />} />}
 
             {<Route path="/Treatments/:serviceId" element={<ExtraTreatmentsPage />} />}

@@ -48,46 +48,43 @@ const PaymentForm = () => {
     }, []);
 
     const handleBack = () => {
-        // Always allow navigation back to /Booking2
         navigate("/Booking2");
-      };
+    };
     
     const handleInputChange = (event) => {
         const { name, value, type, checked } = event.target;
-        let newValue = type === 'checkbox' ? checked : value;  // Change const to let
+        let newValue = type === 'checkbox' ? checked : value;
         
         if (type === 'number') {
-            newValue = value.replace(/[^0-9]/g, '');  // Now this reassignment works fine
+            newValue = value.replace(/[^0-9]/g, '');
         }
     
         setFormData(prevState => ({ ...prevState, [name]: newValue }));
     };
     
-
     const handleFormSubmit = (event) => {
         event.preventDefault();
 
-        //Validates that names are filled
         if (!formData.firstName || !formData.lastName) {
             alert("Please enter your first and last name")
             return;
         }
-        // Validate telephone number format
+
         const telephonePattern = /^\d{8,15}$/;
         if (!telephonePattern.test(formData.telephone)) {
             alert('Please enter a valid telephone number with country code, e.g., +47 555 222 00');
             return;
         }
-        // Validate email format
+
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test(formData.email)) {
             alert('Please enter a valid email address.');
             return;
         }
-        //Validate the expiryDate 
+
         const validateExpiryDate = () => {
             const expiryDatePattern = /^(0[1-9]|1[0-2])\/\d{2}$/;
-            const expiryDate = formData.expiryDate.trim(); // Ensure no extra spaces
+            const expiryDate = formData.expiryDate.trim();
         
             if (!expiryDatePattern.test(expiryDate)) {
                 alert('Please enter a valid expiry date');
@@ -96,12 +93,12 @@ const PaymentForm = () => {
         
             return true;
         };
-        //Validate the credit card number
+
         if (formData.paymentMethod === 'credit-card' && formData.cardNumber.length !== 16) {
             alert('Please enter a valid card number.');
             return;
         }
-        //Validate the security number
+
         const isSecurityNumberValid = (securityNumber) => {
             return /^\d{3}$/.test(securityNumber);
         }
@@ -109,9 +106,9 @@ const PaymentForm = () => {
             alert('Please enter a valid 3-digit security number.');
             return;
         }
-        console.log('Form submitted:', formData);
+
+        if (!validateExpiryDate()) return;
         saveOrderToDatabase();
-        alert("Order successfully submitted!");
     };
 
     const toggleCardDetails = (event) => {
@@ -132,6 +129,7 @@ const PaymentForm = () => {
         })
             .then(() => {
                 console.log("Order stored successfully!");
+                navigate("/OrderConfirmation", { state: { orderNumber: orderNumber } });
             })
             .catch((error) => {
                 console.error("Error in storing order", error);
@@ -145,15 +143,12 @@ const PaymentForm = () => {
     const handleExpiryDateChange = (event) => {
         let { value } = event.target;
     
-        // Remove any non-digit characters
         value = value.replace(/\D/g, '');
     
-        // Add the slash after the first two digits
         if (value.length >= 3) {
             value = value.slice(0, 2) + '/' + value.slice(2);
         }
     
-        // Ensure the length does not exceed 5 characters (MM/YY)
         if (value.length > 5) {
             value = value.slice(0, 5);
         }
@@ -161,7 +156,6 @@ const PaymentForm = () => {
         setFormData(prevState => ({ ...prevState, expiryDate: value }));
     };
     
-
     return (
         <div className="booking3page-content-container">
             <div className="booking3page-personal-header">

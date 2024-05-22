@@ -15,7 +15,7 @@ const BookingSummary = () => {
 
   const changeDate = () => {
     // Go to booking2 to change date
-    navigate("/Booking2");
+    navigate("/Booking2", { state: { checkedList}});
   };
 
   useEffect(() => {
