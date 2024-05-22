@@ -1,4 +1,4 @@
-import React, { Profiler, useEffect } from "react";
+import React, { Profiler, useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Layout from "./components/layout";
@@ -26,13 +26,21 @@ import { SelectedServiceProvider } from "./ServicesContext";
 import Profile from "./pages/Profile/profile";
 import BookingPage2 from "./pages/Booking2/BookingPage2";
 import Booking3Page from "./pages/Booking3/Booking3Page";
+import OrderConfirmation from "./pages/Booking3/OrderConfirmation";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 function App() {
+  const [user, setUser] = useState(null);
+
   useEffect(() => {
     const db = getDatabase();
     const servicesRef = ref(db, "services");
     const bookingTreatmentsRef = ref(db, "bookingtreatments");
+const auth = getAuth();
 
+const unsubscribe = onAuthStateChanged(auth, (user) => {
+  setUser(user);
+});
     // Check if 'services' node exists
     get(servicesRef)
       .then((snapshot) => {
@@ -69,6 +77,7 @@ function App() {
       .catch((error) => {
         console.error("Error fetching booking treatments data:", error);
       });
+      return () => unsubscribe();
     }, []);
 
 
@@ -78,16 +87,17 @@ function App() {
         <SelectedServiceProvider>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/aboutUs" element={<AboutUsPage />} />
+            <Route path="/aboutUs" element={<AboutUsPage />}  />
             <Route path="/ContactUs" element={<ContactPage />} />
             <Route path="/Treatments" element={<ExtraTreatmentsPage />} />
-            <Route path="/MyPage" element={<SignIn />} />
-            <Route path="/Signup" element={<Signup />} />
+            {!user && <Route path="/MyPage" element={<SignIn />} />}
+            {user ? <Route path="/MyPage" element={<Profile />} /> : <Route path="/SignIn" element={<SignIn />} />}            <Route path="/Signup" element={<Signup />} />
             <Route path="/PasswordReset" element={<PasswordReset />} />
             <Route path="/Services" element={<ServicePage />} />
             <Route path="/Booking" element={<Booking/>} />
             <Route path="/Booking2" element={<BookingPage2/>} />
             <Route path="/Booking3" element={<Booking3Page/>} />
+            <Route path="/OrderConfirmation" element={<OrderConfirmation />} />
             {<Route path="/profile" element={<Profile />} />}
 
             {<Route path="/Treatments/:serviceId" element={<ExtraTreatmentsPage />} />}

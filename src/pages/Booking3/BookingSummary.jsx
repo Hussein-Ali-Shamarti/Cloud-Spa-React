@@ -3,18 +3,19 @@ import "../../styles/Booking3/BookingSummary.css";
 import CalenderIcon from "../../Pictures/CalenderIcon.png";
 import { SelectedServiceContext } from "../../ServicesContext.js";
 import getServicePrice from "../Booking3/getServicePrice"; // Import getServicePrice function
-import applyPromoCode from "../Booking3/applyPromoCode"; // Import applyPromoCode function
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const BookingSummary = () => {
-  const { selectedService, selectedDate } = useContext(SelectedServiceContext);
-  const [promoCode, setPromoCode] = useState("");
+  const { selectedService, selectedDate, setSelectedDate } = useContext(SelectedServiceContext);
   const [totalSum, setTotalSum] = useState(0); // Initial total sum
   const location = useLocation();
-  const { checkedList} = location.state || {};
-  
-  const handlePromoCodeChange = (event) => {
-    setPromoCode(event.target.value);
+  const { checkedList } = location.state || {};
+  const services = checkedList || [];
+  const navigate = useNavigate();
+
+  const changeDate = () => {
+    // Go to booking2 to change date
+    navigate("/Booking2", { state: { checkedList}});
   };
 
   useEffect(() => {
@@ -28,19 +29,27 @@ const BookingSummary = () => {
         sum += getServicePrice(service);
       });
 
-      // Apply promo code if valid
-      // Adjust this logic based on how promo codes are applied
-      sum = applyPromoCode(sum);
-
-      // Update total sum
-      setTotalSum(sum);
+      setTotalSum(sum); // Set the total sum
     } else {
       // If no services selected, reset total sum to base price
       setTotalSum(0);
     }
-  }, [checkedList, promoCode]); // Recalculate when selected services or promo code change
+  }, [checkedList]); // Recalculate when selected services change
   
-  const services = checkedList || [];
+  useEffect(() => {
+    // Retrieve selected date from localStorage on component mount
+    const savedDate = localStorage.getItem('selectedDate');
+    if (savedDate) {
+      setSelectedDate(new Date(savedDate));
+    }
+  }, [setSelectedDate]);
+
+  useEffect(() => {
+    // Save selected date to localStorage whenever it changes
+    if (selectedDate) {
+      localStorage.setItem('selectedDate', selectedDate.toISOString());
+    }
+  }, [selectedDate]);
 
   //Function to format the date to DD/MM/YYYY
   const formatDate = (date) => {
@@ -49,10 +58,6 @@ const BookingSummary = () => {
     const year = date.getFullYear(); // Gets the full year
     return `${day}.${month}.${year}`; // Sets the formating to DD.MM.YYYY
   };
-  console.log("Services:", services);
-console.log("Selected Date:", selectedDate);
-console.log("Promo Code:", promoCode);
-console.log("Total Sum:", totalSum);
 
   return (
     <div className="booking-summary-container booking-summary-div">
@@ -71,17 +76,9 @@ console.log("Total Sum:", totalSum);
         <div className="booking-summary-date booking-summary-div">
           <img src={CalenderIcon} />
           <p className="booking-summary-p">{selectedDate && formatDate(selectedDate)}</p>
-          <h4>Change Date</h4>
+          <button className="change-date-button" onClick={changeDate}>Change Date</button>
         </div>
-        <div className="booking-summary-promo-code booking-summary-div">
-          <h4 className="booking-summary-h4">Promo Code</h4>
-          <input
-            type="text"
-            value={promoCode}
-            onChange={handlePromoCodeChange}
-            placeholder="Promotion code"
-          />
-        </div>
+        
         <div className="booking-summary-h3 booking-summary-div">
           <h3>
             <span className="booking-summary-span">summarization</span>

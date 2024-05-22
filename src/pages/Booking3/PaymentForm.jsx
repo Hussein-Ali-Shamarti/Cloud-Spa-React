@@ -5,7 +5,7 @@ import '../../styles/Booking3/PaymentForm.css';
 import "../../styles/BookingButtons.css"
 import { database, set, ref } from "../../firebase-config.js";
 import { SelectedServiceContext } from "../../ServicesContext.js";
-import { useLocation, Link } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { formatDate } from "../Booking3/BookingSummary.jsx";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { app } from "../../firebase-config.js";
@@ -14,6 +14,7 @@ const PaymentForm = () => {
     const { selectedDate, totalSum } = useContext(SelectedServiceContext);
     const location = useLocation();
     const { checkedList } = location.state || {};
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         firstName: '',
@@ -46,48 +47,58 @@ const PaymentForm = () => {
         return () => unsubscribe();
     }, []);
 
+    const handleBack = () => {
+        navigate("/Booking2");
+    };
+    
     const handleInputChange = (event) => {
         const { name, value, type, checked } = event.target;
-        const newValue = type === 'checkbox' ? checked : value;
+        let newValue = type === 'checkbox' ? checked : value;
+        
         if (type === 'number') {
             newValue = value.replace(/[^0-9]/g, '');
         }
     
         setFormData(prevState => ({ ...prevState, [name]: newValue }));
     };
-
+    
     const handleFormSubmit = (event) => {
         event.preventDefault();
 
-        //Validates that names are filled
         if (!formData.firstName || !formData.lastName) {
             alert("Please enter your first and last name")
             return;
         }
-        // Validate telephone number format
-        const telephonePattern = /^\+\d{8,15}$/;
+
+        const telephonePattern = /^\d{8,15}$/;
         if (!telephonePattern.test(formData.telephone)) {
             alert('Please enter a valid telephone number with country code, e.g., +47 555 222 00');
             return;
         }
-        // Validate email format
+
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test(formData.email)) {
             alert('Please enter a valid email address.');
             return;
         }
-        //Validate the expiryDate 
-        const expiryDatePattern = /^(0[1-9]|1[0-2])\/\d{2}$/;
-        if (!expiryDatePattern.test(formData.expiryDate)) {
-            alert('Please enter a valid expiry date');
-            return;
-        }
-        //Validate the credit card number
+
+        const validateExpiryDate = () => {
+            const expiryDatePattern = /^(0[1-9]|1[0-2])\/\d{2}$/;
+            const expiryDate = formData.expiryDate.trim();
+        
+            if (!expiryDatePattern.test(expiryDate)) {
+                alert('Please enter a valid expiry date');
+                return false;
+            }
+        
+            return true;
+        };
+
         if (formData.paymentMethod === 'credit-card' && formData.cardNumber.length !== 16) {
             alert('Please enter a valid card number.');
             return;
         }
-        //Validate the security number
+
         const isSecurityNumberValid = (securityNumber) => {
             return /^\d{3}$/.test(securityNumber);
         }
@@ -95,9 +106,9 @@ const PaymentForm = () => {
             alert('Please enter a valid 3-digit security number.');
             return;
         }
-        console.log('Form submitted:', formData);
+
+        if (!validateExpiryDate()) return;
         saveOrderToDatabase();
-        alert("Order successfully submitted!");
     };
 
     const toggleCardDetails = (event) => {
@@ -118,6 +129,7 @@ const PaymentForm = () => {
         })
             .then(() => {
                 console.log("Order stored successfully!");
+                navigate("/OrderConfirmation", { state: { orderNumber: orderNumber } });
             })
             .catch((error) => {
                 console.error("Error in storing order", error);
@@ -127,16 +139,23 @@ const PaymentForm = () => {
     const generateOrderNumber = () => {
         return Date.now() + Math.floor(Math.random() * 1000);
     };
+
     const handleExpiryDateChange = (event) => {
         let { value } = event.target;
-        value = value.replace(/\D/g, ''); // Remove any non-digit characters
-        if (value.length > 2) {
-            value = value.slice(0, 2) + '/' + value.slice(2, 4);
+    
+        value = value.replace(/\D/g, '');
+    
+        if (value.length >= 3) {
+            value = value.slice(0, 2) + '/' + value.slice(2);
         }
-        setFormData({ ...formData, expiryDate: value });
+    
+        if (value.length > 5) {
+            value = value.slice(0, 5);
+        }
+    
+        setFormData(prevState => ({ ...prevState, expiryDate: value }));
     };
-
-
+    
     return (
         <div className="booking3page-content-container">
             <div className="booking3page-personal-header">
@@ -161,7 +180,7 @@ const PaymentForm = () => {
                     <div className="booking3page-form-group booking3page-row">
                         <div className="booking3page-form-group booking3page-half-width">
                             <label htmlFor="telephone">Telephone number</label>
-                            <input type="number" id="telephone" name="telephone" value={formData.telephone} onChange={handleInputChange} placeholder="+47 555 222 00" pattern="^\+\d{8,15}$" required />
+                            <input type="number" id="telephone" name="telephone" value={formData.telephone} onChange={handleInputChange} placeholder="55522200" pattern="^\d{8,15}$" required />
                         </div>
                         <div className="booking3page-form-group booking3page-half-width">
                             <label htmlFor="country">Country</label>
@@ -193,7 +212,7 @@ const PaymentForm = () => {
                                 <div className="booking3page-expiry-and-security">
                                     <div>
                                     <label htmlFor="expiry-date">Expiry date (MM/YY)</label>
-                                        <input type="number" id="expiry-date" name="expiryDate" value={formData.expiryDate} onChange={handleExpiryDateChange} placeholder="MM/YY" pattern="^(0[1-9]|1[0-2])\/\d{2}$" required />
+                                        <input type="text" id="expiry-date" name="expiryDate" value={formData.expiryDate} onChange={handleExpiryDateChange} placeholder="MM/YY" pattern="^(0[1-9]|1[0-2])\/\d{2}$" required />
                                     </div>
                                     <div>
                                         <label htmlFor="security-number">Security number</label>
@@ -210,8 +229,7 @@ const PaymentForm = () => {
                 </form>
             </section>
             <div className="booking3page-buttons">
-                <Link to="/" className="booking3page-back-button" >Back
-                </Link>
+                <button className="booking3page-back-button" onClick={handleBack}>Back</button>
                 <button type="submit" className="booking3page-submit-button" onClick={handleFormSubmit}>Submit</button></div>       
                 </div>
     );

@@ -1,3 +1,4 @@
+/* Base styles */
 .booking-path {
   display: flex;
   margin-top: 5%;
@@ -5,28 +6,10 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px; /* Adjust spacing as needed */
-}  
-
-@media (max-width: 1200px) {
-  .booking-path {
-    margin-top: 5%;
-    margin-left: 5%;
-    /* flex-direction: row; */
-    /* align-items: flex-start; */
-  }
-}
-
-@media (min-width: 1201px) {
-  .booking-path {
-    margin-top: 10%;
-    margin-left: 14%;
-    /* flex-direction: row; */
-    /* align-items: center; */
-  }
 }
 
 .treatment-label, .date-label, .checkout-label {
-  font-size: 25px;
+  font-size: 1.7em;
   padding: 10px 50px;
   text-decoration: underline;
   text-underline-offset: 10px;
@@ -56,3 +39,29 @@
   opacity: 0.8; /* Slight decrease in opacity when label is clicked */
 }
 
+@media (min-width: 1201px) {
+  .booking-path {
+    margin-top: 10%;
+    margin-left: 14%;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1200px){
+  .booking-path {
+    margin-top: 10%;
+    margin-left: 14%;
+  }
+  .treatment-label, .date-label, .checkout-label {
+    font-size: 20px;
+    padding: 5px 30px;
+  }
+}
+
+/* Add this media query for screen sizes 600px or smaller */
+@media (max-width: 599px) {
+  .booking-path {
+    margin-top: 20%; /* Adjust as needed to lower the position */
+    margin-left: 5%;  /* Adjust if needed */
+    z-index: 10; /* Ensure it appears above other elements if needed */
+  }
+}

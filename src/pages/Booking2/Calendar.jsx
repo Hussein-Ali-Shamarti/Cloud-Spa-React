@@ -107,6 +107,7 @@ const Calendar = () => {
         // Set the selected date
         setSelectedDate(date);
         setSelectedDateState(date);
+        localStorage.setItem('selectedDate', date.toISOString());
         console.log("Selected Date:", date);
       }
     } else {

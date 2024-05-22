@@ -4,7 +4,7 @@ import "../../styles/Services/ClipCardBlock.css";
 
 const ClipCardBlock = () => {
   return (
-    <div class="container">
+    <div className="container">
     <div className= "Clip-Card-Container">
       <img src={clipCardEntrance} alt="Clip Card Entrance" />
       <div className="ClipCard-info">
