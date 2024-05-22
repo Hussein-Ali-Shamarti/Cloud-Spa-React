@@ -8,17 +8,17 @@ const ClipCardBlock = () => {
     <div className= "Clip-Card-Container">
       <img src={clipCardEntrance} alt="Clip Card Entrance" />
       <div className="ClipCard-info">
-        <h4 className="ClipCard-title">Clip Card for Spa Entrance</h4>
+        <h4 className="ClipCard-title">Our Daily Spa Activities</h4>
         {"\n"}
         <p className="ClipCard-text-box">
-          INCLUDED: Spa/gym access, daily spa activities, tea & water,
-          complimentary use of bathrobe and slippers.
+          Morning Meditation at 09:00<br/>
+          Peel Rituals at 11:00<br/>
+          Aqua Gym at 16:00<br/>
+          Yoga at 19:00<br/>
+          Relaxing Breath Meditation at 21:30
         </p>
         {"\n"}
-        <div className="button-container">
-        <button className="BuyCC-btn">Buy Clip Card</button>
-        <button className="BookE-btn">Book Entrance</button>
-        </div>
+        
       </div>
       </div>
     </div>

@@ -21,7 +21,7 @@
         right: 5%;
         justify-content: space-between; /* Distribuerer plassen jevnt mellom elementene */
         align-items: center; /* Sentrerer elementene vertikalt */
-        width: 500px; /* Justerer bredden av tekstboksen */
+        width: 400px; /* Justerer bredden av tekstboksen */
         height: 200px;
         background-color: #23395b;
         padding: 20px;
@@ -29,7 +29,7 @@
 
     .ClipCard-title, .ClipCard-text-box{
       color: #ffffff;
-      text-align: center;
+      text-align: left;
       font-family: "Inter", sans-serif;
       font-size: 16px;
       line-height: 24px;
@@ -40,26 +40,4 @@
         margin-bottom: 20px;
     }
 
-    .button-container {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .BuyCC-btn, .BookE-btn{
-      padding: 10px 20px;
-      margin-top: 20px;
-      background: #ffffff;
-      color: #000;
-      border: none;
-      border-radius: 0;
-      cursor: pointer;
-      transition: background-color 0.3s ease-in-out;
-      font-family: "Inter", sans-serif;
-      font-weight: 600;
-      margin: 0 40px;
-  }
-
-  
-    .BuyCC-btn:hover, .BookE-btn:hover {
-      background: #b2dfdb;
-  }
+    
