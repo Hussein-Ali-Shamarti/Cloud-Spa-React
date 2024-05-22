@@ -100,7 +100,7 @@ const SignIn = () => {
             <p>
               Don't have an account yet?
               <a href="/SignUp" className="register-link">
-                Create one now.
+              <br/>Create one now
               </a>
             </p>
           </div>

@@ -104,7 +104,7 @@ const SignUp = () => {
           <p>
             Already have an account?
             <a href="/MyPage" className="link-to-signin">
-              Sign in now.
+            <br/>Sign in now
             </a>
           </p>
         </form>

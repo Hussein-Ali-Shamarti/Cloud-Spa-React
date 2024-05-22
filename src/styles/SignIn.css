@@ -75,6 +75,7 @@ h2 {
   justify-content: space-between;
   align-items: center;
   font-size: 14px;
+ 
 }
 
 .remember-forgot label input {
@@ -94,4 +95,6 @@ a {
 .login-register p {
   color: #ffffff;
   margin-top: 16px;
+  text-align: center;
+  margin-left: 35px;
 }

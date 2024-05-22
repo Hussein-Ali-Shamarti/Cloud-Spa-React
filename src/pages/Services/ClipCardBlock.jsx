@@ -9,7 +9,7 @@ const ClipCardBlock = () => {
       <img src={clipCardEntrance} alt="Clip Card Entrance" />
       <div className="ClipCard-info">
         <h4 className="ClipCard-title">Our Daily Spa Activities</h4>
-        {"\n"}
+        
         <ul className="ClipCard-text-box">
           <li>Morning Meditation at 09:00</li><br/>
           <li>Peel Rituals at 11:00</li><br/>
