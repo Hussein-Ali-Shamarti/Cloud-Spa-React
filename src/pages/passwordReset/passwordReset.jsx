@@ -5,19 +5,21 @@ import "../../styles/passwordReset.css";
 
 const PasswordReset = () => {
   const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const auth = getAuth();
 
   const handlePasswordReset = () => {
     sendPasswordResetEmail(auth, email)
       .then(() => {
         console.log("Password reset email sent");
-        // ...
+        setMessage(`Email has been sent to ${email}`);
+        setEmail("");
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.error(errorCode, errorMessage);
-        // ...
+        setMessage(`Failed to send email: ${errorMessage}`);
       });
   };
 
@@ -47,6 +49,12 @@ const PasswordReset = () => {
           </a>
         </p>
       </div>
+      {message && (
+        <div className="passwordMessage">
+          {message}
+          <button onClick={() => setMessage("")}>Close</button>
+        </div>
+      )}
     </div>
   );
 };
