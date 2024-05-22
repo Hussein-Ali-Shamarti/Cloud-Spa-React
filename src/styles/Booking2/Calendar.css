@@ -123,4 +123,17 @@
     background: #8ea8c3;
     color: black;
   }
+
+  @media screen and (max-width: 750px) {
+    .current-date2 {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media screen and (max-width: 725px) {
+    .weeks2 li {
+      font-weight: 500;
+      font-size: 0.7rem;
+    }
+  }
   

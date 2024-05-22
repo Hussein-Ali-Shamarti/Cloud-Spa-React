@@ -47,3 +47,13 @@
   /* margin-top: -20px; */
   /* margin-bottom: -20px; */
 }
+
+@media screen and (max-width:670px) {
+  .counter-controls button {
+    padding: 2.5px 5px;
+    margin: 0 2.5px;
+  }
+  .age-label {
+    font-size: 14px;
+  }
+}
