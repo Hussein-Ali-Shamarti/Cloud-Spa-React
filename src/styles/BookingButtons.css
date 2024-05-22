@@ -97,7 +97,7 @@
     
   
     .booking-back-button-date{
-      margin-left: -40%;
+      margin-left: -30%;
       margin-right: 0%;
       padding: 10px 20px;
     }
@@ -105,7 +105,7 @@
         padding: 10px 20px;
     }
     .booking-buttons {
-        margin-top: 5%;
+        /* margin-top: 1%; */
     }
   }
   /*Styling only for the BookingTreatment buttons */
@@ -149,6 +149,18 @@
     background-color: #8EA8C3;
     color: black
 }
+.booking3page-back-button {
+    display: block; /* Make the <a> tag a block-level element */
+    padding: 10px 35px; /* Adjust the padding as needed */
+    margin-right: 10%; /* Adjust the spacing between buttons */
+    margin-bottom: 2%;
+    background-color: #8EA8C3;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+  }
 .booking3page-back-button:hover {
     background-color: #23395B;
     color: white;

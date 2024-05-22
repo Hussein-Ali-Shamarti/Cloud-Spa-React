@@ -36,12 +36,13 @@ const BookingPage2 = () => {
          
         <div className="content">
 
+          
+          <Layout/> 
+          <BookingPath checkedList={checkedList}/>
           <div className="booking2-img-container">
       
           <img src={booking2} alt= "Bath tools" className= "booking2-pic"/> 
           </div>
-          <Layout/> 
-          <BookingPath checkedList={checkedList}/>
           <Calendar/>
           <QuantityPers/>
 
