@@ -9,47 +9,45 @@ import {
 import "../../styles/ProfileTab.css";
 
 const ProfileTab = () => {
-  const [user, setUser] = useState(null); // State to hold the current user
+  const [user, setUser] = useState(null); 
   const [displayName, setDisplayName] = useState("");
   const [photoURL, setPhotoURL] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const [updateMessage, setUpdateMessage] = useState(""); // State for the update message
 
   useEffect(() => {
     const auth = getAuth();
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        // Set the user and initial form values to the current user's profile data
         setUser(currentUser);
         setDisplayName(currentUser.displayName || "");
         setPhotoURL(currentUser.photoURL || "");
         setEmail(currentUser.email || "");
       } else {
-        // Handle the case where there is no user signed in
+        setUser(null);
       }
     });
   }, []);
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent the default form submit action
+    e.preventDefault(); 
 
     if (user) {
       const auth = getAuth();
 
-      // Update the user's profile information
       updateProfile(auth.currentUser, {
         displayName: displayName,
         photoURL: photoURL
       })
         .then(() => {
-          // Profile updated successfully, now update email
           return updateEmail(auth.currentUser, email);
         })
         .then(() => {
-          // Email updated successfully
+          setUpdateMessage("Profile updated successfully!");
+          setTimeout(() => setUpdateMessage(""), 3000); // Hide the message after 3 seconds
         })
         .catch((error) => {
-          // An error occurred while updating the profile or email, handle it here
           setError(error.message);
         });
     } else {
@@ -78,13 +76,6 @@ const ProfileTab = () => {
             onChange={(e) => setPhotoURL(e.target.value)}
             className="form-input"
           />
-          {/*
-                    <img
-            src={photoURL}
-            alt="User Submitted"
-            style={{ maxWidth: "100%", maxHeight: "500px" }}
-          />
-          */}
         </div>
         <div className="form-groupProfile">
           <label className="form-label">Email:</label>
@@ -100,6 +91,12 @@ const ProfileTab = () => {
           Update Profile
         </button>
       </form>
+      {updateMessage && (
+        <div className="updateMessage">
+          {updateMessage}
+          <button onClick={() => setUpdateMessage("")}>Close</button>
+        </div>
+      )}
     </div>
   );
 };
