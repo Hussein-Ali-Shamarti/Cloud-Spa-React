@@ -46,10 +46,10 @@ const BookingPage2 = () => {
           <QuantityPers/>
 
           <div className="booking-buttons">
-          <button className="booking-back-button" onClick={handleBack}>
+          <button className="booking-back-button booking-back-button-date" onClick={handleBack}>
             Back
           </button>
-          <button className="booking-next-button" onClick={handleNext}>
+          <button className="booking-next-button booking-next-button-date" onClick={handleNext}>
              Next
           </button>
           

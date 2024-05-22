@@ -9,14 +9,43 @@
             width: 100%;
             max-width: 35%;
             margin-top: 4%;
+            height: 65%;
+            
 }
         
 .booking2-img-container img {
             width: 100%;
-            height: auto;
-            /* display: flex; */
+            height: 80%;
+            /* min-height: 80%; */
+            display: flex;
 }
 
 
-      
+
+@media screen and (max-width: 1200px){
+    .booking2-img-container {
+        /* float: right;  */
+        /*flex: 1 0 10rem;*/
+        position: absolute;
+        right: 10%;
+        left: 60%;
+        width: 100%;
+        max-width: 35%;
+        margin-top: 5%;
+        height: 60%;    
+}
+}
+@media screen and (max-width: 800px){
+    .booking2-img-container {
+        /* float: right;  */
+        /*flex: 1 0 10rem;*/
+        position: absolute;
+        right: 10%;
+        left: 60%;
+        width: 100%;
+        max-width: 35%;
+        margin-top: 8%;
+        height: 60%;    
+}
+}     
 
