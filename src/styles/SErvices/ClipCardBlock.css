@@ -22,7 +22,7 @@
         justify-content: space-between; /* Distribuerer plassen jevnt mellom elementene */
         align-items: center; /* Sentrerer elementene vertikalt */
         width: 400px; /* Justerer bredden av tekstboksen */
-        height: 200px;
+        height: 240px;
         background-color: #23395b;
         padding: 20px;
     }
@@ -32,12 +32,31 @@
       text-align: left;
       font-family: "Inter", sans-serif;
       font-size: 16px;
-      line-height: 24px;
+      line-height: 14px;
+    }
+    .ClipCard-title{
+      margin-top: 10px;
     }
 
     .ClipCard-text-box{
-        margin-top: 10px;
-        margin-bottom: 20px;
+        margin-top: 30px;
+        margin-left: 30px;
     }
 
-    
+    @media screen and (max-width:570px) {
+      .ClipCard-info{
+        width: 300px; /* Justerer bredden av tekstboksen */
+        height: 150px;
+      }
+      .ClipCard-title, .ClipCard-text-box{
+        font-size: 10px;
+        line-height: 10px;
+      }
+      .ClipCard-text-box{
+        margin-top: 15px;
+        margin-left: 20px;
+      }
+      .ClipCard-title{
+        margin-top: 0px;
+      }
+    }

@@ -10,13 +10,13 @@ const ClipCardBlock = () => {
       <div className="ClipCard-info">
         <h4 className="ClipCard-title">Our Daily Spa Activities</h4>
         {"\n"}
-        <p className="ClipCard-text-box">
-          Morning Meditation at 09:00<br/>
-          Peel Rituals at 11:00<br/>
-          Aqua Gym at 16:00<br/>
-          Yoga at 19:00<br/>
-          Relaxing Breath Meditation at 21:30
-        </p>
+        <ul className="ClipCard-text-box">
+          <li>Morning Meditation at 09:00</li><br/>
+          <li>Peel Rituals at 11:00</li><br/>
+          <li>Aqua Gym at 16:00</li><br/>
+          <li>Yoga at 19:00</li><br/>
+          <li>Relaxing Breath Meditation at 21:30</li>
+        </ul>
         {"\n"}
         
       </div>
