@@ -1,3 +1,5 @@
+/*Author: 7032*/
+
 import React, { useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import "../../firebase-config";

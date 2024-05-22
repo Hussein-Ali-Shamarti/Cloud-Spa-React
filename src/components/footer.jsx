@@ -1,3 +1,5 @@
+/*Author: 7032*/
+
 import CloudSpaTransparent from "../Pictures/CloudSpaTransaprent.png";
 import CloudLogoTransparent from "../Pictures/CloudSpaTransparent2.png";
 import React from "react";

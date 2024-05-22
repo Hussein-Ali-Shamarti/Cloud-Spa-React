@@ -1,3 +1,5 @@
+/*Author: 7032*/
+
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { getDatabase, ref, get } from "firebase/database";
 import { BiSolidLeftArrow, BiSolidRightArrow } from "react-icons/bi";

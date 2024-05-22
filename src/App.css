@@ -1,4 +1,4 @@
-/*Hussien sin css*/
+/*Author: 7032*/
 
 header {
   position: fixed;
@@ -21,6 +21,10 @@ header {
   height: auto;
   max-height: 90px;
   width: auto;
+}
+
+.firebase-emulator-warning{
+  display: none;
 }
 
 .navigation {

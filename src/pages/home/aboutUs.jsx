@@ -1,3 +1,5 @@
+/*Author: 7032*/
+
 import aboutUs from "../../Pictures/aboutUs.jpg";
 import "../../styles/AboutUs.css";
 import React from "react";

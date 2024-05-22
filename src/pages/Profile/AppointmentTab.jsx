@@ -1,3 +1,6 @@
+/*Author: 7032 and Henrik*/
+
+
 import React, { useState, useEffect, useRef } from "react";
 import Footer from "../../components/footer";
 import { getAuth, onAuthStateChanged } from "firebase/auth";

@@ -1,4 +1,4 @@
-// Import the functions you need from the SDKs you need
+/*Author: 7032*/
 import { initializeApp } from "firebase/app";
 import { connectAuthEmulator, getAuth } from "firebase/auth";
 import {
