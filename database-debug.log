@@ -1,0 +1,9 @@
+10:18:32.357 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+10:18:32.554 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
+10:18:33.103 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - 127 successfully activated FBKV (SurveyIdle(0)) wait: 217ms, init: 0ms
+10:18:39.780 [FirebaseWorkerPool-1-3] WARN com.firebase.core.persistence.backend.dummy.EmulatorMetadataPersistence - Multiple projectIds are not recommended in single project mode. Requested 
+namespace cloudspa-262a4-default-rtdb, but the emulator is configured for 127. To 
+opt-out of single project mode add/set the singleProjectMode: false property in 
+the firebase.json emulators config. 
+10:18:39.784 [NamespaceSystem-akka.actor.default-dispatcher-9] INFO com.firebase.core.namespace.NamespaceActor - cloudspa-262a4-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 2ms, init: 0ms
+10:18:39.815 [NamespaceSystem-blocking-namespace-operation-dispatcher-12] INFO com.firebase.core.namespace.StateManager - Namespace cloudspa-262a4-default-rtdb status Active to Active
