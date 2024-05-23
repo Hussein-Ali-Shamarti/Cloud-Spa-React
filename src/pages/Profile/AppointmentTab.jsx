@@ -1,6 +1,3 @@
-/*Author: 7032 and 7030*/
-
-
 import React, { useState, useEffect, useRef } from "react";
 import Footer from "../../components/footer";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -33,42 +30,45 @@ const Appointments = () => {
   }, []);
 
   // Function to get the orders from the database
-const fetchOrders = async (email) => {
-  try {
-    const ordersRef = ref(database, "orders");
-    const snapshot = await get(ordersRef);
-    if (snapshot.exists()) {
-      const ordersData = snapshot.val();
+  const fetchOrders = async (email) => {
+    try {
+      const ordersRef = ref(database, "orders");
+      const snapshot = await get(ordersRef);
+      if (snapshot.exists()) {
+        const ordersData = snapshot.val();
 
-      const ordersList = Object.entries(ordersData)
-        .map(([orderId, orderDetails]) => {
-          if (
-            orderDetails &&
-            orderDetails.OrderDetails &&
-            orderDetails.OrderDetails.PaymentInformation
-          ) {
-            return {
-              orderId,
-              ...orderDetails.OrderDetails,
-              email: orderDetails.OrderDetails.PaymentInformation.email,
-              firstName: orderDetails.OrderDetails.PaymentInformation.firstName,
-              lastName: orderDetails.OrderDetails.PaymentInformation.lastName,
-              totalSum: orderDetails.OrderDetails.totalSum 
-            };
-          } else {
-            console.warn(`Order ${orderId} is missing expected structure`);
-            return null; // Return null if structure does not match
-          }
-        })
-        .filter((order) => order !== null); // Filter out null values
+        const ordersList = Object.entries(ordersData)
+          .map(([orderId, orderDetails]) => {
+            if (
+              orderDetails &&
+              orderDetails.OrderDetails &&
+              orderDetails.OrderDetails.PaymentInformation
+            ) {
+              return {
+                orderId,
+                ...orderDetails.OrderDetails,
+                email: orderDetails.OrderDetails.PaymentInformation.email,
+                firstName:
+                  orderDetails.OrderDetails.PaymentInformation.firstName,
+                lastName: orderDetails.OrderDetails.PaymentInformation.lastName,
+                totalSum: orderDetails.OrderDetails.totalSum,
+                SelectedService: orderDetails.OrderDetails.SelectedService, // Include SelectedService
+                SelectedTreatments: orderDetails.OrderDetails.SelectedTreatments // Include SelectedTreatments
+              };
+            } else {
+              console.warn(`Order ${orderId} is missing expected structure`);
+              return null; // Return null if structure does not match
+            }
+          })
+          .filter((order) => order !== null); // Filter out null values
 
-      setOrders(ordersList);
-      filterOrdersByEmail(ordersList, email);
+        setOrders(ordersList);
+        filterOrdersByEmail(ordersList, email);
+      }
+    } catch (error) {
+      console.error("Error fetching orders", error);
     }
-  } catch (error) {
-    console.error("Error fetching orders", error);
-  }
-};
+  };
 
   // Filters the orders based on the user's email so that only the logged-in user's orders show up
   const filterOrdersByEmail = (orders, email) => {
@@ -121,6 +121,16 @@ const fetchOrders = async (email) => {
     setOrderIdToEdit(orderId);
   };
 
+  const handleEditPopupClose = () => {
+    setShowEditPopup(false);
+    // Re-fetch orders after the popup is closed to get updated data
+    fetchOrders(userEmail);
+  };
+
+  const refreshAppointments = () => {
+    fetchOrders(userEmail);
+  };
+
   return (
     <>
       <div className="appointments-container">
@@ -150,9 +160,11 @@ const fetchOrders = async (email) => {
                   <p>Total Sum: NOK {order.totalSum}</p>
                   <p>Order Details</p>
                   <ul>
-                    {order.SelectedTreatments && order.SelectedTreatments.map((treatment, index) => (
-                      <li key={index}>{treatment}</li>
-                    ))}
+                    {order.SelectedService && <li> {order.SelectedService}</li>}
+                    {order.SelectedTreatments &&
+                      order.SelectedTreatments.map((treatment, index) => (
+                        <li key={index}>{treatment}</li>
+                      ))}
                   </ul>
                   <div className="button-container">
                     <button
@@ -179,10 +191,15 @@ const fetchOrders = async (email) => {
           </div>
         )}
       </div>
-      {showEditPopup && <EditPopup orderIdToEdit={orderIdToEdit} onClose={() => setShowEditPopup(false)} />}
+      {showEditPopup && (
+        <EditPopup
+          orderIdToEdit={orderIdToEdit}
+          onClose={handleEditPopupClose}
+          refreshAppointments={refreshAppointments} // Pass the refresh function to the popup
+        />
+      )}
     </>
   );
-  
 };
 
 export default Appointments;
