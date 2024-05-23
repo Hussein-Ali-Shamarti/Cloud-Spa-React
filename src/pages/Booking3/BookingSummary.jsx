@@ -8,7 +8,15 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { getDatabase, ref, onValue} from "firebase/database";
 
 const BookingSummary = () => {
-  const { selectedService, selectedDate, setSelectedDate, totalSum, setTotalSum, personCount } = useContext(SelectedServiceContext);
+  const { 
+    selectedService, 
+    selectedDate, 
+    setSelectedDate, 
+    totalSum, 
+    setTotalSum, 
+    personCount, 
+    setIsNextClicked, 
+    isNextClicked} = useContext(SelectedServiceContext);
   const location = useLocation();
   const { checkedList } = location.state || {};
   const services = checkedList || [];
@@ -22,6 +30,11 @@ const BookingSummary = () => {
     navigate("/Booking2", { state: { checkedList } });
   };
 
+  const changeOrder = () => {
+    //Go to services to start selecting treatments again
+    navigate ("/Services")
+    setIsNextClicked(false);
+  }
   //Function to access the database and get the information about bookingtreatments and services.
   useEffect(() => {
     const listDataRef = ref(db, "bookingtreatments");
@@ -87,25 +100,28 @@ const BookingSummary = () => {
     <div className="booking-summary-container booking-summary-div">
       <div className="booking-summary booking-summary-div">
         <h3 className="booking-summary-h3">
-          <span className="booking-summary-span">your order</span>
+          <span className="booking-summary-span">Your Order</span>
         </h3>
         <div className="selected-choices booking-summary-div">
           <h4 className="booking-summary-h4">Selected Choices</h4>
           {services.map((item, index) => (
-            <p className="booking-summary-p" key={index}>
-              {item}
-            </p>
+            <div key={index}>
+              <p className="booking-summary-p">{item}</p>
+            </div>
           ))}
+          <button className="change-treatments" onClick={changeOrder}>
+            Change Treatments
+          </button>
         </div>
         <div className="booking-summary-date booking-summary-div">
-          <img src={CalenderIcon} />
+          <img src={CalenderIcon} alt="calendar" />
           <p className="booking-summary-p">{selectedDate && formatDate(selectedDate)}</p>
           <button className="change-date-button" onClick={changeDate}>Change Date</button>
         </div>
 
         <div className="booking-summary-h3 booking-summary-div">
           <h3>
-            <span className="booking-summary-span">summarization</span>
+            <span className="booking-summary-span">Summarization</span>
           </h3>
         </div>
         <div className="total booking-summary-div">
@@ -116,11 +132,13 @@ const BookingSummary = () => {
     </div>
   );
 };
-//exports the function over to PaymentForm to format the selectedDate
+
+// exports the function over to PaymentForm to format the selectedDate
 export const formatDate = (date) => {
   const day = date.getDate().toString().padStart(2, '0'); // Gets the day of the month as a two-digit string
   const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Get the month (adding 1 because months are zero-based) as a two-digit string
   const year = date.getFullYear(); // Gets the full year
   return `${day}.${month}.${year}`;
 };
+
 export default BookingSummary;

@@ -38,8 +38,8 @@ function BookingPath() {
         </span>
         <span
           className={`checkout-label ${currentPage === '/Booking3' ? 'active-booking' : ''}`}
-          onClick={() => selectedDate && handleLinkClick('/Booking3')} // Only allow checkout if date is selected
-          style={{ cursor: selectedDate ? 'pointer' : 'not-allowed' }} // Change cursor style based on selection
+          onClick={() => selectedDate && isNextClicked && handleLinkClick('/Booking3')} // Only allow checkout if date is selected
+          style={{ cursor: selectedDate && isNextClicked ? 'pointer' : 'not-allowed' }} // Change cursor style based on selection
         >
           Check Out
         </span>
