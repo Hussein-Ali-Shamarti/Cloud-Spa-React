@@ -1,3 +1,5 @@
+/*Author: 7032*/
+
 import React, { useState } from "react";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import "../../firebase-config";

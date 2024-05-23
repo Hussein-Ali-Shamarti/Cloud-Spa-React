@@ -1,41 +1,69 @@
+//Author: 7030 and 7021
+
 import React, { useState, useContext, useEffect } from "react";
 import "../../styles/Booking3/BookingSummary.css";
 import CalenderIcon from "../../Pictures/CalenderIcon.png";
 import { SelectedServiceContext } from "../../ServicesContext.js";
-import getServicePrice from "../Booking3/getServicePrice"; // Import getServicePrice function
 import { useNavigate, useLocation } from "react-router-dom";
+import { getDatabase, ref, onValue} from "firebase/database";
 
 const BookingSummary = () => {
-  const { selectedService, selectedDate, setSelectedDate } = useContext(SelectedServiceContext);
-  const [totalSum, setTotalSum] = useState(0); // Initial total sum
+  const { selectedService, selectedDate, setSelectedDate, totalSum, setTotalSum } = useContext(SelectedServiceContext);
   const location = useLocation();
   const { checkedList } = location.state || {};
   const services = checkedList || [];
+  const [listData, setListData] = useState([]);
+  const [servicesData, setServicesData] = useState([]);
   const navigate = useNavigate();
+  const db = getDatabase();
 
   const changeDate = () => {
     // Go to booking2 to change date
-    navigate("/Booking2", { state: { checkedList}});
+    navigate("/Booking2", { state: { checkedList } });
   };
 
+  //Function to access the database and get the information about bookingtreatments and services.
   useEffect(() => {
-    if (checkedList && checkedList.length > 0) {
+    const listDataRef = ref(db, "bookingtreatments");
+    onValue(listDataRef, (snapshot) => {
+      const data = snapshot.val() || {};
+      const dataArray = Object.values(data);
+      setListData(dataArray);
+    });
+
+    const servicesDataRef = ref(db, "services");
+    onValue(servicesDataRef, (snapshot) => {
+      const data = snapshot.val() || {};
+      const dataArray = Object.values(data);
+      setServicesData(dataArray);
+    });
+  }, [db]);
+
+  //Function to take the price value from bookingtreatments and services and apply them to the results of the checkedList
+  useEffect(() => {
+    if (checkedList && checkedList.length > 0 && (listData.length > 0 || servicesData.length > 0)) {
+      // Combine listData and servicesData into a single array
+      const combinedData = [...listData, ...servicesData];
       // Calculate total sum based on selected services
       let sum = 0; // Base price
-      if (Array.isArray(checkedList))
+      if (Array.isArray(checkedList)) {
         checkedList.forEach((service) => {
-        // Add price of each selected service
-        // Adjust this logic based on how service prices are stored
-        sum += getServicePrice(service);
-      });
+          // Find the service in the serviceData array and add its price
+          const serviceInfo = combinedData.find(item => item.value === service || item.Title === service);
+          if (serviceInfo) {
+            sum += parseFloat(serviceInfo.price);
+          }
+        });
+      }
 
       setTotalSum(sum); // Set the total sum
     } else {
       // If no services selected, reset total sum to base price
       setTotalSum(0);
     }
-  }, [checkedList]); // Recalculate when selected services change
-  
+  }, [checkedList, listData, servicesData]); // Recalculate when selected services change
+
+
   useEffect(() => {
     // Retrieve selected date from localStorage on component mount
     const savedDate = localStorage.getItem('selectedDate');
@@ -44,6 +72,7 @@ const BookingSummary = () => {
     }
   }, [setSelectedDate]);
 
+  //Function to have the date persist through changes
   useEffect(() => {
     // Save selected date to localStorage whenever it changes
     if (selectedDate) {
@@ -78,7 +107,7 @@ const BookingSummary = () => {
           <p className="booking-summary-p">{selectedDate && formatDate(selectedDate)}</p>
           <button className="change-date-button" onClick={changeDate}>Change Date</button>
         </div>
-        
+
         <div className="booking-summary-h3 booking-summary-div">
           <h3>
             <span className="booking-summary-span">summarization</span>

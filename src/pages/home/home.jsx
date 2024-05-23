@@ -1,3 +1,5 @@
+/*Author: 7032*/
+
 import React, { useEffect, useState } from "react";
 import AboutUs from "./aboutUs";
 import Footer from "../../components/footer";

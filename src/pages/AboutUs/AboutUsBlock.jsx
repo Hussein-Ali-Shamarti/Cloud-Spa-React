@@ -1,3 +1,4 @@
+//Author: 7030
 import React from "react";
 import aboutUsImage from "../../Pictures/aboutUs.jpg";
 import "../../styles/AboutUsBlock.css";

@@ -1,3 +1,5 @@
+//Author: 7030 and 7052
+
 import React, { useState, useContext, useEffect } from 'react';
 import BankCard from '../../Pictures/BankCard.png';
 import Vipps from '../../Pictures/Vipps.png';

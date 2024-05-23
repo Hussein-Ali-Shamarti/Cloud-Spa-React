@@ -1,33 +1,30 @@
-/* Wrapper styles specific to SignUp */
+/*Author: 7032*/
 .signup-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Adjusted to accommodate different header sizes */
+  min-height: 100vh; 
   background: linear-gradient(to right, #161925, #23395b, #406e8e, #8ea8c3);
-  padding-top: 60px; /* Adjusted for header height, modify as needed */
+  padding-top: 60px; 
   box-sizing: border-box;
 }
 
-/* Form box styling specific to SignUp */
 .signup-form-box {
-  width: 100%; /* Allows responsiveness */
-  max-width: 300px; /* Maximum width */
+  width: 100%; 
+  max-width: 300px; 
   padding: 20px;
   background: #23395b;
   box-shadow: 0 0 10px #161925;
   border-radius: 8px;
   color: #ffffff;
-  margin: 0 20px; /* Margin on the sides for small devices */
+  margin: 0 20px; 
 }
 
-/* Heading specific to SignUp */
 .signup-form-box h2 {
   text-align: center;
   margin-bottom: 20px;
 }
 
-/* Input box styles specific to SignUp */
 .signup-input-box {
   position: relative;
   margin-bottom: 20px;
@@ -77,7 +74,6 @@
   background-color: #ffffff;
 }
 
-/* Link styles specific to SignUp */
 .signup-form-box a {
   color: #ffffff;
   text-decoration: none;
