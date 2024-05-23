@@ -6,8 +6,8 @@ function FacialTreatment({ id }) {
   return (
     <div className="facial-treatment-block" id={id}>
       <div className="facial-treatment-text-block">
-        <h2>Facial Treatment</h2>
-        <div className="text-box">
+        <h2 className="facial-treatment-h2">Facial Treatment</h2>
+        <div className="facial-treatment-text">
           <p>
             {" "}
             Revitalize your skin and reveal your natural radiance with our

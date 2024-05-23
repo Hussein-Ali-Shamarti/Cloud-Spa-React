@@ -44,7 +44,7 @@
 /* Classic Massage text-box */
 .classic-massage-text {
   font-size: clamp(1rem, 2vw, 1.5rem);
-  line-height: 1.5;
+  line-height: 2;
   color: #ffffff;
   text-align: left;
   margin-top: 10px;
@@ -56,10 +56,11 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 40px;
   }
 
   .classic-massage-block img {
-    max-width: 50%;
+    max-width: 45%;
     margin: 0;
   }
 

@@ -44,7 +44,7 @@
 /* Facial Treatment text-box */
 .facial-treatment-text {
   font-size: clamp(1rem, 2vw, 1.5rem);
-  line-height: 1.5;
+  line-height: 2;
   color: #000000;
   text-align: left;
   margin-top: 10px;
@@ -60,7 +60,7 @@
   }
 
   .facial-treatment-block img {
-    max-width: 50%;
+    max-width: 45%;
     margin: 0;
   }
 
@@ -83,7 +83,7 @@
 /* Media query for smaller screens */
 @media (max-width: 1300px) {
   .facial-treatment-block {
-    flex-direction: column;
+    flex-direction: column-reverse;
     margin-top: 40px;
   }
 
