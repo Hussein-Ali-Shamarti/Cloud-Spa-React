@@ -5,18 +5,18 @@ import "../../styles/Booking3/BookingSummary.css";
 import CalenderIcon from "../../Pictures/CalenderIcon.png";
 import { SelectedServiceContext } from "../../ServicesContext.js";
 import { useNavigate, useLocation } from "react-router-dom";
-import { getDatabase, ref, onValue} from "firebase/database";
+import { getDatabase, ref, onValue } from "firebase/database";
 
 const BookingSummary = () => {
-  const { 
-    selectedService, 
-    selectedDate, 
-    setSelectedDate, 
-    totalSum, 
-    setTotalSum, 
-    personCount, 
-    setIsNextClicked, 
-    isNextClicked} = useContext(SelectedServiceContext);
+  const {
+    selectedService,
+    selectedDate,
+    setSelectedDate,
+    totalSum,
+    setTotalSum,
+    personCount,
+    setIsNextClicked,
+    isNextClicked } = useContext(SelectedServiceContext);
   const location = useLocation();
   const { checkedList } = location.state || {};
   const services = checkedList || [];
@@ -32,7 +32,7 @@ const BookingSummary = () => {
 
   const changeOrder = () => {
     //Go to services to start selecting treatments again
-    navigate ("/Services")
+    navigate("/Services")
     setIsNextClicked(false);
   }
   //Function to access the database and get the information about bookingtreatments and services.
@@ -54,9 +54,11 @@ const BookingSummary = () => {
 
   //Function to take the price value from bookingtreatments and services and apply them to the results of the checkedList
   useEffect(() => {
-    if (checkedList && checkedList.length > 0 && (listData.length > 0 || servicesData.length > 0)) {
+    if ((checkedList && checkedList.length > 0) || selectedService) {
       const combinedData = [...listData, ...servicesData];
       let sum = 0;
+  
+      // Calculate sum for checkedList
       if (Array.isArray(checkedList)) {
         checkedList.forEach((service) => {
           const serviceInfo = combinedData.find(item => item.value === service || item.Title === service);
@@ -65,13 +67,21 @@ const BookingSummary = () => {
           }
         });
       }
+  
+      // Add selectedService price if exists
+      if (selectedService) {
+        const selectedServiceInfo = combinedData.find(item => item.value === selectedService.Title);
+        if (selectedServiceInfo) {
+          sum += parseFloat(selectedServiceInfo.price);
+        }
+      }
+  
       setTotalSum(sum * personCount);
     } else {
       setTotalSum(0);
     }
-  }, [checkedList, listData, servicesData, personCount, setTotalSum]); // Recalculate when selected services change
-
-
+  }, [checkedList, selectedService, listData, servicesData, personCount, setTotalSum]); // Recalculate when selected services change
+  
   useEffect(() => {
     // Retrieve selected date from localStorage on component mount
     const savedDate = localStorage.getItem('selectedDate');
@@ -104,6 +114,11 @@ const BookingSummary = () => {
         </h3>
         <div className="selected-choices booking-summary-div">
           <h4 className="booking-summary-h4">Selected Choices</h4>
+          {selectedService && (
+            <div>
+              <p className="booking-summary-p">{selectedService}</p>
+            </div>
+          )}
           {services.map((item, index) => (
             <div key={index}>
               <p className="booking-summary-p">{item}</p>
@@ -113,6 +128,7 @@ const BookingSummary = () => {
             Change Treatments
           </button>
         </div>
+
         <div className="booking-summary-date booking-summary-div">
           <img src={CalenderIcon} alt="calendar" />
           <p className="booking-summary-p">{selectedDate && formatDate(selectedDate)}</p>
