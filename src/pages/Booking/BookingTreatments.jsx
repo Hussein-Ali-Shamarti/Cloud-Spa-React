@@ -16,7 +16,7 @@ const db = getDatabase();
 const Booking = () => {
   const [checkedList, setCheckedList] = useState([]);
   const [listData, setListData] = useState([]);
-  const { selectedService } = useContext(SelectedServiceContext);
+  const { selectedService, isNextClicked, setIsNextClicked } = useContext(SelectedServiceContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -55,19 +55,17 @@ useEffect(() => {
     console.log("Updated checkedList", checkedList);
   };
 
-  
-  //Function to verify that atleast one option is selected before continuing with the booking process
+  //Function to verify that at least one option is selected before continuing with the booking process
   const handleNext = () => {
     if (checkedList.length === 0) {
       const userConfirmed = window.confirm(
         "Please select at least one treatment before proceeding. Click OK to go back to the Booking page."
       );
       if (userConfirmed) {
-        // Redirects to the page if no options are checked.
         navigate("/Booking");
       }
     } else {
-      // Redirects to the next step if options are checked and the list is populated.
+      setIsNextClicked(true);
       navigate("/Booking2", { state: { checkedList}});
     }
   };
@@ -133,7 +131,7 @@ useEffect(() => {
 };
 <>
   <BookingPath />
-  <Booking />
+  <Booking  />
   <Layout />
   
 </>;

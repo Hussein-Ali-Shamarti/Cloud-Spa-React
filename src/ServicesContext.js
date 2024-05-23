@@ -9,10 +9,23 @@ export const SelectedServiceProvider = ({ children }) => {
   const [checkedList, setCheckedList] = useState([]);
   const [totalSum, setTotalSum] = useState([]);
   const [personCount, setPersonCount] = useState(1);
+  const [isNextClicked, setIsNextClicked] = useState(false);
 
   return (
     <SelectedServiceContext.Provider
-      value={{ selectedService, checkedList, selectedDate, totalSum, personCount, setSelectedService,  setSelectedDate, setCheckedList, setTotalSum, setPersonCount }}>
+      value={{ 
+      selectedService, 
+      checkedList, 
+      selectedDate, 
+      totalSum, 
+      personCount, 
+      isNextClicked, 
+      setSelectedService,  
+      setSelectedDate, 
+      setCheckedList, 
+      setTotalSum, 
+      setPersonCount, 
+      setIsNextClicked }}>
       {children}
     </SelectedServiceContext.Provider>
   );

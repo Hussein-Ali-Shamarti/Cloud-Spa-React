@@ -10,7 +10,7 @@ function BookingPath() {
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState('');
   const [checkedList, setCheckedList] = useState(location.state ? location.state.checkedList || [] : []);
-  const { selectedDate } = useContext(SelectedServiceContext);
+  const { selectedDate, isNextClicked } = useContext(SelectedServiceContext);
 
   useEffect(() => {
     setCurrentPage(location.pathname);
@@ -31,7 +31,8 @@ function BookingPath() {
         </span>
         <span
           className={`date-label ${currentPage === '/Booking2' ? 'active-booking' : ''}`}
-          onClick={() => handleLinkClick('/Booking2')}
+          onClick={() => isNextClicked && handleLinkClick('/Booking2')} // Only allow navigation if Next is clicked
+          style={{ cursor: isNextClicked ? 'pointer' : 'not-allowed' }} // Change cursor style based on Next button click
         >
           Date
         </span>
