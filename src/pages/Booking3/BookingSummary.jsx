@@ -113,20 +113,25 @@ const BookingSummary = () => {
           <span className="booking-summary-span">Your Order</span>
         </h3>
         <div className="selected-choices booking-summary-div">
+          
           <h4 className="booking-summary-h4">Selected Choices</h4>
           {selectedService && (
             <div>
               <p className="booking-summary-p">{selectedService}</p>
             </div>
           )}
+          
           {services.map((item, index) => (
             <div key={index}>
               <p className="booking-summary-p">{item}</p>
             </div>
           ))}
+          <div class="change-treatments-container">
           <button className="change-treatments" onClick={changeOrder}>
-            Change Treatments
+            <span class="change-text">Change</span>
+            <span class="treatments-text">Treatments</span>
           </button>
+          </div>
         </div>
 
         <div className="booking-summary-date booking-summary-div">
