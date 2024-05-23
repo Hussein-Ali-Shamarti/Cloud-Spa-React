@@ -13,7 +13,7 @@ const EditPopup = ({ orderIdToEdit, onClose, refreshAppointments }) => {
   const [selectedService, setSelectedService] = useState("");
   const [extraTreatments, setExtraTreatments] = useState([]);
   const [oldOrder, setOldOrder] = useState(null);
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
   const [totalSum, setTotalSum] = useState(0);
 
   useEffect(() => {
@@ -44,7 +44,10 @@ const EditPopup = ({ orderIdToEdit, onClose, refreshAppointments }) => {
       } else {
         console.log("No order data available or OrderDetails missing.");
       }
+
     });
+
+
   }, [orderIdToEdit]);
 
   useEffect(() => {
@@ -64,6 +67,7 @@ const EditPopup = ({ orderIdToEdit, onClose, refreshAppointments }) => {
       }
     });
     setTotalSum(sum);
+   
   }, [selectedService, extraTreatments, services, listData]);
 
   const handleSelectService = (event) => {
