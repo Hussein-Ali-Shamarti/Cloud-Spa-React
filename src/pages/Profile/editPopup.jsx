@@ -13,7 +13,7 @@ const EditPopup = ({ orderIdToEdit, onClose, refreshAppointments }) => {
   const [selectedService, setSelectedService] = useState("");
   const [extraTreatments, setExtraTreatments] = useState([]);
   const [oldOrder, setOldOrder] = useState(null);
-  const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
+  const [date, setDate] = useState("");
   const [totalSum, setTotalSum] = useState(0);
 
   useEffect(() => {
@@ -44,10 +44,7 @@ const EditPopup = ({ orderIdToEdit, onClose, refreshAppointments }) => {
       } else {
         console.log("No order data available or OrderDetails missing.");
       }
-
     });
-
-
   }, [orderIdToEdit]);
 
   useEffect(() => {
@@ -67,11 +64,9 @@ const EditPopup = ({ orderIdToEdit, onClose, refreshAppointments }) => {
       }
     });
     setTotalSum(sum);
-   
   }, [selectedService, extraTreatments, services, listData]);
 
   const handleSelectService = (event) => {
-    setSelectedService("");
     setSelectedService(event.target.value);
   };
 
@@ -93,12 +88,20 @@ const EditPopup = ({ orderIdToEdit, onClose, refreshAppointments }) => {
       return;
     }
 
+    if (
+      !date ||
+      date === convertDateFormat(oldOrder.OrderDetails.selectedDate)
+    ) {
+      alert("Please choose a new date before confirming the edit.");
+      return;
+    }
+
     const newOrder = {
       OrderDetails: {
         ...oldOrder.OrderDetails, // Copy existing details
         SelectedService: selectedService, // Update selected service
         SelectedTreatments: extraTreatments, // Update selected treatments
-        selectedDate: date.toString(),
+        selectedDate: date, // Use the ISO date string
         totalSum: totalSum // Include the updated totalSum
       }
     };
@@ -139,9 +142,10 @@ const EditPopup = ({ orderIdToEdit, onClose, refreshAppointments }) => {
           <input
             type="date"
             placeholder="appointment date"
-            defaultValue={date}
+            value={date}
             onChange={(e) => setDate(e.target.value)}
             min={getCurrentDate()}
+            required
           />
         </div>
         <div className="">
@@ -151,6 +155,7 @@ const EditPopup = ({ orderIdToEdit, onClose, refreshAppointments }) => {
             id="services"
             onChange={handleSelectService}
             value={selectedService || "0"}
+            required
           >
             <option value="0" disabled>
               Select a service
@@ -185,7 +190,9 @@ const EditPopup = ({ orderIdToEdit, onClose, refreshAppointments }) => {
           <p className="white-text">Total</p>
           <p className="white-text">NOK {totalSum}</p>
         </div>
-        <p>Pay the difference on arrival or receive a refund for reductions.</p>
+        <p className="differencepaying">
+          Pay the difference on arrival or receive a refund for reductions.
+        </p>
       </div>
     </div>
   );
