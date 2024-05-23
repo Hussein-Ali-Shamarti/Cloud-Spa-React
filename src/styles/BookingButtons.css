@@ -105,6 +105,7 @@
         padding: 10px 20px;
     }
   }
+
   /*Styling only for the BookingTreatment buttons */
   .booking-next-button-treatments {
     padding: 10px 30px;
@@ -120,6 +121,7 @@
     margin-top: 2%;
 }
 
+
 .booking3page-buttons{
     width: 100%;
     bottom: 20px;
@@ -127,8 +129,6 @@
     justify-content: center;
     margin-top: 2%;
 }
-
-
 
 .booking3page-submit-button{
     padding: 10px 30px; /* Adjust the padding as needed */
@@ -226,13 +226,13 @@
     .booking3page-buttons {
         max-width: 100%;
         margin-bottom: 0%;
-        margin-left: 50%;
+        margin-left: 46.5%;
     }
     .booking3page-back-button{
         margin-left: -30%;
     }
     .booking3page-submit-button{
-        margin-left: -5%;
+        margin-left: 50%;
     }
 }
 
