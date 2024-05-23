@@ -67,6 +67,7 @@ const EditPopup = ({ orderIdToEdit, onClose, refreshAppointments }) => {
   }, [selectedService, extraTreatments, services, listData]);
 
   const handleSelectService = (event) => {
+    setSelectedService("");
     setSelectedService(event.target.value);
   };
 

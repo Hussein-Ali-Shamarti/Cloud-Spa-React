@@ -15,6 +15,7 @@ const db = getDatabase();
 
 const Booking = () => {
   const [checkedList, setCheckedList] = useState([]);
+
   const [listData, setListData] = useState([]);
   const { selectedService } = useContext(SelectedServiceContext);
   const navigate = useNavigate();
@@ -34,9 +35,9 @@ useEffect(() => {
   useEffect(() => {
   console.log("selectedService:", selectedService);
   console.log("checkedList:", checkedList);
-    if (selectedService) {
+   /* if (selectedService) {
       setCheckedList((prevList) =>[...prevList, selectedService]); // If selectedService has a value it is added to checkedList, checkedList is spread into an array
-    };
+    };*/
   }, [selectedService]);
 
   // Function to handle the selection of treatment options

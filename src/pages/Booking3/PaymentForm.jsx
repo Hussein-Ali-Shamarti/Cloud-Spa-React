@@ -12,6 +12,7 @@ import { app } from "../../firebase-config.js";
 
 const PaymentForm = () => {
     const { selectedDate, totalSum } = useContext(SelectedServiceContext);
+    const { selectedService } = useContext(SelectedServiceContext);
     const location = useLocation();
     const { checkedList } = location.state || {};
     const navigate = useNavigate();
@@ -132,6 +133,7 @@ const PaymentForm = () => {
             OrderDetails: {
                 PaymentInformation: formData,
                 selectedDate: formatDate(selectedDate),
+                SelectedService: selectedService,
                 SelectedTreatments: checkedList,
                 totalSum: totalSum
             },
