@@ -1,3 +1,4 @@
+//Author: 7030
 import React, { useState, useEffect } from "react";
 import ourHistoryImage from "../../Pictures/ourHistory.jpg";
 import "../../styles/OurStorySection.css";

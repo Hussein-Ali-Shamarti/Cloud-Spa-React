@@ -1,3 +1,4 @@
+//Author: 7030
 import React from "react";
 import spaAwards1 from "../../Pictures/spaAwards1.jpg";
 import spaAwards2 from "../../Pictures/spaAwards2.png";

@@ -1,4 +1,4 @@
-/*Author: 7032 and Henrik*/
+/*Author: 7032 and 7030*/
 
 
 import React, { useState, useEffect, useRef } from "react";
@@ -33,42 +33,42 @@ const Appointments = () => {
   }, []);
 
   // Function to get the orders from the database
-  const fetchOrders = async (email) => {
-    try {
-      const ordersRef = ref(database, "orders");
-      const snapshot = await get(ordersRef);
-      if (snapshot.exists()) {
-        const ordersData = snapshot.val();
+const fetchOrders = async (email) => {
+  try {
+    const ordersRef = ref(database, "orders");
+    const snapshot = await get(ordersRef);
+    if (snapshot.exists()) {
+      const ordersData = snapshot.val();
 
-        const ordersList = Object.entries(ordersData)
-          .map(([orderId, orderDetails]) => {
-            if (
-              orderDetails &&
-              orderDetails.OrderDetails &&
-              orderDetails.OrderDetails.PaymentInformation
-            ) {
-              return {
-                orderId,
-                ...orderDetails.OrderDetails,
-                email: orderDetails.OrderDetails.PaymentInformation.email,
-                firstName:
-                  orderDetails.OrderDetails.PaymentInformation.firstName,
-                lastName: orderDetails.OrderDetails.PaymentInformation.lastName,
-              };
-            } else {
-              console.warn(`Order ${orderId} is missing expected structure`);
-              return null; // Return null if structure does not match
-            }
-          })
-          .filter((order) => order !== null); // Filter out null values
+      const ordersList = Object.entries(ordersData)
+        .map(([orderId, orderDetails]) => {
+          if (
+            orderDetails &&
+            orderDetails.OrderDetails &&
+            orderDetails.OrderDetails.PaymentInformation
+          ) {
+            return {
+              orderId,
+              ...orderDetails.OrderDetails,
+              email: orderDetails.OrderDetails.PaymentInformation.email,
+              firstName: orderDetails.OrderDetails.PaymentInformation.firstName,
+              lastName: orderDetails.OrderDetails.PaymentInformation.lastName,
+              totalSum: orderDetails.OrderDetails.totalSum 
+            };
+          } else {
+            console.warn(`Order ${orderId} is missing expected structure`);
+            return null; // Return null if structure does not match
+          }
+        })
+        .filter((order) => order !== null); // Filter out null values
 
-        setOrders(ordersList);
-        filterOrdersByEmail(ordersList, email);
-      }
-    } catch (error) {
-      console.error("Error fetching orders", error);
+      setOrders(ordersList);
+      filterOrdersByEmail(ordersList, email);
     }
-  };
+  } catch (error) {
+    console.error("Error fetching orders", error);
+  }
+};
 
   // Filters the orders based on the user's email so that only the logged-in user's orders show up
   const filterOrdersByEmail = (orders, email) => {
@@ -147,6 +147,7 @@ const Appointments = () => {
                   <p>
                     Customer Name: {order.firstName} {order.lastName}
                   </p>
+                  <p>Total Sum: NOK {order.totalSum}</p>
                   <p>Order Details</p>
                   <ul>
                     {order.SelectedTreatments && order.SelectedTreatments.map((treatment, index) => (
