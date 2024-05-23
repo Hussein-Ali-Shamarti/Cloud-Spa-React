@@ -1,41 +1,78 @@
-/* Classic Massage block*/
+/* Classic Massage block */
 .classic-massage-block {
     position: relative;
     width: 95%;
-    height: 500px;
+    height: auto;
     margin-top: 300px;
     background: #8EA8C3;
+    padding: 20px; 
 }
 
 /* Classic Massage image */
 .classic-massage-block img {
     max-width: 100%;
-    width: 640px;
+    width: 100%;
+    max-width: 640px;
     height: auto;
-    position: absolute;
-    left: 100px;
-    top: 40px;
+    margin: 0 auto;
+    display: block;
 }
 
 /* Classic Massage header */
 .classic-massage-block h2 {
-    position: absolute;
-    height: 43px;
-    left: 800px;
-    top: 80px;
-    font-size: 28px;
-    line-height: 29px;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    line-height: 1.2;
     color: #FFFFFF;
+    margin-top: 20px;
+    text-align: center; 
 }
 
-/* Classic Massage text-box*/
+/* Classic Massage text-box */
 .classic-massage-block .text-box {
-    position: absolute;
-    width: 900px;
-    height: 254px;
-    left: 800px;
-    top: 150px;
-    font-size: 25px;
-    line-height: 2;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    line-height: 1.5;
     color: #FFFFFF;
+    margin-top: 20px;
+    text-align: center;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Media query for larger screens */
+@media (min-width: 1300px) {
+    .classic-massage-block {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px;
+    }
+
+    .classic-massage-block img {
+        position: relative;
+        left: 0;
+        top: 0;
+        margin: 0;
+    }
+
+    .classic-massage-block h2, 
+    .classic-massage-block .text-box {
+        position: relative;
+        left: 0;
+        top: 0;
+        text-align: left;
+        margin: 0;
+    }
+
+    .classic-massage-block .text-box {
+        width: 50%;
+    }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 1300px) {
+    .classic-massage-block {
+        margin-top: 300px; /* Adjust margin-top for smaller screens */
+    }
 }

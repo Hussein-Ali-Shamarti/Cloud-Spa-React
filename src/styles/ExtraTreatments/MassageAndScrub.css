@@ -1,37 +1,92 @@
 /* Massage and Scrub block */
 .massage-and-scrub-block {
     position: relative;
-    height: 500px;
+    width: 95%;
+    height: auto;
     margin-top: 40px;
-    left: 100px;
+    background: #ffffff;
+    padding: 20px;
 }
 
 /* Massage and Scrub image */
 .massage-and-scrub-block img {
-    position: absolute;
     max-width: 100%;
-    width: 640px;
+    width: 100%;
+    max-width: 640px;
     height: auto;
-    left: 1070px;
+    margin: 0 auto;
+    display: block;
 }
 
 /* Massage and Scrub header */
 .massage-and-scrub-block h2 {
-    position: absolute;
-    height: 43px;
-    top: 80px; 
-    font-size: 28px;
-    line-height: 29px;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    line-height: 1.2;
     color: #000000;
+    margin-top: 20px;
+    text-align: center;
 }
 
 /* Massage and Scrub text-block */
 .massage-and-scrub-block .text-box {
-    position: absolute;
-    width: 900px;
-    height: 254px;
-    top: 150px; 
-    font-size: 25px;
-    line-height: 2;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    line-height: 1.5;
     color: #000000;
+    margin-top: 20px;
+    text-align: center;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Media query for larger screens */
+@media (min-width: 1300px) {
+    .massage-and-scrub-block {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px;
+    }
+
+    .massage-and-scrub-block img {
+        position: relative;
+        left: 0;
+        top: 0;
+        margin: 0;
+    }
+
+    .massage-and-scrub-block h2, 
+    .massage-and-scrub-block .text-box {
+        position: relative;
+        left: 0;
+        top: 0;
+        text-align: left;
+        margin: 0;
+    }
+
+    .massage-and-scrub-block .text-box {
+        width: 50%;
+    }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 1300px) {
+    .massage-and-scrub-block {
+        margin-top: 40px; 
+    }
+
+    .massage-and-scrub-block img {
+        left: 0;
+        position: static;
+        width: 100%;
+        max-width: none;
+    }
+
+    .massage-and-scrub-block h2,
+    .massage-and-scrub-block .text-box {
+        position: static;
+        text-align: center;
+        width: 100%;
+    }
 }

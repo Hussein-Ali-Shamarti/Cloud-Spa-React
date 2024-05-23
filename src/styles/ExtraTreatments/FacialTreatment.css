@@ -1,39 +1,92 @@
 /* Facial Treatment block */
 .facial-treatment-block {
     position: relative;
-    width: 1240px;
-    height: 500px;
-    left: 100px;
-    top: 40px;
+    width: 95%; /* Adjusted width for responsiveness */
+    height: auto; /* Adjusted height for responsiveness */
+    margin-top: 40px; /* Adjusted margin-top for responsiveness */
+    background: #ffffff;
+    padding: 20px;
 }
 
 /* Facial Treatments image */
 .facial-treatment-block img {
-    position: absolute;
     max-width: 100%;
-    width: 640px;
+    width: 100%;
+    max-width: 640px;
     height: auto;
-    left: 1070px;
+    margin: 0 auto;
+    display: block;
 }
 
 /* Facial Treatment header */
 .facial-treatment-block h2 {
-    position: absolute;
-    height: 43px;
-    top: 80px;
-    font-size: 28px;
-    line-height: 29px;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    line-height: 1.2;
     color: #000000;
+    margin-top: 20px;
+    text-align: center;
 }
 
 /* Facial Treatment text-block*/
 .facial-treatment-block .text-box {
-    position: absolute;
-    width: 900px;
-    height: 254px;
-    top: 150px;
-    font-size: 25px;
-    line-height: 2;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    line-height: 1.5;
     color: #000000;
+    margin-top: 20px;
+    text-align: center;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+/* Media query for larger screens */
+@media (min-width: 1300px) {
+    .facial-treatment-block {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px;
+    }
+
+    .facial-treatment-block img {
+        position: relative;
+        left: 0;
+        top: 0;
+        margin: 0;
+    }
+
+    .facial-treatment-block h2, 
+    .facial-treatment-block .text-box {
+        position: relative;
+        left: 0;
+        top: 0;
+        text-align: left;
+        margin: 0;
+    }
+
+    .facial-treatment-block .text-box {
+        width: 50%;
+    }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 1300px) {
+    .facial-treatment-block {
+        margin-top: 40px;
+    }
+
+    .facial-treatment-block img {
+        left: 0;
+        position: static;
+        width: 100%;
+        max-width: none;
+    }
+
+    .facial-treatment-block h2,
+    .facial-treatment-block .text-box {
+        position: static;
+        text-align: center;
+        width: 100%;
+    }
+}
