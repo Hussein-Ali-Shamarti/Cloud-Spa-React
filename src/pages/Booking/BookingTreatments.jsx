@@ -67,7 +67,7 @@ const Booking = () => {
       }
     } else {
       setIsNextClicked(true);
-      navigate("/Booking2", { state: { checkedList } });
+      navigate("/Booking2", { state: { checkedList, selectedService } });
     }
   };
   //Function to save the selected items when returning to the first step of the process

@@ -120,7 +120,7 @@ const EditPopup = ({ orderIdToEdit, onClose, refreshAppointments }) => {
 
   const convertDateFormat = (dateStr) => {
     const [day, month, year] = dateStr.split(".");
-    return `${year}-${month}-${day}`;
+    return `${day}.${month}.${year}`;
   };
 
   const CancelAppointmentChange = () => {
@@ -132,7 +132,7 @@ const EditPopup = ({ orderIdToEdit, onClose, refreshAppointments }) => {
     const year = today.getFullYear();
     const month = (today.getMonth() + 1).toString().padStart(2, "0");
     const day = today.getDate().toString().padStart(2, "0");
-    return `${year}-${month}-${day}`;
+    return `${day}.${month}.${year}`;
   };
 
   return (
