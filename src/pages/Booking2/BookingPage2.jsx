@@ -1,3 +1,4 @@
+//Author 7050 and 7030
 import React, { useContext } from 'react';
 import booking2 from "../../Pictures/booking2.jpg";
 import "../../styles/Booking2/BookingPage2.css";
