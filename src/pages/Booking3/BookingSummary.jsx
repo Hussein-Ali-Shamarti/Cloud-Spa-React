@@ -54,9 +54,11 @@ const BookingSummary = () => {
 
   //Function to take the price value from bookingtreatments and services and apply them to the results of the checkedList
   useEffect(() => {
-    if (checkedList && checkedList.length > 0 && (listData.length > 0 || servicesData.length > 0)) {
+    if ((checkedList && checkedList.length > 0) || selectedService) {
       const combinedData = [...listData, ...servicesData];
       let sum = 0;
+  
+      // Calculate sum for checkedList
       if (Array.isArray(checkedList)) {
         checkedList.forEach((service) => {
           const serviceInfo = combinedData.find(item => item.value === service || item.Title === service);
@@ -65,13 +67,21 @@ const BookingSummary = () => {
           }
         });
       }
+  
+      // Add selectedService price if exists
+      if (selectedService) {
+        const selectedServiceInfo = combinedData.find(item => item.value === selectedService.Title);
+        if (selectedServiceInfo) {
+          sum += parseFloat(selectedServiceInfo.price);
+        }
+      }
+  
       setTotalSum(sum * personCount);
     } else {
       setTotalSum(0);
     }
-  }, [checkedList, listData, servicesData, personCount, setTotalSum]); // Recalculate when selected services change
-
-
+  }, [checkedList, selectedService, listData, servicesData, personCount, setTotalSum]); // Recalculate when selected services change
+  
   useEffect(() => {
     // Retrieve selected date from localStorage on component mount
     const savedDate = localStorage.getItem('selectedDate');
