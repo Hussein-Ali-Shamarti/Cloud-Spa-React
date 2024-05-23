@@ -1,92 +1,102 @@
 /* Facial Treatment block */
 .facial-treatment-block {
-    position: relative;
-    width: 95%; /* Adjusted width for responsiveness */
-    height: auto; /* Adjusted height for responsiveness */
-    margin-top: 40px; /* Adjusted margin-top for responsiveness */
-    background: #ffffff;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  height: auto;
+  margin-top: 40px;
+  background: #ffffff;
+  padding: 20px;
 }
 
 /* Facial Treatments image */
 .facial-treatment-block img {
-    max-width: 100%;
-    width: 100%;
-    max-width: 640px;
-    height: auto;
-    margin: 0 auto;
-    display: block;
+  max-width: 100%;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Facial Treatment text-block */
+.facial-treatment-text-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
 }
 
 /* Facial Treatment header */
-.facial-treatment-block h2 {
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
-    line-height: 1.2;
-    color: #000000;
-    margin-top: 20px;
-    text-align: center;
+.facial-treatment-h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  line-height: 1.2;
+  color: #000000;
+  text-align: left;
 }
 
-/* Facial Treatment text-block*/
-.facial-treatment-block .text-box {
-    font-size: clamp(1rem, 2vw, 1.5rem);
-    line-height: 1.5;
-    color: #000000;
-    margin-top: 20px;
-    text-align: center;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+/* Facial Treatment text-box */
+.facial-treatment-text {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 1.5;
+  color: #000000;
+  text-align: left;
+  margin-top: 10px;
 }
 
 /* Media query for larger screens */
 @media (min-width: 1300px) {
-    .facial-treatment-block {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-between;
-        align-items: center;
-        padding: 40px;
-    }
+  .facial-treatment-block {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+  }
 
-    .facial-treatment-block img {
-        position: relative;
-        left: 0;
-        top: 0;
-        margin: 0;
-    }
+  .facial-treatment-block img {
+    max-width: 50%;
+    margin: 0;
+  }
 
-    .facial-treatment-block h2, 
-    .facial-treatment-block .text-box {
-        position: relative;
-        left: 0;
-        top: 0;
-        text-align: left;
-        margin: 0;
-    }
+  .facial-treatment-text-block {
+    margin-right: 20px;
+    align-items: flex-start;
+  }
 
-    .facial-treatment-block .text-box {
-        width: 50%;
-    }
+  .facial-treatment-h2,
+  .facial-treatment-text {
+    text-align: left;
+    margin: 0;
+  }
+
+  .facial-treatment-text {
+    margin-top: 10px;
+  }
 }
 
 /* Media query for smaller screens */
 @media (max-width: 1300px) {
-    .facial-treatment-block {
-        margin-top: 40px;
-    }
+  .facial-treatment-block {
+    flex-direction: column;
+    margin-top: 40px;
+  }
 
-    .facial-treatment-block img {
-        left: 0;
-        position: static;
-        width: 100%;
-        max-width: none;
-    }
+  .facial-treatment-text-block {
+    margin-top: 20px;
+    align-items: center;
+    line-height: 1.5;
+    line-height: 1.5;
+  }
 
-    .facial-treatment-block h2,
-    .facial-treatment-block .text-box {
-        position: static;
-        text-align: center;
-        width: 100%;
-    }
+  .facial-treatment-h2,
+  .facial-treatment-text {
+    text-align: center;
+    line-height: 1.5;
+  }
 }

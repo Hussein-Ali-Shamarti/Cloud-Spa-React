@@ -1,79 +1,85 @@
 /* Steam Room block */
 .steam-room-block {
-    position: relative;
-    width: 95%;
-    height: auto;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    background: #8EA8C3;
-    padding: 20px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  height: auto;
+  background: #8ea8c3;
+  padding: 20px;
+  margin-top: 40px;
+  color: #ffffff;
 }
 
 /* Steam Room image */
 .steam-room-block img {
-    max-width: 100%;
-    width: 100%;
-    max-width: 640px;
-    height: auto;
-    margin: 0 auto;
-    display: block;
+  max-width: 100%;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
 }
 
 /* Steam Room header */
 .steam-room-block h2 {
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
-    line-height: 1.2;
-    color: #FFFFFF;
-    margin-top: 20px;
-    text-align: center; 
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  line-height: 1.2;
+  color: #ffffff;
+  margin-top: 20px;
+  text-align: center;
 }
 
-/* Steam Room text-box*/ 
+/* Steam Room text-box*/
 .steam-room-block .text-box {
-    font-size: clamp(1rem, 2vw, 1.5rem);
-    line-height: 1.5;
-    color: #FFFFFF;
-    margin-top: 20px;
-    text-align: center;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
 }
 
 /* Media query for larger screens */
 @media (min-width: 1300px) {
-    .steam-room-block {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 40px;
-    }
+  .steam-room-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+  }
 
-    .steam-room-block img {
-        position: relative;
-        left: 0;
-        top: 0;
-        margin: 0;
-    }
+  .steam-room-block img {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin: 0;
+  }
 
-    .steam-room-block h2, 
-    .steam-room-block .text-box {
-        position: relative;
-        left: 0;
-        top: 0;
-        text-align: left;
-        margin: 0;
-    }
+  .steam-room-block h2,
+  .steam-room-block .text-box {
+    position: relative;
+    left: 0;
+    top: 0;
+    text-align: left;
+    margin: 0;
+    line-height: 1.5;
+  }
 
-    .steam-room-block .text-box {
-        width: 50%;
-    }
+  .steam-room-block .text-box {
+    width: 50%;
+  }
 }
 
 /* Media query for smaller screens */
 @media (max-width: 1300px) {
-    .steam-room-block {
-        margin-top: 100px;
-    }
+  .steam-room-block {
+    margin-top: 100px;
+    line-height: 1.5;
+    color: #ffffff;
+  }
 }

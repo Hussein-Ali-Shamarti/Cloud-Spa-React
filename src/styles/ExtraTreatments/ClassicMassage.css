@@ -1,78 +1,88 @@
 /* Classic Massage block */
 .classic-massage-block {
-    position: relative;
-    width: 95%;
-    height: auto;
-    margin-top: 300px;
-    background: #8EA8C3;
-    padding: 20px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  height: auto;
+  margin-top: 300px;
+  background: #8ea8c3;
+  padding: 20px;
 }
 
 /* Classic Massage image */
 .classic-massage-block img {
-    max-width: 100%;
-    width: 100%;
-    max-width: 640px;
-    height: auto;
-    margin: 0 auto;
-    display: block;
+  max-width: 100%;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Classic Massage text-block */
+.classic-massage-text-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
 }
 
 /* Classic Massage header */
 .classic-massage-h2 {
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
-    line-height: 1.2;
-    color: #FFFFFF;
-    margin-top: 20px;
-    text-align: center;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  line-height: 1.2;
+  color: #ffffff;
+  text-align: left;
 }
 
 /* Classic Massage text-box */
 .classic-massage-text {
-    font-size: clamp(1rem, 2vw, 1.5rem);
-    line-height: 1.5;
-    color: #FFFFFF;
-    margin-top: 20px;
-    text-align: center;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 1.5;
+  color: #ffffff;
+  text-align: left;
+  margin-top: 10px;
 }
 
 /* Media query for larger screens */
 @media (min-width: 1300px) {
-    .classic-massage-block {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 40px;
-    }
+  .classic-massage-block {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-    .classic-massage-block img {
-        position: relative;
-        left: 0;
-        top: 0;
-        margin: 0;
-    }
+  .classic-massage-block img {
+    max-width: 50%;
+    margin: 0;
+  }
 
-    .classic-massage-text {
-        width: 100%;
-        position: relative;
-        text-align: left;
-    }
-
-    .classic-massage-h2 {
-        margin-bottom: 20%;
-        padding-left: 100px;
-        width: 100%;
-        position: relative;
-        text-align: left;
-    }
+  .classic-massage-text-block {
+    margin-left: 20px;
+    align-items: flex-start;
+  }
 }
 
 /* Media query for smaller screens */
 @media (max-width: 1300px) {
-    .classic-massage-block {
-        margin-top: 300px;
-    }
+  .classic-massage-block {
+    flex-direction: column;
+    margin-top: 300px;
+  }
+
+  .classic-massage-text-block {
+    margin-top: 20px;
+    align-items: center;
+  }
+
+  .classic-massage-h2,
+  .classic-massage-text {
+    text-align: center;
+  }
 }
