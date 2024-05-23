@@ -48,6 +48,7 @@
 .arrow {
   margin: 0 20px;
   gap: 8px;
+  cursor: pointer;
 }
 
 .weekdays,
