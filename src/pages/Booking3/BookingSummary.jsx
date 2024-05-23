@@ -8,7 +8,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { getDatabase, ref, onValue} from "firebase/database";
 
 const BookingSummary = () => {
-  const { selectedService, selectedDate, setSelectedDate, totalSum, setTotalSum } = useContext(SelectedServiceContext);
+  const { selectedService, selectedDate, setSelectedDate, totalSum, setTotalSum, personCount } = useContext(SelectedServiceContext);
   const location = useLocation();
   const { checkedList } = location.state || {};
   const services = checkedList || [];
@@ -42,26 +42,21 @@ const BookingSummary = () => {
   //Function to take the price value from bookingtreatments and services and apply them to the results of the checkedList
   useEffect(() => {
     if (checkedList && checkedList.length > 0 && (listData.length > 0 || servicesData.length > 0)) {
-      // Combine listData and servicesData into a single array
       const combinedData = [...listData, ...servicesData];
-      // Calculate total sum based on selected services
-      let sum = 0; // Base price
+      let sum = 0;
       if (Array.isArray(checkedList)) {
         checkedList.forEach((service) => {
-          // Find the service in the serviceData array and add its price
           const serviceInfo = combinedData.find(item => item.value === service || item.Title === service);
           if (serviceInfo) {
             sum += parseFloat(serviceInfo.price);
           }
         });
       }
-
-      setTotalSum(sum); // Set the total sum
+      setTotalSum(sum * personCount);
     } else {
-      // If no services selected, reset total sum to base price
       setTotalSum(0);
     }
-  }, [checkedList, listData, servicesData]); // Recalculate when selected services change
+  }, [checkedList, listData, servicesData, personCount, setTotalSum]); // Recalculate when selected services change
 
 
   useEffect(() => {
