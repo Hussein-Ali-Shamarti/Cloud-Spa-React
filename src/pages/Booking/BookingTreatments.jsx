@@ -4,7 +4,7 @@ import Booking1 from "../../Pictures/booking1.jpg";
 import React, { useState, useContext, useEffect } from "react";
 import { SelectedServiceContext } from "../../ServicesContext.js";
 import { useNavigate, Link, useLocation } from "react-router-dom";
-import { getDatabase, ref, onValue} from "firebase/database";
+import { getDatabase, ref, onValue } from "firebase/database";
 import Layout from "../../components/layout.jsx";
 import BookingPath from "../Booking2/BookingPath.jsx"
 import "../../styles/Booking1.css";
@@ -21,23 +21,23 @@ const Booking = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-//Function to access the database and get the information about bookingtreatments available and puts into a list.
-useEffect(() => {
-  const listDataRef = ref(db, "bookingtreatments");
-  onValue(listDataRef, (snapshot) => {
-    const data = snapshot.val() || {};
-    const dataArray = Object.values(data);
-    setListData(dataArray);
-  });
-}, []);
+  //Function to access the database and get the information about bookingtreatments available and puts into a list.
+  useEffect(() => {
+    const listDataRef = ref(db, "bookingtreatments");
+    onValue(listDataRef, (snapshot) => {
+      const data = snapshot.val() || {};
+      const dataArray = Object.values(data);
+      setListData(dataArray);
+    });
+  }, []);
 
   // Function to handle the validation of selected services
   useEffect(() => {
-  console.log("selectedService:", selectedService);
-  console.log("checkedList:", checkedList);
-   /* if (selectedService) {
-      setCheckedList((prevList) =>[...prevList, selectedService]); // If selectedService has a value it is added to checkedList, checkedList is spread into an array
-    };*/
+    console.log("selectedService:", selectedService);
+    console.log("checkedList:", checkedList);
+    /* if (selectedService) {
+       setCheckedList((prevList) =>[...prevList, selectedService]); // If selectedService has a value it is added to checkedList, checkedList is spread into an array
+     };*/
   }, [selectedService]);
 
   // Function to handle the selection of treatment options
@@ -58,7 +58,7 @@ useEffect(() => {
 
   //Function to verify that at least one option is selected before continuing with the booking process
   const handleNext = () => {
-    if (checkedList.length === 0) {
+    if (checkedList.length === 0 && !selectedService) {
       const userConfirmed = window.confirm(
         "Please select at least one treatment before proceeding. Click OK to go back to the Booking page."
       );
@@ -67,7 +67,7 @@ useEffect(() => {
       }
     } else {
       setIsNextClicked(true);
-      navigate("/Booking2", { state: { checkedList}});
+      navigate("/Booking2", { state: { checkedList } });
     }
   };
   //Function to save the selected items when returning to the first step of the process
@@ -82,7 +82,7 @@ useEffect(() => {
         <div className="booking-img-container">
           <img src={Booking1} alt="bath" className="booking1-image" />
         </div>
-        <BookingPath checkedList={checkedList}/>
+        <BookingPath checkedList={checkedList} />
         <div className="booking-section">
           <div className="booking-card">
             <p className="booking-title">
@@ -91,10 +91,15 @@ useEffect(() => {
           </div>
           <div className="booking-card-body">
             <label className="selected-booking">You selected:</label>
+            {selectedService && (
+              <div className="booking-chip">
+                <p className="booking-chip-label">{selectedService}</p>
+              </div>
+            )}
             {checkedList.map((item, index) => {
               return (
                 <div className="booking-chip" key={index}>
-                  <p className="booking-chip-label">{item} </p>
+                  <p className="booking-chip-label">{item}</p>
                 </div>
               );
             })}
@@ -118,13 +123,13 @@ useEffect(() => {
           })}
         </div>
         <div className="booking-buttons-treatments">
-        <Link to="/" className="booking-cancel-button booking-cancel-button-treatments">
-    Cancel
-  </Link>
-  <button className="booking-next-button booking-next-button-treatments" onClick={handleNext}>
-    Next
-  </button>
-          
+          <Link to="/" className="booking-cancel-button booking-cancel-button-treatments">
+            Cancel
+          </Link>
+          <button className="booking-next-button booking-next-button-treatments" onClick={handleNext}>
+            Next
+          </button>
+
         </div>
       </>
     </div>
@@ -132,8 +137,8 @@ useEffect(() => {
 };
 <>
   <BookingPath />
-  <Booking  />
+  <Booking />
   <Layout />
-  
+
 </>;
 export default Booking;
