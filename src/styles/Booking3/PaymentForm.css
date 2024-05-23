@@ -29,7 +29,7 @@
   text-align: left;
   color: inherit;
   text-decoration: underline;
-  text-decoration-color: #23395B;
+  text-decoration-color: #23395b;
   text-underline-offset: 5px;
   padding-left: 150px;
 }
@@ -55,7 +55,7 @@
 
 .booking3page-row > .booking3page-half-width {
   flex: 0 0 calc(50% - 10px); /* Reduser prosentandelen for å skape mer plass mellom elementene */
-  margin-right: 20px; 
+  margin-right: 20px;
   margin-bottom: 30px;
 }
 
@@ -86,8 +86,8 @@
   margin: 20px 0;
 }
 
-.booking3page-input[type=checkbox] {
-  accent-color: #8EA8C3;
+.booking3page-input[type="checkbox"] {
+  accent-color: #8ea8c3;
   cursor: pointer;
 }
 
@@ -99,18 +99,17 @@
 .booking3page-form-label {
   display: block;
   color: #ffffff;
-  font-size: 1rem; 
+  font-size: 1rem;
   margin-bottom: 15px; /* Gir litt plass under etiketten før boksen starter */
-  margin-left: 0; 
+  margin-left: 0;
 }
 
 .booking3page-payment-section {
-  background: #d9d9d9; 
+  background: #d9d9d9;
   padding: 20px; /* Spacing around the content */
   border-radius: 5px; /* Rounded corners */
   margin-bottom: 25px; /* Space below the section */
 }
-
 
 .booking3page-payment-option {
   display: flex;
@@ -130,7 +129,8 @@
   color: #000000;
 }
 
-.booking3page-card-details input[type='text'], .booking3page-card-details input[type='number'] {
+.booking3page-card-details input[type="text"],
+.booking3page-card-details input[type="number"] {
   background-color: #ffffff !important;
   border: 1px solid #ccc !important;
   padding: 10px;
@@ -158,14 +158,14 @@
 }
 
 .booking3page-pay-field {
-  background: #ffffff; 
+  background: #ffffff;
   font-family: "Inter", sans-serif;
-  color: #000000; 
+  color: #000000;
   padding: 10px 15px;
-  border: 1px solid #ccc; 
+  border: 1px solid #ccc;
   border-radius: 4px;
   text-align: center;
-  cursor: default; 
+  cursor: default;
   margin-bottom: 10px; /* Legg til litt plass under feltet */
 }
 .booking3page-payment-option img {
@@ -177,7 +177,6 @@
   height: 38px;
 }
 
-
 /* Removes arrows in the number fields for Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -186,6 +185,38 @@ input::-webkit-inner-spin-button {
 }
 
 /* Removes arrows in the number fields for Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
+}
+
+.booking3page-vipps-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #000000;
+}
+
+.booking3page-vipps-details label {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.booking3page-vipps-details input[type="number"] {
+  width: calc(100% - 25px);
+  padding: 0.5em;
+  border: 1px solid #aabbcc;
+  background-color: #d9d9d9;
+  color: #000;
+  font-size: medium;
+  border-radius: 5px;
+}
+
+.booking3page-vipps-loading {
+  color: #ffffff;
+  font-size: 1rem;
+  margin-top: 10px;
+  background: #406e8e;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
 }

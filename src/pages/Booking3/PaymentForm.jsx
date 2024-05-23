@@ -1,5 +1,3 @@
-//Author: 7030 and 7052
-
 import React, { useState, useContext, useEffect } from 'react';
 import BankCard from '../../Pictures/BankCard.png';
 import Vipps from '../../Pictures/Vipps.png';
@@ -30,8 +28,11 @@ const PaymentForm = () => {
         expiryDate: '',
         securityNumber: '',
         selectedDate: selectedDate,
-        totalSum: totalSum
+        totalSum: totalSum,
+        vippsPhoneNumber: ''
     });
+
+    const [vippsLoading, setVippsLoading] = useState(false);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(getAuth(app), user => {
@@ -52,7 +53,7 @@ const PaymentForm = () => {
     const handleBack = () => {
         navigate("/Booking2");
     };
-    
+
     const handleInputChange = (event) => {
         const { name, value, type, checked } = event.target;
         let newValue = type === 'checkbox' ? checked : value;
@@ -63,7 +64,7 @@ const PaymentForm = () => {
     
         setFormData(prevState => ({ ...prevState, [name]: newValue }));
     };
-    
+
     const handleFormSubmit = (event) => {
         event.preventDefault();
 
@@ -110,6 +111,12 @@ const PaymentForm = () => {
         }
 
         if (!validateExpiryDate()) return;
+
+        if (formData.paymentMethod === 'vipps' && !formData.vippsPhoneNumber) {
+            alert('Please enter your Vipps phone number.');
+            return;
+        }
+
         saveOrderToDatabase();
     };
 
@@ -140,6 +147,19 @@ const PaymentForm = () => {
 
     const generateOrderNumber = () => {
         return Date.now() + Math.floor(Math.random() * 1000);
+    };
+
+    const handleVippsPhoneNumberChange = (event) => {
+        const { value } = event.target;
+        setFormData(prevState => ({ ...prevState, vippsPhoneNumber: value }));
+
+        if (/^\d{8,15}$/.test(value)) {
+            setVippsLoading(true);
+            setTimeout(() => {
+                setVippsLoading(false);
+                alert('Please open your Vipps application to confirm payment.');
+            }, 2000);
+        }
     };
 
     const handleExpiryDateChange = (event) => {
@@ -227,13 +247,21 @@ const PaymentForm = () => {
                             <input type="radio" id="vipps" name="paymentMethod" value="vipps" checked={formData.paymentMethod === 'vipps'} onChange={toggleCardDetails} />
                             <label htmlFor="vipps"> <img src={Vipps} alt="Vipps" /></label>
                         </div>
+                        {formData.paymentMethod === 'vipps' && (
+                            <div className="booking3page-vipps-details">
+                                <label htmlFor="vipps-phone-number">Vipps Phone Number</label>
+                                <input type="number" id="vipps-phone-number" name="vippsPhoneNumber" value={formData.vippsPhoneNumber} onChange={handleVippsPhoneNumberChange} placeholder='Enter your phone number' required />
+                                {vippsLoading && <p>Loading... Please open your Vipps application to confirm payment.</p>}
+                            </div>
+                        )}
                     </div>
                 </form>
             </section>
             <div className="booking3page-buttons">
                 <button className="booking3page-back-button" onClick={handleBack}>Back</button>
-                <button type="submit" className="booking3page-submit-button" onClick={handleFormSubmit}>Submit</button></div>       
-                </div>
+                <button type="submit" className="booking3page-submit-button" onClick={handleFormSubmit}>Submit</button>
+            </div>       
+        </div>
     );
 };
 
