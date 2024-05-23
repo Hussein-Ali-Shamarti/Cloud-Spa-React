@@ -35,3 +35,20 @@
     background-color: #23395B;
     color: white;
 }
+
+.confirmation-mypage-button {
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 30px;
+    padding: 10px 20px;
+    background-color: #CBF7ED;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.confirmation-mypage-button:hover {
+    background-color: #23395B;
+    color: white;
+}

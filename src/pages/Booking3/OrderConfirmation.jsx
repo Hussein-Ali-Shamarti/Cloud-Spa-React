@@ -14,6 +14,7 @@ const OrderConfirmation = () => {
                 <p>Your order is now submitted and your order number is:</p>
                 <p className="order-number">{orderNumber}</p>
                 <Link to="/" className="home-button">Take a look at our other services</Link>
+                <Link to="/MyPage" className="confirmation-mypage-button">My page</Link>
             </div>
         </div>
     );
