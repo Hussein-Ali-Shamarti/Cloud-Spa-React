@@ -22,7 +22,7 @@
     .booking2-img-container img {
         
         margin-top: -9%;
-        height: auto;  
+        height: 50vh;  
 }
 }
 @media screen and (max-width: 1200px){
@@ -36,9 +36,7 @@
     .booking2-img-container img{
        
         margin-top: 10%;
-        height: auto;
-        /* min-height: 60vh; */
-          
+        height: auto;      
 }
 }     
 
