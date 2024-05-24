@@ -13,7 +13,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { app } from "../../firebase-config.js";
 
 const PaymentForm = () => {
-    const { selectedDate, totalSum } = useContext(SelectedServiceContext);
+    const { selectedDate, totalSum, personCount } = useContext(SelectedServiceContext);
     const { selectedService } = useContext(SelectedServiceContext);
     const location = useLocation();
     const { checkedList } = location.state || {};
@@ -137,7 +137,8 @@ const PaymentForm = () => {
                 selectedDate: formatDate(selectedDate),
                 SelectedService: selectedService,
                 SelectedTreatments: checkedList,
-                totalSum: totalSum
+                totalSum: totalSum,
+                personCount: personCount
             },
         })
             .then(() => {

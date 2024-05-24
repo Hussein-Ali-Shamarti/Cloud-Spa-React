@@ -139,7 +139,9 @@ const BookingSummary = () => {
           <p className="booking-summary-p">{selectedDate && formatDate(selectedDate)}</p>
           <button className="change-date-button" onClick={changeDate}>Change Date</button>
         </div>
-
+        <div className="booking-summary-personcount booking-summary-div">
+        <p className="booking-summary-p">Number of people: {personCount}</p>
+        </div>
         <div className="booking-summary-h3 booking-summary-div">
           <h3>
             <span className="booking-summary-span">Summarization</span>
