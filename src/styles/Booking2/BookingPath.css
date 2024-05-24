@@ -87,6 +87,21 @@
     margin-left: 9%;
   }
 }
+@media (max-width: 600px) {
+  .booking-step-indicator {
+    margin-top: 25%;
+    margin-left: 4%;
+    margin-right: 5%;
+    margin-bottom: -5%;
+  }
+}
+@media (max-width: 545px) {
+  .booking-step-indicator {
+    margin-top: 25%;
+    margin-left: -2%;
+    margin-bottom: -5%;
+  }
+}
 
 /* Add this media query for screen sizes 600px or smaller */
 @media (max-width: 599px) {

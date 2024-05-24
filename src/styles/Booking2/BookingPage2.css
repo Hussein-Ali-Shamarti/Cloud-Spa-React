@@ -42,3 +42,14 @@
 }
 }     
 
+@media (max-width: 600px) {
+    .booking2-img-container {
+        position: static;
+        width: 100%;
+        transform: scale(0.8);
+        margin-bottom: -4%; /* Adjust the margin as needed */
+        order: 2; /* Ensure it comes after the booking path */
+        margin-left: 32%;
+        margin-right: 30%;
+    }
+}
