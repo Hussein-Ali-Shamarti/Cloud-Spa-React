@@ -146,7 +146,10 @@ const BookingSummary = () => {
         </div>
         <div className="booking-summary-personcount booking-summary-div">
         <p className="booking-summary-p">Number of people: {personCount}</p>
-        <button className="change-personcount-button" onClick={changePerson}>Change number of people</button>
+        <button className="change-personcount-button" onClick={changePerson}>
+        <span className="change-text"> Change</span>
+        <span className="personcount-text">Number of people</span>
+          </button>
         </div>
         <div className="booking-summary-h3 booking-summary-div">
           <h3>
