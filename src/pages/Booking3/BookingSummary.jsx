@@ -35,6 +35,11 @@ const BookingSummary = () => {
     navigate("/Services")
     setIsNextClicked(false);
   }
+  const changePerson = () => {
+    //Go to services to start selecting treatments again
+    navigate("/Booking2", {state: {checkedList}});
+    setIsNextClicked(false);
+  }
   //Function to access the database and get the information about bookingtreatments and services.
   useEffect(() => {
     const listDataRef = ref(db, "bookingtreatments");
@@ -141,6 +146,7 @@ const BookingSummary = () => {
         </div>
         <div className="booking-summary-personcount booking-summary-div">
         <p className="booking-summary-p">Number of people: {personCount}</p>
+        <button className="change-personcount-button" onClick={changePerson}>Change number of people</button>
         </div>
         <div className="booking-summary-h3 booking-summary-div">
           <h3>

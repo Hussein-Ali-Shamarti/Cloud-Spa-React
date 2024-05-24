@@ -66,7 +66,7 @@
 }
 
 
-.booking-summary-date {
+.booking-summary-date, .booking-summary-personcount {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -104,6 +104,7 @@ img {
   display: flex;
   justify-content: flex-end;
 }
+
 .change-treatments {
   color: #00C0D1;
   text-decoration: underline;
@@ -121,6 +122,28 @@ img {
 
 .change-treatments:hover {
   color: #0099A3; 
+}
+
+.change-personcount-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px; /* Adjust margin-top as needed */
+}
+
+.change-personcount-button {
+  color: #00C0D1;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  background: none;
+  padding: 0;
+  align-items: flex-end;
+}
+
+.change-personcount-button:hover {
+  color: #0099A3;
 }
 
 
