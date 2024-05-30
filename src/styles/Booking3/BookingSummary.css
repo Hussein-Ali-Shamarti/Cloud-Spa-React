@@ -117,14 +117,13 @@ img {
   display: flex;
   flex-direction: column; 
   align-items: flex-end;
- 
 }
 
 .change-treatments:hover {
   color: #0099A3; 
 }
 
-.change-personcount-container {
+.change-personcount-button-container {
   display: flex;
   justify-content: flex-end;
   margin-top: 20px; /* Adjust margin-top as needed */
@@ -153,7 +152,8 @@ img {
 
 .change-text,
 .treatments-text
-.personcount-text {
+.personcount-text
+.people-text {
   text-align: left; 
 }
 
