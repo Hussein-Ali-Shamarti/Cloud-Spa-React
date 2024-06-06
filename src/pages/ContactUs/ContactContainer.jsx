@@ -1,46 +1,46 @@
-import React, { useEffect } from "react";
-import "../../styles/ContactUs/ContactContainer.css";
-import { getDatabase, ref, push } from "firebase/database";
+import React, { useEffect } from "react"; // Importer React og useEffect fra React-biblioteket
+import "../../styles/ContactUs/ContactContainer.css"; // Importer CSS-stiler
+import { getDatabase, ref, push } from "firebase/database"; // Importer funksjoner fra Firebase Database-biblioteket
 
-const ContactContainer = () => {
-  function sendForm() {
-    const form = document.getElementById("contact-form");
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
+const ContactContainer = () => { // Definer ContactContainer-komponenten
+  function sendForm() { // Definer sendForm-funksjonen for å håndtere form-submitteringen
+    const form = document.getElementById("contact-form"); // Hent skjemaet med ID "contact-form"
+    form.addEventListener("submit", function (event) { // Legg til en event listener for submit-hendelsen
+      event.preventDefault(); // Forhindre standard handling på skjemaet
 
-      const db = getDatabase();
-      const contactRef = ref(db, "contacts"); // Define a reference to the 'contacts' node
+      const db = getDatabase(); // Få referanse til Firebase-databasen
+      const contactRef = ref(db, "contacts"); // Definer en referanse til "contacts"-noden i databasen
 
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const message = document.getElementById("message").value.trim();
+      const name = document.getElementById("name").value.trim(); // Hent og trim verdien av navnefeltet
+      const email = document.getElementById("email").value.trim(); // Hent og trim verdien av e-postfeltet
+      const message = document.getElementById("message").value.trim(); // Hent og trim verdien av meldingsfeltet
 
-      if (name === "" || email === "" || message === "") {
-        alert("All fields are required.");
-        return;
+      if (name === "" || email === "" || message === "") { // Sjekk om noen av feltene er tomme
+        alert("All fields are required."); // Vis en alert hvis noen av feltene er tomme
+        return; // Avbryt funksjonen
       }
 
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailPattern.test(email)) {
-        alert("Please enter a valid email address.");
-        return;
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Definer et regex-mønster for å validere e-postadresser
+      if (!emailPattern.test(email)) { // Sjekk om e-postadressen er gyldig
+        alert("Please enter a valid email address."); // Vis en alert hvis e-postadressen ikke er gyldig
+        return; // Avbryt funksjonen
       }
 
-      // Push data to Firebase Realtime Database
-      push(contactRef, { name, email, message })
-        .then(() => {
-          alert("Thank you for your message! We will contact you soon.");
-          form.reset(); // Reset the form after successful submission
+      // Push data til Firebase Realtime Database
+      push(contactRef, { name, email, message }) // Send dataen til Firebase
+        .then(() => { // Håndter suksess
+          alert("Thank you for your message! We will contact you soon."); // Vis en suksessmelding
+          form.reset(); // Tilbakestill skjemaet etter vellykket innsending
         })
-        .catch((error) => {
-          alert("Failed to send message: " + error.message);
+        .catch((error) => { // Håndter feil
+          alert("Failed to send message: " + error.message); // Vis en feilmelding
         });
     });
 
-    return () => form.removeEventListener("submit"); // Clean up listener on component unmount
+    return () => form.removeEventListener("submit"); // Fjern event listener når komponenten avmonteres
   }
 
-  return (
+  return ( // Returner JSX som representerer utseendet til kontaktskjemaet
     <div className="contact-container">
       <div className="contact-header">
         <h2>Have more questions?</h2>
@@ -71,4 +71,4 @@ const ContactContainer = () => {
   );
 };
 
-export default ContactContainer;
+export default ContactContainer; // Eksporter ContactContainer som standard
