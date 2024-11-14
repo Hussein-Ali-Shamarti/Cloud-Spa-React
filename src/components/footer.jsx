@@ -9,25 +9,25 @@ const Footer = () => {
     <section>
       <footer className="flex-container">
         <div className="box box1">
-          <img src={CloudLogoTransparent} alt="" />
+          <img src={CloudLogoTransparent} alt="Cloud Spa Logo" />
           <ul className="listItems">
             <li>
-              <a href="#index.html"> Home</a>
+              <a href="/"> Home</a>
             </li>
             <li>
-              <a href="#Services.html"> Services</a>
+              <a href="/Services"> Services</a>
             </li>
             <li>
-              <a href="#Treatments.html">Treatments</a>
+              <a href="/Treatments">Treatments</a>
             </li>
             <li>
-              <a href="#AboutUs.html"> About Us</a>
+              <a href="/AboutUs"> About Us</a>
             </li>
             <li>
-              <a href="#ContactUs.html">Contact Us</a>
+              <a href="/ContactUs">Contact Us</a>
             </li>
             <li>
-              <a href="#mypage">My Page</a>
+              <a href="/MyPage">My Page</a>
             </li>
           </ul>
         </div>
@@ -41,11 +41,12 @@ const Footer = () => {
         <div className="box box3">
           <ul className="listItems">
             <li>
-              <i className="fas fa-phone"></i> <a href="#">+47 332 65 734</a>
+              <i className="fas fa-phone"></i>{" "}
+              <a href="tel:+4733265734">+47 332 65 734</a>
             </li>
             <li>
               <i className="far fa-envelope"></i>{" "}
-              <a href="#">CloudSpa@spa.com</a>
+              <a href="mailto:CloudSpa@spa.com">CloudSpa@spa.com</a>
             </li>
           </ul>
         </div>
